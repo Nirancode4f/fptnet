@@ -76,7 +76,12 @@ Content-Type: application/json
     "userId": "61c2b42177efb03d08b9031f"
 }
 
-###
-GET  http://localhost:3000/api/post/asdfasdf
+### gdfg
+POST http://localhost:3000/api/post/create
 Content-Type: application/json
 
+{
+    "user": "61c2b42177efb03d08b9031f",
+    "content": "sdkfjahskdfjh"
+
+}

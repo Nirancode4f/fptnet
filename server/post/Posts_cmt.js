@@ -1,3 +1,4 @@
+const { truncateSync } = require("fs")
 const mongoose = require("mongoose")
 
 const Schema = mongoose.Schema 
@@ -6,10 +7,6 @@ const Schema = mongoose.Schema
 
 const PostSchema = new Schema({
         
-    title: {
-        type: String,
-        required: true,
-    },
     user:{
         type: String,
         required:true,
@@ -17,9 +14,10 @@ const PostSchema = new Schema({
     },
     content:{
         type: String,
+        required: true
     },
     image:{
-        
+        type: String
     },
     like:{
         type: Number,
