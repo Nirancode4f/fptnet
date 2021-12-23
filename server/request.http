@@ -1,0 +1,82 @@
+### register !!!! done
+POST  http://localhost:3000/api/auth/register
+Content-Type: application/json
+
+{
+"email":"nhafdgn@gmail.com",
+"username": "nhdfgdfgan",
+"password": "1234"
+}
+
+
+
+
+
+###login !!! done
+POST  http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+    "email":"chicuoung@gmail.com",
+    "password": "1234"
+}
+
+
+
+
+
+### send two userId to check the convesation !!! done
+POST http://localhost:3000/api/conversation
+Content-Type: application/json
+
+{
+
+    "oneId": "61c271b52b0f4301b735a33d",
+    "twoId": "61c275d7cb85f50e673d6a0f"
+
+}
+
+
+
+###
+POST http://localhost:3000/api/message
+Content-Type: application/json
+
+{
+    "conversationId":"lll",
+    "sender":"61c275d7cb85f50e673d6a0f",
+    "text":"toi khogn biest"
+}
+
+### set groupconversation
+POST http://localhost:3000/api/group/conversation
+Content-Type: application/json
+
+{
+    "members": ["61c2b42177efb03d08b9031f", "61c2b4ae4818a8dcd2d6abd9"]
+}
+
+
+
+
+### add users to conversation
+POST http://localhost:3000/api/group/conversation/addusers
+Content-Type: application/json
+
+{
+    "conversationId": "61c2b68c91839e3fb96a51ab",
+    "members": ["61c2b42177efb03d08b9031f", "61c2b4ae4818a8dcd2d6abd9"]
+}
+
+### get all groupconversation of a user
+POST http://localhost:3000/api/group/conversation/getconvs
+Content-Type: application/json
+
+{
+    "userId": "61c2b42177efb03d08b9031f"
+}
+
+###
+GET  http://localhost:3000/api/post/asdfasdf
+Content-Type: application/json
+
