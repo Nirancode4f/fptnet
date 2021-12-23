@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
+const path = require('path');
 const PORT = process.env.PORT || 3000;
 
 //import module 
@@ -53,6 +54,7 @@ app.use("/api/group/message", GroupMessage);
 app.use("/api/post/", Post);
 app.use("/api/upload", Upload);
 app.use("/api/deadline/", Deadline);
+app.use("/api/image/", require("./upload/getimage"));
 
 
 app.listen(PORT, () => console.log(`server started on ${PORT}`));

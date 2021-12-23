@@ -110,3 +110,12 @@ Content-Type: application/json
     "teacher": "Danh",
     "note": "Chia ra 4 file"
 }
+
+
+### get image
+GET http://localhost:3000/api/image/df7602a8-2aef-4f9c-a1cc-a13d9d7363ac.png
+Content-Type: application/json
+
+{
+    
+}

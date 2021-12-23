@@ -18,7 +18,7 @@ class Resize {
       })
       .toFile(filepath);
     
-    return filename;
+    return "/public/images/" + filename;
   }
   static filename() {
      // random file name
