@@ -76,12 +76,37 @@ Content-Type: application/json
     "userId": "61c2b42177efb03d08b9031f"
 }
 
-### gdfg
+### create post
 POST http://localhost:3000/api/post/create
 Content-Type: application/json
 
 {
     "user": "61c2b42177efb03d08b9031f",
     "content": "sdkfjahskdfjh"
+}
 
+### create deadline
+POST http://localhost:3000/api/deadline/
+Content-Type: application/json
+
+{
+    "user": "61c2b42177efb03d08b9031f",
+    "deadline": "hoan thanh bai tap",
+    "deadlinedate": "2000-11-10",
+    "teacher": "Danh",
+    "note": "Chia ra 3 file"
+}
+
+
+### change deadline
+POST http://localhost:3000/api/deadline/update
+Content-Type: application/json
+
+{
+    "deadlineId": "61c4a68d30e9103099193d6e",
+    "user": "61c2b42177efb03d08b9031f",
+    "deadline": "hoan thanh bai tap1",
+    "deadlinedate": "2000-11-10",
+    "teacher": "Danh",
+    "note": "Chia ra 4 file"
 }
