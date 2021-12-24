@@ -3,5 +3,5 @@
 
 ### VVV run this for the first times VVV to make the module
 
-### npm i install react_bootstrap bootstrap axios react-router-dom
-### 
+1. npm i install react_bootstrap bootstrap axios react-router-dom
+2. yarn add dotenv-webpack
