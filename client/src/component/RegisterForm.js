@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from 'react'
 import axios from 'axios'
-
+import { Link } from "react-router-dom";
 
 
 const RegisterForm = (props) => {
@@ -10,13 +10,14 @@ const RegisterForm = (props) => {
     const [name, setname] = useState("")
     const [password, setpassword] = useState("")
 
-    const handleSubmit = () => {
-
-    axios.post('https://fptnetwork.elemarkuspet.repl.co/api/auth/register', {
-            email: email,
-            name: name,
-            password: password
-        },{
+    const handleSubmit = async (e) => {
+      e.preventDefault()
+      try{
+        await axios.post('https://fptnetwork.elemarkuspet.repl.co/api/auth/register', {
+      email:email,
+      username: name,
+      password: password
+      },{
             headers: {
                 "Content-Type": "application/json"
             }
@@ -27,29 +28,35 @@ const RegisterForm = (props) => {
             .catch(error=>{
                 console.log("error", error)
             })
+      }catch(error){
+        console.log("message: ", error)
+      }
+    
           }
   return (
     <div>
       <h1>Register</h1>
-      <form >
+      <form onSubmit={handleSubmit}>
 
         <div className="form-group">
             <label htmlFor="form-group">Email:</label>
-            <input type="text" name="email" id="email" onChange={e => setemail(e.target.value)} placeholder="text here" />
+            <input type="text" name="email" id="email" onChange={e => setemail(e.target.value)} placeholder="Your Email" />
         </div>
 
         <div className="form-gorup">
             <label htmlFor="form_group">Your Name: </label>
-            <input type="text" name="name" id="name" onChange={e => setname(e.target.value)} placeholder="text here" />
+            <input type="text" name="name" id="name" onChange={e => setname(e.target.value)} placeholder="Your Name" />
         </div>
 
         <div className="form-group">
             <label htmlFor="form-group">Password: </label>
-            <input type="password" name="password" onChange={e => setpassword(e.target.value)} id="password" />
+            <input type="password" name="password" onChange={e => setpassword(e.target.value)} id="password" placeholder="Your password" />
         </div>
 
-        <input type="button" onClick={handleSubmit} value="REGISTER" />
+        <button disabled={email.length < 1 || name.length<1 || password.length<1} >Register</button>
       </form>
+      <div>used to have an account??</div>
+      <Link to="/login"><button>Login</button></Link>
     </div>
   )}
 export default  RegisterForm
