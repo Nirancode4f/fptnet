@@ -85,6 +85,49 @@ Content-Type: application/json
     "content": "sdkfjahskdfjh"
 }
 
+### edit post
+POST http://localhost:3000/api/post/update
+Content-Type: application/json
+
+{
+    "postId": "61c53a4f142cff9120377a3f",
+    "content": "Một hai ba bốn"
+}
+
+### delete post
+POST http://localhost:3000/api/post/delete
+Content-Type: application/json
+
+{
+    "postId": "61c53939907df4ab33188fed"
+}
+
+### create comment
+POST http://localhost:3000/api/comment/create
+Content-Type: application/json
+
+{
+    "user": "61c2b42177efb03d08b9031f",
+    "content": "sdkfjahskdfjh"
+}
+
+### edit comment
+POST http://localhost:3000/api/comment/update
+Content-Type: application/json
+
+{
+    "commentId": "61c53fa391da473275df5955",
+    "content": "Một hai ba bốn"
+}
+
+### delete comment
+POST http://localhost:3000/api/comment/delete
+Content-Type: application/json
+
+{
+    "commentId": "61c53fa391da473275df5955"
+}
+
 ### create deadline
 POST http://localhost:3000/api/deadline/
 Content-Type: application/json
@@ -112,6 +155,15 @@ Content-Type: application/json
 }
 
 
+### delete deadline
+POST http://localhost:3000/api/deadline/delete
+Content-Type: application/json
+
+{
+    "deadlineId": "61c4a68d30e9103099193d6e"
+}
+
+
 ### get image
 GET http://localhost:3000/api/image/df7602a8-2aef-4f9c-a1cc-a13d9d7363ac.png
 Content-Type: application/json
@@ -119,3 +171,5 @@ Content-Type: application/json
 {
     
 }
+
+

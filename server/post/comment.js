@@ -1,3 +1,4 @@
+
 const Posts = require("./Posts");
 const Comments = require("./Comments");
 const express = require('express');
@@ -10,22 +11,23 @@ const router = express.Router();
 router.post("/create", async (req, res) => {
     try {
         const body = req.body;
-        const tmp = new Posts({
+        const tmp = new Comments({
             user: body.user,
             content: body.content,
             image: body.image
         });
         await tmp.save();
-        res.status(200).json({success: true, postId: tmp._id});
+        res.status(200).json({success: true, commentId: tmp._id});
     } catch (err) {
         res.status(500).json(err.message);
     }
 });
 
+
 router.post("/update", async (req, res) => {
     try {
         const body = req.body;
-        await Posts.findByIdAndUpdate(body.postId, {
+        await Comments.findByIdAndUpdate(body.commentId, {
             $set: {
                 content: body.content,
                 image: body.image
@@ -40,13 +42,7 @@ router.post("/update", async (req, res) => {
 
 router.post("/delete", async (req, res) => {
     try {
-        const post = await Posts.findById(req.body.postId);
-
-        await Post_comment.deleteMany({
-            _id: post.comment
-        });
-
-        await Posts.findByIdAndRemove(req.body.postId);
+        await Comments.findByIdAndRemove(req.body.commentId);
 
         res.status(200).json({success: true});
     } catch (err) {

@@ -41,4 +41,17 @@ router.post("/update", async (req, res)=>{
 });
 
 
+router.post("/delete", async (req, res)=>{
+    try {
+        const body = req.body;
+
+        await Deadlines.findByIdAndRemove(body.deadlineId);
+
+        res.status(200).json({success: true});
+    } catch (err) {
+        res.status(500).json(err.message);
+    }
+});
+
+
 module.exports = router;
