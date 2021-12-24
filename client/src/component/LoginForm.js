@@ -8,9 +8,6 @@ const LoginForm = (props)=>{
     const [password, setpassword] = useState("")
 
 
-
-
-
     const handleSubmit = () => {
 
         
@@ -22,7 +19,7 @@ const LoginForm = (props)=>{
                 "Content-Type": "application/json"
             }
         }
-           ) .then(res => {
+           ).then(res => {
                 console.log("message: ", res)
             })
             .catch(error=>{
