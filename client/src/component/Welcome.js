@@ -11,6 +11,7 @@ const Welcome = () => {
 
         <div>
             <h1>Home page</h1>
+            <h3>This is the place to greet users</h3>
             <nav>
                 <Link to="/login">
                     <button>
