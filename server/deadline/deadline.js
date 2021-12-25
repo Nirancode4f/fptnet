@@ -1,18 +1,19 @@
 const Deadlines = require("./Deadlines");
 const router = require('express').Router();
 
-router.post("/", async (req, res)=>{
+router.post("/create", async (req, res)=>{
     try {
         const body = req.body;
 
-        await new Deadlines({
+        const deadline = await new Deadlines({
             userId: body.userId,
             deadline: body.deadline,
             deadlinedate: body.deadlinedate,
             teacher: body.teacher,
             note: body.note
         }).save();
-        res.status(200).json({success: true});
+
+        res.status(200).json({success: true, deadlineId: deadline._id});
     } catch (err) {
         res.status(500).json(err.message);
     }
@@ -56,6 +57,14 @@ router.post("/delete", async (req, res)=>{
     try {
         const body = req.body;
 
+        const deadline = await Deadlines.findById(body.deadlineId);
+        //Check exist
+        if(!deadline){
+            return res.status(200).json({success: false, message: "Not exist this deadline!"});
+        }
+        if(deadline.userId != body.userId){
+            return res.status(200).json({success: false, message: "You can't delete this deadline"});
+        }
         await Deadlines.findByIdAndRemove(body.deadlineId);
 
         res.status(200).json({success: true});

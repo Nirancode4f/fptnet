@@ -21,10 +21,6 @@ Content-Type: application/json
     "password": "1234"
 }
 
-
-
-
-
 ### send two userId to check the convesation !!! done
 POST http://localhost:3000/api/conversation
 Content-Type: application/json
@@ -201,7 +197,7 @@ Content-Type: application/json
 }
 
 ### create deadline
-POST http://localhost:3000/api/deadline/
+POST http://localhost:3000/api/deadline/create
 Content-Type: application/json
 
 {
@@ -212,7 +208,7 @@ Content-Type: application/json
     "note": "Chia ra 3 file"
 }
 
-### get all deadline
+### get all deadline of a user
 POST http://localhost:3000/api/deadline/get
 Content-Type: application/json
 
@@ -241,7 +237,8 @@ POST http://localhost:3000/api/deadline/delete
 Content-Type: application/json
 
 {
-    "deadlineId": "61c4a68d30e9103099193d6e"
+    "userId": "61c2b42177efb03d08b9031f",
+    "deadlineId": "61c719b2a45659c5e89261dc"
 }
 
 
