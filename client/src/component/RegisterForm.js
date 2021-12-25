@@ -2,18 +2,23 @@ import React from "react";
 import { useState } from 'react'
 import axios from 'axios'
 import { Link } from "react-router-dom";
-
+import ReactDOM from 'react-dom';
 
 const RegisterForm = (props) => {
 
     const [email, setemail] = useState("");
     const [name, setname] = useState("")
     const [password, setpassword] = useState("")
+    const [info, setinfo] = useState("")
+    
 
     const handleSubmit = async (e) => {
       e.preventDefault()
       try{
-        await axios.post('https://fptnetwork.elemarkuspet.repl.co/api/auth/register', {
+
+      const checkpost = (<h1>{info}</h1>)
+
+      await axios.post('https://fptnetwork.elemarkuspet.repl.co/api/auth/register', {
       email:email,
       username: name,
       password: password
@@ -23,7 +28,10 @@ const RegisterForm = (props) => {
             }
         }
            ).then(res => {
-                console.log("message: ", res)
+                
+                setinfo(res.data.message)
+                ReactDOM.render(checkpost,document.getElementById("infor"))
+
             })
             .catch(error=>{
                 console.log("error", error)
@@ -36,6 +44,7 @@ const RegisterForm = (props) => {
   return (
     <div>
       <h1>Register</h1>
+      <div id="infor"></div>
       <form onSubmit={handleSubmit}>
 
         <div className="form-group">

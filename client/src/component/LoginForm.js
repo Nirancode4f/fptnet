@@ -3,20 +3,29 @@ import React from 'react'
 import { useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom';
-const URL_MAIN = "https://fptnetwork.elemarkuspet.repl.co"
+import ReactDOM from 'react-dom';
+
+
 
 
 const LoginForm = (props) => {
 
     const [email, setemail] = useState("");
     const [password, setpassword] = useState("")
+    const [info, setinfo] = useState("")
+    
 
     
+
     const handleSubmit = async (evt) => {
         evt.preventDefault()
         try {
-            // eslint-disable-next-line no-useless-concat
-            axios.post(`${URL_MAIN}`+"/api/auth/login", {
+
+            const checkpost = (<h1>{info}</h1>)
+
+            
+            
+            axios.post(`https://fptnetwork.elemarkuspet.repl.co/api/auth/login`, {
                 email: email,
                 password: password
             }, {
@@ -24,12 +33,23 @@ const LoginForm = (props) => {
                     "Content-Type": "application/json"
                 }
             }
-            ).then(res => {
-                console.log("message: ", res)
+            
+            ).then((res)=>{
+            
+                setinfo(res.data.message)
+                ReactDOM.render(checkpost,document.getElementById("infor"))
+                
             })
-                .catch(error => {
-                    console.log("error", error)
+
+            .catch(error => {
+                    if(error.request){
+                        console.log(error.request)
+                    }if(error.response){
+                        console.log(error.response)
+                    }
                 })
+
+          
         } catch (error) {
             console.log(error)
         }
@@ -39,10 +59,15 @@ const LoginForm = (props) => {
 
     return (
         <div>
-            <div><h1>Login page</h1></div>
+            <div><h1>Login page</h1>
+            
+              <h3 > <div id='infor'> </div></h3>
+
+            
+            </div>
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label >Username</label>
+                    <label >Email</label>
                     <input id="email" type="text" value={email} onChange={e => setemail(e.target.value)} required />
                 </div>
                 <div>
