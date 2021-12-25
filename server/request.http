@@ -101,6 +101,35 @@ Content-Type: application/json
     "conversationId": "61c6b13204fb37f7a24daa78"
 }
 
+### create a groupmessage
+POST http://localhost:3000/api/group/message/create
+Content-Type: application/json
+
+{
+    "userId": "61c2b42177efb03d08b9031f",
+    "conversationId": "61c6b423b2f94fef6d8bb227",
+    "content": "mot hai ba"
+}
+
+### get all messages of a groupconversation
+POST http://localhost:3000/api/group/message/get
+Content-Type: application/json
+
+{
+    "userId": "61c2b4ae4818a8dcd2d6abd9",
+    "conversationId": "61c6b423b2f94fef6d8bb227"
+}
+
+### delete a groupmessages
+POST http://localhost:3000/api/group/message/delete
+Content-Type: application/json
+
+{
+    "userId": "61c2b42177efb03d08b9031f",
+    "messageId": "61c6c66701f25246f6445b2b"
+}
+
+
 ### create post
 POST http://localhost:3000/api/post/create
 Content-Type: application/json

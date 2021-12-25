@@ -1,67 +1,78 @@
 const router = require("express").Router();
 const Message = require("./Messages");
-const conversation = require("../conv/Conversations")
+const Conversation = require("../conv/Conversations")
 const Users = require("../../user/Users")
 
 
 //add mess to conv,
 
-router.post("/", async (req, res) => {
-  const {conversationId,sender,text} = req.body
- 
+router.post("/create", async (req, res) => { 
   try {  
-    // find the conv 
-    const conv = await Users.find({
-    _id: `${sender}`,
-    conversations: { $in: [conversationId] }})    
+    const body = req.body
+    //check content of message
+    if(!body.content) return res.status(200).json({success: false, message: "Must be contain some message"});
+    //find Conversation
+    const Conv = await Conversation.findById(body.conversationId);
+    //Check exist convesation
+    if(!Conv) return res.status(200).json({success: false, message: "Not exist this conversation"});
+    //Check user is in group or not?
+    if(!Conv.members.includes(body.userId))
+      return res.status(200).json({success: false, message: "You are not in this group"});
 
+    const Mess = await new Message({
+      conversationId: body.conversationId,
+      userId: body.userId,
+      content: body.content
+    });
 
-    if(!conversationId || !sender ){
-      res.status(200).json({success: false,message:"No empty conversationId/sender"})
-    }
-  
+    await Mess.save();
 
-    if (!conv){
-      res.status(200).json({success: false, message: "unfound conversationId or senderid"})
-    }
+    return res.status(200).json({success:true ,message: "message has been sent" , MessageId: Mess._id});
+  } catch (err) {
+    res.status(500).json(err.message);
+  }
+});
 
-
-    const newMessage = new Message({conversationId,sender,text});
-    await newMessage.save();
-
-    res.status(200).json({success:true ,message:"message has been sent" ,newMessage: newMessage});
-
-
+//get all messages of groupconversation
+router.post("/get", async (req, res) => {
+  try {  
+    const body = req.body
+    //find Conversation
+    const Conv = await Conversation.findById(body.conversationId);
+    //Check exist convesation
+    if(!Conv) return res.status(200).json({success: false, message: "Not exist this conversation"});
+    //Check user is in group or not?
+    if(!Conv.members.includes(body.userId))
+      return res.status(200).json({success: false, message: "You are not in this group"});
+    //Find all messages
+    const Mess = await Message.find({
+      conversationId: body.conversationId
+    });
+    return res.status(200).json({success: true, messages: Mess});
   } catch (err) {
     res.status(500).json(err.message);
   }
 });
 
 
-
-
-//get history of conversation 
-
-router.post("/getconv", async (req, res) => {
-  const {conversationId} = req.body
-
-  const arr = []
-  try {
-
-  await Message.find({conversationId}).then((users)=>{
-      users.forEach((user)=>{
-        arr.push(user)
-      })
-    })
-    
-    res.status(200).json({success: true, messages:"check done" ,arr});
-  } catch (err) {
+//delete a groupmessage
+router.post("/delete", async (req, res) => {
+  try {  
+    const body = req.body
+    //find Message
+    Mess = await Message.findById(body.messageId);
+    //Check exist Message
+    if(!Mess) return res.status(200).json({success: false, message: "Not exist this message"});
+    //Check message is this user or not?
+    if(Mess.userId != body.userId)
+      return res.status(200).json({success: false, message: "You can't delete this message"});
+    Mess = await Message.findByIdAndRemove(body.messageId);
+    return res.status(200).json({success: true, messages: "Success delete message"});
+  }
+    catch (err) {
     res.status(500).json(err.message);
   }
 });
-
-
-
 
 
 module.exports = router;
