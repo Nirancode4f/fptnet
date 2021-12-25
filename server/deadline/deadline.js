@@ -40,6 +40,7 @@ router.post("/update", async (req, res)=>{
                 user: body.user,
                 deadline: body.deadline,
                 deadlinedate: body.deadlinedate,
+                completed: body.completed,
                 teacher: body.teacher,
                 note: body.note
             }

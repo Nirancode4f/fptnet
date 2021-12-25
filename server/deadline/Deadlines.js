@@ -16,6 +16,10 @@ var Deadline = new Schema({
         type: Date,
         require: true
     },
+    completed: {
+        type: Boolean,
+        default: false
+    },
     teacher: String,
     note: String,
     creatAt:{

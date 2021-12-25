@@ -85,6 +85,14 @@ Content-Type: application/json
     "content": "sdkfjahskdfjh"
 }
 
+### get post
+POST http://localhost:3000/api/post/get
+Content-Type: application/json
+
+{
+    "postId": "61c53a4f142cff9120377a3f"
+}
+
 ### edit post
 POST http://localhost:3000/api/post/update
 Content-Type: application/json
@@ -99,7 +107,7 @@ POST http://localhost:3000/api/post/delete
 Content-Type: application/json
 
 {
-    "postId": "61c53939907df4ab33188fed"
+    "postId": "61c53a4f142cff9120377a3f"
 }
 
 ### create comment
@@ -107,8 +115,18 @@ POST http://localhost:3000/api/comment/create
 Content-Type: application/json
 
 {
-    "user": "61c2b42177efb03d08b9031f",
+    "userId": "61c2b42177efb03d08b9031f",
+    "postId": "61c53a4f142cff9120377a3f",
     "content": "sdkfjahskdfjh"
+}
+
+
+### get comment
+POST http://localhost:3000/api/comment/get
+Content-Type: application/json
+
+{
+    "postId": "61c53a4f142cff9120377a3f"
 }
 
 ### edit comment
@@ -154,10 +172,11 @@ POST http://localhost:3000/api/deadline/update
 Content-Type: application/json
 
 {
-    "deadlineId": "61c4a68d30e9103099193d6e",
+    "deadlineId": "61c6957f6d5b13cb72bc311e",
     "user": "61c2b42177efb03d08b9031f",
     "deadline": "hoan thanh bai tap1",
     "deadlinedate": "2000-11-10",
+    "completed": true,
     "teacher": "Danh",
     "note": "Chia ra 4 file"
 }
