@@ -48,25 +48,32 @@ Content-Type: application/json
     "text":"toi khogn biest"
 }
 
-### set groupconversation
-POST http://localhost:3000/api/group/conversation
+### create groupconversation
+POST http://localhost:3000/api/group/conversation/create
 Content-Type: application/json
 
 {
+    "name": "groupchat",
     "members": ["61c2b42177efb03d08b9031f", "61c2b4ae4818a8dcd2d6abd9"]
 }
 
+### get a groupconversation
+POST http://localhost:3000/api/group/conversation/get
+Content-Type: application/json
 
-
+{
+    "conversationId": "61c6b423b2f94fef6d8bb227"
+}
 
 ### add users to conversation
 POST http://localhost:3000/api/group/conversation/addusers
 Content-Type: application/json
 
 {
-    "conversationId": "61c2b68c91839e3fb96a51ab",
-    "members": ["61c2b42177efb03d08b9031f", "61c2b4ae4818a8dcd2d6abd9"]
+    "conversationId": "61c6b13204fb37f7a24daa78",
+    "members": ["61c2b42177efb03d08b9031f", "61c295ecd139be1761984a2a"]
 }
+
 
 ### get all groupconversation of a user
 POST http://localhost:3000/api/group/conversation/getconvs
@@ -76,12 +83,30 @@ Content-Type: application/json
     "userId": "61c2b42177efb03d08b9031f"
 }
 
+### delete some users in groupconversation
+POST http://localhost:3000/api/group/conversation/deleteusers
+Content-Type: application/json
+
+{
+    "conversationId": "61c6b420b2f94fef6d8bb222",
+    "members": ["61c2b4ae4818a8dcd2d6abd9"]
+}
+
+
+### delete a groupconversation
+POST http://localhost:3000/api/group/conversation/delete
+Content-Type: application/json
+
+{
+    "conversationId": "61c6b13204fb37f7a24daa78"
+}
+
 ### create post
 POST http://localhost:3000/api/post/create
 Content-Type: application/json
 
 {
-    "user": "61c2b42177efb03d08b9031f",
+    "userId": "61c2b42177efb03d08b9031f",
     "content": "sdkfjahskdfjh"
 }
 
@@ -151,7 +176,7 @@ POST http://localhost:3000/api/deadline/
 Content-Type: application/json
 
 {
-    "user": "61c2b42177efb03d08b9031f",
+    "userId": "61c2b42177efb03d08b9031f",
     "deadline": "hoan thanh bai tap 2",
     "deadlinedate": "2000-11-10",
     "teacher": "Danh",
@@ -173,7 +198,7 @@ Content-Type: application/json
 
 {
     "deadlineId": "61c6957f6d5b13cb72bc311e",
-    "user": "61c2b42177efb03d08b9031f",
+    "userId": "61c2b42177efb03d08b9031f",
     "deadline": "hoan thanh bai tap1",
     "deadlinedate": "2000-11-10",
     "completed": true,

@@ -5,9 +5,7 @@ const ConsersationSchema = new mongoose.Schema(
         type: String,
         required: true
     },
-        members: {
-            type: Array,
-        },
+        members: Array
     }   
 );
 
