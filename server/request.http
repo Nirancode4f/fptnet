@@ -134,10 +134,18 @@ Content-Type: application/json
 
 {
     "user": "61c2b42177efb03d08b9031f",
-    "deadline": "hoan thanh bai tap",
+    "deadline": "hoan thanh bai tap 2",
     "deadlinedate": "2000-11-10",
     "teacher": "Danh",
     "note": "Chia ra 3 file"
+}
+
+### get all deadline
+POST http://localhost:3000/api/deadline/get
+Content-Type: application/json
+
+{
+    "userId": "61c2b42177efb03d08b9031f"
 }
 
 
