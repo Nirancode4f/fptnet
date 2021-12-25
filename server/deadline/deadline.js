@@ -18,6 +18,16 @@ router.post("/", async (req, res)=>{
     }
 });
 
+router.post("/get", async (req, res)=>{
+    try {
+        const deadline = await Deadlines.find({
+            user: req.body.userId
+        });
+        res.status(200).json({success: true, deadlines: deadline});
+    } catch (err) {
+        res.status(500).json(err.message);
+    }
+});
 
 router.post("/update", async (req, res)=>{
     try {
