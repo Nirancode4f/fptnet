@@ -45,6 +45,8 @@ router.post("/create", async (req, res) => {
   }
 });
 
+
+//get information of a groupconveration
 router.post("/get", async (req, res) => {
   try {
     const body = req.body
@@ -115,7 +117,7 @@ router.post("/addusers", async (req, res) => {
 });
 
 
-//get all conversation
+//get all conversation of a user
 router.post("/getconvs", async (req, res) => {
   try {
     const user = await Users.findOne({
@@ -135,6 +137,7 @@ router.post("/getconvs", async (req, res) => {
   }
 });
 
+//delete some users in a groupconveration
 router.post("/deleteusers", async (req, res)=>{
   try {
     const body = req.body
@@ -158,11 +161,13 @@ router.post("/deleteusers", async (req, res)=>{
   }
 })
 
+//delete a groupconversation and all of its message
 router.post("/delete", async (req, res)=>{
   try {
     const body = req.body
     await GroupConversation.findByIdAndRemove(body.conversationId);
 
+    //delete all message
     await GroupMessage.deleteMany({
       conversationId: body.conversationId
     })
