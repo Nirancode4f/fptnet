@@ -2,7 +2,7 @@
 import './App.css';
 import LoginForm  from './component/LoginForm';
 import RegisterForm from './component/RegisterForm';
-import Welcome from './component/Welcome.js';
+import Welcome from './page/Welcome.js';
 
 
 import {BrowserRouter,Routes,Route } from "react-router-dom"
