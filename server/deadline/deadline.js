@@ -6,7 +6,7 @@ router.post("/", async (req, res)=>{
         const body = req.body;
 
         await new Deadlines({
-            user: body.user,
+            userId: body.userId,
             deadline: body.deadline,
             deadlinedate: body.deadlinedate,
             teacher: body.teacher,
@@ -21,7 +21,7 @@ router.post("/", async (req, res)=>{
 router.post("/get", async (req, res)=>{
     try {
         const deadline = await Deadlines.find({
-            user: req.body.userId
+            userId: req.body.userId
         });
         res.status(200).json({success: true, deadlines: deadline});
     } catch (err) {
@@ -37,7 +37,7 @@ router.post("/update", async (req, res)=>{
             _id: body.deadlineId
         }, {
             $set: {
-                user: body.user,
+                userId: body.userId,
                 deadline: body.deadline,
                 deadlinedate: body.deadlinedate,
                 completed: body.completed,

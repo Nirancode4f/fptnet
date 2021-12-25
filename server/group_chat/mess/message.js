@@ -17,12 +17,12 @@ router.post("/", async (req, res) => {
 
 
     if(!conversationId || !sender ){
-      res.status(400).json({success: false,message:"No empty conversationId/sender"})
+      res.status(200).json({success: false,message:"No empty conversationId/sender"})
     }
   
 
     if (!conv){
-      res.status(400).json({success: false, message: "unfound conversationId or senderid"})
+      res.status(200).json({success: false, message: "unfound conversationId or senderid"})
     }
 
 

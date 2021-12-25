@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 
 var Deadline = new Schema({
-    user:{
+    userId:{
         type: String,
         required:true
     },
