@@ -14,6 +14,10 @@ const MessageSchema = new mongoose.Schema(
       type: String,
       require: true
     },
+    unsend: {
+      type: Boolean,
+      default: false
+    },
     createAt:{
       type:Date,
       default: Date.now

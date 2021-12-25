@@ -54,6 +54,26 @@ router.post("/get", async (req, res) => {
   }
 });
 
+//unsend a groupmessage
+router.post("/unsend", async (req, res) => {
+  try {  
+    const body = req.body
+    //find Message
+    Mess = await Message.findById(body.messageId);
+    //Check exist Message
+    if(!Mess) return res.status(200).json({success: false, message: "Not exist this message"});
+    //Check message is this user or not?
+    if(Mess.userId != body.userId)
+      return res.status(200).json({success: false, message: "This message is not owned by you"});
+    Mess.unsend = true
+    await Mess.save()
+    return res.status(200).json({success: true, messages: "Success unsend message"});
+  }
+    catch (err) {
+    res.status(500).json(err.message);
+  }
+});
+
 
 //delete a groupmessage
 router.post("/delete", async (req, res) => {

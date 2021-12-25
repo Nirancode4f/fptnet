@@ -116,6 +116,16 @@ Content-Type: application/json
     "conversationId": "61c6b423b2f94fef6d8bb227"
 }
 
+### unsend a groupmessages
+POST http://localhost:3000/api/group/message/unsend
+Content-Type: application/json
+
+{
+    "userId": "61c2b42177efb03d08b9031f",
+    "messageId": "61c72148f05ccccd2a7a61b4"
+}
+
+
 ### delete a groupmessages
 POST http://localhost:3000/api/group/message/delete
 Content-Type: application/json
