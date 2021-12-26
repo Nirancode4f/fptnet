@@ -19,11 +19,7 @@ router.post("/create", async (req, res) => {
     if(!Conv.members.includes(body.userId))
       return res.status(200).json({success: false, message: "You are not in this group"});
 
-    const Mess = await new Message({
-      conversationId: body.conversationId,
-      userId: body.userId,
-      content: body.content
-    });
+    const Mess = await new Message({conversationId, userId, content} = body);
 
     await Mess.save();
 
@@ -83,7 +79,7 @@ router.post("/delete", async (req, res) => {
     Mess = await Message.findById(body.messageId);
     //Check exist Message
     if(!Mess) return res.status(200).json({success: false, message: "Not exist this message"});
-    //Check message is this user or not?
+    //Check message owned by this user or not?
     if(Mess.userId != body.userId)
       return res.status(200).json({success: false, message: "You can't delete this message"});
     Mess = await Message.findByIdAndRemove(body.messageId);
