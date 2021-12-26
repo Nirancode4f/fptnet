@@ -5,3 +5,4 @@
 
 1. npm i install react_bootstrap bootstrap axios react-router-dom
 2. yarn add dotenv-webpack
+3. npm install react-scripts --save
