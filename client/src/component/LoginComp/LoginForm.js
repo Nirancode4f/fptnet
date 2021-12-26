@@ -17,6 +17,7 @@ const LoginForm = (props) => {
 
 
 
+
     const handleSubmit = async (evt) => {
         evt.preventDefault()
         try {
@@ -34,13 +35,17 @@ const LoginForm = (props) => {
                 }
             }
 
-            ).then((res) => {
-                setinfo(res.data.message)
+            ).then(async(res) => {
+                
+            
+                
+
                 if(res.data.message !== "successfully"){
                 setinfo(res.data.message)
                 ReactDOM.render(checkpost, document.getElementById("infor"))
-                }
-                history("/");
+
+                }else(history("/"))
+                
               
                 
             })
