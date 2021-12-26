@@ -3,14 +3,17 @@ import { useState } from 'react'
 import axios from 'axios'
 import './assets/css/login.css'
 // eslint-disable-next-line no-unused-vars
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import ReactDOM from 'react-dom';
+
 
 const LoginForm = (props) => {
 
     const [email, setemail] = useState("");
     const [password, setpassword] = useState("")
     const [info, setinfo] = useState("")
+    // eslint-disable-next-line no-unused-vars
+    const history = useNavigate()
 
 
 
@@ -20,7 +23,7 @@ const LoginForm = (props) => {
         try {
 
 
-            const checkpost = (<h1>{info}</h1>)
+            
 
 
             axios.post(`https://fptnetwork.elemarkuspet.repl.co/api/auth/login`, {
@@ -32,13 +35,19 @@ const LoginForm = (props) => {
                 }
             }
 
-            ).then(async (res) => {
+            ).then(async(res) => {
+                
+                
                 if(res.data.message !== "successfully"){
                 setinfo(res.data.message)
-                ReactDOM.render(checkpost, document.getElementById("infor"))
-                }
                 
+                const checkpost = (<h1>{info}</h1>)
+                ReactDOM.render(checkpost, document.getElementById("infor"))
 
+                }else(history("/"))
+                
+              
+                
             })
 
                 .catch(error => {
