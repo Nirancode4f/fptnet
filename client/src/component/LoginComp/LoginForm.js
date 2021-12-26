@@ -2,37 +2,58 @@ import React from 'react';
 import { useState } from 'react'
 import axios from 'axios'
 import './assets/css/login.css'
+// eslint-disable-next-line no-unused-vars
+import { Link } from 'react-router-dom';
+import ReactDOM from 'react-dom';
 
-const LoginForm = (props)=>{
+const LoginForm = (props) => {
 
     const [email, setemail] = useState("");
     const [password, setpassword] = useState("")
+    const [info, setinfo] = useState("")
+    
 
+    
 
+    const handleSubmit = async (evt) => {
+        evt.preventDefault()
+        try {
 
+            
+            const checkpost = (<h1>{info}</h1>)
 
-
-    const handleSubmit = () => {
-
-        
-        axios.post('https://fptnetwork.elemarkuspet.repl.co/api/auth/login', {
-            email: email,
-            password: password
-        },{
-            headers: {
-                "Content-Type": "application/json"
+            
+            
+            axios.post(`https://fptnetwork.elemarkuspet.repl.co/api/auth/login`, {
+                email: email,
+                password: password
+            }, {
+                headers: {
+                    "Content-Type": "application/json"
+                }
             }
-        }
-           ) .then(res => {
-                console.log("message: ", res)
-            })
-            .catch(error=>{
-                console.log("error", error)
+            
+            ).then((res)=>{
+            
+                setinfo(res.data.message)
+                ReactDOM.render(checkpost,document.getElementById("infor"))
+                
             })
 
+            .catch(error => {
+                    if(error.request){
+                        console.log(error.request)
+                    }if(error.response){
+                        console.log(error.response)
+                    }
+                })
+
+          
+        } catch (error) {
+            console.log(error)
+        }
 
     }
-
 
         return (
             <div className= "login_wrapper">
