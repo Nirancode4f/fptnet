@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import axios from 'axios'
 import "./assets/css/register.css"
 import { Link, useNavigate } from 'react-router-dom';
@@ -14,6 +14,15 @@ const RegisterForm = (props) => {
   const [info, setinfo] = useState("")
 
   const navigate = useNavigate()
+
+  useEffect(() => {
+
+    const checkpost = (<h1>{info}</h1>)
+    ReactDOM.render(checkpost, document.getElementById("infor"))
+        
+                            
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [info] );
 
   const handleSubmit = (event) => {
 
@@ -33,11 +42,12 @@ const RegisterForm = (props) => {
       
       
       if(res.data.message !== "User Created successfully"){
+      
       setinfo(res.data.message)
+      
+     
       // eslint-disable-next-line no-undef
-      const checkpost = (<h1>{info}</h1>)
-
-      ReactDOM.render(checkpost, document.getElementById("infor"))
+      
 
       }else{navigate("/login")
       }

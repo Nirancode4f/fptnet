@@ -1,9 +1,9 @@
 import React from 'react';
-import { useState } from 'react'
+import { useState , useEffect} from 'react'
 import axios from 'axios'
 import './assets/css/login.css'
 // eslint-disable-next-line no-unused-vars
-import { Link,useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 
 
@@ -14,8 +14,15 @@ const LoginForm = (props) => {
     const [info, setinfo] = useState("")
     // eslint-disable-next-line no-unused-vars
     const history = useNavigate()
+    
+    useEffect(() => {
 
-
+    const checkpost = (<h1>{info}</h1>)
+    ReactDOM.render(checkpost, document.getElementById("infor"))
+        
+                            
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [info] );
 
 
     const handleSubmit = async (evt) => {
@@ -23,7 +30,7 @@ const LoginForm = (props) => {
         try {
 
 
-            
+
 
 
             axios.post(`https://fptnetwork.elemarkuspet.repl.co/api/auth/login`, {
@@ -35,19 +42,22 @@ const LoginForm = (props) => {
                 }
             }
 
-            ).then(async(res) => {
-                
-                
-                if(res.data.message !== "successfully"){
-                setinfo(res.data.message)
-                
-                const checkpost = (<h1>{info}</h1>)
-                ReactDOM.render(checkpost, document.getElementById("infor"))
+            ).then(async (res) => {
 
-                }else(history("/"))
+
+                if (res.data.message !== "successfully") {
+
+
+                    
+                    setinfo(res.data.message)
+                  
                 
-              
-                
+                    
+
+                } else (history("/"))
+
+
+
             })
 
                 .catch(error => {
