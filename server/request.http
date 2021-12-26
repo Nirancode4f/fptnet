@@ -17,8 +17,8 @@ POST  http://localhost:3000/api/auth/login
 Content-Type: application/json
 
 {
-    "email":"chicuoung@gmail.com",
-    "password": "1234"
+    "email":"nhan@gmail.com",
+    "password": "12345"
 }
 
 ### send two userId to check the convesation !!! done
