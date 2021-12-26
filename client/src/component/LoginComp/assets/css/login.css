@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Roboto+Condensed:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+body {
+    /* line-height: 1.5; */
+    
+}
+
+.login_wrapper {
+    height: 100vh;
+    background: url(/src/component/LoginComp/assets/img/loginPage_background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.login_form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.648);
+}
+
+.login_form .top_header {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid silver;
+}
+
+.login_form form {
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+form .login_type_field {
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 30px 0;
+}
+
+.login_type_field input {
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+}
+.login_type_field label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.login_type_field span::before {
+    content: '';
+    position: absolute;
+    height: 2px;
+    top: 40px;
+    left: 0;
+    width: 0%;
+    background: greenyellow;
+    transition: 0.5s;
+}
+
+.login_type_field input:valid ~ label,
+.login_type_field input:focus ~ label {
+    top: -5px;
+    color: #acacca;
+}
+
+.login_type_field input:valid ~ span::before,
+.login_type_field input:focus ~ span::before {
+    width: 100%;
+}
+
+.login_forgot {
+    margin: -5px 0 20px 5px;
+    color: rgb(60, 114, 195);
+    cursor: pointer;
+}
+
+.login_forgot:hover {
+    text-decoration: underline;
+    color: red;
+    transition: .5s;
+}
+
+.login_submit_btn {
+    width: 100%;
+    height: 50px;
+    background-color: #E9A322;
+    border-radius: 25px;
+    border: 1px solid;
+}
+
+.login_submit_btn:hover {
+    background-color: greenyellow;
+    transition: .5s;
+}
+
+.login_bottom_suggest {
+    margin: 5px 25px 20px 20px;
+}
+
+.signIn_anchor {
+    cursor: pointer;
+    color: rgb(60, 114, 195);
+    text-decoration: none;
+}
+
+.logo_fan {
+    width: 70px;
+    height: 70px;
+    position: relative;
+    top: 20px;
+    left: 20px;
+    background-image: url(/src/component//LoginComp/assets/img/logo_fan.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 15px 0 20px 0;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.648);
+}
+
+.logo_fan p {
+    position: absolute;
+    display: inline-block;
+    font-size: 40px;
+    left: 100px;
+    width: 100vh;
+}
