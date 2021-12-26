@@ -4,6 +4,7 @@ const app = express();
 const path = require('path');
 const PORT = process.env.PORT || 3000;
 const cors = require("cors")
+
 //import module 
 const authRouters = require("./user/auth");
 const conversation = require("./single_chat/conv/conversation");
@@ -43,6 +44,7 @@ app.get("/",(req,res)=>{
     res.sendFile( "text.txt",{ root : __dirname});
 });
 
+app.disable('x-powered-by');
 app.use(express.json());
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
