@@ -23,7 +23,7 @@ const LoginForm = (props) => {
         try {
 
 
-            const checkpost = (<h1>{info}</h1>)
+            
 
 
             axios.post(`https://fptnetwork.elemarkuspet.repl.co/api/auth/login`, {
@@ -37,11 +37,11 @@ const LoginForm = (props) => {
 
             ).then(async(res) => {
                 
-            
                 
-
                 if(res.data.message !== "successfully"){
                 setinfo(res.data.message)
+                
+                const checkpost = (<h1>{info}</h1>)
                 ReactDOM.render(checkpost, document.getElementById("infor"))
 
                 }else(history("/"))
