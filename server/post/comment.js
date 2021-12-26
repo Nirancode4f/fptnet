@@ -1,4 +1,3 @@
-
 const Posts = require("./Posts");
 const Comments = require("./Comments");
 const express = require('express');
@@ -12,12 +11,26 @@ router.post("/create", async (req, res) => {
     try {
         const body = req.body;
         const tmp = new Comments({
-            user: body.user,
+            post: body.postId,
+            user: body.userId,
             content: body.content,
             image: body.image
         });
         await tmp.save();
         res.status(200).json({success: true, commentId: tmp._id});
+    } catch (err) {
+        res.status(500).json(err.message);
+    }
+});
+
+
+router.post("/get", async (req, res) => {
+    try {
+        const body = req.body;
+        const tmp = await Comments.find({
+            post: body.postId
+        });
+        res.status(200).json({success: true, comments: tmp});
     } catch (err) {
         res.status(500).json(err.message);
     }

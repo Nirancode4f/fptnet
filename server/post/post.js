@@ -22,6 +22,15 @@ router.post("/create", async (req, res) => {
     }
 });
 
+router.post("/get", async (req, res) => {
+    try {
+        const post = await Posts.findById(req.body.postId);
+        res.status(200).json({success: true, post: post});
+    } catch (err) {
+        res.status(500).json(err.message);
+    }
+});
+
 router.post("/update", async (req, res) => {
     try {
         const body = req.body;
@@ -42,8 +51,8 @@ router.post("/delete", async (req, res) => {
     try {
         const post = await Posts.findById(req.body.postId);
 
-        await Post_comment.deleteMany({
-            _id: post.comment
+        await Comments.deleteMany({
+            post: req.body.postId
         });
 
         await Posts.findByIdAndRemove(req.body.postId);

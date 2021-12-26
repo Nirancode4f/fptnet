@@ -21,6 +21,8 @@ const UserSchema = new Schema({
     },
     conversations: Array,
     groupconversations: Array,
+    clbs: Array,
+    major: String,
     createAt: {
         type:Date,
         default: Date.now

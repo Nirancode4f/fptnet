@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 
 var Deadline = new Schema({
-    user:{
+    userId:{
         type: String,
         required:true
     },
@@ -15,6 +15,10 @@ var Deadline = new Schema({
     deadlinedate:{
         type: Date,
         require: true
+    },
+    completed: {
+        type: Boolean,
+        default: false
     },
     teacher: String,
     note: String,

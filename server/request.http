@@ -21,10 +21,6 @@ Content-Type: application/json
     "password": "1234"
 }
 
-
-
-
-
 ### send two userId to check the convesation !!! done
 POST http://localhost:3000/api/conversation
 Content-Type: application/json
@@ -48,25 +44,32 @@ Content-Type: application/json
     "text":"toi khogn biest"
 }
 
-### set groupconversation
-POST http://localhost:3000/api/group/conversation
+### create groupconversation
+POST http://localhost:3000/api/group/conversation/create
 Content-Type: application/json
 
 {
+    "name": "groupchat",
     "members": ["61c2b42177efb03d08b9031f", "61c2b4ae4818a8dcd2d6abd9"]
 }
 
+### get a groupconversation
+POST http://localhost:3000/api/group/conversation/get
+Content-Type: application/json
 
-
+{
+    "conversationId": "61c6b423b2f94fef6d8bb227"
+}
 
 ### add users to conversation
 POST http://localhost:3000/api/group/conversation/addusers
 Content-Type: application/json
 
 {
-    "conversationId": "61c2b68c91839e3fb96a51ab",
-    "members": ["61c2b42177efb03d08b9031f", "61c2b4ae4818a8dcd2d6abd9"]
+    "conversationId": "61c6b13204fb37f7a24daa78",
+    "members": ["61c2b42177efb03d08b9031f", "61c295ecd139be1761984a2a"]
 }
+
 
 ### get all groupconversation of a user
 POST http://localhost:3000/api/group/conversation/getconvs
@@ -76,13 +79,78 @@ Content-Type: application/json
     "userId": "61c2b42177efb03d08b9031f"
 }
 
+### delete some users in groupconversation
+POST http://localhost:3000/api/group/conversation/deleteusers
+Content-Type: application/json
+
+{
+    "conversationId": "61c6b420b2f94fef6d8bb222",
+    "members": ["61c2b4ae4818a8dcd2d6abd9"]
+}
+
+
+### delete a groupconversation
+POST http://localhost:3000/api/group/conversation/delete
+Content-Type: application/json
+
+{
+    "conversationId": "61c6b13204fb37f7a24daa78"
+}
+
+### create a groupmessage
+POST http://localhost:3000/api/group/message/create
+Content-Type: application/json
+
+{
+    "userId": "61c2b42177efb03d08b9031f",
+    "conversationId": "61c6b423b2f94fef6d8bb227",
+    "content": "mot hai ba"
+}
+
+### get all messages of a groupconversation
+POST http://localhost:3000/api/group/message/get
+Content-Type: application/json
+
+{
+    "userId": "61c2b4ae4818a8dcd2d6abd9",
+    "conversationId": "61c6b423b2f94fef6d8bb227"
+}
+
+### unsend a groupmessages
+POST http://localhost:3000/api/group/message/unsend
+Content-Type: application/json
+
+{
+    "userId": "61c2b42177efb03d08b9031f",
+    "messageId": "61c72148f05ccccd2a7a61b4"
+}
+
+
+### delete a groupmessages
+POST http://localhost:3000/api/group/message/delete
+Content-Type: application/json
+
+{
+    "userId": "61c2b42177efb03d08b9031f",
+    "messageId": "61c6c66701f25246f6445b2b"
+}
+
+
 ### create post
 POST http://localhost:3000/api/post/create
 Content-Type: application/json
 
 {
-    "user": "61c2b42177efb03d08b9031f",
+    "userId": "61c2b42177efb03d08b9031f",
     "content": "sdkfjahskdfjh"
+}
+
+### get post
+POST http://localhost:3000/api/post/get
+Content-Type: application/json
+
+{
+    "postId": "61c53a4f142cff9120377a3f"
 }
 
 ### edit post
@@ -99,7 +167,7 @@ POST http://localhost:3000/api/post/delete
 Content-Type: application/json
 
 {
-    "postId": "61c53939907df4ab33188fed"
+    "postId": "61c53a4f142cff9120377a3f"
 }
 
 ### create comment
@@ -107,8 +175,18 @@ POST http://localhost:3000/api/comment/create
 Content-Type: application/json
 
 {
-    "user": "61c2b42177efb03d08b9031f",
+    "userId": "61c2b42177efb03d08b9031f",
+    "postId": "61c53a4f142cff9120377a3f",
     "content": "sdkfjahskdfjh"
+}
+
+
+### get comment
+POST http://localhost:3000/api/comment/get
+Content-Type: application/json
+
+{
+    "postId": "61c53a4f142cff9120377a3f"
 }
 
 ### edit comment
@@ -129,15 +207,23 @@ Content-Type: application/json
 }
 
 ### create deadline
-POST http://localhost:3000/api/deadline/
+POST http://localhost:3000/api/deadline/create
 Content-Type: application/json
 
 {
-    "user": "61c2b42177efb03d08b9031f",
-    "deadline": "hoan thanh bai tap",
+    "userId": "61c2b42177efb03d08b9031f",
+    "deadline": "hoan thanh bai tap 2",
     "deadlinedate": "2000-11-10",
     "teacher": "Danh",
     "note": "Chia ra 3 file"
+}
+
+### get all deadline of a user
+POST http://localhost:3000/api/deadline/get
+Content-Type: application/json
+
+{
+    "userId": "61c2b42177efb03d08b9031f"
 }
 
 
@@ -146,10 +232,11 @@ POST http://localhost:3000/api/deadline/update
 Content-Type: application/json
 
 {
-    "deadlineId": "61c4a68d30e9103099193d6e",
-    "user": "61c2b42177efb03d08b9031f",
+    "deadlineId": "61c6957f6d5b13cb72bc311e",
+    "userId": "61c2b42177efb03d08b9031f",
     "deadline": "hoan thanh bai tap1",
     "deadlinedate": "2000-11-10",
+    "completed": true,
     "teacher": "Danh",
     "note": "Chia ra 4 file"
 }
@@ -160,7 +247,8 @@ POST http://localhost:3000/api/deadline/delete
 Content-Type: application/json
 
 {
-    "deadlineId": "61c4a68d30e9103099193d6e"
+    "userId": "61c2b42177efb03d08b9031f",
+    "deadlineId": "61c719b2a45659c5e89261dc"
 }
 
 
