@@ -4,6 +4,7 @@ import { useState, useEffect ,Component} from "react"
 import Login from '../LoginPage/Login';
 import { bake_cookie, read_cookie, delete_cookie } from 'sfcookies';
 import "./Main.css"
+import MainLayout from '../../component/MainPage/MainLayout';
 const Main = ()=>{
     
     const [LoginData, setLoginData] = useState(
@@ -11,6 +12,7 @@ const Main = ()=>{
       )
 
     const navigate =  useNavigate() 
+      // eslint-disable-next-line no-unused-vars
       const handleLogout = () => {
         delete_cookie("token_net")
     
@@ -27,13 +29,15 @@ const Main = ()=>{
             {
               // eslint-disable-next-line no-undef
               LoginData ? (
-                <div>
+                
     
-                  <div>You logged as {LoginData.name}</div>
-                    <img src={LoginData.picture} alt="#" />
-                  <button onClick={handleLogout} >Logout</button>
-                </div>
-              ) : (<></>)
+                <MainLayout/>
+                
+                  
+                
+              ) : (
+                  <></>
+              )
     
             }
     
