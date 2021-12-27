@@ -14,7 +14,7 @@ body {
 
 .login_wrapper {
     height: 100vh;
-    background: url(/src/component/LoginComp/assets/img/loginPage_background.png);
+    background: url(/src/page/LoginPage/assets/img/loginPage_background.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -131,7 +131,7 @@ form .login_type_field {
     position: relative;
     top: 20px;
     left: 20px;
-    background-image: url(/src/component//LoginComp/assets/img/logo_fan.png);
+    background-image: url(/src/page/LoginPage/assets/img/logo_fan.png);
     background-repeat: no-repeat;
     background-size: contain;
     border-radius: 15px 0 20px 0;

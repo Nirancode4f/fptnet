@@ -1,7 +1,7 @@
 
 .register_wrapper {
     height: 100vh;
-    background: url(/src/component/RegisterComp/assets/img/registerPage_background.png);
+    background: url(/src/page/RegisterPage/assets/img/registerPage_background.png);
     background-repeat: no-repeat;
     background-size: cover;
 }

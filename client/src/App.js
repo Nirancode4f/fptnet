@@ -1,7 +1,12 @@
 import './App.css';
-import LoginForm  from './component/LoginComp/LoginForm';
-import RegisterForm from './component/RegisterComp/RegisterForm';
-import Welcome from './page/Mainpage/Welcome.js';
+
+import Register from './page/RegisterPage/Register';
+import Login from "./page/LoginPage/Login"
+import Main from "./page/MainPage/Main"
+
+
+
+
 
 
 import {BrowserRouter,Routes,Route } from "react-router-dom"
@@ -11,9 +16,9 @@ function App() {
   return ( 
   <BrowserRouter>
   <Routes>
-  <Route exact  path="/login" element={ <LoginForm/> }></Route>
-  <Route exact path="/register" element={ <RegisterForm/> }></Route>
-  <Route exact path="/" element={<Welcome/>}></Route>
+  <Route exact path="/login" element={ <Login/> }></Route>
+  <Route exact  path="/" element={ <Main/> }></Route>
+  <Route exact path="/register" element={ <Register/> }></Route>
   </Routes>
   </BrowserRouter>
   );
