@@ -14,8 +14,10 @@ const Login = () => {
     const [email, setemail] = useState("");
     const [password, setpassword] = useState("")
     const [info, setinfo] = useState("")
+    
+
     // eslint-disable-next-line no-unused-vars
-    const history = useNavigate()
+    const navigate = useNavigate()
     
     useEffect(() => {
 
@@ -30,7 +32,6 @@ const Login = () => {
     const handleSubmit = async (evt) => {
         evt.preventDefault()
         try {
-
 
             axios.post(`https://fptnetwork.elemarkuspet.repl.co/api/auth/login`, {
                 email: email,
@@ -47,7 +48,12 @@ const Login = () => {
                 if (res.data.message !== "successfully") {
                 setinfo(res.data.message)
                   
-                } else (history("/"))
+                } else {
+                    
+                    localStorage.setItem("loginData", res.data.message)
+                    
+                    navigate("/")
+                }
 
 
 

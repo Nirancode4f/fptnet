@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
-import logo from "./logo.jpg" 
+import logo from "./assets/logo.jpg" 
 function NavBar(){
     return(
         <><div className="nav">

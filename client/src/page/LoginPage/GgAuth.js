@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 
 import GoogleLogin from "react-google-login"
 import { useState, useEffect } from "react"
@@ -7,12 +8,10 @@ import axios from 'axios';
 import Cookies from 'universal-cookie';
 import { bake_cookie, read_cookie, delete_cookie } from 'sfcookies';
 
-
-
-
 function GgAuth() {
 
   // eslint-disable-next-line no-undef
+
   const [LoginData, setLoginData] = useState(
     localStorage.getItem("loginData") ? JSON.parse(localStorage.getItem("loginData")) : null
   )
@@ -20,7 +19,7 @@ function GgAuth() {
   const navigate = useNavigate()
 
   const handleFailure = (result) => {
-    alert(result)
+    alert("Cant take login data")
   }
 
 
@@ -67,18 +66,18 @@ function GgAuth() {
   }
 
   return (
-    <div className="GgAuth">
-      
+    
       <GoogleLogin
+
         clientId="368976437444-75mt0ttcg9i22emoapjf8ensoj6n18p3.apps.googleusercontent.com"
         buttonText="Login with google "
         onSuccess={hangdleLogin}
         onFailure={handleFailure}
         cookiePolicy={"single_host_origin"}
+
     />
        
-
-    </div>
+   
   );
 }
 
