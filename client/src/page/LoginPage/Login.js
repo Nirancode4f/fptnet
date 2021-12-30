@@ -14,7 +14,7 @@ const Login = () => {
     const [email, setemail] = useState("");
     const [password, setpassword] = useState("")
     const [info, setinfo] = useState("")
-    
+   
 
     // eslint-disable-next-line no-unused-vars
     const navigate = useNavigate()
@@ -50,8 +50,8 @@ const Login = () => {
                   
                 } else {
                     
-                    localStorage.setItem("loginData", res.data.message)
-                    
+                    localStorage.setItem("accessToken", res.data.accessToken)
+                    console.log(res.data.accessToken)
                     navigate("/")
                 }
 

@@ -11,7 +11,7 @@ function Header(props) {
     
       // eslint-disable-next-line no-unused-vars
       const handleLogout = () => {
-        delete_cookie("token_net")
+        delete_cookie("accessToken")
     
         ///remove login data in local storage
         localStorage.removeItem("loginData")

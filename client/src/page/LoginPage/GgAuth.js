@@ -24,17 +24,13 @@ function GgAuth() {
 
 
   const hangdleLogin = async (googleData) => {
-    bake_cookie(
-      "token_net",
-      googleData.tokenId
-    )
+
     try {
-      axios.post("http://localhost:5000/api/google-login", {
+      axios.post("https://fptnetwork.elemarkuspet.repl.co/api/auth/gg-login", {
         token: googleData.tokenId
       }, {
         headers: {
           "Content-Type": "application/json",
-          "Authorization": googleData.tokenId
         }
       }).then((res) => {
 
@@ -46,9 +42,12 @@ function GgAuth() {
           email: res.data.message.email,
           name: res.data.message.name,
           picture: res.data.message.picture
-
-
+          
         }))
+        bake_cookie(
+          "accessToken",
+          res.data.accessToken
+          )
         navigate("/")
 
       }).catch(error => {
