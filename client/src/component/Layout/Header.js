@@ -1,14 +1,14 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
 import { useNavigate } from "react-router-dom";
-
+import avata from "./assets/avata-user.png"
 import { bake_cookie, read_cookie, delete_cookie } from 'sfcookies';
 
 function Header(props) {
     const pic = JSON.parse(localStorage.getItem("loginData"))
 
-
     const navigate =  useNavigate() 
+    
       // eslint-disable-next-line no-unused-vars
       const handleLogout = () => {
         delete_cookie("token_net")
@@ -30,7 +30,7 @@ function Header(props) {
             </div>
             <div className="header__client">
                 <div className="header__client-login">
-                    <a href="#" className="header__client-login"> Đăng nhập</a>
+                    <a href="#" className="header__client-login">Đăng nhập</a>
                 </div>
             </div>
             <div className="header__member">
@@ -39,7 +39,7 @@ function Header(props) {
                 </div>
                 <div className="header__member-user">
                     <a href="#">
-                        <img src={pic.picture} alt="" />
+                        <img src={pic ? pic.picture : avata} alt="" />
                     </a>
                     <button onClick={handleLogout}><h4>Logout</h4></button>
                 </div>

@@ -45,7 +45,7 @@ const Main = ()=>{
             
             
           {
-              LoginData ? <MainLayout/> || <div>loading...</div> : <></>
+              LoginData ? (<div><MainLayout/> <MainLayout/></div>) || <div>loading...</div> : <></>
                      
           }
             
