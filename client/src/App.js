@@ -3,6 +3,7 @@ import './App.css';
 import Register from './page/RegisterPage/Register';
 import Login from "./page/LoginPage/Login"
 import Main from "./page/MainPage/Main"
+import Messenger from "./page/Messenger/Messenger";
 
 
 
@@ -19,6 +20,7 @@ function App() {
   <Route  path="/login" element={ <Login/> }></Route>
   <Route   path="/" element={ <Main/> }></Route>
   <Route  path="/register" element={ <Register/> }></Route>
+  <Route  path="/messenger" element={ <Messenger/> }></Route>
   </Routes>
   </BrowserRouter>
   );
