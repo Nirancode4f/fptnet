@@ -6,7 +6,7 @@ import './assets/css/login.css'
 import { Link, useNavigate } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import GgAuth from './GgAuth';
-
+import { bake_cookie, read_cookie, delete_cookie } from 'sfcookies';
 
 
 const Login = () => {
@@ -15,18 +15,26 @@ const Login = () => {
     const [password, setpassword] = useState("")
     const [info, setinfo] = useState("")
    
+    const [LoginData, setLoginData] = useState(
+        localStorage.getItem("loginData") ? JSON.parse(localStorage.getItem("loginData")) : null
+      )
+    
+    const navigate =  useNavigate() 
 
-    // eslint-disable-next-line no-unused-vars
-    const navigate = useNavigate()
     
     useEffect(() => {
 
     const checkpost = (<h1>{info}</h1>)
-    ReactDOM.render(checkpost, document.getElementById("infor"))
-        
-                            
+    ReactDOM.render(checkpost, document.getElementById("infor"))                     
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [info] );
+
+    useEffect(()=>{ 
+        if (LoginData){
+        navigate("/")
+      }
+      },[LoginData, navigate])
+     
 
 
     const handleSubmit = async (evt) => {
@@ -50,8 +58,8 @@ const Login = () => {
                   
                 } else {
                     
-                    localStorage.setItem("accessToken", res.data.accessToken)
-                    console.log(res.data.accessToken)
+                    bake_cookie("accessToken", res.data.accessToken)
+                    localStorage.setItem("loginData",JSON.stringify(res.data.user) )
                     navigate("/")
                 }
 

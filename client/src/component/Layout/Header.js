@@ -39,7 +39,7 @@ function Header(props) {
                 </div>
                 <div className="header__member-user">
                     <a href="#">
-                        <img src={pic ? pic.picture : avata} alt="" />
+                        <img src={pic.picture ? pic.picture : avata} alt="" />
                     </a>
                     <button onClick={handleLogout}><h4>Logout</h4></button>
                 </div>
