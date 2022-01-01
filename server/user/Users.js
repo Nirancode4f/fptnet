@@ -19,6 +19,13 @@ const UserSchema = new Schema({
         required:true,
         unique:false
     },
+    
+    Friends: Array,
+    FriendRequests: Array,
+
+    //Request already sent
+    SentRequests: Array,
+
     conversations: Array,
     groupconversations: Array,
     clbs: Array,
