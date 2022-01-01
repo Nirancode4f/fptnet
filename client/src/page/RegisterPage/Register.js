@@ -4,6 +4,7 @@ import axios from 'axios'
 import "./assets/css/register.css"
 import { Link, useNavigate } from 'react-router-dom';
 import ReactDOM from 'react-dom';
+import validator from 'validator'
 
 
 const Register = () => {
@@ -24,38 +25,50 @@ const Register = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [info] );
 
+
+
+
+    
   const handleSubmit = (event) => {
 
     event.preventDefault()
     
-    axios.post('https://fptnetwork.elemarkuspet.repl.co/api/auth/register', {
-      email: email,
-      username: name,
-      password: password
-    }, {
-      headers: {
-        "Content-Type": "application/json"
-      }
-    }
-    ).then(res => {
-      console.log(res)
-      
-      
-      if(res.data.message !== "User Created successfully"){
-      
-      setinfo(res.data.message)
-      
-     
-      // eslint-disable-next-line no-undef
-      
+    
 
-      }else{navigate("/login")
+
+    if (validator.isEmail(email))
+
+      { console.log(checkemail)
+        axios.post('https://fptnetwork.elemarkuspet.repl.co/api/auth/register', {
+        email: email,
+        username: name,
+        password: password
+      }, {
+        headers: {
+          "Content-Type": "application/json"
+        }
       }
-    })
-      .catch(error => {
-        console.log("error", error)
+      ).then(res => {
+        console.log(res)
+        
+        
+        if(res.data.message !== "User Created successfully"){
+        
+        setinfo(res.data.message)
+        
+        }else{navigate("/login")
+        }
       })
+        .catch(error => {
+          console.log("error", error)
+        })
+      }else{
+        setinfo("Invalid email")
+        console.log("nononono")
+      }
   }
+
+
   return (
     <div className="register_wrapper">
 

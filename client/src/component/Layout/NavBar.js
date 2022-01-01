@@ -20,7 +20,9 @@ function NavBar(){
             <div className="nav__source">
                 <a href="#"> <i className="fas fa-folder-open"></i></a>
             </div>
-        </div></>
+        </div>
+        <div>hello</div>
+        </>
     )
     
 }
