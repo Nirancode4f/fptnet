@@ -41,7 +41,7 @@ router.post("/register", async(req, res) => {
         await newUser.save()
   
         
-        return res.status(200).json({success: true,message:"User Created successfully",pass: newUser.password, userId: newUser._id})
+        return res.status(200).json({success: true,message:"User Created successfully", user: newUser, userId: newUser._id})
 
 
 
@@ -66,6 +66,7 @@ router.post("/login", async(req, res) => {
         return res.status(200).json({ success: false, message: "Missing email or password" })
     }
     try { //checkuser
+        
         const user = await User.findOne({ email })
         if(!user){
             return res.status(200).json({success: false, message:"User does not exist"})
@@ -83,7 +84,7 @@ router.post("/login", async(req, res) => {
 
         const decode = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET)
 
-        res.status(200).json({success: true, message: "successfully",userId: decode.userId,accessToken})
+        res.status(200).json({success: true, message: "successfully", user, accessToken})
 
 
     } catch (error) {
