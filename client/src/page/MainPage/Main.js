@@ -15,7 +15,8 @@ const Main = ()=>{
     const [LoginData, setLoginData] = useState(
         localStorage.getItem("loginData") ? JSON.parse(localStorage.getItem("loginData")) : null
       )
-      const navigate =  useNavigate() 
+    
+    const navigate =  useNavigate() 
 
     // if not logindata changeroute to login page
     useEffect(()=>{ 
@@ -28,8 +29,7 @@ const Main = ()=>{
 
       // eslint-disable-next-line no-unused-vars
     const handleLogout = () => {
-        delete_cookie("token_net")
-    
+        delete_cookie("accessToken")
         ///remove login data in local storage
         localStorage.removeItem("loginData")
     
@@ -45,8 +45,7 @@ const Main = ()=>{
             
             
           {
-              LoginData ? <MainLayout/> || <div>loading...</div> : <></>
-                     
+              LoginData ? (<MainLayout/>) || <div>loading...</div> : (<><Link to={"/login"}>you need login</Link></>)     
           }
             
     

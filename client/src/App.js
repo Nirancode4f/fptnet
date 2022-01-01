@@ -7,10 +7,10 @@ import Messenger from "./page/Messenger/Messenger";
 
 
 
-
-
-
 import {BrowserRouter,Routes,Route } from "react-router-dom"
+
+import Messages from './page/Message/Message';
+import { NotFound } from './page/NotFound/NotFound';
 
 function App() {
 
@@ -21,6 +21,7 @@ function App() {
   <Route   path="/" element={ <Main/> }></Route>
   <Route  path="/register" element={ <Register/> }></Route>
   <Route  path="/messenger" element={ <Messenger/> }></Route>
+  <Route  path="/*" element={ <NotFound/> }></Route>
   </Routes>
   </BrowserRouter>
   );
