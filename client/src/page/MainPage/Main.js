@@ -41,15 +41,19 @@ const Main = ()=>{
   
       return (
         <div className="Main">
-          <header className="App-header">
-            
+          
+ 
             
           {
-              LoginData ? (<MainLayout/>) || <div>loading...</div> : (<><Link to={"/login"}>you need login</Link></>)     
+              LoginData ? (
+
+              <><MainLayout /></>
+                
+                ) || <div>loading...</div> : (<><Link to={"/login"}>you need login</Link></>)     
           }
             
     
-          </header>
+      
         </div>
       );
 }
