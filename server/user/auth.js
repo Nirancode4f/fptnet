@@ -36,7 +36,7 @@ router.post("/register", async(req, res) => {
         bcrypt.genSalt(saltRounds,async function(err, salt) {
         bcrypt.hash(password, salt, async function(err, hash) {
 
-        const newUser = new User({email,username ,password: hash})
+        const newUser = await new User({email,username ,password: hash})
 
         await newUser.save()
   
