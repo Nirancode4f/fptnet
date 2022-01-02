@@ -1,6 +1,24 @@
 const router = require("express").Router();
 const Users = require("./Users");
 
+router.post("/get", async (req, res) => {
+    try {
+        body = await req.body
+        user = await Users.findById(body.userId)
+
+        friends = []
+
+        for(var i = 0; i<user.Friends.length; i++){
+            friends.push(await Users.findById(user.Friends[i]))
+        }
+
+        return res.status(200).json({success: true, friends})
+
+    } catch (err) {
+        res.status(500).json(err.message);
+    }
+})
+
 router.post("/sendreq", async (req, res) => {
     try {
         body = await req.body
