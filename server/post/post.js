@@ -42,6 +42,11 @@ router.post("/getposts", async (req, res) => {
         }).sort({
             createAt: -1
         }).skip((body.block - 1) * base).limit(base)
+
+        if(!post){
+            return res.status(200).json({ success: false, message: "Not exist this block"});
+        }
+
         res.status(200).json({ success: true, post: post });
     } catch (err) {
         res.status(500).json(err.message);
