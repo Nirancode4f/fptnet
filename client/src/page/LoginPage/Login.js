@@ -38,7 +38,10 @@ const Login = () => {
     try {
       axios
         .post(
-          `https://fanserverapi.herokuapp.com/api/auth/login`,
+          `${
+            process.env.REACT_APP_URL_MAIN ||
+            "https://fanserverapi.herokuapp.com"
+          }/api/auth/login`,
           {
             email: email,
             password: password,
@@ -54,7 +57,7 @@ const Login = () => {
             setinfo(res.data.message);
           } else {
             bake_cookie("accessToken", res.data.accessToken);
-            localStorage.setItem("loginData", JSON.stringify(res.data.user));
+            // localStorage.setItem("loginData", JSON.stringify(res.data.user));
             localStorage.setItem("FAN_user_info", JSON.stringify(res.data));
             navigate("/");
           }
