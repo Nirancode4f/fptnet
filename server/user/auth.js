@@ -10,6 +10,12 @@ const User = require("./Users")
 const jwt = require("jsonwebtoken");
 
 const saltRounds = 10
+
+
+const CLIENT_ID = process.env.CLIENT_ID || "368976437444-75mt0ttcg9i22emoapjf8ensoj6n18p3.apps.googleusercontent.com"
+const {OAuth2Client} = require('google-auth-library');
+const client = new OAuth2Client(CLIENT_ID)
+
 //route post /api/auth/register
 //desc register user
 //access public
@@ -90,5 +96,61 @@ router.post("/login", async(req, res) => {
         res.json({success: false,message: error})
     }
 })
+
+/// gg login
+
+router.post("/gg-login", async(req, res) => {
+
+    const {token} = req.body
+    const ticket = await client.verifyIdToken({
+        idToken:token,
+        audience:  CLIENT_ID
+    });
+    console.log(ticket)
+
+    const email = ticket.payload.email
+
+    try { 
+      //checkuser
+
+        var user = await User.findOne( {email})
+        if(user){
+           
+               
+
+        const checkuser = await User.findOne({email})
+
+        const accessToken = await jwt.sign({userId: checkuser._id},process.env.ACCESS_TOKEN_SECRET)
+
+
+        return res.json({
+          success: true,
+          message: checkuser,
+          accessToken:accessToken,
+          })
+
+
+        }
+        ///save if no login before
+        const newuser = new User({
+            email: ticket.payload.email,
+            username: ticket.payload.given_name,
+            picture: ticket.payload.picture,
+            })
+
+        await newuser.save()
+          
+
+
+
+    } catch (error) {
+        res.json({success: false,message:error.message})
+    }
+
+ 
+})
+
+
+
 
 module.exports = router
