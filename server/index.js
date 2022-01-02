@@ -15,7 +15,7 @@ const Post = require("./post/post");
 const Comment = require("./post/comment");
 const Upload = require("./upload/upload");
 const Deadline = require("./deadline/deadline");
-const Friend = require("./user/friend");
+const Friend = require("./friend/friend");
 
 
 
