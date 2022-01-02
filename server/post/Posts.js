@@ -15,6 +15,7 @@ const PostSchema = new Schema({
     content: String,
     image: String,
     like: Number,
+    comments: Array,
     createAt:{
         type: Date,
         default: Date.now

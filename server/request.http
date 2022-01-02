@@ -231,7 +231,7 @@ Content-Type: application/json
 
 {
     "userId": "61c2b42177efb03d08b9031f",
-    "block": 2
+    "block": 1
 }
 
 ### edit post
@@ -257,8 +257,8 @@ Content-Type: application/json
 
 {
     "userId": "61c2b42177efb03d08b9031f",
-    "postId": "61c53a4f142cff9120377a3f",
-    "content": "sdkfjahskdfjh"
+    "postId": "61d15dd0620645374ea6b656",
+    "content": "14234"
 }
 
 
@@ -267,7 +267,7 @@ POST http://localhost:3000/api/comment/get
 Content-Type: application/json
 
 {
-    "postId": "61c53a4f142cff9120377a3f"
+    "postId": "61d15dd0620645374ea6b656"
 }
 
 ### edit comment

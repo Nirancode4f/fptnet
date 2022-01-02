@@ -41,7 +41,13 @@ router.post("/getposts", async (req, res) => {
             userId: body.userId
         }).sort({
             createAt: -1
-        }).skip((body.block - 1) * base).limit(base)
+        }).skip((body.block - 1) * base).limit(base);
+        
+        for(let i = 0; i<post.length; i++){
+            post[i]['comments'] = await Comments.find({
+                postId: post[i]._id
+            });
+        }
 
         if(!post){
             return res.status(200).json({ success: false, message: "Not exist this block"});

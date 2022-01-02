@@ -11,7 +11,7 @@ router.post("/create", async (req, res) => {
     try {
         const body = req.body;
         const tmp = new Comments({
-            post: body.postId,
+            postId: body.postId,
             user: body.userId,
             content: body.content,
             image: body.image
@@ -28,7 +28,7 @@ router.post("/get", async (req, res) => {
     try {
         const body = req.body;
         const tmp = await Comments.find({
-            post: body.postId
+            postId: body.postId
         });
         res.status(200).json({success: true, comments: tmp});
     } catch (err) {
