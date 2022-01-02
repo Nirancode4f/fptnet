@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "sfcookies": "^1.0.2",
+    "universal-cookie": "^4.0.4"
+  }
+}

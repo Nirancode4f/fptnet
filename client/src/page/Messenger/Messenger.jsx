@@ -35,6 +35,103 @@ export default function Messenger() {
                          <label htmlFor="OpenFriendList"> 
                              <i className="ShowListIcon fas fa-angle-down"></i>
                           </label>
+
+                         <li className="FriendListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">Thanh Nhân</div>
+                         </li>
+                         <li className="FriendListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">Dương Nguyễn</div>
+                         </li>
+                         <li className="FriendListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">Khang Nguyễn</div>
+                         </li>
+                         <li className="FriendListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">Hoàng Phúc</div>
+                         </li>
+                         <li className="FriendListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">Thanh Nhân</div>
+                         </li>
+                         <li className="FriendListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">Dương Nguyễn</div>
+                         </li>
+                         <li className="FriendListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">Khang Nguyễn</div>
+                         </li>
+                         <li className="FriendListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">Hoàng Phúc</div>
+                         </li>
+                         <li className="FriendListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">Thanh Nhân</div>
+                         </li>
+                         <li className="FriendListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">Dương Nguyễn</div>
+                         </li>
+                         <li className="FriendListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">Khang Nguyễn</div>
+                         </li>
+                         <li className="FriendListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">Hoàng Phúc</div>
+                         </li>
+                         <li className="FriendListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">Thanh Nhân</div>
+                         </li>
+                         <li className="FriendListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">Dương Nguyễn</div>
+                         </li>
+                         <li className="FriendListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">Khang Nguyễn</div>
+                         </li>
+                         <li className="FriendListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">Hoàng Phúc</div>
+                         </li>
+                         <li className="FriendListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">Thanh Nhân</div>
+                         </li>
+                         <li className="FriendListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">Dương Nguyễn</div>
+                         </li>
+                         <li className="FriendListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">Khang Nguyễn</div>
+                         </li>
+                         <li className="FriendListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">Hoàng Phúc</div>
+                         </li>
+                         <li className="FriendListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">Thanh Nhân</div>
+                         </li>
+                         <li className="FriendListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">Dương Nguyễn</div>
+                         </li>
+                         <li className="FriendListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">Khang Nguyễn</div>
+                         </li>
+                         <li className="FriendListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">Hoàng Phúc</div>
+                         </li>
                          <li className="FriendListItem">
                              <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
                              <div className="UserListItemName">Thanh Nhân</div>
@@ -61,6 +158,7 @@ export default function Messenger() {
                          <label htmlFor="OpenTeacherList"> 
                              <i className="ShowListIcon fas fa-angle-down"></i>
                           </label>
+
                          <li className="TeacherListItem">
                              <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
                              <div className="UserListItemName">Thanh Nhân</div>
@@ -69,6 +167,47 @@ export default function Messenger() {
                              <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
                              <div className="UserListItemName">Thanh Nhân</div>
                          </li>
+                         <li className="TeacherListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">Thanh Nhân</div>
+                         </li>
+                         <li className="TeacherListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">Thanh Nhân</div>
+                         </li>
+                         <li className="TeacherListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">Thanh Nhân</div>
+                         </li>
+                         <li className="TeacherListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">Thanh Nhân</div>
+                         </li>
+                         <li className="TeacherListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">Thanh Nhân</div>
+                         </li>
+                         <li className="TeacherListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">Thanh Nhân</div>
+                         </li>
+                         <li className="TeacherListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">Thanh Nhân</div>
+                         </li>
+                         <li className="TeacherListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">Thanh Nhân</div>
+                         </li>
+                         <li className="TeacherListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">Thanh Nhân</div>
+                         </li>
+                         <li className="TeacherListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">Thanh Nhân</div>
+                         </li>
+
 
                      </ul>
 
@@ -79,6 +218,41 @@ export default function Messenger() {
                          <label htmlFor="OpenGroupList"> 
                              <i className="ShowListIcon fas fa-angle-down"></i>
                           </label>
+
+                         <li className="GroupListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">PC17310</div>
+                         </li>
+
+                         <li className="GroupListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">PC17310</div>
+                         </li>
+
+                         <li className="GroupListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">PC17310</div>
+                         </li>
+
+                         <li className="GroupListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">PC17310</div>
+                         </li>
+
+                         <li className="GroupListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">PC17310</div>
+                         </li>
+
+                         <li className="GroupListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">PC17310</div>
+                         </li>
+
+                         <li className="GroupListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">PC17310</div>
+                         </li>
                          <li className="GroupListItem">
                              <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
                              <div className="UserListItemName">PC17310</div>
@@ -113,6 +287,143 @@ export default function Messenger() {
                              <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
                              <div className="UserListItemName">PC17310</div>
                          </li>
+                         <li className="GroupListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">PC17310</div>
+                         </li>
+
+                         <li className="GroupListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">PC17310</div>
+                         </li>
+
+                         <li className="GroupListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">PC17310</div>
+                         </li>
+
+                         <li className="GroupListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">PC17310</div>
+                         </li>
+
+                         <li className="GroupListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">PC17310</div>
+                         </li>
+
+                         <li className="GroupListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">PC17310</div>
+                         </li>
+
+                         <li className="GroupListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">PC17310</div>
+                         </li>
+                         <li className="GroupListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">PC17310</div>
+                         </li>
+
+                         <li className="GroupListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">PC17310</div>
+                         </li>
+
+                         <li className="GroupListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">PC17310</div>
+                         </li>
+
+                         <li className="GroupListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">PC17310</div>
+                         </li>
+
+                         <li className="GroupListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">PC17310</div>
+                         </li>
+
+                         <li className="GroupListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">PC17310</div>
+                         </li>
+
+                         <li className="GroupListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">PC17310</div>
+                         </li>
+                         <li className="GroupListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">PC17310</div>
+                         </li>
+
+                         <li className="GroupListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">PC17310</div>
+                         </li>
+
+                         <li className="GroupListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">PC17310</div>
+                         </li>
+
+                         <li className="GroupListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">PC17310</div>
+                         </li>
+
+                         <li className="GroupListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">PC17310</div>
+                         </li>
+
+                         <li className="GroupListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">PC17310</div>
+                         </li>
+
+                         <li className="GroupListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">PC17310</div>
+                         </li>
+                         <li className="GroupListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">PC17310</div>
+                         </li>
+
+                         <li className="GroupListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">PC17310</div>
+                         </li>
+
+                         <li className="GroupListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">PC17310</div>
+                         </li>
+
+                         <li className="GroupListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">PC17310</div>
+                         </li>
+
+                         <li className="GroupListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">PC17310</div>
+                         </li>
+
+                         <li className="GroupListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">PC17310</div>
+                         </li>
+
+                         <li className="GroupListItem">
+                             <img className="UserListItemAvatar" src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"/>
+                             <div className="UserListItemName">PC17310</div>
+                         </li>
+
                      </ul>
                   
 
