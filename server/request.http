@@ -214,7 +214,7 @@ Content-Type: application/json
 
 {
     "userId": "61c2b42177efb03d08b9031f",
-    "content": "sdkfjahskdfjh"
+    "content": "asdf2342"
 }
 
 ### get post
@@ -222,7 +222,17 @@ POST http://localhost:3000/api/post/get
 Content-Type: application/json
 
 {
-    "postId": "61c53a4f142cff9120377a3f"
+    "postId": "61d15af5546a71f2381b87d7"
+}
+
+### get posts
+POST http://localhost:3000/api/post/getposts
+Content-Type: application/json
+
+{
+    "userId": "61c2b42177efb03d08b9031f",
+    "limit": 2,
+    "skip": 2
 }
 
 ### edit post
