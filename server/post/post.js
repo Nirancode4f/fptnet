@@ -16,7 +16,7 @@ router.post("/create", async (req, res) => {
             image
         } = body);
         await tmp.save();
-        res.status(200).json({success: true, postId: tmp._id});
+        res.status(200).json({ success: true, postId: tmp._id });
     } catch (err) {
         res.status(500).json(err.message);
     }
@@ -25,7 +25,7 @@ router.post("/create", async (req, res) => {
 router.post("/get", async (req, res) => {
     try {
         const post = await Posts.findById(req.body.postId);
-        res.status(200).json({success: true, post: post});
+        res.status(200).json({ success: true, post: post });
     } catch (err) {
         res.status(500).json(err.message);
     }
@@ -33,13 +33,16 @@ router.post("/get", async (req, res) => {
 
 router.post("/getposts", async (req, res) => {
     try {
+        //number of posts per block
+        const base = 10
+
         body = await req.body
         const post = await Posts.find({
             userId: body.userId
         }).sort({
             createAt: -1
-        }).skip(body.skip).limit(body.limit)
-        res.status(200).json({success: true, post: post});
+        }).skip((body.block - 1) * base).limit(base)
+        res.status(200).json({ success: true, post: post });
     } catch (err) {
         res.status(500).json(err.message);
     }
@@ -55,7 +58,7 @@ router.post("/update", async (req, res) => {
             }
         });
 
-        res.status(200).json({success: true});
+        res.status(200).json({ success: true });
     } catch (err) {
         res.status(500).json(err.message);
     }
@@ -71,7 +74,7 @@ router.post("/delete", async (req, res) => {
 
         await Posts.findByIdAndRemove(req.body.postId);
 
-        res.status(200).json({success: true});
+        res.status(200).json({ success: true });
     } catch (err) {
         res.status(500).json(err.message);
     }
