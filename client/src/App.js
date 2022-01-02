@@ -5,7 +5,6 @@ import Login from "./page/LoginPage/Login"
 import Main from "./page/MainPage/Main"
 
 
-
 import {BrowserRouter,Routes,Route } from "react-router-dom"
 
 import Messages from './page/Message/Message';
@@ -20,6 +19,7 @@ function App() {
   <Route   path="/" element={ <Main/> }></Route>
   <Route  path="/register" element={ <Register/> }></Route>
   <Route  path="/*" element={ <NotFound/> }></Route>
+  <Route  path="/e" element={ <Messages/> }></Route>
   </Routes>
   </BrowserRouter>
   );
