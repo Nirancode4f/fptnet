@@ -27,6 +27,7 @@ const Login = () => {
     const checkpost = (<h1>{info}</h1>)
     ReactDOM.render(checkpost, document.getElementById("infor"))                     
     // eslint-disable-next-line react-hooks/exhaustive-deps
+    
     }, [info] );
 
     useEffect(()=>{ 
@@ -41,7 +42,7 @@ const Login = () => {
         evt.preventDefault()
         try {
 
-            axios.post(`https://fptnetwork.elemarkuspet.repl.co/api/auth/login`, {
+            axios.post(`https://fanserverapi.herokuapp.com/api/auth/login`, {
                 email: email,
                 password: password
             }, {
@@ -53,7 +54,7 @@ const Login = () => {
             ).then(async (res) => {
 
 
-                if (res.data.message !== "successfully") {
+                if (res.data.message !== "successful") {
                 setinfo(res.data.message)
                   
                 } else {

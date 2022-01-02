@@ -38,11 +38,13 @@ const Register = () => {
 
     if (validator.isEmail(email))
 
-      { console.log(checkemail)
+      { 
         axios.post('https://fptnetwork.elemarkuspet.repl.co/api/auth/register', {
+          
         email: email,
         username: name,
         password: password
+
       }, {
         headers: {
           "Content-Type": "application/json"

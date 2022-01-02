@@ -47,7 +47,7 @@ const Main = ()=>{
           {
               LoginData ? (
 
-              <><MainLayout /></>
+              <div className='tet'><MainLayout /></div>
                 
                 ) || <div>loading...</div> : (<><Link to={"/login"}>you need login</Link></>)     
           }
