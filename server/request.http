@@ -17,6 +17,14 @@ Content-Type: application/json
     "password": "1234"
 }
 
+### get list friends
+POST  http://localhost:3000/api/friend/get
+Content-Type: application/json
+
+{
+    "userId": "61c271b52b0f4301b735a33d"
+}
+
 ### send friend request
 POST  http://localhost:3000/api/friend/sendreq
 Content-Type: application/json
@@ -214,7 +222,7 @@ Content-Type: application/json
 
 {
     "userId": "61c2b42177efb03d08b9031f",
-    "content": "sdkfjahskdfjh"
+    "content": "asdf2342"
 }
 
 ### get post
@@ -222,7 +230,16 @@ POST http://localhost:3000/api/post/get
 Content-Type: application/json
 
 {
-    "postId": "61c53a4f142cff9120377a3f"
+    "postId": "61d15af5546a71f2381b87d7"
+}
+
+### get posts
+POST http://localhost:3000/api/post/getposts
+Content-Type: application/json
+
+{
+    "userId": "61c2b42177efb03d08b9031f",
+    "block": 1
 }
 
 ### edit post
@@ -248,8 +265,8 @@ Content-Type: application/json
 
 {
     "userId": "61c2b42177efb03d08b9031f",
-    "postId": "61c53a4f142cff9120377a3f",
-    "content": "sdkfjahskdfjh"
+    "postId": "61d15dd0620645374ea6b656",
+    "content": "14234"
 }
 
 
@@ -258,7 +275,7 @@ POST http://localhost:3000/api/comment/get
 Content-Type: application/json
 
 {
-    "postId": "61c53a4f142cff9120377a3f"
+    "postId": "61d15dd0620645374ea6b656"
 }
 
 ### edit comment
