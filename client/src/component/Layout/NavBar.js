@@ -15,7 +15,7 @@ function NavBar(){
         <Link to="/"><i className="far fa-newspaper"></i></Link>
         </div> 
         <div className="nav__chat">
-        <Link to="/"><i className="far fa-comments"></i></Link>
+        <Link to="/messenger"><i className="far fa-comments"></i></Link>
         </div> 
         <div className="nav__deadline">
         <Link to="/"><i className="fas fa-stopwatch"></i></Link>
