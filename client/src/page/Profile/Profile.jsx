@@ -1,14 +1,15 @@
+/* eslint-disable no-unused-expressions */
 import React from "react";
 import { Link } from "react-router-dom";
 import MainLayout from "../../component/MainPage/MainLayout";
-import Main from "../MainPage/Main";
 import "./assets/css/profile.css"
 
+
 export const Profile = (props) => {
-    let pic = ["https://scontent-hkg4-1.xx.fbcdn.net/v/t1.6435-9/p640x640/169558876_461608558624947_7989106910204828260_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=e3f864&_nc_ohc=7uJzDYxYx8wAX8Oai3i&_nc_ht=scontent-hkg4-1.xx&oh=00_AT8XiTzIxZ8CBdI5Dj0ZVG670Yyb8Tb3RbNC8e_43t1Vnw&oe=61F6E6A7",
-"https://scontent.fsgn5-5.fna.fbcdn.net/v/t1.6435-9/123680529_366779948107809_3833788371458403915_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=EAZXof-y-3sAX88pwKd&_nc_ht=scontent.fsgn5-5.fna&oh=00_AT-7oEpZNIKX93y3MROmo_nqtXxNWzkQ_1-84lufC4YkVg&oe=61F6ABA7",
-"https://scontent.fsgn5-8.fna.fbcdn.net/v/t39.30808-6/270276402_5377010122316114_3764649116780221119_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=0debeb&_nc_ohc=AwTQBsaXfDgAX_QBTgj&tn=QIas7-8YdBzRgFKt&_nc_ht=scontent.fsgn5-8.fna&oh=00_AT-tFupX7nKlEZUQTww7V_gjyHeQfuSfnkgac3VmEmdj2g&oe=61D6A43F",
-""]
+    
+    const pic = JSON.parse(localStorage.getItem("loginData"));
+    const error = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ANo_Pic.jpg&psig=AOvVaw2a0PQmSI-S2A6Ojkdz_-kB&ust=1641300825193000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCPjO55bQlfUCFQAAAAAdAAAAABAJ"
+
    
     return (
         <div>
@@ -25,7 +26,7 @@ export const Profile = (props) => {
 
                     <div className="Profile_info_and_img">
                         <div className="Profile_user_img">
-                            <img className="Profile_user_avatar" src={pic[1]} alt="avatar" />
+                            <img className="Profile_user_avatar" src={ pic.picture || error } alt="avatar" />
                         </div>
 
 
@@ -52,34 +53,16 @@ export const Profile = (props) => {
                     <div className="Tag_action">
                         <div className="Tag_action_write Row">
                             <div className="Col C-4">
-                                <img className="Tag_action_post" src={pic[2]} alt="#" />
+                                <img className="Tag_action_post" src={pic.picture || error} alt="#" />
                             </div>
                             <div className="Col C-4">
-                                <img className="Tag_action_post" src={pic[0]} alt="#" />
+                                <img className="Tag_action_post" src={pic.picture || error} alt="#" />
                             </div>
                             <div className="Col C-4">
-                                <img className="Tag_action_post" src={pic[0]} alt="#" />
+                                <img className="Tag_action_post" src={pic.picture || error} alt="#" />
                             </div>
 
-                            <div className="Col C-4">
-                                <img className="Tag_action_post" src={pic[0]} alt="#" />
-                            </div>
-                            <div className="Col C-4">
-                                <img className="Tag_action_post" src={pic[0]} alt="#" />
-                            </div>
-                            <div className="Col C-4">
-                                <img className="Tag_action_post" src={pic[0]} alt="#" />
-                            </div>
-
-                            <div className="Col C-4">
-                                <img className="Tag_action_post" src={pic[0]} alt="" />
-                            </div>
-                            <div className="Col C-4">
-                                <img className="Tag_action_post" src={pic[0]} alt="" />
-                            </div>
-                            <div className="Col C-4">
-                                <img className="Tag_action_post" src={pic[0]} alt="" />
-                            </div>
+                            
                         </div>
                     </div>
 
