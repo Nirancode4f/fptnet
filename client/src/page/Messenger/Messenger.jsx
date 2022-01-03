@@ -1,6 +1,5 @@
 import axios from "axios";
-import React from "react";
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import MainLayout from "../../component/MainPage/MainLayout";
 import ChatBoxContainer from "./childComponents/ChatBoxComps/ChatBoxContainer";
 import ContactSideBar from "./childComponents/ContactSideBar";
@@ -8,7 +7,10 @@ import ContactSideBar from "./childComponents/ContactSideBar";
 import "./Messenger.css";
 
 export default function Messenger() {
-  useEffect(() => {}, []);
+  const [listFriends, setListFriends] = useState([]);
+  const [listTeachers, setListTeachers] = useState([]);
+  const [listGroups, setListGroups] = useState([]);
+
   return (
     <>
       <MainLayout />
