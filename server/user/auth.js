@@ -24,7 +24,7 @@ router.post("/register", async(req, res) => {
     const {email, username, password } = req.body
 
     if (!email || !username || !password) {
-        return res.status(400).json({ success: false, message: "Missing email or username or password" })
+        return res.status(200).json({ success: false, message: "Missing email or username or password" })
 
     }
 
@@ -32,7 +32,7 @@ router.post("/register", async(req, res) => {
 
         const emailcheck = await User.findOne({ email })
         if(emailcheck){
-            return res.status(400).json({success: false, message:"email already taken"})
+            return res.status(200).json({success: false, message:"email already taken"})
         }
 
 
