@@ -4,31 +4,33 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
-    email:{
+    email: {
         type: String,
         required: true,
         unique: true
     },
-    username: { 
+    username: {
         type: String,
         required: true,
         unique: false
     },
     password: {
         type: String,
-        required: true,
-        unique: false
+        required: true
     },
-    picture: Array,
-    conversations: Array,
-    groupconversations: Array,
-    friendlist: Object,
-    major: String,
-    clubs: Array,
+    picture: String,
+    conversations: [String],
+    groupconversations: [String],
+    friendlist: {
+        Friends: [String],
+        FriendRequests: [String],
+        SentRequests: [String]
+    },
+    clubs: [String],
     createAt: {
-        type:Date,
+        type: Date,
         default: Date.now
     }
 
 });
-module.exports = mongoose.model("user",UserSchema);
+module.exports = mongoose.model("user", UserSchema);
