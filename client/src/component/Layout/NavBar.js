@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-no-undef */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
+
 import { Link } from "react-router-dom";
 import logo from "./assets/logo.jpg" 
 function NavBar(){
@@ -25,7 +26,6 @@ function NavBar(){
 
     </div>
     )
-    
 }
 
-export default NavBar
+export default NavBar;

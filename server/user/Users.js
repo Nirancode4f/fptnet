@@ -27,6 +27,7 @@ const UserSchema = new Schema({
         SentRequests: [String]
     },
     clubs: [String],
+    major: String,
     createAt: {
         type: Date,
         default: Date.now
