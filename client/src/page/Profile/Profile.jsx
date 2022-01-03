@@ -18,7 +18,7 @@ export const Profile = (props) => {
             {/* profile demo  */}
             <div className="Profile">
                 <div className="Profile_header">
-                    <i className="fas fa-caret-left"></i>
+               
                     Trang cá nhân
                 </div>
 
@@ -31,14 +31,15 @@ export const Profile = (props) => {
 
 
                         <div className="Profile_user_info">
-                            <div className="Profile_user_info_name">Nguyễn Hoàng Khang</div>
-                            <div className="Profile_user_info_student_number">CE171197</div>
+                            <div className="Profile_user_info_name_and_code">
+
+                            <div className="Profile_user_info_name">Nguyễn Hoàng Khang   
+                            <div className="Profile_user_info_student_number">CE171197</div> </div>
+                            </div>
+
                             <div className="Profile_user_info_description">"Future won't happen if you don't create it"</div>
                             <button className="Add_friend_btn">Add friend</button>
-                            <div className="Profile_account">
-                                <div className="Profile_account_friend">768 Bạn</div>
-                                <div className="Profile_account_post">9 bài viết</div>
-                            </div>
+                          
                         </div>
                     </div>
                     <div className="Profile_user_action">
@@ -48,6 +49,9 @@ export const Profile = (props) => {
                         <div className="Profile_user_action_achievement">
                             <Link className="Profile_user_action_achievement_tag" to="/">Thành Tích</Link>
                         </div>
+                        
+                                <a href="#" className="Profile_account_friend">768 Bạn</a>
+                            
                     </div>
 
                     <div className="Tag_action">

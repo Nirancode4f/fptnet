@@ -106,15 +106,6 @@ line-height: 18px;
     opacity: 0.8;
 }
 /* ////////menu user /////// */
-.header__member-user img{
-    width: 40px;
-    height: 40px;
-    margin-left: 25px;
-    border-radius: 20px;
-    position: relative;
-    z-index: 1000;
-
-}
 .header__member-user-avt{
     width: 40px;
     height: 40px;
@@ -124,6 +115,7 @@ line-height: 18px;
     z-index: 1000;
 
 }
+
 .header__member-user:hover .user-menu  {
 display: flex;
 }
@@ -158,8 +150,8 @@ border-bottom: 1px solid #888888;
 }
 .user-in-menu-img{
     margin: 0;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
 
     border-radius: 20px;
 }
@@ -194,12 +186,6 @@ margin-top: 20px;
 
 /* ////////////////////////// */
 
-.header__member-user img{
-    width: 40px;
-    height: 40px;
-    margin-left: 25px;
-border-radius: 20px;;
-}
 .header__member-user img:hover{
     background-color: white;
 }
