@@ -7,15 +7,25 @@ const Schema = mongoose.Schema ;
 
 const PostSchema = new Schema({
         
-    user:{
+    userId:{
         type: String,
         required:true,
-        ref: "user"
+        ref: "userId"
     },
-    content: String,
-    image: String,
-    like: Number,
-    creatAt:{
+    content: {
+        type: String,
+        default: ""
+    },
+    image: {
+        type: String,
+        default: ""
+    },
+    like: {
+        type: Number,
+        default: 0
+    },
+    comments: Array,
+    createAt:{
         type: Date,
         default: Date.now
     }

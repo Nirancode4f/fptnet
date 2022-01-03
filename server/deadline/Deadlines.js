@@ -20,8 +20,14 @@ var Deadline = new Schema({
         type: Boolean,
         default: false
     },
-    teacher: String,
-    note: String,
+    teacher: {
+        type: String,
+        default: ""
+    },
+    note: {
+        type: String,
+        default: ""
+    },
     creatAt:{
         type: Date,
         default: Date.now

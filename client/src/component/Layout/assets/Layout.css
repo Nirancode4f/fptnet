@@ -16,6 +16,7 @@ html{
     --nav-width: 86px;
 }
 
+
 #main{
   
 }
@@ -104,9 +105,75 @@ line-height: 18px;
 .header__member-notification i:hover {
     opacity: 0.8;
 }
+<<<<<<< HEAD
 .header__member-user {
     
 }
+=======
+/* ////////menu user /////// */
+.header__member-user img{
+    width: 40px;
+    height: 40px;
+    margin-left: 25px;
+    border-radius: 20px;
+    position: relative;
+    z-index: 1000;
+
+}
+.header__member-user:hover .user-menu  {
+display: flex;
+}
+.user-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    color: var(--bg-color);
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 2px #888888;
+    padding: 0 20px 20px 10px;
+    display: none;
+}
+.user-menu::after {
+    content: "";
+    position: absolute;
+    top: -25px;
+    left: 0;
+    width: 150px;
+    height: 40px;
+}
+.link-to-user-profile{
+margin-top: 20px;
+margin-left: 5px;
+}
+
+.link-to-user-setting{
+    margin-top: 20px;
+    margin-left: 5px;
+}
+
+
+.logout-btn {
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    background-color: var(--bg-color);
+    font-size: 16px;
+    border-radius: 6px;
+    margin-top: 20px;
+}
+.link-to-user-profile:hover ,
+.link-to-user-setting:hover,
+.logout-btn:hover{
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+/* ////////////////////////// */
+
+>>>>>>> c211efc1d210a42cbfec3d6c09e3100a88e6e394
 .header__member-user img{
     width: 40px;
     height: 40px;
@@ -265,7 +332,7 @@ line-height: 48px;
 
 }
 
-.nav__source{
+.nav__profile{
     width: 100%;
     height: 48px;
 font-size: 24px;
@@ -281,7 +348,7 @@ line-height: 48px;
  .nav__news a ,
  .nav__chat a ,
  .nav__deadline a ,
- .nav__source a {
+ .nav__profile a {
      color: var(--text-color);
      display: block;
      width: 100%;
@@ -292,7 +359,7 @@ line-height: 48px;
  .nav__news:hover a ,
  .nav__chat:hover a,
  .nav__deadline:hover a,
- .nav__source:hover a
+ .nav__profile:hover a
  {
     cursor: pointer;
     background-color: #fff;

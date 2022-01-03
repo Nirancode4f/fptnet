@@ -3,22 +3,71 @@ POST  http://localhost:3000/api/auth/register
 Content-Type: application/json
 
 {
-"email":"nhafdgn@gmail.com",
-"username": "nhdfgdfgan",
-"password": "1234"
+    "email":"abcd@gmail.com",
+    "username": "vv",
+    "password": "1234"
 }
-
-
-
-
 
 ###login !!! done
 POST  http://localhost:3000/api/auth/login
 Content-Type: application/json
 
 {
-    "email":"nhan@gmail.com",
-    "password": "12345"
+    "email":"abcd@gmail.com",
+    "password": "1234"
+}
+
+### get list friends
+POST  http://localhost:3000/api/friend/get
+Content-Type: application/json
+
+{
+    "userId": "61c2b42177efb03d08b9031f"
+}
+
+### send friend request
+POST  http://localhost:3000/api/friend/sendreq
+Content-Type: application/json
+
+{
+    "userId": "61c275d7cb85f50e673d6a0f",
+    "friendId": "61d2abff31f2e37e2e942e15"
+}
+
+### unsend friend request
+POST  http://localhost:3000/api/friend/unsend
+Content-Type: application/json
+
+{
+    "userId": "61c271b52b0f4301b735a33d",
+    "friendId": "61c275d7cb85f50e673d6a0f"
+}
+
+### accept a friend request
+POST  http://localhost:3000/api/friend/accept
+Content-Type: application/json
+
+{
+    "userId": "61c2b42177efb03d08b9031f",
+    "friendId": "61d0098d2c0a49e2caab8cd4"
+}
+
+### decline a friend request
+POST  http://localhost:3000/api/friend/decline
+Content-Type: application/json
+
+{
+    "userId": "61c275d7cb85f50e673d6a0f",
+    "friendId": "61c271b52b0f4301b735a33d"
+}
+
+### unfriend
+POST  http://localhost:3000/api/friend/unfriend
+Content-Type: application/json
+
+{
+    "userId": "61c275d7cb85f50e673d6a0f",
+    "friendId": "61c271b52b0f4301b735a33d"
 }
 
 ### send two userId and return conversationId, create new one if not exist
@@ -97,7 +146,7 @@ POST http://localhost:3000/api/group/conversation/addusers
 Content-Type: application/json
 
 {
-    "conversationId": "61c6b13204fb37f7a24daa78",
+    "conversationId": "61d1e596c05ab32b31f874ec",
     "members": ["61c2b42177efb03d08b9031f", "61c295ecd139be1761984a2a"]
 }
 
@@ -173,7 +222,7 @@ Content-Type: application/json
 
 {
     "userId": "61c2b42177efb03d08b9031f",
-    "content": "sdkfjahskdfjh"
+    "content": "asdf2342"
 }
 
 ### get post
@@ -181,7 +230,16 @@ POST http://localhost:3000/api/post/get
 Content-Type: application/json
 
 {
-    "postId": "61c53a4f142cff9120377a3f"
+    "postId": "61d15af5546a71f2381b87d7"
+}
+
+### get posts
+POST http://localhost:3000/api/post/getposts
+Content-Type: application/json
+
+{
+    "userId": "61c2b42177efb03d08b9031f",
+    "block": 1
 }
 
 ### edit post
@@ -207,8 +265,8 @@ Content-Type: application/json
 
 {
     "userId": "61c2b42177efb03d08b9031f",
-    "postId": "61c53a4f142cff9120377a3f",
-    "content": "sdkfjahskdfjh"
+    "postId": "61d15dd0620645374ea6b656",
+    "content": "14234"
 }
 
 
@@ -217,7 +275,7 @@ POST http://localhost:3000/api/comment/get
 Content-Type: application/json
 
 {
-    "postId": "61c53a4f142cff9120377a3f"
+    "postId": "61d15dd0620645374ea6b656"
 }
 
 ### edit comment

@@ -1,34 +1,26 @@
-import React from 'react';
-import MainLayout from '../../component/MainPage/MainLayout';
+import axios from "axios";
+import React, { useState, useEffect } from "react";
+import MainLayout from "../../component/MainPage/MainLayout";
+import ChatBoxContainer from "./childComponents/ChatBoxComps/ChatBoxContainer";
+import ContactSideBar from "./childComponents/ContactSideBar";
 
-import './Messenger.css'
+import "./Messenger.css";
 
 export default function Messenger() {
+  const [listFriends, setListFriends] = useState([]);
+  const [listTeachers, setListTeachers] = useState([]);
+  const [listGroups, setListGroups] = useState([]);
+
   return (
-  
-      
-      <>
-     <MainLayout/>
-         <div className="Messenger">
-             <div className="MessengerContainer">
-                   {/* friend list */}
-             <div className="FriendHeader">
-                        <div className="FriendHeaderSearch">
-                        <input type="text" className="Friend_HearchLabel" placeholder="Tìm kiếm bạn bè"/>
-                        <i className="fas fa-search"></i>
-                    </div>
-                    
-                   
-                         <button className="Friend_Header_Setting">
-                            <i className="fas fa-cogs"></i>
-                         </button>
-                    </div>
+    <>
+      <MainLayout />
+      <div className="Messenger">
+        <div className="MessengerContainer">
+          {/* friend list */}
 
-                    <div className="Friends">
-                     
-                        
-                     <ul className="FriendList">
+          <ContactSideBar />
 
+<<<<<<< HEAD
                          <i className="fab fa-battle-net"></i>
                          Friend
                          <input type="checkbox" hidden id="OpenFriendList" className="ShowFriendListBtn"/>
@@ -649,4 +641,13 @@ export default function Messenger() {
       </>
 
   )
+=======
+          {/* chatbox */}
+
+          <ChatBoxContainer />
+        </div>
+      </div>
+    </>
+  );
+>>>>>>> c211efc1d210a42cbfec3d6c09e3100a88e6e394
 }

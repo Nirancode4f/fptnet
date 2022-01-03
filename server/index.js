@@ -15,6 +15,7 @@ const Post = require("./post/post");
 const Comment = require("./post/comment");
 const Upload = require("./upload/upload");
 const Deadline = require("./deadline/deadline");
+const Friend = require("./user/friend");
 
 
 
@@ -60,6 +61,7 @@ app.use("/api/post/", Post);
 app.use("/api/comment/", Comment);
 app.use("/api/upload", Upload);
 app.use("/api/deadline/", Deadline);
+app.use("/api/friend/", Friend);
 app.use("/api/image/", require("./upload/getimage"));
 
 
