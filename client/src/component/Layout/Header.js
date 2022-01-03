@@ -12,12 +12,12 @@ function Header(props) {
   // eslint-disable-next-line no-unused-vars
   const handleLogout = () => {
     delete_cookie("accessToken");
-
     ///remove login data in local storage
     localStorage.removeItem("loginData");
     localStorage.removeItem("FAN_user_info");
     navigate("/login");
   };
+
 
   return (
     <div className="header">

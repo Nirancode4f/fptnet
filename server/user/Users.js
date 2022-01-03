@@ -19,9 +19,10 @@ const UserSchema = new Schema({
         required: true,
         unique: false
     },
+    picture: Array,
     conversations: Array,
     groupconversations: Array,
-    friends: String,
+    friendlist: Object,
     major: String,
     clubs: Array,
     createAt: {

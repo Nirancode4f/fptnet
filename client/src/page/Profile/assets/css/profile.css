@@ -1,0 +1,138 @@
+
+
+
+.Content {
+    position: absolute;
+    right:0;
+    left: var(--nav-width);
+    top: var(--header-height);
+    max-width: calc(100% - var(--nav-width));
+    min-height: 100%;
+    
+}
+
+.Profile {
+    margin: 0 auto;
+    max-width: 976px;
+    background-color: #fafafa;
+}
+.Profile_header{
+    font-size: 18px;
+    padding: 20px 0 5px 0    ;
+    font-weight: 600;
+    border-bottom: 1px solid var(--bg-color);
+}
+.Profile_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.Profile_info_and_img {
+    display: flex;
+    margin-top: 20px;
+    
+}
+.Profile_user_img {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Profile_user_avatar {
+    width: 150px;
+    margin: auto 0;
+    border-radius: 50%;
+    border:1px solid var(--bg-color);
+    
+
+}
+.Profile_user_info {
+margin-left: 20px;
+}
+
+.Profile_user_info_name{
+    margin-top: 20px;
+    font-size: 28px;
+    font-weight: 600;
+}
+.Profile_user_info_student_number {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 500;
+}
+.Profile_user_info_description {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 500;
+}
+.Profile_account {
+    margin-top:20px ;
+    width: 100%;
+    display: flex;
+    font-size: 22px;
+    font-weight: 600;
+    font-weight: 500;
+}
+.Profile_account_friend {
+    margin-right: 32px;
+}
+.Profile_user_action {
+    border-top: 1px solid #666;
+    width: 100%;
+    padding-top: 20px ;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.Add_friend_btn {
+    outline: none;
+    padding: 10px 20px;
+    border: none;
+    color: #fff;
+    background-color: var(--bg-color);
+    font-weight: 600;
+    margin-top: 10px;
+    border-radius: 4px;
+}
+.Profile_user_action_write {
+    
+}
+.Profile_user_action_write_tag , .Profile_user_action_achievement_tag {
+    text-decoration: none;
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+    width: 200px;
+    color: #333;
+    margin: 0 80px;
+    text-align: center;
+}
+
+.Active_tag {
+    border-bottom: 1px solid var(--bg-color);
+}
+
+.Row{
+    width: 100%;
+    margin: 0 -10px ;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.Col {
+   padding: 0 10px;
+}
+
+.C-4 {
+    flex: 0 0 33.33333%;
+    max-width: 33.33333%;
+    margin: auto 0;
+}
+.Tag_action_post {
+    margin-top: 12px;
+    width: 100%;
+   object-position: center;
+
+}
