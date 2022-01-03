@@ -9,7 +9,8 @@ const PostSchema = new Schema({
         
     userId:{
         type: String,
-        required:true,
+        index: true,
+        required: true,
         ref: "userId"
     },
     content: {
@@ -25,7 +26,7 @@ const PostSchema = new Schema({
         default: 0
     },
     comments: Array,
-    createAt:{
+    createAt: {
         type: Date,
         default: Date.now
     }

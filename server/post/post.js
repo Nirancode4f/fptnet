@@ -11,7 +11,7 @@ router.post("/create", async (req, res) => {
     try {
         const body = req.body;
         const tmp = new Posts({
-            user,
+            userId,
             content,
             image
         } = body);

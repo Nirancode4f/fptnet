@@ -4,6 +4,7 @@ const MessageSchema = new mongoose.Schema(
   {
     conversationId: {
       type: String,
+      index: true,
       require: true
     },
     userId: {
