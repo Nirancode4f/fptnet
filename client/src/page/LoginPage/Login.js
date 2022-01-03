@@ -60,8 +60,8 @@ const Login = () => {
           }
         )
         .then(async (res) => {
-          if (res.data.message !== "successful") {
-            setinfo(res.data.message);
+          if (res.data.success === false) {
+            setinfo("wrong email or password");
           } else {
             bake_cookie("accessToken", res.data.accessToken);
             localStorage.setItem("loginData", JSON.stringify(res.data.user));
