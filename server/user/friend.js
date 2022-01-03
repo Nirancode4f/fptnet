@@ -1,22 +1,6 @@
 const router = require("express").Router();
 const Users = require("../user/Users");
 
-router.post("/", async (req, res) => {
-    try {
-        body = await req.body
-        user = await Users.find()
-        for (var i = 0; i < user.length; i++) {
-            tmp = await Users.findById(user[i]._id)
-            await tmp.save()
-        }
-
-        return res.status(200).json({ success: true, user })
-
-    } catch (err) {
-        res.status(500).json(err.message);
-    }
-})
-
 router.post("/get", async (req, res) => {
     try {
         body = await req.body
@@ -24,7 +8,8 @@ router.post("/get", async (req, res) => {
 
         friends = []
         for (var i = 0; i < user.friendlist.Friends.length; i++) {
-            friends.push(await Users.findById(user.friendlist.Friends[i]))
+            let unwrap = ({_id, email, username, clubs, major, picture}) => ({_id, email, username, clubs, major, picture});
+            friends.push(unwrap(await Users.findById(user.friendlist.Friends[i])))
         }
 
         return res.status(200).json({ success: true, friends })
