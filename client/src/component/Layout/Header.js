@@ -47,10 +47,11 @@ function Header(props) {
           </a>
         </div>
         <div className="header__member-user">
-          <a href="#">
-            <img src={pic.picture ? pic.picture : avata} alt="" />
-          </a>
-          <div className="user-menu"> 
+                    <a href="#">
+                        <img className="header__member-user-avt" src={pic ? pic.picture : avata} alt="" />
+                    </a>
+                        <div className="user-menu"> 
+                        <div className="avatar-user-in-menu"> <img className="user-in-menu-img" src=""/> </div>
                             <div className="link-to-user-profile">Trang Cá Nhân</div> 
                             <div className="link-to-user-setting">Cài Đặt</div> 
                             <div className="log-out-btn"> 
@@ -58,8 +59,12 @@ function Header(props) {
                           
                            </div> 
                           
-                         </div>
-        </div>
+                         </div> 
+
+                </div>
+
+
+
       </div>
     </div>
   );
