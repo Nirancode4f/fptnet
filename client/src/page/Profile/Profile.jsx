@@ -50,7 +50,7 @@ export const Profile = (props) => {
                             <Link className="Profile_user_action_achievement_tag" to="/">Thành Tích</Link>
                         </div>
                         
-                                <a href="#" className="Profile_account_friend">768 Bạn</a>
+                                <Link href="#" className="Profile_account_friend">768 Bạn</Link>
                             
                     </div>
 
