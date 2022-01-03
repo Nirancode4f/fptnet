@@ -9,6 +9,7 @@ import {BrowserRouter,Routes,Route } from "react-router-dom"
 
 import Messages from './page/Message/Message';
 import { NotFound } from './page/NotFound/NotFound';
+import { Profile } from './page/Profile/Profile';
 
 function App() {
 
@@ -19,7 +20,7 @@ function App() {
   <Route   path="/" element={ <Main/> }></Route>
   <Route  path="/register" element={ <Register/> }></Route>
   <Route  path="/*" element={ <NotFound/> }></Route>
-  <Route  path="/e" element={ <Messages/> }></Route>
+  <Route  path="/profile" element={ <Profile/> }></Route>
   </Routes>
   </BrowserRouter>
   );
