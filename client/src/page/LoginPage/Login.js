@@ -60,7 +60,7 @@ const Login = () => {
           }
         )
         .then(async (res) => {
-          if (res.data.message !== "successfully") {
+          if (res.data.message !== "successful") {
             setinfo(res.data.message);
           } else {
             bake_cookie("accessToken", res.data.accessToken);

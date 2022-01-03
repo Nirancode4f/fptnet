@@ -8,7 +8,7 @@ import "./assets/css/profile.css"
 export const Profile = (props) => {
     
     const pic = JSON.parse(localStorage.getItem("loginData"));
-    const error = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ANo_Pic.jpg&psig=AOvVaw2a0PQmSI-S2A6Ojkdz_-kB&ust=1641300825193000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCPjO55bQlfUCFQAAAAAdAAAAABAJ"
+    const error = "https://upload.wikimedia.org/wikipedia/commons/c/c7/No_Pic.jpg"
 
    
     return (

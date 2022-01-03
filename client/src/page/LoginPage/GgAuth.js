@@ -7,7 +7,7 @@ import axios from 'axios';
 // eslint-disable-next-line no-unused-vars
 import Cookies from 'universal-cookie';
 import { bake_cookie, read_cookie, delete_cookie } from 'sfcookies';
-
+const URL_MAIN = process.env.REACT_APP_URL_MAIN || "https://fanserverapi.herokuapp.com"
 function GgAuth() {
 
   // eslint-disable-next-line no-undef
@@ -26,7 +26,7 @@ function GgAuth() {
   const hangdleLogin = async (googleData) => {
 
     try {
-      axios.post("https://fptnetwork.elemarkuspet.repl.co/api/auth/gg-login", {
+      axios.post(`${URL_MAIN}/api/auth/gg-login`, {
         token: googleData.tokenId
       }, {
         headers: {
@@ -39,9 +39,9 @@ function GgAuth() {
         setLoginData(res.data.message)
         localStorage.setItem("loginData", JSON.stringify({
 
-          email: res.data.message.email,
-          name: res.data.message.name,
-          picture: res.data.message.picture
+          email: res.data.user.email,
+          name: res.data.user.name,
+          picture: res.data.user.picture
           
         }))
         bake_cookie(
