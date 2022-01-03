@@ -25,7 +25,6 @@ const Register = () => {
     event.preventDefault();
 
     if (validator.isEmail(email)) {
-      console.log(email);
       axios
         .post(
           "https://fptnetwork.elemarkuspet.repl.co/api/auth/register",

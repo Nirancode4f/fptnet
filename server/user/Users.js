@@ -5,31 +5,25 @@ const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
     email:{
-        type:String,
-        required:true,
-        unique:true
+        type: String,
+        required: true,
+        unique: true
     },
     username: { 
         type: String,
-        required:true,
-        unique:false
+        required: true,
+        unique: false
     },
     password: {
-        type:String,
-        required:true,
-        unique:false
+        type: String,
+        required: true,
+        unique: false
     },
-    
-    Friends: Array,
-    FriendRequests: Array,
-
-    //Request already sent
-    SentRequests: Array,
-
     conversations: Array,
     groupconversations: Array,
-    clbs: Array,
+    friends: String,
     major: String,
+    clubs: Array,
     createAt: {
         type:Date,
         default: Date.now

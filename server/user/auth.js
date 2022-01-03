@@ -1,5 +1,4 @@
 
-
 require("dotenv").config()
 var express = require('express');
 
@@ -7,6 +6,7 @@ var router = express.Router();
 
 const bcrypt = require('bcrypt');
 const User = require("./Users")
+const Friends = require("../friend/Friends")
 const jwt = require("jsonwebtoken");
 
 const saltRounds = 10
@@ -44,6 +44,11 @@ router.post("/register", async(req, res) => {
 
         const newUser = await new User({email, username ,password: hash})
 
+        //friend
+        const friend = await new Friends({userId: newUser._id})
+        await friend.save()
+
+        newUser.friends = friend._id
         await newUser.save()
   
         
