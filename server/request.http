@@ -4,11 +4,7 @@ Content-Type: application/json
 
 {
     "email":"abcd@gmail.com",
-<<<<<<< HEAD
     "username": "vv",
-=======
-    "username": "asdddd",
->>>>>>> 9e3c41fcadb33c91c92725515a02c911c723e481
     "password": "1234"
 }
 
@@ -26,7 +22,7 @@ POST  http://localhost:3000/api/friend/get
 Content-Type: application/json
 
 {
-    "userId": "61c271b52b0f4301b735a33d"
+    "userId": "61c2b42177efb03d08b9031f"
 }
 
 ### send friend request
@@ -34,13 +30,8 @@ POST  http://localhost:3000/api/friend/sendreq
 Content-Type: application/json
 
 {
-<<<<<<< HEAD
     "userId": "61c275d7cb85f50e673d6a0f",
     "friendId": "61d2abff31f2e37e2e942e15"
-=======
-    "userId": "61c271b52b0f4301b735a33d",
-    "friendId": "61c275d7cb85f50e673d6a0f"
->>>>>>> 9e3c41fcadb33c91c92725515a02c911c723e481
 }
 
 ### unsend friend request

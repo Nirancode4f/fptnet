@@ -18,7 +18,10 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-    picture: String,
+    picture: {
+        type: String,
+        default: ""
+    },
     conversations: [String],
     groupconversations: [String],
     friendlist: {
@@ -27,7 +30,10 @@ const UserSchema = new Schema({
         SentRequests: [String]
     },
     clubs: [String],
-    major: String,
+    major: {
+        type: String,
+        default: ""
+    },
     createAt: {
         type: Date,
         default: Date.now

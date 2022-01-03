@@ -7,7 +7,6 @@ router.post("/get", async (req, res) => {
         user = await Users.findById(body.userId)
 
         friends = []
-
         for (var i = 0; i < user.friendlist.Friends.length; i++) {
             friends.push(await Users.findById(user.friendlist.Friends[i]))
         }
