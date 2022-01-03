@@ -50,9 +50,15 @@ function Header(props) {
           <a href="#">
             <img src={pic.picture ? pic.picture : avata} alt="" />
           </a>
-          <button onClick={handleLogout}>
-            <h4>Logout</h4>
-          </button>
+          <div className="user-menu"> 
+                            <div className="link-to-user-profile">Trang Cá Nhân</div> 
+                            <div className="link-to-user-setting">Cài Đặt</div> 
+                            <div className="log-out-btn"> 
+                                <button className="logout-btn" onClick={handleLogout}><h4>Logout</h4></button>
+                          
+                           </div> 
+                          
+                         </div>
         </div>
       </div>
     </div>
