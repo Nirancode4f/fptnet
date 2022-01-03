@@ -8,17 +8,24 @@ const Schema = mongoose.Schema ;
 const CommentSchema = new Schema({
     postId:{
         type: String,
-        require: true,
-        ref: "post"
+        require: true
     },
-
     user: {
         type: String,
         required: true
     },
-    content: String,
-    image: String,
-    like: Number,
+    content: {
+        type: String,
+        default: ""
+    },
+    image: {
+        type: String,
+        default: ""
+    },
+    like: {
+        type: Number,
+        default: 0
+    },
     createAt:{
         type: Date,
         default: Date.now

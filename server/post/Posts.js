@@ -12,9 +12,18 @@ const PostSchema = new Schema({
         required:true,
         ref: "userId"
     },
-    content: String,
-    image: String,
-    like: Number,
+    content: {
+        type: String,
+        default: ""
+    },
+    image: {
+        type: String,
+        default: ""
+    },
+    like: {
+        type: Number,
+        default: 0
+    },
     comments: Array,
     createAt:{
         type: Date,
