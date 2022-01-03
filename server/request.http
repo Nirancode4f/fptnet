@@ -3,7 +3,7 @@ POST  http://localhost:3000/api/auth/register
 Content-Type: application/json
 
 {
-    "email":"abcd@gmail.com",
+    "email":"abc1d@gmail.com",
     "username": "vv",
     "password": "1234"
 }
@@ -31,7 +31,7 @@ Content-Type: application/json
 
 {
     "userId": "61c275d7cb85f50e673d6a0f",
-    "friendId": "61d2abff31f2e37e2e942e15"
+    "friendId": "61c2b42177efb03d08b9031f"
 }
 
 ### unsend friend request
@@ -49,7 +49,7 @@ Content-Type: application/json
 
 {
     "userId": "61c2b42177efb03d08b9031f",
-    "friendId": "61d0098d2c0a49e2caab8cd4"
+    "friendId": "61c275d7cb85f50e673d6a0f"
 }
 
 ### decline a friend request
