@@ -14,7 +14,7 @@ import { bake_cookie, read_cookie, delete_cookie } from "sfcookies";
 import "./Main.css";
 
 import MainLayout from "../../component/MainPage/MainLayout";
-import Messenger from "../Messenger/Messenger";
+
 
 const Main = () => {
   const [LoginData, setLoginData] = useState(
