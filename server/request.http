@@ -3,8 +3,8 @@ POST  http://localhost:3000/api/auth/register
 Content-Type: application/json
 
 {
-    "email":"abc1d@gmail.com",
-    "username": "asddddd",
+    "email":"abcd@gmail.com",
+    "username": "asdddd",
     "password": "1234"
 }
 
@@ -30,7 +30,7 @@ POST  http://localhost:3000/api/friend/get
 Content-Type: application/json
 
 {
-    "userId": "61c275d7cb85f50e673d6a0f"
+    "userId": "61c271b52b0f4301b735a33d"
 }
 
 ### send friend request
@@ -38,8 +38,8 @@ POST  http://localhost:3000/api/friend/sendreq
 Content-Type: application/json
 
 {
-    "userId": "61c275d7cb85f50e673d6a0f",
-    "friendId": "61c28520be203ff723d7dda1"
+    "userId": "61c271b52b0f4301b735a33d",
+    "friendId": "61c275d7cb85f50e673d6a0f"
 }
 
 ### unsend friend request
@@ -47,8 +47,8 @@ POST  http://localhost:3000/api/friend/unsend
 Content-Type: application/json
 
 {
-    "userId": "61c275d7cb85f50e673d6a0f",
-    "friendId": "61c28520be203ff723d7dda1"
+    "userId": "61c271b52b0f4301b735a33d",
+    "friendId": "61c275d7cb85f50e673d6a0f"
 }
 
 ### accept a friend request
@@ -65,8 +65,8 @@ POST  http://localhost:3000/api/friend/decline
 Content-Type: application/json
 
 {
-    "userId": "61c28520be203ff723d7dda1",
-    "friendId": "61c275d7cb85f50e673d6a0f"
+    "userId": "61c275d7cb85f50e673d6a0f",
+    "friendId": "61c271b52b0f4301b735a33d"
 }
 
 ### unfriend
@@ -74,8 +74,8 @@ POST  http://localhost:3000/api/friend/unfriend
 Content-Type: application/json
 
 {
-    "userId": "61c28520be203ff723d7dda1",
-    "friendId": "61c275d7cb85f50e673d6a0f"
+    "userId": "61c275d7cb85f50e673d6a0f",
+    "friendId": "61c271b52b0f4301b735a33d"
 }
 
 ### send two userId and return conversationId, create new one if not exist
