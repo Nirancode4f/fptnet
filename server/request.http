@@ -17,6 +17,14 @@ Content-Type: application/json
     "password": "1234"
 }
 
+### dcm
+POST  http://localhost:3000/api/friend/
+Content-Type: application/json
+
+{
+    "userId": "61c275d7cb85f50e673d6a0f"
+}
+
 ### get list friends
 POST  http://localhost:3000/api/friend/get
 Content-Type: application/json
@@ -48,8 +56,8 @@ POST  http://localhost:3000/api/friend/accept
 Content-Type: application/json
 
 {
-    "userId": "61c28520be203ff723d7dda1",
-    "friendId": "61c275d7cb85f50e673d6a0f"
+    "userId": "61c2b42177efb03d08b9031f",
+    "friendId": "61d0098d2c0a49e2caab8cd4"
 }
 
 ### decline a friend request
@@ -146,7 +154,7 @@ POST http://localhost:3000/api/group/conversation/addusers
 Content-Type: application/json
 
 {
-    "conversationId": "61c6b13204fb37f7a24daa78",
+    "conversationId": "61d1e596c05ab32b31f874ec",
     "members": ["61c2b42177efb03d08b9031f", "61c295ecd139be1761984a2a"]
 }
 
