@@ -115,6 +115,15 @@ line-height: 18px;
     z-index: 1000;
 
 }
+.header__member-user-avt{
+    width: 40px;
+    height: 40px;
+    margin-left: 25px;
+    border-radius: 20px;
+    position: relative;
+    z-index: 1000;
+
+}
 .header__member-user:hover .user-menu  {
 display: flex;
 }
@@ -124,9 +133,10 @@ display: flex;
     right: 0;
     background-color: #fff;
     color: var(--bg-color);
-    width: 150px;
+    width: 300px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     box-shadow: 0 0 2px #888888;
     padding: 0 20px 20px 10px;
     display: none;
@@ -136,17 +146,33 @@ display: flex;
     position: absolute;
     top: -25px;
     left: 0;
-    width: 150px;
+    width: 300px;
     height: 40px;
 }
+.avatar-user-in-menu {
+padding: 20px;
+width: 100%;
+display: flex;
+justify-content: center;
+border-bottom: 1px solid #888888;
+}
+.user-in-menu-img{
+    margin: 0;
+    width: 40px;
+    height: 40px;
+
+    border-radius: 20px;
+}
+
+
 .link-to-user-profile{
 margin-top: 20px;
-margin-left: 5px;
+
 }
 
 .link-to-user-setting{
     margin-top: 20px;
-    margin-left: 5px;
+ 
 }
 
 

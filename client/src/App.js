@@ -5,8 +5,6 @@ import Login from "./page/LoginPage/Login";
 import Main from "./page/MainPage/Main";
 import Messenger from "./page/Messenger/Messenger";
 import {BrowserRouter,Routes,Route } from "react-router-dom"
-
-import Messages from './page/Message/Message';
 import { NotFound } from './page/NotFound/NotFound';
 import { Profile } from './page/Profile/Profile';
 

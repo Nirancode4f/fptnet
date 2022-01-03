@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
 import { useNavigate } from "react-router-dom";
@@ -6,7 +7,7 @@ import { bake_cookie, read_cookie, delete_cookie } from "sfcookies";
 
 function Header(props) {
   const pic = JSON.parse(localStorage.getItem("loginData"));
-
+  const avata = "https://upload.wikimedia.org/wikipedia/commons/c/c7/No_Pic.jpg"
   const navigate = useNavigate();
 
   // eslint-disable-next-line no-unused-vars
@@ -48,12 +49,22 @@ function Header(props) {
         </div>
         <div className="header__member-user">
           <a href="#">
-            <img src={pic.picture ? pic.picture : avata} alt="" />
+            <img className="header__member-user-avt" src={pic.picture ? pic.picture : avata} alt="" />
           </a>
-          <button onClick={handleLogout}>
-            <h4>Logout</h4>
-          </button>
+          <div className="user-menu">
+            <div className="avatar-user-in-menu">
+              <img className="user-in-menu-img" src={pic.picture ? pic.picture : avata} /> </div>
+            <div className="link-to-user-profile">Trang Cá Nhân</div>
+            <div className="link-to-user-setting">Cài Đặt</div>
+            <div className="log-out-btn">
+              <button className="logout-btn" onClick={handleLogout}><h4>Logout</h4></button>
+
+            </div>
+
+          </div>
+
         </div>
+
       </div>
     </div>
   );
