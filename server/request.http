@@ -19,10 +19,14 @@ Content-Type: application/json
 
 ### get all teacher
 GET  http://localhost:3000/api/user/teachers
+
+### Edit user profile
+POST  http://localhost:3000/api/user/edit
 Content-Type: application/json
 
 {
-
+    "userId": "61c2b42177efb03d08b9031f",
+    "slogan": "abcd"
 }
 
 ### get list friends
