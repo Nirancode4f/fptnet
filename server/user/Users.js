@@ -6,6 +6,7 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
     email: {
         type: String,
+        index: true,
         required: true,
         unique: true
     },
@@ -16,11 +17,15 @@ const UserSchema = new Schema({
     },
     password: {
         type: String,
-        required: true
+        required: false
     },
     picture: {
         type: String,
         default: ""
+    },
+    student: {
+        type: Boolean,
+        default: false
     },
     conversations: [String],
     groupconversations: [String],
@@ -35,6 +40,10 @@ const UserSchema = new Schema({
     },
     clubs: [String],
     major: {
+        type: String,
+        default: ""
+    },
+    slogan: {
         type: String,
         default: ""
     },

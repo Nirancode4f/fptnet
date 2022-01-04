@@ -67,7 +67,7 @@
 .Profile_user_info_student_number {
     position: absolute;
     top: -12px;
-    right: 160px;
+    right: 140px;
     font-weight: 600;
     font-size: 17px;
   
@@ -154,5 +154,10 @@
     width: 100%;
    object-position: center;
    box-shadow: 1px solid #666;
+   transition: linear 0.3s;
 
+}
+.Tag_action_post:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 1px #666;
 }

@@ -12,7 +12,7 @@ router.post("/create", async (req, res) => {
         const body = req.body;
         const tmp = new Comments({
             postId: body.postId,
-            user: body.userId,
+            userId: body.userId,
             content: body.content,
             image: body.image
         });

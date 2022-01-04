@@ -8,9 +8,10 @@ const Schema = mongoose.Schema ;
 const CommentSchema = new Schema({
     postId:{
         type: String,
+        index: true,
         require: true
     },
-    user: {
+    userId: {
         type: String,
         required: true
     },

@@ -133,7 +133,7 @@
   position: fixed;
   z-index: 1;
   top: calc(var(--header-height) + var(--friend-header-height) +2px);
-  left: calc(43px + 340px + 20px);
+  left: calc(86px + 340px + 12px);
   border-radius: 2px;
 }
 
@@ -177,7 +177,7 @@
 .ChatBoxMain {
   position: fixed;
   top: calc(var(--header-height) + var(--friend-header-height) +2px);
-  left: calc(43px + 340px + 20px);
+  left: calc(86px + 340px + 12px);
   margin-top: 40px;
   max-height: 75vh;
   overflow-y: auto;
@@ -225,7 +225,7 @@
 }
 
 .BoxChatFooter {
-  --nav-width: 43px;
+  --nav-width: 86px;
   --friend-list-width: 340px;
   width: 100%;
   display: flex;

@@ -12,7 +12,7 @@ const saltRounds = 10
 
 
 const CLIENT_ID = process.env.CLIENT_ID || "368976437444-75mt0ttcg9i22emoapjf8ensoj6n18p3.apps.googleusercontent.com"
-const {OAuth2Client} = require('google-auth-library');
+const { OAuth2Client } = require('google-auth-library');
 const client = new OAuth2Client(CLIENT_ID)
 
 //route post /api/auth/register
@@ -20,8 +20,8 @@ const client = new OAuth2Client(CLIENT_ID)
 //access public
 
 
-router.post("/register", async(req, res) => {
-    const {email, username, password } = req.body
+router.post("/register", async (req, res) => {
+    const { email, username, password } = req.body
 
     if (!email || !username || !password) {
         return res.status(200).json({ success: false, message: "Missing email or username or password" })
@@ -31,24 +31,24 @@ router.post("/register", async(req, res) => {
     try { //checkuser
 
         const emailcheck = await User.findOne({ email })
-        if(emailcheck){
-            return res.status(200).json({success: false, message:"email already taken"})
+        if (emailcheck) {
+            return res.status(200).json({ success: false, message: "email already taken" })
         }
 
 
-        bcrypt.genSalt(saltRounds,async function(err, salt) {
-        bcrypt.hash(password, salt, async function(err, hash) {
+        bcrypt.genSalt(saltRounds, async function (err, salt) {
+            bcrypt.hash(password, salt, async function (err, hash) {
 
-        var newUser = await new User({email, username ,password: hash})
-        
-        await newUser.save()
-  
-        return res.status(200).json({success: true,message:"User Created successfully", user: newUser, userId: newUser._id})
-    });
-});    
+                var newUser = await new User({ email, username, password: hash })
+
+                await newUser.save()
+
+                return res.status(200).json({ success: true, message: "User Created successfully", user: newUser, userId: newUser._id })
+            });
+        });
 
     } catch (error) {
-        res.json({success: false,message:error.message})
+        res.json({ success: false, message: error.message })
     }
 })
 
@@ -57,72 +57,72 @@ router.post("/register", async(req, res) => {
 //desc login user
 //access public
 
-router.post("/login", async(req, res) => {
+router.post("/login", async (req, res) => {
 
-    const {email, password } = req.body
+    const { email, password } = req.body
 
     if (!email || !password) {
         return res.status(200).json({ success: false, message: "Missing email or password" })
     }
     try { //checkuser
-        
+
         const user = await User.findOne({ email })
-        if(!user){
-            return res.status(200).json({success: false, message:"User does not exist"})
+        if (!user) {
+            return res.status(200).json({ success: false, message: "User does not exist" })
         }
 
         //validate 
-        const bcryptpassword = await bcrypt.compare(password,user.password)
+        const bcryptpassword = await bcrypt.compare(password, user.password)
 
-        if(!bcryptpassword){
-            return res.status(200).json({success: false, message: "wrong password or email"})
-        }    
+        if (!bcryptpassword) {
+            return res.status(200).json({ success: false, message: "wrong password or email" })
+        }
 
 
-        const accessToken = jwt.sign({userId: user._id},process.env.ACCESS_TOKEN_SECRET)
+        const accessToken = jwt.sign({ userId: user._id }, process.env.ACCESS_TOKEN_SECRET)
 
         const decode = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET)
 
-        res.status(200).json({success: true, message: "successfully", user, accessToken})
+        res.status(200).json({ success: true, message: "successfully", user, accessToken })
 
 
     } catch (error) {
-        res.json({success: false,message: error})
+        res.json({ success: false, message: error })
     }
 })
 
 /// gg login
 
-router.post("/gg-login", async(req, res) => {
+router.post("/gg-login", async (req, res) => {
 
-    const {token} = req.body
+    const { token } = req.body
     const ticket = await client.verifyIdToken({
-        idToken:token,
-        audience:  CLIENT_ID
+        idToken: token,
+        audience: CLIENT_ID
     });
     console.log(ticket)
 
     const email = ticket.payload.email
 
-    try { 
-      //checkuser
+    try {
+        //checkuser
 
-        var user = await User.findOne( {email})
-        if(user){
-           
-               
-
-        const checkuser = await User.findOne({email})
-
-        const accessToken = await jwt.sign({userId: checkuser._id},process.env.ACCESS_TOKEN_SECRET)
+        var user = await User.findOne({ email })
+        if (user) {
 
 
-        return res.json({
-          success: true,
-          message: checkuser,
-          accessToken:accessToken,
-          })
 
+            const checkuser = await User.findOne({ email })
+
+            const accessToken = await jwt.sign({ userId: checkuser._id }, process.env.ACCESS_TOKEN_SECRET)
+
+
+            return res.json({
+                success: true,
+                message: "successful",
+                accessToken: accessToken,
+                user: checkuser,
+            })
 
         }
         ///save if no login before
@@ -130,22 +130,22 @@ router.post("/gg-login", async(req, res) => {
             email: ticket.payload.email,
             username: ticket.payload.given_name,
             picture: ticket.payload.picture,
-            })
+        })
 
         await newuser.save()
         return res.json({
             success: true,
-            message: checkuser,
-            accessToken:accessToken,
-            })
-
+            message: "successful",
+            accessToken: accessToken,
+            user: checkuser,
+        })
 
 
     } catch (error) {
-        res.json({success: false,message:error.message})
+        res.json({ success: false, message: error.message })
     }
 
- 
+
 })
 
 
