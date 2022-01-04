@@ -48,8 +48,8 @@ POST  http://localhost:3000/api/friend/accept
 Content-Type: application/json
 
 {
-    "userId": "61c2b42177efb03d08b9031f",
-    "friendId": "61d2be763084635e471b5430"
+    "userId": "61d2b6e43084635e471b542a",
+    "friendId": "61c2b42177efb03d08b9031f"
 }
 
 ### decline a friend request
