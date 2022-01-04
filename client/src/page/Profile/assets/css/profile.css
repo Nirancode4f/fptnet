@@ -41,7 +41,7 @@
 }
 
 .Profile_user_avatar {
-    width: 200px;
+    width: 300px;
     margin: 0 40px 20px ;
     border-radius: 50%;
     border:1px solid var(--bg-color);
@@ -109,6 +109,11 @@
     margin-top: 50px;
     border-radius: 4px;
     float: right;
+    transition: linear 0.3s;
+}
+.Add_friend_btn:hover {
+    transform: scale(1.05);
+    cursor: pointer;
 }
 .Profile_user_action_write {
     
