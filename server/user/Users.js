@@ -25,7 +25,7 @@ const UserSchema = new Schema({
     },
     student: {
         type: Boolean,
-        default: false
+        default: true
     },
     conversations: [String],
     groupconversations: [String],

@@ -3,7 +3,7 @@ POST  http://localhost:3000/api/auth/register
 Content-Type: application/json
 
 {
-    "email": "abc1d@gmail.com",
+    "email": "abcd@gmail.com",
     "username": "vv",
     "password": "1234"
 }
@@ -15,6 +15,14 @@ Content-Type: application/json
 {
     "email":"abcd@gmail.com",
     "password": "1234"
+}
+
+### get all teacher
+GET  http://localhost:3000/api/user/teachers
+Content-Type: application/json
+
+{
+
 }
 
 ### get list friends
@@ -75,8 +83,8 @@ POST http://localhost:3000/api/conversation/create
 Content-Type: application/json
 
 {
-    "userId": "61c271b52b0f4301b735a33d",
-    "friendId": "61c275d7cb85f50e673d6a0f"
+    "userId": "61d2b6e43084635e471b542a",
+    "friendId": "61c2b42177efb03d08b9031f"
 }
 
 ### get all conversation of user
@@ -101,9 +109,9 @@ POST http://localhost:3000/api/message/create
 Content-Type: application/json
 
 {
-    "userId": "61c271b52b0f4301b735a33d",
-    "conversationId":"61d44f4f7754001e96505014",
-    "content":"toi khogn biest"
+    "userId": "61d2b6e43084635e471b542a",
+    "conversationId":"61d4660ef2071d3db136d359",
+    "content":"abc"
 }
 
 ### unsend a message
@@ -130,7 +138,7 @@ Content-Type: application/json
 
 {
     "name": "groupchat",
-    "members": ["61c2b42177efb03d08b9031f", "61c275d7cb85f50e673d6a0f"]
+    "members": ["61c2b42177efb03d08b9031f", "61d2b6e43084635e471b542a"]
 }
 
 ### get a groupconversation
@@ -181,9 +189,10 @@ POST http://localhost:3000/api/group/message/create
 Content-Type: application/json
 
 {
-    "userId": "61c2b42177efb03d08b9031f",
-    "conversationId": "61c6b423b2f94fef6d8bb227",
-    "content": "mot hai ba"
+    "userId": "61d2b6e43084635e471b542a",
+    "conversationId": "61d46657f2071d3db136d368",
+    "content": "Bonus thêm tấm hình",
+    "image": "https://yt3.ggpht.com/ytc/AKedOLSV9pqwI5XI_ES4qVyAUyBFkhY0_PqK4ZISokxg=s900-c-k-c0x00ffffff-no-rj"
 }
 
 ### get all messages of a groupconversation
