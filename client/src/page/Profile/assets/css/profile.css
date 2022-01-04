@@ -41,7 +41,7 @@
 }
 
 .Profile_user_avatar {
-    width: 200px;
+    width: 300px;
     margin: 0 40px 20px ;
     border-radius: 50%;
     border:1px solid var(--bg-color);
