@@ -161,7 +161,7 @@ Recall a message
 | image | `String`, image url |
 Return `postId`
 
-#### Get a posts
+#### Get a post
 `GET {domain}/api/group/post/get/:postId`
 | Key | Description |
 | - | - |
