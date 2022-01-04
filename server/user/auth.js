@@ -133,7 +133,11 @@ router.post("/gg-login", async(req, res) => {
             })
 
         await newuser.save()
-          
+        return res.json({
+            success: true,
+            message: checkuser,
+            accessToken:accessToken,
+            })
 
 
 

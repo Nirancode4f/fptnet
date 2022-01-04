@@ -33,7 +33,7 @@ export const Profile = (props) => {
                         <div className="Profile_user_info">
                             <div className="Profile_user_info_name_and_code">
 
-                            <div className="Profile_user_info_name">{user.user.username}   
+                            <div className="Profile_user_info_name">{user.user.username || "cant take name !!! error !!!" }   
                             <div className="Profile_user_info_student_number">CE171197</div> </div>
                             </div>
 

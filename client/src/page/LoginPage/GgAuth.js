@@ -19,7 +19,7 @@ function GgAuth() {
   const navigate = useNavigate()
 
   const handleFailure = (result) => {
-    alert("Cant take login data")
+    navigate("/login")
   }
 
 
