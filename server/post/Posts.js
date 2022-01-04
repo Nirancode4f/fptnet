@@ -9,8 +9,7 @@ const PostSchema = new Schema({
         
     userId:{
         type: String,
-        index: true,
-        required: true,
+        required:true,
         ref: "userId"
     },
     content: {

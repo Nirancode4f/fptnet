@@ -13,7 +13,23 @@ img{
     
 }
 ::-webkit-scrollbar {
+<<<<<<< HEAD
   width: 4px;
+=======
+<<<<<<< HEAD
+    width: 5px;
+  }
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  }  
+  ::-webkit-scrollbar-thumb {
+    background: var(--bg-color); 
+    border-radius: 10px;
+  }
+=======
+  width: 5px;
+>>>>>>> 8214eb32848ecc3e775538cc3848b14b2ae40c55
 }
 
 ::-webkit-scrollbar-track {
@@ -21,4 +37,10 @@ img{
 }  
 ::-webkit-scrollbar-thumb {
   background: var(--bg-color); 
+<<<<<<< HEAD
 }
+=======
+  border-radius: 10px;
+}
+>>>>>>> c211efc1d210a42cbfec3d6c09e3100a88e6e394
+>>>>>>> 8214eb32848ecc3e775538cc3848b14b2ae40c55

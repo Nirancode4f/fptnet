@@ -8,8 +8,7 @@ router.post("/get", async (req, res) => {
 
         friends = []
         for (var i = 0; i < user.friendlist.Friends.length; i++) {
-            let unwrap = ({_id, email, username, clubs, major, picture}) => ({_id, email, username, clubs, major, picture});
-            friends.push(unwrap(await Users.findById(user.friendlist.Friends[i])))
+            friends.push(await Users.findById(user.friendlist.Friends[i]))
         }
 
         return res.status(200).json({ success: true, friends })

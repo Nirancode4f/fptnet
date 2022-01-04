@@ -1,7 +1,11 @@
 import React from "react";
 import FriendListItem from "./FriendListItem";
+import { v4 as uuidv4 } from "uuid";
 
-export default function FriendList() {
+export default function FriendList({ listFriends }) {
+  const showAllFriends = listFriends.map((friendData) => {
+    return <FriendListItem key={uuidv4()} friendData={friendData} />;
+  });
   return (
     <>
       <ul className="FriendList">
@@ -16,7 +20,7 @@ export default function FriendList() {
         <label htmlFor="OpenFriendList">
           <i className="ShowListIcon fas fa-angle-down"></i>
         </label>
-        <FriendListItem />
+        {showAllFriends}
       </ul>
     </>
   );

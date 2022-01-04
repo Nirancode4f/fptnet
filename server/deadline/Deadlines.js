@@ -6,7 +6,6 @@ const Schema = mongoose.Schema;
 var Deadline = new Schema({
     userId:{
         type: String,
-        index: true,
         required:true
     },
     deadline:{
