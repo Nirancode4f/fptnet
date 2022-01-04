@@ -56,7 +56,7 @@ function Header(props) {
         </div>
         <div className="header__member-user">
         <a href="#">
-            <img className="header__member-user-avt" src={pic.user.picture ? pic.user.picture : avata || "asdf"} alt="" />
+            <img className="header__member-user-avt" src={pic.user.picture ? pic.user.picture : avata } alt="" />
           </a>
           <div className="user-menu">
             <div className="avatar-user-in-menu">

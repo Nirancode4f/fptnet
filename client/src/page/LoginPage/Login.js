@@ -35,11 +35,6 @@ const Login = () => {
     }
   }, [LoginData, navigate]);
 
-  useEffect(() => {
-    if (LoginData) {
-      navigate("/");
-    }
-  }, [LoginData, navigate]);
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
