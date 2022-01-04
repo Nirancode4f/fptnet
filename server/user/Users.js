@@ -23,6 +23,10 @@ const UserSchema = new Schema({
         type: String,
         default: ""
     },
+    student: {
+        type: Boolean,
+        default: false
+    },
     conversations: [String],
     groupconversations: [String],
     friendlist: {
