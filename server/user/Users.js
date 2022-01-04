@@ -39,6 +39,10 @@ const UserSchema = new Schema({
         type: String,
         default: ""
     },
+    slogan: {
+        type: String,
+        default: ""
+    },
     createAt: {
         type: Date,
         default: Date.now
