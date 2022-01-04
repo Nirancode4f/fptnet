@@ -30,9 +30,9 @@ router.post("/create", async (req, res) => {
     }
 });
 
-router.post("/get", async (req, res) => {
+router.get("/get/:postId", async (req, res) => {
     try {
-        const post = await Posts.findById(req.body.postId);
+        const post = await Posts.findById(req.params.postId);
         res.status(200).json({ success: true, post: post });
     } catch (err) {
         res.status(500).json(err.message);

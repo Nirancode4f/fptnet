@@ -162,11 +162,11 @@ Recall a message
 Return `postId`
 
 #### Get a posts
-`POST {domain}/api/group/post/getposts`
+`GET {domain}/api/group/post/get/:postId`
 | Key | Description |
 | - | - |
 | postId | `String, required` |
-Return `postId`
+Return `Post` Object
 
 #### Get all own posts
 `POST {domain}/api/group/post/getposts`

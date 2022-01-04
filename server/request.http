@@ -225,11 +225,11 @@ Content-Type: application/json
 }
 
 ### get post
-POST http://localhost:3000/api/post/get
+GET http://localhost:3000/api/post/get/61d40f8ed5c3e626d22e27d6
 Content-Type: application/json
 
 {
-    "postId": "61d15af5546a71f2381b87d7"
+    
 }
 
 ### get posts
