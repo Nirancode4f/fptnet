@@ -8,7 +8,7 @@ import ReactDOM from "react-dom";
 import GgAuth from "./GgAuth";
 import { bake_cookie, read_cookie, delete_cookie } from "sfcookies";
 
-const URL_MAIN = process.env.REACT_APP_URL_MAIN || "http:localhost:3000";
+const URL_MAIN = process.env.REACT_APP_URL_MAIN || "https://fanserverapi.herokuapp.com"
 
 const Login = () => {
   const [email, setemail] = useState("");
@@ -46,7 +46,9 @@ const Login = () => {
     try {
       axios
         .post(
-          `${URL_MAIN}/api/auth/login`,
+          `${
+            URL_MAIN
+          }/api/auth/login`,
           {
             email: email,
             password: password,
@@ -62,7 +64,8 @@ const Login = () => {
             setinfo("wrong email or password");
           } else {
             bake_cookie("accessToken", res.data.accessToken);
-            localStorage.setItem("loginData", JSON.stringify(res.data));
+            localStorage.setItem("loginData", JSON.stringify(res.data.user));
+            localStorage.setItem("FAN_user_info", JSON.stringify(res.data));
             navigate("/");
           }
         })

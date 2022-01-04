@@ -3,11 +3,11 @@ import FriendList from "./Friend/FriendList";
 import GroupList from "./Group/GroupList";
 import TeacherList from "./Teacher/TeacherList";
 
-export default function FriendsContact({ listFriends }) {
+export default function FriendsContact() {
   return (
     <>
       <div className="FriendsContact">
-        <FriendList listFriends={listFriends} />
+        <FriendList />
         <TeacherList />
         <GroupList />
       </div>

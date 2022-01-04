@@ -23,7 +23,7 @@ html{
 /* header */
 .header{
     position: fixed;
-    z-index: 100;
+    z-index: 10;
    top: 0;
    right: 0;
    left: var(--nav-width);
@@ -105,11 +105,6 @@ line-height: 18px;
 .header__member-notification i:hover {
     opacity: 0.8;
 }
-<<<<<<< HEAD
-.header__member-user {
-    
-}
-=======
 /* ////////menu user /////// */
 .header__member-user-avt{
     width: 40px;
@@ -198,71 +193,10 @@ transition:  linear 0.3s;
 
 /* ////////////////////////// */
 
-<<<<<<< HEAD
 .header__member-user img:hover{
     background-color: white;
-=======
->>>>>>> c211efc1d210a42cbfec3d6c09e3100a88e6e394
-.header__member-user img{
-    width: 40px;
-    height: 40px;
-    margin-left: 25px;
-    border-radius: 20px;
-    position: relative;
-    z-index: 1000;
-
-}
-.header__member-user:hover .user-menu  {
-display: flex;
-}
-.user-menu {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background-color: #fff;
-    color: var(--bg-color);
-    width: 150px;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 0 2px #888888;
-    padding: 0 20px 20px 10px;
-    display: none;
-}
-.user-menu::after {
-    content: "";
-    position: absolute;
-    top: -25px;
-    left: 0;
-    width: 150px;
-    height: 40px;
-}
-.link-to-user-profile{
-margin-top: 20px;
-margin-left: 5px;
->>>>>>> 8214eb32848ecc3e775538cc3848b14b2ae40c55
 }
 
-.link-to-user-setting{
-    margin-top: 20px;
-    margin-left: 5px;
-}
-
-
-.logout-btn {
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    background-color: var(--bg-color);
-    font-size: 16px;
-    border-radius: 6px;
-    margin-top: 20px;
-}
-.link-to-user-profile:hover ,
-.link-to-user-setting:hover,
-.logout-btn:hover{
-    cursor: pointer;
-    opacity: 0.8;
-}
 
 .header__client{
     margin-left: 200px;

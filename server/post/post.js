@@ -13,7 +13,7 @@ router.post("/create", async (req, res) => {
         body = req.body;
 
         const tmp = new Posts({
-            user,
+            userId,
             content,
             image
         } = body);
