@@ -95,15 +95,8 @@ export const Profile = (props) => {
                         </div>
 
                         <div className="Tag_action">
-                          
-
-                               
-                              
-                               
+               
                                <PostComp userPost={userPost.post} />
-
-                          
-                        
 
                         </div>
 
