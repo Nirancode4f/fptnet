@@ -18,7 +18,7 @@
 }
 .Profile_header{
     font-size: 18px;
-    padding: 20px 0 5px 0    ;
+    padding: 20px 0 5px 20px    ;
     font-weight: 600;
     border-bottom: 1px solid var(--bg-color);
 }
@@ -33,50 +33,62 @@
     
 }
 .Profile_user_img {
-    width: 200px;
     height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0 40px;
 }
 
 .Profile_user_avatar {
-    width: 150px;
-    margin: auto 0;
+    width: 300px;
+    margin: 0 40px 20px ;
     border-radius: 50%;
     border:1px solid var(--bg-color);
     
-
 }
-.Profile_user_info {
-margin-left: 20px;
-}
-
-.Profile_user_info_name{
-    margin-top: 20px;
-    font-size: 28px;
-    font-weight: 600;
+    .Profile_user_info_name_and_code {
+        width: 100%;
+        text-align: center;
+    }
+    .Profile_user_info {
+        margin-top: 12px;
+        width: 100%;
+    }
+    
+    .Profile_user_info_name{
+        margin-top: 20px;
+        font-size: 28px;
+        font-weight: 600;
+        text-align: center;
+        display: block;
+        position: relative;
 }
 .Profile_user_info_student_number {
-    margin-top: 20px;
-    font-size: 20px;
-    font-weight: 500;
+    position: absolute;
+    top: -12px;
+    right: 160px;
+    font-weight: 600;
+    font-size: 17px;
+  
+    
 }
 .Profile_user_info_description {
     margin-top: 20px;
     font-size: 18px;
-    font-weight: 500;
+    font-weight: 600;
+    text-align: center;
+
 }
 .Profile_account {
-    margin-top:20px ;
+    margin:20px 0 ;
     width: 100%;
-    display: flex;
-    font-size: 22px;
+    font-size: 21px;
     font-weight: 600;
-    font-weight: 500;
+    justify-content: right;
+    
 }
 .Profile_account_friend {
-    margin-right: 32px;
 }
 .Profile_user_action {
     border-top: 1px solid #666;
@@ -87,19 +99,26 @@ margin-left: 20px;
     margin-bottom: 20px;
 }
 .Add_friend_btn {
+    margin-right: 24px;
     outline: none;
     padding: 10px 20px;
     border: none;
     color: #fff;
     background-color: var(--bg-color);
     font-weight: 600;
-    margin-top: 10px;
+    margin-top: 50px;
     border-radius: 4px;
+    float: right;
+    transition: linear 0.3s;
+}
+.Add_friend_btn:hover {
+    transform: scale(1.05);
+    cursor: pointer;
 }
 .Profile_user_action_write {
     
 }
-.Profile_user_action_write_tag , .Profile_user_action_achievement_tag {
+.Profile_user_action_write_tag , .Profile_user_action_achievement_tag , .Profile_account_friend {
     text-decoration: none;
     display: block;
     font-size: 20px;

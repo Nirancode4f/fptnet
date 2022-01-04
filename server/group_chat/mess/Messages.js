@@ -11,8 +11,7 @@ const MessageSchema = new mongoose.Schema(
       require: true
     },
     content: {
-      type: String,
-      require: true
+      type: String
     },
     unsend: {
       type: Boolean,

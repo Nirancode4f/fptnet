@@ -3,11 +3,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import MainLayout from "../../component/MainPage/MainLayout";
 import "./assets/css/profile.css"
+import PostComp from "../../component/Profile/PostComp";
 
 
 export const Profile = (props) => {
     
-    const pic = JSON.parse(localStorage.getItem("loginData"));
+    const user = JSON.parse(localStorage.getItem("loginData"));
     const error = "https://upload.wikimedia.org/wikipedia/commons/c/c7/No_Pic.jpg"
 
    
@@ -18,7 +19,7 @@ export const Profile = (props) => {
             {/* profile demo  */}
             <div className="Profile">
                 <div className="Profile_header">
-                    <i className="fas fa-caret-left"></i>
+               
                     Trang cá nhân
                 </div>
 
@@ -26,19 +27,20 @@ export const Profile = (props) => {
 
                     <div className="Profile_info_and_img">
                         <div className="Profile_user_img">
-                            <img className="Profile_user_avatar" src={ pic.picture || error } alt="avatar" />
+                            <img className="Profile_user_avatar" src={ user.user.picture || error } alt="avatar" />
                         </div>
 
 
                         <div className="Profile_user_info">
-                            <div className="Profile_user_info_name">Nguyễn Hoàng Khang</div>
-                            <div className="Profile_user_info_student_number">CE171197</div>
+                            <div className="Profile_user_info_name_and_code">
+
+                            <div className="Profile_user_info_name">{user.user.username || "cant take name !!! error !!!" }   
+                            <div className="Profile_user_info_student_number">CE171197</div> </div>
+                            </div>
+
                             <div className="Profile_user_info_description">"Future won't happen if you don't create it"</div>
                             <button className="Add_friend_btn">Add friend</button>
-                            <div className="Profile_account">
-                                <div className="Profile_account_friend">768 Bạn</div>
-                                <div className="Profile_account_post">9 bài viết</div>
-                            </div>
+                          
                         </div>
                     </div>
                     <div className="Profile_user_action">
@@ -48,20 +50,15 @@ export const Profile = (props) => {
                         <div className="Profile_user_action_achievement">
                             <Link className="Profile_user_action_achievement_tag" to="/">Thành Tích</Link>
                         </div>
+                        
+                                <Link to="/" href="#" className="Profile_account_friend">768 Bạn</Link>
+                            
                     </div>
 
                     <div className="Tag_action">
                         <div className="Tag_action_write Row">
-                            <div className="Col C-4">
-                                <img className="Tag_action_post" src={pic.picture || error} alt="#" />
-                            </div>
-                            <div className="Col C-4">
-                                <img className="Tag_action_post" src={pic.picture || error} alt="#" />
-                            </div>
-                            <div className="Col C-4">
-                                <img className="Tag_action_post" src={pic.picture || error} alt="#" />
-                            </div>
-
+                            <PostComp test={user.user.picture || error} comp={error}/>
+                            
                             
                         </div>
                     </div>
