@@ -7,7 +7,7 @@ import "./assets/css/profile.css"
 
 export const Profile = (props) => {
     
-    const pic = JSON.parse(localStorage.getItem("loginData"));
+    const user = JSON.parse(localStorage.getItem("loginData"));
     const error = "https://upload.wikimedia.org/wikipedia/commons/c/c7/No_Pic.jpg"
 
    
@@ -26,14 +26,14 @@ export const Profile = (props) => {
 
                     <div className="Profile_info_and_img">
                         <div className="Profile_user_img">
-                            <img className="Profile_user_avatar" src={ pic.picture || error } alt="avatar" />
+                            <img className="Profile_user_avatar" src={ user.user.picture || error } alt="avatar" />
                         </div>
 
 
                         <div className="Profile_user_info">
                             <div className="Profile_user_info_name_and_code">
 
-                            <div className="Profile_user_info_name">Nguyễn Hoàng Khang   
+                            <div className="Profile_user_info_name">{user.user.username}   
                             <div className="Profile_user_info_student_number">CE171197</div> </div>
                             </div>
 
@@ -50,20 +50,20 @@ export const Profile = (props) => {
                             <Link className="Profile_user_action_achievement_tag" to="/">Thành Tích</Link>
                         </div>
                         
-                                <Link href="#" className="Profile_account_friend">768 Bạn</Link>
+                                <Link to="/" href="#" className="Profile_account_friend">768 Bạn</Link>
                             
                     </div>
 
                     <div className="Tag_action">
                         <div className="Tag_action_write Row">
                             <div className="Col C-4">
-                                <img className="Tag_action_post" src={pic.picture || error} alt="#" />
+                                <img className="Tag_action_post" src={user.user.picture || error} alt="#" />
                             </div>
                             <div className="Col C-4">
-                                <img className="Tag_action_post" src={pic.picture || error} alt="#" />
+                                <img className="Tag_action_post" src={user.user.picture || error} alt="#" />
                             </div>
                             <div className="Col C-4">
-                                <img className="Tag_action_post" src={pic.picture || error} alt="#" />
+                                <img className="Tag_action_post" src={user.user.picture || error} alt="#" />
                             </div>
 
                             

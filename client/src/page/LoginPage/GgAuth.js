@@ -37,13 +37,12 @@ function GgAuth() {
 
         console.log(res.data.message)
         setLoginData(res.data.message)
-        localStorage.setItem("loginData", JSON.stringify({
+        localStorage.setItem("loginData", JSON.stringify(
 
-          email: res.data.user.email,
-          name: res.data.user.name,
-          picture: res.data.user.picture
-          
-        }))
+                res.data
+
+        ))
+
         bake_cookie(
           "accessToken",
           res.data.accessToken
