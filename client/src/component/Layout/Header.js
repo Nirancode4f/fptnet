@@ -4,6 +4,8 @@ import React, { Component } from "react";
 import { useNavigate } from "react-router-dom";
 import avata from "./assets/avata-user.png";
 import { bake_cookie, read_cookie, delete_cookie } from "sfcookies";
+import {Link } from "react-router-dom"
+
 
 function Header(props) {
   const pic = JSON.parse(localStorage.getItem("loginData"));
@@ -48,12 +50,12 @@ function Header(props) {
           </a>
         </div>
         <div className="header__member-user">
-          <a href="#">
-            <img className="header__member-user-avt" src={pic.user.picture ? pic.user.picture : avata} alt="" />
+        <a href="#">
+            <img className="header__member-user-avt" src={pic.user.picture ? pic.user.picture : avata || "asdf"} alt="" />
           </a>
           <div className="user-menu">
             <div className="avatar-user-in-menu">
-              <img className="user-in-menu-img" src={pic.user.picture ? pic.user.picture : avata} /> </div>
+              <img className="user-in-menu-img" src={pic.user.picture ? pic.user.picture : avata || "asd"} /> </div>
             <div className="link-to-user-profile">Trang Cá Nhân</div>
             <div className="link-to-user-setting">Cài Đặt</div>
             <div className="log-out-btn">

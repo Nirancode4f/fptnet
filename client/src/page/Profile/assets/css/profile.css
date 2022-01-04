@@ -109,6 +109,11 @@
     margin-top: 50px;
     border-radius: 4px;
     float: right;
+    transition: linear 0.3s;
+}
+.Add_friend_btn:hover {
+    transform: scale(1.05);
+    cursor: pointer;
 }
 .Profile_user_action_write {
     
