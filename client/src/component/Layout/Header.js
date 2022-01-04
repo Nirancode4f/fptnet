@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import avata from "./assets/avata-user.png";
 import { bake_cookie, read_cookie, delete_cookie } from "sfcookies";
-import {Link } from "react-router-dom"
+
 
 
 function Header(props) {

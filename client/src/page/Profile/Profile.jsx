@@ -3,6 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import MainLayout from "../../component/MainPage/MainLayout";
 import "./assets/css/profile.css"
+import PostComp from "../../component/Profile/PostComp";
 
 
 export const Profile = (props) => {
@@ -56,16 +57,8 @@ export const Profile = (props) => {
 
                     <div className="Tag_action">
                         <div className="Tag_action_write Row">
-                            <div className="Col C-4">
-                                <img className="Tag_action_post" src={user.user.picture || error} alt="#" />
-                            </div>
-                            <div className="Col C-4">
-                                <img className="Tag_action_post" src={user.user.picture || error} alt="#" />
-                            </div>
-                            <div className="Col C-4">
-                                <img className="Tag_action_post" src={user.user.picture || error} alt="#" />
-                            </div>
-
+                            <PostComp test={user.user.picture || error} comp={error}/>
+                            
                             
                         </div>
                     </div>
