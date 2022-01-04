@@ -1,5 +1,6 @@
 const Posts = require("./Posts");
 const Comments = require("./Comments");
+const Users = require("../user/Users")
 const express = require('express');
 const router = express.Router();
 
@@ -9,13 +10,20 @@ const router = express.Router();
 
 router.post("/create", async (req, res) => {
     try {
-        const body = req.body;
+        body = req.body;
+
         const tmp = new Posts({
             userId,
             content,
             image
         } = body);
+
         await tmp.save();
+
+        user = await Users.findById(tmp.userId)
+        user.totalposts++
+        await user.save()
+
         res.status(200).json({ success: true, postId: tmp._id });
     } catch (err) {
         res.status(500).json(err.message);
@@ -77,7 +85,20 @@ router.post("/update", async (req, res) => {
 
 router.post("/delete", async (req, res) => {
     try {
+        body = req.body
         const post = await Posts.findById(req.body.postId);
+
+        if(!post){
+            return res.status(200).json({ success: false, message: "Can't find this post" });
+        }
+
+        if(post.userId != body.userId){
+            return res.status(200).json({ success: false, message: "You can't delete this post" });
+        }
+
+        user = await Users.findById(post.userId)
+        user.totalposts--
+        await user.save()
 
         await Comments.deleteMany({
             post: req.body.postId

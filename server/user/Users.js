@@ -30,6 +30,10 @@ const UserSchema = new Schema({
         FriendRequests: [String],
         SentRequests: [String]
     },
+    totalposts: {
+        type: Number,
+        default: 0
+    },
     clubs: [String],
     major: {
         type: String,

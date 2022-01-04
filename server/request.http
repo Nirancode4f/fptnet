@@ -256,7 +256,8 @@ POST http://localhost:3000/api/post/delete
 Content-Type: application/json
 
 {
-    "postId": "61c53a4f142cff9120377a3f"
+    "userId": "61c2b42177efb03d08b9031f",
+    "postId": "61d3e08cf654e730eb23c26c"
 }
 
 ### create comment
