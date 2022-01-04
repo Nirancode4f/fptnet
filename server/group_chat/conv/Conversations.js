@@ -1,11 +1,15 @@
-const mongoose =require("mongoose");
+const mongoose = require("mongoose");
 
 const ConsersationSchema = new mongoose.Schema({
-    name:{
+    name: {
         type: String,
         required: true
     },
-    members: Array
+    members: Array,
+    createAt: {
+        type: Date,
+        default: Date.now
+    }
 });
 
-module.exports = mongoose.model("GroupConversation",ConsersationSchema);
+module.exports = mongoose.model("GroupConversation", ConsersationSchema);

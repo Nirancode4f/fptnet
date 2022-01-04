@@ -1,12 +1,13 @@
-const mongoose =require("mongoose")
+const mongoose = require("mongoose")
 
-const ConsersationSchema = new mongoose.Schema(
-    {
-    members:{
+const ConsersationSchema = new mongoose.Schema({
+    members: {
         type: Array,
     },
-}
-    
-)
+    createAt: {
+        type: Date,
+        default: Date.now
+    }
+})
 
-module.exports = mongoose.model("Conversation",ConsersationSchema)
+module.exports = mongoose.model("Conversation", ConsersationSchema)

@@ -21,7 +21,7 @@ function GgAuth() {
   const navigate = useNavigate();
 
   const handleFailure = (result) => {
-    alert("Cant take login data");
+    navigate("/login");
   };
 
   const hangdleLogin = async (googleData) => {
@@ -42,6 +42,7 @@ function GgAuth() {
           console.log(res.data.message);
           setLoginData(res.data.message);
           localStorage.setItem("loginData", JSON.stringify(res.data));
+
           bake_cookie("accessToken", res.data.accessToken);
           navigate("/");
         })

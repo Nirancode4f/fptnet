@@ -25,7 +25,8 @@ const PostSchema = new Schema({
         default: 0
     },
     comments: Array,
-    createAt:{
+    
+    createAt: {
         type: Date,
         default: Date.now
     }
