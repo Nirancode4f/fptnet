@@ -12,7 +12,12 @@ const MessageSchema = new mongoose.Schema(
       require: true
     },
     content: {
-      type: String
+      type: String,
+      default: ""
+    },
+    image: {
+      type: String,
+      default: ""
     },
     unsend: {
       type: Boolean,

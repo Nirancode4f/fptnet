@@ -14,6 +14,9 @@ const MessageSchema = new mongoose.Schema(
     content: {
       type: String
     },
+    image: {
+      type: String,
+    },
     unsend: {
       type: Boolean,
       default: false

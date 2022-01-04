@@ -9,12 +9,6 @@
 5. npm install express body-parser ejs uuidv4 multer sharp --save
 
 
-### Upload Image
-
-POST /api/upload/image
-Image upload into public/images/
-Image resize to 500x500, can change in .\fptnet\server\upload\ResizeImage.js
-
 # API Guide
 
 ## _1. API_
@@ -47,6 +41,154 @@ Get list friends of the user that send this request
 | Key | Description |
 | - | - |
 | friendId | `String, required`, _id of the user that you want to unfriend |
+
+
+#### Create a single conversation
+`POST {domain}/api/conversation/create`
+| Key | Description |
+| - | - |
+| friendId | `String, required` |
+Return `conversationId`
+
+#### Get all single conversations
+`POST {domain}/api/conversation/getconvs`
+Return Array of `Conversation of Single chat` Object
+
+#### Get a single conversation
+`POST {domain}/api/conversation/get`
+| Key | Description |
+| - | - |
+| conversationId | `String, required` |
+Return `Conversation of Single chat` Object
+
+#### Create a new message
+`POST {domain}/api/message/create`
+| Key | Description |
+| - | - |
+| conversationId | `String, required` |
+| content | `String` |
+| image | `String` |
+Return `Message of Single chat` Object
+
+#### Unsend a message
+Recall a message
+`POST {domain}/api/message/unsend`
+| Key | Description |
+| - | - |
+| messageId | `String, required` |
+
+#### Delete a message
+`POST {domain}/api/message/delete`
+| Key | Description |
+| - | - |
+| messageId | `String, required` |
+
+
+#### Create a group conversation
+`POST {domain}/api/group/conversation/create`
+| Key | Description |
+| - | - |
+| name | `String, required`, name of this conversation |
+| members | `Array of String, required` |
+Return `conversationId`
+
+#### Get all group conversations
+`POST {domain}/api/group/conversation/getconvs`
+Return Array of `Conversation of Group chat` Object
+
+#### Get a group conversation
+`POST {domain}/api/group/conversation/get`
+| Key | Description |
+| - | - |
+| conversationId | `String, required` |
+Return `Conversation of Group chat` Object
+
+#### Add some users to conversation
+`POST {domain}/api/group/conversation/addusers`
+| Key | Description |
+| - | - |
+| conversationId | `String, required` |
+| members | `Array of String, required` |
+
+#### Delete some users of conversation
+`POST {domain}/api/group/conversation/deleteusers`
+| Key | Description |
+| - | - |
+| conversationId | `String, required` |
+| members | `Array of String, required` |
+
+#### Delete a group conversation
+`POST {domain}/api/group/conversation/delete`
+| Key | Description |
+| - | - |
+| conversationId | `String, required` |
+
+#### Create a new message
+`POST {domain}/api/group/message/create`
+| Key | Description |
+| - | - |
+| conversationId | `String, required` |
+| content | `String` |
+| image | `String` |
+Return `Message of Group chat` Object
+
+#### Get all message of conversation
+`POST {domain}/api/group/message/create`
+| Key | Description |
+| - | - |
+| conversationId | `String, required` |
+Return Array of `Message of Group chat` Object
+
+#### Unsend a message
+Recall a message
+`POST {domain}/api/group/message/unsend`
+| Key | Description |
+| - | - |
+| messageId | `String, required` |
+
+#### Delete a message
+`POST {domain}/api/group/message/delete`
+| Key | Description |
+| - | - |
+| messageId | `String, required` |
+
+
+#### Create post
+`POST {domain}/api/group/post/create`
+| Key | Description |
+| - | - |
+| content | `String` |
+| image | `String`, image url |
+Return `postId`
+
+#### Get a posts
+`POST {domain}/api/group/post/getposts`
+| Key | Description |
+| - | - |
+| postId | `String, required` |
+Return `postId`
+
+#### Get all own posts
+`POST {domain}/api/group/post/getposts`
+| Key | Description |
+| - | - |
+| block | `Number, required`, start with **1**, each block contain 10 posts |
+Return `postId`
+
+#### Edit post
+`POST {domain}/api/group/post/update`
+| Key | Description |
+| - | - |
+| content | `String` |
+| image | `String`, image url |
+
+#### Delete post
+`POST {domain}/api/group/post/getposts`
+| Key | Description |
+| - | - |
+| postId | `String, required` |
+
+
 
 
 ## _2. Model_

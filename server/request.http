@@ -70,7 +70,7 @@ Content-Type: application/json
     "friendId": "61c271b52b0f4301b735a33d"
 }
 
-### send two userId and return conversationId, create new one if not exist
+### create new conversation
 POST http://localhost:3000/api/conversation/create
 Content-Type: application/json
 
@@ -93,7 +93,7 @@ Content-Type: application/json
 
 {
     "userId": "61c271b52b0f4301b735a33d",
-    "conversationId": "61c27b1dbe203ff723d7dd9b"
+    "conversationId": "61d44f4f7754001e96505014"
 }
 
 ### create a new message
@@ -101,8 +101,8 @@ POST http://localhost:3000/api/message/create
 Content-Type: application/json
 
 {
-    "userId": "61c275d7cb85f50e673d6a0f",
-    "conversationId":"61c27b1dbe203ff723d7dd9b",
+    "userId": "61c271b52b0f4301b735a33d",
+    "conversationId":"61d44f4f7754001e96505014",
     "content":"toi khogn biest"
 }
 
@@ -130,7 +130,7 @@ Content-Type: application/json
 
 {
     "name": "groupchat",
-    "members": ["61c2b42177efb03d08b9031f", "61c2b4ae4818a8dcd2d6abd9"]
+    "members": ["61c2b42177efb03d08b9031f", "61c275d7cb85f50e673d6a0f"]
 }
 
 ### get a groupconversation
@@ -141,6 +141,14 @@ Content-Type: application/json
     "conversationId": "61c6b423b2f94fef6d8bb227"
 }
 
+### get all groupconversation of a user
+POST http://localhost:3000/api/group/conversation/getconvs
+Content-Type: application/json
+
+{
+    "userId": "61c2b42177efb03d08b9031f"
+}
+
 ### add users to conversation
 POST http://localhost:3000/api/group/conversation/addusers
 Content-Type: application/json
@@ -148,15 +156,6 @@ Content-Type: application/json
 {
     "conversationId": "61d1e596c05ab32b31f874ec",
     "members": ["61c2b42177efb03d08b9031f", "61c295ecd139be1761984a2a"]
-}
-
-
-### get all groupconversation of a user
-POST http://localhost:3000/api/group/conversation/getconvs
-Content-Type: application/json
-
-{
-    "userId": "61c2b42177efb03d08b9031f"
 }
 
 ### delete some users in groupconversation
@@ -247,7 +246,7 @@ POST http://localhost:3000/api/post/update
 Content-Type: application/json
 
 {
-    "postId": "61c53a4f142cff9120377a3f",
+    "postId": "61d45cddb55b18820273c536",
     "content": "Một hai ba bốn"
 }
 
