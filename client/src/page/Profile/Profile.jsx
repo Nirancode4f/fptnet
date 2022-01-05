@@ -1,13 +1,20 @@
 /* eslint-disable no-unused-expressions */
 import React from "react";
 import { Link } from "react-router-dom";
+import { Router, Route } from 'react-router'
+import { useState, useEffect } from "react";
+import axios from 'axios';
+import  ReactDOM  from 'react-dom';
+
+
+
+
+import boring from "./assets/img/boring.png"
+import ProfilePopUp from "../../component/Profile/ProfilePopUp";
 import MainLayout from "../../component/MainPage/MainLayout";
 import "./assets/css/profile.css"
 import PostComp from "../../component/Profile/PostComp";
-import { useState, useEffect } from "react";
-import axios from 'axios';
-import { ReactDOM } from 'react-dom';
-import boring from "./assets/img/boring.png"
+import PostInfor from "../../component/Profile/PostInfor";
 const URL_MAIN = process.env.REACT_APP_URL_MAIN || "https://fanserverapi.herokuapp.com"
 
 export const Profile = (props) => {
@@ -42,13 +49,21 @@ export const Profile = (props) => {
         }
     }
 
+    // run this shit first
     useEffect(() => {
-        
         // run first  
         handleLoading(block)
        
     }, [])
+    const instanceRef = React.createRef();
 
+    async function handlePostClick(data){
+        console.log(data)
+        ReactDOM.render(
+        <ProfilePopUp data={data}/>,
+        document.getElementById("Post-information")
+            )
+    }
 
 
 
@@ -63,7 +78,7 @@ export const Profile = (props) => {
                         Trang cá nhân
                     </div>
 
-                    <div className="Profile_container">
+                    <div className="Profile_container" id="Post-information">
 
                         <div className="Profile_info_and_img">
                             <div className="Profile_user_img">
@@ -97,7 +112,7 @@ export const Profile = (props) => {
 
                         <div className="Tag_action ">
                
-                               <PostComp userPost={userPost.post} />
+                               <PostComp userPosts={userPost.post}  onPostClick={handlePostClick}/>
 
                         </div>
                      

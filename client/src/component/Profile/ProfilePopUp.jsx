@@ -1,13 +1,19 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import PostContent from './PostContent'
+import PosterTime from './PosterTime'
+import Postimage from './Postimage'
+import ShowLikeCmt from './ShowLikeCmt'
 
 
 
 
 const ProfilePopUp = (props) => {
 
+    const {data} = props
+
     const Data = JSON.parse(localStorage.getItem("loginData"))
-    const Avatar = Data.user.piture
+    const Avatar = Data.user.picture
     const UserName = Data.user.username
     const errorPic = "https://upload.wikimedia.org/wikipedia/commons/c/c7/No_Pic.jpg"
 
@@ -18,36 +24,19 @@ const ProfilePopUp = (props) => {
             <div className="modal-wiew-detail-post-container">
                 <div className="modal-wiew-detail-post-img">
 
-                    <img src={Avatar || errorPic} alt="" />
+                   <Postimage image={data.image}  errorPic={errorPic} />
 
-                    <div className="display-like-and-comment-quanlity">
-                        <i className="fas fa-heart">   <span> 1.096</span></i>
-                        <i className="fas fa-comments">  <span>642</span></i>
-                    </div>
+                    <ShowLikeCmt like={data.like} />
+
                 </div>
 
                 <div className="modal-wiew-detail-post-content">
-                    <div className="modal-wiew-detail-post-info-post">
-                        <div className="modal-wiew-detail-post-info-post-avt-user">
-                            <img src={Avatar || errorPic} alt="" />
-                        </div>
-                        <div className="name-and-time">
 
-                            <div className="modal-wiew-detail-post-info-post-name-user">
-                                {UserName}
-                            </div>
-                            <div className="modal-wiew-detail-post-info-post-time">
-                                14:20 - 6/1/2022
-                            </div>
-                        </div>
 
-                        <Link className="more-info-btn" to="#"/> 
-                    </div>
-                    <div className="modal-wiew-detail-post-content-text">
-                        Đây là nội dung bài post người dùng đăng kèm với ảnh.
-                        Đây là nội dung bài post người dùng đăng kèm với ảnh.
-                        Đây là nội dung bài post người dùng đăng kèm với ảnh.
-                    </div>
+                    <PosterTime UserName={UserName} Postdate={data.createAt} Avatar={Avatar} errorPic={errorPic} />
+                    
+                   <PostContent content={data.content} />
+
                     <div className="modal-wiew-detail-post-content-comment">
                         <div className="modal-wiew-detail-post-content-action">
                             <i className="far fa-heart like-post unlike"></i>
@@ -60,6 +49,7 @@ const ProfilePopUp = (props) => {
                                 <i className="fas fa-share-square share-post-btn"></i>
                             </div>
                         </div>
+                        
                         <div className="modal-wiew-detail-post-content-comment-content">
 
                             <div className="comment-box">
@@ -69,19 +59,19 @@ const ProfilePopUp = (props) => {
                                     </div>
                                     <div className="comment-box-infor-commenter-name">
                                         Tên commenter
-                                        <Link className="more-info-btn" to="#"> ... </Link>
+                                        <div className="more-info-btn" > ... </div>
 
                                     </div>
                                 </div>
                                 <div className="comment-box-content">
                                     nơi hiển thị nội dung comment mỗi comment chứa trong 1 thẻ div có class là comment-box
                                     <div className="reaction-comment">
-                                        <Link to="">
+                                        <div >
                                             Thích
-                                        </Link>
-                                        <Link to="" >
+                                        </div>
+                                        <div >
                                             Trả lời
-                                        </Link>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -93,19 +83,19 @@ const ProfilePopUp = (props) => {
                                     </div>
                                     <div className="comment-box-infor-commenter-name">
                                         Tên commenter
-                                        <Link className="more-info-btn" to="#"> ... </Link>
+                                        <div className="more-info-btn" > ... </div>
 
                                     </div>
                                 </div>
                                 <div className="comment-box-content">
                                     nơi hiển thị nội dung comment mỗi comment chứa trong 1 thẻ div có class là comment-box
                                     <div className="reaction-comment">
-                                        <Link to="">
+                                        <div >
                                             Thích
-                                        </Link>
-                                        <Link to="">
+                                        </div>
+                                        <div >
                                             Trả lời
-                                        </Link>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -117,19 +107,19 @@ const ProfilePopUp = (props) => {
                                     </div>
                                     <div className="comment-box-infor-commenter-name">
                                         Tên commenter
-                                        <Link className="more-info-btn" to="#"> ... </Link>
+                                        <div className="more-info-btn" > ... </div>
 
                                     </div>
                                 </div>
                                 <div className="comment-box-content">
                                     nơi hiển thị nội dung comment mỗi comment chứa trong 1 thẻ div có class là comment-box
                                     <div className="reaction-comment">
-                                        <Link to="">
+                                        <div >
                                             Thích
-                                        </Link>
-                                        <Link to="">
+                                        </div>
+                                        <div >
                                             Trả lời
-                                        </Link>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -141,19 +131,19 @@ const ProfilePopUp = (props) => {
                                     </div>
                                     <div className="comment-box-infor-commenter-name">
                                         Tên commenter
-                                        <Link className="more-info-btn" to="#"> ... </Link>
+                                        <div className="more-info-btn" > ... </div>
 
                                     </div>
                                 </div>
                                 <div className="comment-box-content">
                                     nơi hiển thị nội dung comment mỗi comment chứa trong 1 thẻ div có class là comment-box
                                     <div className="reaction-comment">
-                                        <Link to="">
+                                        <div >
                                             Thích
-                                        </Link>
-                                        <Link to="">
+                                        </div>
+                                        <div >
                                             Trả lời
-                                        </Link>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -165,19 +155,19 @@ const ProfilePopUp = (props) => {
                                     </div>
                                     <div className="comment-box-infor-commenter-name">
                                         Tên commenter
-                                        <Link className="more-info-btn" to="#"> ... </Link>
+                                        <div className="more-info-btn" > ... </div>
 
                                     </div>
                                 </div>
                                 <div className="comment-box-content">
                                     nơi hiển thị nội dung comment mỗi comment chứa trong 1 thẻ div có class là comment-box
                                     <div className="reaction-comment">
-                                        <Link to="">
+                                        <div >
                                             Thích
-                                        </Link>
-                                        <Link to="">
+                                        </div>
+                                        <div >
                                             Trả lời
-                                        </Link>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -189,19 +179,19 @@ const ProfilePopUp = (props) => {
                                     </div>
                                     <div className="comment-box-infor-commenter-name">
                                         Tên commenter
-                                        <Link className="more-info-btn" to="#"> ... </Link>
+                                        <div className="more-info-btn" > ... </div>
 
                                     </div>
                                 </div>
                                 <div className="comment-box-content">
                                     nơi hiển thị nội dung comment mỗi comment chứa trong 1 thẻ div có class là comment-box
                                     <div className="reaction-comment">
-                                        <Link to="">
+                                        <div >
                                             Thích
-                                        </Link>
-                                        <Link to="">
+                                        </div>
+                                        <div >
                                             Trả lời
-                                        </Link>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -213,19 +203,19 @@ const ProfilePopUp = (props) => {
                                     </div>
                                     <div className="comment-box-infor-commenter-name">
                                         Tên commenter
-                                        <Link className="more-info-btn" to="#"> ... </Link>
+                                        <div className="more-info-btn" > ... </div>
 
                                     </div>
                                 </div>
                                 <div className="comment-box-content">
                                     nơi hiển thị nội dung comment mỗi comment chứa trong 1 thẻ div có class là comment-box
                                     <div className="reaction-comment">
-                                        <Link to="">
+                                        <div >
                                             Thích
-                                        </Link>
-                                        <Link to="">
+                                        </div>
+                                        <div >
                                             Trả lời
-                                        </Link>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
