@@ -145,6 +145,17 @@ Content-Type: application/json
     "members": ["61c2b42177efb03d08b9031f", "61d2b6e43084635e471b542a"]
 }
 
+### edit groupconversation
+POST http://localhost:3000/api/group/conversation/edit
+Content-Type: application/json
+
+{
+    "userId": "61c2b42177efb03d08b9031f",
+    "conversationId": "61c6b423b2f94fef6d8bb227",
+    "name": "Chỉnh sửa bằng api",
+    "picture": "https://www.english-learning.net/wp-content/uploads/2019/08/Webp.net-compress-image.jpg"
+}
+
 ### get a groupconversation
 POST http://localhost:3000/api/group/conversation/get
 Content-Type: application/json
