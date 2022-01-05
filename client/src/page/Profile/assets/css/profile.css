@@ -231,7 +231,7 @@
     position: relative;
     
 }
-.more-info-btn {
+.more-info-post-btn {
     position: absolute;
     top: 0;
     right: 10px;
@@ -241,6 +241,20 @@
     font-weight: 700;
     font-size: 30px;
 }
+
+
+.more-info-cmt-btn {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    text-decoration: none;
+    color: var(--bg-color);
+    line-height: 4px;
+    font-weight: 700;
+    font-size: 30px;
+    display: none;
+}
+
 
 
 .modal-wiew-detail-post-info-post-avt-user {
@@ -332,6 +346,9 @@
 }
 .comment-box {
     padding-bottom: 20px;
+}
+.comment-box:hover .more-info-cmt-btn {
+    display: inline;
 }
 .comment-box-infor-commenter{
     display: flex;

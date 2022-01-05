@@ -128,7 +128,7 @@ export const Profile = (props) => {
                                                 </div>
                                                 </div>
 
-                                                <a className="more-info-btn" href="#"> ... </a>
+                                                <a className="more-info-post-btn" href="#"> ... </a>
                                         </div>
                                         <div className="modal-wiew-detail-post-content-text"> 
                                               Đây là nội dung bài post người dùng đăng kèm với ảnh. 
@@ -156,7 +156,7 @@ export const Profile = (props) => {
                                                         </div>
                                                         <div className="comment-box-infor-commenter-name">
                                                              Tên commenter
-                                                <a className="more-info-btn" href="#"> ... </a>
+                                                <a className="more-info-cmt-btn" href="#"> ... </a>
 
                                                         </div>
                                                     </div>
@@ -180,7 +180,7 @@ export const Profile = (props) => {
                                                         </div>
                                                         <div className="comment-box-infor-commenter-name">
                                                              Tên commenter
-                                                <a className="more-info-btn" href="#"> ... </a>
+                                                <a className="more-info-cmt-btn" href="#"> ... </a>
 
                                                         </div>
                                                     </div>
