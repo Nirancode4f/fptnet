@@ -5,7 +5,10 @@ const ConsersationSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    members: Array,
+    members: [String],
+    picture: {
+        type: String
+    },
     createAt: {
         type: Date,
         default: Date.now
