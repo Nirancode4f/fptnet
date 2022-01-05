@@ -161,3 +161,219 @@
     transform: scale(1.05);
     box-shadow: 0 0 1px #666;
 }
+/* modal view post detail */
+.modal-wiew-detail-post {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* display: none; */
+}
+.modal-wiew-detail-post-container {
+    background-color: #fff;
+  height: 440px;
+  width: 800px;
+  padding: 10px 20px; 
+  display: flex;
+  border: 3px solid #333;
+
+}
+.modal-wiew-detail-post-img {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    margin-right: 5px;
+        
+}
+.modal-wiew-detail-post-img:hover .display-like-and-comment-quanlity {
+  display: flex;
+}
+.display-like-and-comment-quanlity {
+    position: absolute;
+    top:0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fafafa;
+    font-size: 20px;
+    display: none;
+}
+.display-like-and-comment-quanlity i {
+    margin: 10px;
+}
+.display-like-and-comment-quanlity span {
+    margin: 10px;
+}
+
+.modal-wiew-detail-post-content {
+    width: 50%;
+    height: 100%;
+    box-shadow:  0 0 1px #666;
+    display: flex;
+    flex-direction: column;
+
+}
+.modal-wiew-detail-post-info-post {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    border-bottom:  1px solid var(--bg-color);
+    padding: 10px;
+    position: relative;
+    
+}
+.more-info-btn {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    text-decoration: none;
+    color: var(--bg-color);
+    line-height: 4px;
+    font-weight: 700;
+    font-size: 30px;
+}
+
+
+.modal-wiew-detail-post-info-post-avt-user {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--bg-color);
+    overflow: hidden;
+}
+.name-and-time{
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    
+}
+.modal-wiew-detail-post-info-post-name-user {
+    font-size: 16px;
+    font-weight: 700;
+}
+.modal-wiew-detail-post-info-post-time {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 5px;
+}
+.modal-wiew-detail-post-content-text {
+    padding: 10px;
+    font-weight: 500;
+    line-height: 1.4;
+
+}
+.modal-wiew-detail-post-content-comment {
+    /* border-top:  1px solid var(--bg-color); */
+    padding: 10px;
+
+}
+.modal-wiew-detail-post-content-action {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid var(--bg-color);
+    padding: 10px;
+    align-items: center;
+}
+.modal-wiew-detail-post-content-action .unlike ,
+.modal-wiew-detail-post-content-action .liked {
+    color: red;
+    font-size: 20px;
+    margin-right:12px ;
+  
+}
+.modal-wiew-detail-post-content-action .comment-post {
+    flex: 1;
+    border: 1px solid var(--bg-color);
+    height: 26px;
+    border-radius: 4px;
+    outline: none;
+    color: #ccc;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+.modal-wiew-detail-post-content-action .comment-post input {
+    height: 100%;
+    padding: 10px;
+    outline: none;
+    border: none;
+    flex: 1;
+    font-weight: 500;
+
+}
+.modal-wiew-detail-post-content-action .comment-post i {
+    color: var(--bg-color);
+    font-size: 20px;
+}
+.modal-wiew-detail-post-content-action .modal-wiew-detail-post-content-share-btn {
+    margin-left: 20px;
+    font-size: 20px;
+    color: var(--bg-color);
+}
+
+.modal-wiew-detail-post-content-comment-content {
+    padding: 10px 0;
+    max-height: 210px;
+    overflow-y: auto;
+
+}
+.modal-wiew-detail-post-content-comment-content::-webkit-scrollbar{
+    display: none;
+}
+.comment-box {
+    padding-bottom: 20px;
+}
+.comment-box-infor-commenter{
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+.comment-box-infor-commenter-avt {
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+    border-radius: 50%;
+    border-radius: 50%;
+}
+
+.comment-box-infor-commenter-name {
+    font-size: 17px;
+    flex: 1;
+    font-weight: 600;
+    margin-left: 10px;
+    position: relative;
+}
+.comment-box-content {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.4;
+    padding: 0 30px;
+}
+.reaction-comment a {
+    display: inline-block;
+    margin-top: 3px;
+    text-decoration: none;
+    color: var(--bg-color);
+    font-weight: 600;
+    margin-right: 12px;
+}
+
+.modal-wiew-detail-post-img :hover ,
+ .unlike:hover ,
+ .liked:hover ,
+.add-cmt-btn:hover ,
+.share-post-btn:hover ,
+.reaction-comment a :hover {
+    cursor: pointer;
+}
