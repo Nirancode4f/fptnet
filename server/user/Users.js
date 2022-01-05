@@ -25,7 +25,7 @@ const UserSchema = new Schema({
     },
     student: {
         type: Boolean,
-        default: false
+        default: true
     },
     conversations: [String],
     groupconversations: [String],
@@ -46,6 +46,10 @@ const UserSchema = new Schema({
     slogan: {
         type: String,
         default: ""
+    },
+    status: {
+        type: Boolean,
+        default: false
     },
     createAt: {
         type: Date,

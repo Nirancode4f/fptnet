@@ -44,6 +44,7 @@ export const Profile = (props) => {
 
     useEffect(() => {
         
+        // run first  
         handleLoading(block)
        
     }, [])
