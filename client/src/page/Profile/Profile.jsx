@@ -91,7 +91,7 @@ export const Profile = (props) => {
                                 <Link className="Profile_user_action_achievement_tag" to="/">Thành Tích</Link>
                             </div>
 
-                            <Link to="/" href="#" className="Profile_account_friend">Bạn Bè</Link>
+                            <Link to="/" to="#" className="Profile_account_friend">Bạn Bè</Link>
 
                         </div>
 
@@ -108,8 +108,8 @@ export const Profile = (props) => {
                                      <img src={user.user.picture || error} alt="" />
 
                                      <div className="display-like-and-comment-quanlity">
-                                     <i class="fas fa-heart">   <span> 1.096</span></i>
-                                     <i class="fas fa-comments">  <span>642</span></i>
+                                     <i className="fas fa-heart">   <span> 1.096</span></i>
+                                     <i className="fas fa-comments">  <span>642</span></i>
                                      </div>
                                 </div>
 
@@ -128,7 +128,7 @@ export const Profile = (props) => {
                                                 </div>
                                                 </div>
 
-                                                <a className="more-info-btn" href="#"> ... </a>
+                                                <Link className="more-info-btn" to="#"> ... </Link>
                                         </div>
                                         <div className="modal-wiew-detail-post-content-text"> 
                                               Đây là nội dung bài post người dùng đăng kèm với ảnh. 
@@ -137,14 +137,14 @@ export const Profile = (props) => {
                                         </div>
                                         <div className="modal-wiew-detail-post-content-comment">
                                             <div className="modal-wiew-detail-post-content-action">
-                                            <i class="far fa-heart like-post unlike"></i>
-                                            {/* <i class="fas fa-heart like-post liked"></i> */}
+                                            <i className="far fa-heart like-post unlike"></i>
+                                            {/* <i className="fas fa-heart like-post liked"></i> */}
                                             <div className="comment-post"> 
                                                 <input type="text" placeholder="Viết bình luận của bạn" />
-                                                <i class="fas fa-paper-plane add-cmt-btn"></i>
+                                                <i className="fas fa-paper-plane add-cmt-btn"></i>
                                                 </div>
                                                 <div className="modal-wiew-detail-post-content-share-btn">
-                                                <i class="fas fa-share-square share-post-btn"></i>
+                                                <i className="fas fa-share-square share-post-btn"></i>
                                                 </div>
                                             </div>
                                             <div className="modal-wiew-detail-post-content-comment-content">
@@ -156,19 +156,19 @@ export const Profile = (props) => {
                                                         </div>
                                                         <div className="comment-box-infor-commenter-name">
                                                              Tên commenter
-                                                <a className="more-info-btn" href="#"> ... </a>
+                                                <Link className="more-info-btn" to="#"> ... </Link>
 
                                                         </div>
                                                     </div>
                                                     <div className="comment-box-content">
                                                             nơi hiển thị nội dung comment mỗi comment chứa trong 1 thẻ div có class là comment-box
                                                             <div className="reaction-comment">
-                                                                    <a href="">
+                                                                    <Link to="">
                                                                         Thích
-                                                                    </a>
-                                                                    <a href="">
+                                                                    </Link>
+                                                                    <Link to="">
                                                                         Trả lời
-                                                                    </a>
+                                                                    </Link>
                                                             </div>
                                                     </div>
                                                   </div>
@@ -180,19 +180,19 @@ export const Profile = (props) => {
                                                         </div>
                                                         <div className="comment-box-infor-commenter-name">
                                                              Tên commenter
-                                                <a className="more-info-btn" href="#"> ... </a>
+                                                <Link className="more-info-btn" to="#"> ... </Link>
 
                                                         </div>
                                                     </div>
                                                     <div className="comment-box-content">
                                                             nơi hiển thị nội dung comment mỗi comment chứa trong 1 thẻ div có class là comment-box
                                                             <div className="reaction-comment">
-                                                                    <a href="">
+                                                                    <Link to="">
                                                                         Thích
-                                                                    </a>
-                                                                    <a href="">
+                                                                    </Link>
+                                                                    <Link to="">
                                                                         Trả lời
-                                                                    </a>
+                                                                    </Link>
                                                             </div>
                                                     </div>
                                                   </div>
@@ -204,19 +204,19 @@ export const Profile = (props) => {
                                                         </div>
                                                         <div className="comment-box-infor-commenter-name">
                                                              Tên commenter
-                                                <a className="more-info-btn" href="#"> ... </a>
+                                                <Link className="more-info-btn" to="#"> ... </Link>
 
                                                         </div>
                                                     </div>
                                                     <div className="comment-box-content">
                                                             nơi hiển thị nội dung comment mỗi comment chứa trong 1 thẻ div có class là comment-box
                                                             <div className="reaction-comment">
-                                                                    <a href="">
+                                                                    <Link to="">
                                                                         Thích
-                                                                    </a>
-                                                                    <a href="">
+                                                                    </Link>
+                                                                    <Link to="">
                                                                         Trả lời
-                                                                    </a>
+                                                                    </Link>
                                                             </div>
                                                     </div>
                                                   </div>
@@ -228,19 +228,19 @@ export const Profile = (props) => {
                                                         </div>
                                                         <div className="comment-box-infor-commenter-name">
                                                              Tên commenter
-                                                <a className="more-info-btn" href="#"> ... </a>
+                                                <Link className="more-info-btn" to="#"> ... </Link>
 
                                                         </div>
                                                     </div>
                                                     <div className="comment-box-content">
                                                             nơi hiển thị nội dung comment mỗi comment chứa trong 1 thẻ div có class là comment-box
                                                             <div className="reaction-comment">
-                                                                    <a href="">
+                                                                    <Link to="">
                                                                         Thích
-                                                                    </a>
-                                                                    <a href="">
+                                                                    </Link>
+                                                                    <Link to="">
                                                                         Trả lời
-                                                                    </a>
+                                                                    </Link>
                                                             </div>
                                                     </div>
                                                   </div>
@@ -252,19 +252,19 @@ export const Profile = (props) => {
                                                         </div>
                                                         <div className="comment-box-infor-commenter-name">
                                                              Tên commenter
-                                                <a className="more-info-btn" href="#"> ... </a>
+                                                <Link className="more-info-btn" to="#"> ... </Link>
 
                                                         </div>
                                                     </div>
                                                     <div className="comment-box-content">
                                                             nơi hiển thị nội dung comment mỗi comment chứa trong 1 thẻ div có class là comment-box
                                                             <div className="reaction-comment">
-                                                                    <a href="">
+                                                                    <Link to="">
                                                                         Thích
-                                                                    </a>
-                                                                    <a href="">
+                                                                    </Link>
+                                                                    <Link to="">
                                                                         Trả lời
-                                                                    </a>
+                                                                    </Link>
                                                             </div>
                                                     </div>
                                                   </div>
@@ -276,19 +276,19 @@ export const Profile = (props) => {
                                                         </div>
                                                         <div className="comment-box-infor-commenter-name">
                                                              Tên commenter
-                                                <a className="more-info-btn" href="#"> ... </a>
+                                                <Link className="more-info-btn" to="#"> ... </Link>
 
                                                         </div>
                                                     </div>
                                                     <div className="comment-box-content">
                                                             nơi hiển thị nội dung comment mỗi comment chứa trong 1 thẻ div có class là comment-box
                                                             <div className="reaction-comment">
-                                                                    <a href="">
+                                                                    <Link to="">
                                                                         Thích
-                                                                    </a>
-                                                                    <a href="">
+                                                                    </Link>
+                                                                    <Link to="">
                                                                         Trả lời
-                                                                    </a>
+                                                                    </Link>
                                                             </div>
                                                     </div>
                                                   </div>
@@ -300,19 +300,19 @@ export const Profile = (props) => {
                                                         </div>
                                                         <div className="comment-box-infor-commenter-name">
                                                              Tên commenter
-                                                <a className="more-info-btn" href="#"> ... </a>
+                                                <Link className="more-info-btn" to="#"> ... </Link>
 
                                                         </div>
                                                     </div>
                                                     <div className="comment-box-content">
                                                             nơi hiển thị nội dung comment mỗi comment chứa trong 1 thẻ div có class là comment-box
                                                             <div className="reaction-comment">
-                                                                    <a href="">
+                                                                    <Link to="">
                                                                         Thích
-                                                                    </a>
-                                                                    <a href="">
+                                                                    </Link>
+                                                                    <Link to="">
                                                                         Trả lời
-                                                                    </a>
+                                                                    </Link>
                                                             </div>
                                                     </div>
                                                   </div>
