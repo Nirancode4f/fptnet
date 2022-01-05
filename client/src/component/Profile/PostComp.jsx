@@ -19,7 +19,6 @@ PostComp.defaultProps = {
 function PostComp(props) {
 
 
-
     const { userPost, onPostClick } = props
     
     const handleClick = (userPost) => {
