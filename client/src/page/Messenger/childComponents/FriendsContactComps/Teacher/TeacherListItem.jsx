@@ -1,15 +1,16 @@
 import React from "react";
+import avatar from "./avatar-user.png";
 
-export default function TeacherListItem() {
+export default function TeacherListItem({ teacher }) {
   return (
     <>
       <li className="TeacherListItem">
         <img
           className="UserListItemAvatar"
-          src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"
+          src={teacher.picture || avatar}
           alt="avatar user"
         />
-        <div className="UserListItemName">Thanh Nhân</div>
+        <div className="UserListItemName">{teacher.username}</div>
       </li>
     </>
   );
