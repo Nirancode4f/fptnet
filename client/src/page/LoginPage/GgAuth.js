@@ -58,7 +58,11 @@ function GgAuth() {
 
   return (
     <GoogleLogin
+      
       clientId="368976437444-75mt0ttcg9i22emoapjf8ensoj6n18p3.apps.googleusercontent.com"
+      render={renderProps => (
+        <button onClick={renderProps.onClick} className="gglogin_button" disabled={renderProps.disabled}>giờ thì custom được rồi</button>
+      )}
       buttonText="Login with google "
       onSuccess={hangdleLogin}
       onFailure={handleFailure}
