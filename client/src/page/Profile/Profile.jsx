@@ -8,10 +8,10 @@ import  ReactDOM  from 'react-dom';
 
 
 import boring from "./assets/img/boring.png"
-import ProfilePopUp from "../../component/Profile//ProfilePopUp";
+import ProfilePopUp from "../../component/Profile/PostPopup/ProfilePopUp";
 import MainLayout from "../../component/MainPage/MainLayout";
 import "./assets/css/profile.css"
-import PostComp from "../../component/Profile/PostComp";
+import PostComp from "../../component/Profile/PostPopup/PostComp";
 
 const URL_MAIN = process.env.REACT_APP_URL_MAIN || "https://fanserverapi.herokuapp.com"
 
