@@ -67,7 +67,7 @@ function ProfilePopUp(props) {
             </div>
             {/* <i className="fas fa-heart like-post liked">Bở Thích</i> */}
              <div className='click-to-show-comment-content'>
-            <i class="far fa-comment-alt to-comment"></i>
+            <i className="far fa-comment-alt to-comment"></i>
             <span>Bình Luận</span>
             </div>
             <div className="modal-wiew-detail-post-content-share-btn">
