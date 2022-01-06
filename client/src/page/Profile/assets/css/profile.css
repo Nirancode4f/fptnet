@@ -238,6 +238,7 @@
     flex-direction: column;
 
 }
+
 .modal-wiew-detail-post-info-post {
     display: inline-flex;
     align-items: center;
@@ -245,6 +246,7 @@
     border-bottom:  1px solid var(--bg-color);
     padding: 10px;
     position: relative;
+    width: 100%;
     
 }
 .more-info-post-btn {
@@ -371,7 +373,7 @@
 .comment-main {
     display: flex;
     flex-direction: column;
-    display: none;
+    /* display: none; */
     
 }
 /* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */

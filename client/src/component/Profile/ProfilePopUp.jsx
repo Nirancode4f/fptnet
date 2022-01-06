@@ -57,12 +57,11 @@ function ProfilePopUp(props) {
 
     <div className="modal-wiew-detail-post-content">
 
-
+     <div className="modal-wiew-detail-post-content-header"> 
     <PosterTime UserName={UserName} Postdate={data.createAt} Avatar={Avatar} errorPic={errorPic} />
 
     <PostContent content={data.content} />
 
-    <div className="modal-wiew-detail-post-content-comment">
         <div className="modal-wiew-detail-post-content-action">
              <div>
             <i className="far fa-heart like-post unlike"> </i>
@@ -77,8 +76,11 @@ function ProfilePopUp(props) {
                 <i className="fas fa-share-square share-post-btn"></i>
                 <span>Chia sẻ</span>
             </div>
-        </div>
 
+
+        </div>
+        </div>
+    <div className="modal-wiew-detail-post-content-comment">
         {/* ẩn cmt thì class comment-main display:none */}
          <div className="comment-main">
         <div className="modal-wiew-detail-post-content-comment-content">
