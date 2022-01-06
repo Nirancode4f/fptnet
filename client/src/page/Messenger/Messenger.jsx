@@ -7,7 +7,7 @@ import ContactSideBar from "./childComponents/ContactSideBar";
 
 import "./Messenger.css";
 
-const TEMP_URL = "http://localhost:3000";
+const TEMP_URL = "https://fanserverapi.herokuapp.com" || "http://localhost:3000";
 const URL_MAIN =
   process.env.REACT_APP_URL_MAIN || "https://fanserverapi.herokuapp.com";
 
@@ -18,6 +18,9 @@ export default function Messenger() {
   const [groupsData, setGroupsData] = useState([]);
   const userId = JSON.parse(localStorage.getItem("loginData")).user._id;
 
+
+
+  // get friend list
   const getListFriends = async (userId) => {
     let result;
     try {
@@ -38,6 +41,7 @@ export default function Messenger() {
     return result;
   };
 
+  // get list teacher
   const getListTeachers = async (userId) => {
     let result;
     try {
@@ -48,6 +52,8 @@ export default function Messenger() {
     return result.data.teachers;
   };
 
+
+  //take list groups here
   const getListGroups = async (userId) => {
     let result;
     try {
@@ -68,28 +74,48 @@ export default function Messenger() {
     return result;
   };
 
+
+  //take data for the first times
+
   useEffect(() => {
+
+    //run this to take the friend list
     getListFriends(userId)
       .then((res) => {
         setListFriends(res.data.friends);
         console.log(
-          "🚀 ~ file: Messenger.jsx ~ line 75 ~ .then ~ res.data.friends",
-          res.data.friends
+
+          "🚀 this is the friendlist= ",res.data.friends
+          
         );
       })
       .catch((err) => console.log(err));
+
+    // run this to take teaccherlist
     getListTeachers(userId)
       .then((res) => {
         setListTeachers(res);
+        console.log(`this is teacherlist= `, res)
       })
       .catch((err) => console.log(err));
+
+    // run this to take group list
     getListGroups(userId)
       .then((res) => {
-        setListGroups(res.data.GroupConversations);
+        
+       var data = res.data.GroupConversations
+       setListGroups(data);
+       console.log(`here`,data)
+        
       })
       .catch((err) => console.log(err));
-    let LGs = listGroups.map(async (groupId) => {
+
+    // take list group conversation
+    //this line cant run if empty array setting
+
+    const LGs =  listGroups.map( async(groupId) => {
       let result;
+      console.log(`listgroup= `, listGroups)
       try {
         result = await axios.post(
           `${TEMP_URL}/api/group/conversation/get`,
@@ -106,11 +132,14 @@ export default function Messenger() {
         console.log(err);
       }
       return result.data.conversation;
+
     });
-    Promise.all(LGs).then((values) => {
-      setGroupsData(values);
-    });
+
+    
   }, []);
+
+
+
 
   return (
     <>

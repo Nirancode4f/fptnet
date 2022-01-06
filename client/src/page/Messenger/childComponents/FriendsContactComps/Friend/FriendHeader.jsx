@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function FriendHeader() {
+export default function FriendHeader(props) {
   return (
     <div>
       <div className="FriendHeader">

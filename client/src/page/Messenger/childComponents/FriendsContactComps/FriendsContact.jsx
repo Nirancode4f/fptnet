@@ -3,12 +3,9 @@ import FriendList from "./Friend/FriendList";
 import GroupList from "./Group/GroupList";
 import TeacherList from "./Teacher/TeacherList";
 
-export default function FriendsContact({
-  listFriends,
-  listTeachers,
-  groupsData,
-}) {
-  console.log(groupsData);
+export default function FriendsContact(props)
+ {
+  const {listFriends,listTeachers,groupsData}=props
   return (
     <>
       <div className="FriendsContact">

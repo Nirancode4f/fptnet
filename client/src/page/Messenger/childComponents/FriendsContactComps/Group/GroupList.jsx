@@ -9,12 +9,8 @@ const URL_MAIN =
 export default function GroupList({ groupsData }) {
   // const [GroupsData, setGroupsData] = useState([]);
 
-  const showAllItems =
-    groupsData.length > 0 ? (
-      groupsData.map((group) => <GroupListItem key={uuidv4()} group={group} />)
-    ) : (
-      <GroupListItem group={[]} />
-    );
+
+console.log(groupsData.length)
 
   return (
     <>
@@ -30,7 +26,12 @@ export default function GroupList({ groupsData }) {
         <label htmlFor="OpenGroupList">
           <i className="ShowListIcon fas fa-angle-down"></i>
         </label>
-        {showAllItems}
+
+        {
+              groupsData.length > 0 ? (
+                groupsData.map((group) => <GroupListItem key={group} group={group} />)
+              ) : <></>
+        }
       </ul>
     </>
   );
