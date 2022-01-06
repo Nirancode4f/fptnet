@@ -22,6 +22,25 @@ router.get("/teachers", async (req, res) => {
     }
 })
 
+router.get("/getinfo/:userId", async (req, res) => {
+    try {
+        body = await req.body
+        params = req.params
+        user = await Users.findById(params.userId)
+
+        if(!user){
+            return res.status(200).json({ success: false, message: "can't find this user" })
+        }
+
+        let unwrap = ({_id, email, username, clubs, major, picture}) => ({_id, email, username, clubs, major, picture});
+
+        return res.status(200).json({ success: true, user: unwrap(user) })
+
+    } catch (err) {
+        res.status(500).json(err.message);
+    }
+})
+
 router.post("/edit", async (req, res) => {
     try {
         body = req.body
