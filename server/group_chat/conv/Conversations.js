@@ -9,6 +9,10 @@ const ConsersationSchema = new mongoose.Schema({
     picture: {
         type: String
     },
+    totalmessages: {
+        type: Number,
+        default: 0
+    },
     createAt: {
         type: Date,
         default: Date.now

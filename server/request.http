@@ -29,6 +29,14 @@ Content-Type: application/json
     "slogan": "abcd"
 }
 
+### Don't use this api
+POST  http://localhost:3000/api/friend/
+Content-Type: application/json
+
+{
+    "userId": "61c2b42177efb03d08b9031f"
+}
+
 ### get list friends
 POST  http://localhost:3000/api/friend/get
 Content-Type: application/json
@@ -96,7 +104,7 @@ POST http://localhost:3000/api/conversation/getconvs
 Content-Type: application/json
 
 {
-    "userId": "61c271b52b0f4301b735a33d"
+    "userId": "61c2b42177efb03d08b9031f"
 }
 
 ### get one conversation
@@ -116,6 +124,16 @@ Content-Type: application/json
     "userId": "61d2b6e43084635e471b542a",
     "conversationId":"61d4660ef2071d3db136d359",
     "content":"abc"
+}
+
+### get a block messages of a conversation, each block contain 20 messages
+POST http://localhost:3000/api/message/get
+Content-Type: application/json
+
+{
+    "userId": "61c2b42177efb03d08b9031f",
+    "conversationId": "61d46657f2071d3db136d368",
+    "block": 1
 }
 
 ### unsend a message
@@ -141,8 +159,8 @@ POST http://localhost:3000/api/group/conversation/create
 Content-Type: application/json
 
 {
-    "name": "groupchat",
-    "members": ["61c2b42177efb03d08b9031f", "61d2b6e43084635e471b542a"]
+    "name": "groupchat1",
+    "members": ["61c275d7cb85f50e673d6a0f", "61c28520be203ff723d7dda1"]
 }
 
 ### edit groupconversation
@@ -208,6 +226,16 @@ Content-Type: application/json
     "conversationId": "61d46657f2071d3db136d368",
     "content": "Bonus thêm tấm hình",
     "image": "https://yt3.ggpht.com/ytc/AKedOLSV9pqwI5XI_ES4qVyAUyBFkhY0_PqK4ZISokxg=s900-c-k-c0x00ffffff-no-rj"
+}
+
+### get a block messages of a groupconversation, each block contain 20 messages
+POST http://localhost:3000/api/group/message/getblock
+Content-Type: application/json
+
+{
+    "userId": "61c2b42177efb03d08b9031f",
+    "conversationId": "61d46657f2071d3db136d368",
+    "block": 1
 }
 
 ### get all messages of a groupconversation

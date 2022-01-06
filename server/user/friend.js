@@ -1,5 +1,31 @@
 const router = require("express").Router();
 const Users = require("../user/Users");
+const Conversations = require("../single_chat/conv/Conversations")
+const GroupConversations = require("../group_chat/conv/Conversations")
+
+//this router just for test purpose
+router.post("/", async (req, res) => {
+    try {
+        body = await req.body
+        user = await Users.find()
+        dem = 0
+        for (var i = 0; i < user.length; i++) {
+            var tmp = await Users.findById(user[i]._id)
+            const arr = await tmp.groupconversations
+            tmp.chatlist.groupconversations = arr
+            // if(arr.length) return res.status(200).json({ success: true, ab: tmp.chatlist.groupconversations })
+            delete tmp.groupconversations
+            delete tmp.conversations
+            await tmp.save()
+        }
+
+        user = await Users.find()
+        return res.status(200).json({ success: true, user })
+
+    } catch (err) {
+        res.status(500).json(err.message);
+    }
+})
 
 router.post("/get", async (req, res) => {
     try {

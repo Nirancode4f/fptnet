@@ -27,8 +27,10 @@ const UserSchema = new Schema({
         type: Boolean,
         default: true
     },
-    conversations: [String],
-    groupconversations: [String],
+    chatlist: {
+        conversations: [String],
+        groupconversations: [String]
+    },
     friendlist: {
         Friends: [String],
         FriendRequests: [String],

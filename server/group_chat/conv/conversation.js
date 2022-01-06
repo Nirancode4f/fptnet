@@ -27,16 +27,9 @@ router.post("/create", async (req, res) => {
     await Conv.save();
     // add conversationId to userId
     for (let i = 0; i < req.body.members.length; i++) {
-      await Users.findOneAndUpdate(
-        {
-          _id: req.body.members[i]
-        },
-        {
-          $push: {
-            groupconversations: Conv._id
-          }
-        }
-      );
+      user = await Users.findById(req.body.member[i])
+      user.chatlist.groupconversations.push(Conv._id)
+      await user.save()
     }
 
     return res.status(200).json({ success: true, message: "Success", conversationId: Conv._id });
@@ -130,14 +123,9 @@ router.post("/addusers", async (req, res) => {
     if (!Conv) return res.status(200).json({ success: false, message: "GroupConversation not exist!" });
     // add conversationId to userId
     for (let member of arr) {
-      await Users.findByIdAndUpdate(
-        member,
-        {
-          $push: {
-            groupconversations: Conv._id
-          }
-        }
-      );
+      user = await Users.findById(member)
+      user.chatlist.groupconversations.push(Conv._id)
+      await user.save()
     }
 
     return res.status(200).json({ success: true, message: "Success" });
@@ -148,20 +136,22 @@ router.post("/addusers", async (req, res) => {
 });
 
 
-//get all conversation of a user
+//get all conversations of a user
 router.post("/getconvs", async (req, res) => {
   try {
-    const user = await Users.findOne({
-      _id: {
-        $in: req.body.userId
-      }
-    });
+    body = req.body
 
-    if (!user) {
-      return res.status(200).json({ success: false, message: "User not exist!!" });
+    user = await Users.findById(body.userId)
+
+    conversations = []
+
+    for(conversationId of user.chatlist.groupconversations){
+      conv = await Conversations.findById(conversationId)
+      if(!conv) continue;
+      conversations.push(conv)
     }
 
-    return res.status(200).json({ success: true, message: "Success", GroupConversations: user.groupconversations });
+    return res.status(200).json({ success: true, conversations });
 
   } catch (err) {
     res.status(500).json(err.message);
