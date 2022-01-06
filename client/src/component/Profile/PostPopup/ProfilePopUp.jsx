@@ -40,8 +40,6 @@ function ProfilePopUp(props) {
 
 
 
-
-
     return (
 
        
@@ -133,43 +131,19 @@ function ProfilePopUp(props) {
                 </div>
             </div>
 
-            <div className="comment-box">
-                <div className="comment-box-infor-commenter">
-                    <div className="comment-box-infor-commenter-avt">
-                        <img src="https://yt3.ggpht.com/ytc/AKedOLR1qNHkmPssXVH0Yr-FeFhNtcvxw9XNYxGOQgWp6g=s48-c-k-c0x00ffffff-no-rj" alt="" />
-                    </div>
-                    <div className="comment-box-infor-commenter-name">
-                        Tên commenter
-                        <span className="more-info-cmt-btn" > ... </span>
-
-                    </div>
-                </div>
-                <div className="comment-box-content">
-                    nơi hiển thị nội dung comment mỗi comment chứa trong 1 thẻ div có class là comment-box
-                    <div className="reaction-comment">
-                        <span >
-                            Thích
-                        </span>
-                        <span >
-                            Trả lời
-                        </span>
-                    </div>
-                </div>
-
-         
-
-            </div>
+            
 
 
 
            
         </div>
-        <div className="comment-post">
+        
+            </div>
+    </div>
+    <div className="comment-post">
                 <input type="text" placeholder="Viết bình luận của bạn" />
                 <i className="fas fa-paper-plane add-cmt-btn"></i>
             </div>
-            </div>
-    </div>
 
     </div>
 
