@@ -9,7 +9,7 @@ const ConsersationSchema = new mongoose.Schema({
         default: 0
     },
     createAt: {
-        type: Date,
+        type: String,
         default: Date.now
     }
 })

@@ -1,4 +1,7 @@
 
+2020/01/06 19:50
+add totalmessages, move into chatlist, fix bug
+
 2020/01/05 14:34
 add picture and edit groupconversation
 

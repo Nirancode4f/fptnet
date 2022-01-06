@@ -22,7 +22,7 @@ const MessageSchema = new mongoose.Schema(
       default: false
     },
     createAt:{
-      type:Date,
+      type: String,
       default: Date.now
     }
   },

@@ -30,7 +30,7 @@ var Deadline = new Schema({
         default: ""
     },
     creatAt:{
-        type: Date,
+        type: String,
         default: Date.now
     }
 });
