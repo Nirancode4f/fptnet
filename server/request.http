@@ -222,9 +222,9 @@ POST http://localhost:3000/api/group/message/create
 Content-Type: application/json
 
 {
-    "userId": "61c2b42177efb03d08b9031f",
-    "conversationId": "61d1e596c05ab32b31f874ec",
-    "content": "add totalmessages",
+    "userId": "61c275d7cb85f50e673d6a0f",
+    "conversationId": "61d6df736ef6bcd7e05670ad",
+    "content": "test",
     "image": ""
 }
 
@@ -317,18 +317,14 @@ Content-Type: application/json
 
 {
     "userId": "61c2b42177efb03d08b9031f",
-    "postId": "61d15dd0620645374ea6b656",
-    "content": "14234"
+    "postId": "61d40f8ed5c3e626d22e27d6",
+    "content": "Đây là comment thứ 3"
 }
 
-
-### get comment
-POST http://localhost:3000/api/comment/get
+### get comment, api/comment/get/{postId}/{block}/{sorttype}
+### sorttype {1: newest, 2: most like}, each block contain 10 comments
+GET http://localhost:3000/api/comment/get/61d40f8ed5c3e626d22e27d6/1/2
 Content-Type: application/json
-
-{
-    "postId": "61d15dd0620645374ea6b656"
-}
 
 ### edit comment
 POST http://localhost:3000/api/comment/update
@@ -345,6 +341,22 @@ Content-Type: application/json
 
 {
     "commentId": "61c53fa391da473275df5955"
+}
+
+### like comment api/comment/like/{commentId}
+GET http://localhost:3000/api/comment/like/61d6f8f8ed1d4b2aff961fde
+Content-Type: application/json
+
+{
+    "userId": "61c275d7cb85f50e673d6a0f"
+}
+
+### unlike comment api/comment/like/{commentId}
+GET http://localhost:3000/api/comment/unlike/61d6f8f8ed1d4b2aff961fde
+Content-Type: application/json
+
+{
+    "userId": "61c275d7cb85f50e673d6a0f"
 }
 
 ### create deadline

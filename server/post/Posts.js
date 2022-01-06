@@ -6,7 +6,6 @@ const Schema = mongoose.Schema ;
 ///post schema
 
 const PostSchema = new Schema({
-        
     userId:{
         type: String,
         index: true,
@@ -25,8 +24,8 @@ const PostSchema = new Schema({
         type: Number,
         default: 0
     },
-    comments: Array,
-    
+    likelist: [String],
+    comments: [String],
     createAt: {
         type: String,
         default: Date.now

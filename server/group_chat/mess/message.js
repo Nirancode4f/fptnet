@@ -27,7 +27,7 @@ router.post("/create", async (req, res) => {
     Conv.totalmessages++
     await Conv.save()
 
-    return res.status(200).json({ success: true, message: "message has been sent", MessageId: Mess._id });
+    return res.status(200).json({ success: false, message: "message has been sent", MessageId: Mess._id });
   } catch (err) {
     res.status(500).json(err.message);
   }

@@ -27,6 +27,7 @@ const CommentSchema = new Schema({
         type: Number,
         default: 0
     },
+    likelist: [String],
     createAt:{
         type: String,
         default: Date.now

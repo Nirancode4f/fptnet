@@ -17,6 +17,7 @@ const Upload = require("./upload/upload")
 const Deadline = require("./deadline/deadline")
 const User = require("./user/user")
 const Friend = require("./user/friend")
+const Search = require("./search/search")
 
 
 
@@ -64,6 +65,7 @@ app.use("/api/upload", Upload)
 app.use("/api/deadline/", Deadline)
 app.use("/api/user/", User)
 app.use("/api/friend/", Friend)
+app.use("/api/search", Search)
 app.use("/api/image/", require("./upload/getimage"))
 
 
