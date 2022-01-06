@@ -20,6 +20,10 @@ Content-Type: application/json
 ### get all teacher
 GET  http://localhost:3000/api/user/teachers
 
+### Get info of user
+GET  http://localhost:3000/api/user/getinfo/61c2b42177efb03d08b9031f
+
+
 ### Edit user profile
 POST  http://localhost:3000/api/user/edit
 Content-Type: application/json
