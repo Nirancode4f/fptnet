@@ -78,7 +78,7 @@ export const Profile = (props) => {
                         Trang cá nhân
                     </div>
 
-                    <div className="Profile_container" id="Post-information">
+                    <div className="Profile_container" >
 
                         <div className="Profile_info_and_img">
                             <div className="Profile_user_img">
@@ -113,7 +113,8 @@ export const Profile = (props) => {
                         <div className="Tag_action ">
                
                         <PostComp userPosts={userPost.post}  onPostClick={handlePostClick}/>
-
+                        
+                        <div id="Post-information"></div>
                         </div>
                      
 
