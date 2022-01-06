@@ -311,6 +311,22 @@ Content-Type: application/json
     "postId": "61d3e08cf654e730eb23c26c"
 }
 
+### like post api/post/like/{postId}
+GET http://localhost:3000/api/post/like/61d40f8ed5c3e626d22e27d6
+Content-Type: application/json
+
+{
+    "userId": "61c275d7cb85f50e673d6a0f"
+}
+
+### unlike post api/post/like/{postId}
+GET http://localhost:3000/api/post/unlike/61d40f8ed5c3e626d22e27d6
+Content-Type: application/json
+
+{
+    "userId": "61c275d7cb85f50e673d6a0f"
+}
+
 ### create comment
 POST http://localhost:3000/api/comment/create
 Content-Type: application/json
