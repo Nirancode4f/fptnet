@@ -18,7 +18,8 @@
 .env.test.local
 .env.production.local
 .env
-
+.prettierrc
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.gitignore
