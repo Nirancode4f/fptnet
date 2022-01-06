@@ -112,7 +112,7 @@ const Login = () => {
             <div className="login_forgot">Forgot password</div>
           </div>
           <div>
-            <button className="login_submit_btn">LOGIN</button>
+            <button  className="login_submit_btn">LOGIN</button>
           </div>
         </form>
         <GgAuth />

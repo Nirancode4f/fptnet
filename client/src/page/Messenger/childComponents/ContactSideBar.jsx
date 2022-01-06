@@ -2,11 +2,23 @@ import React from "react";
 import FriendHeader from "./FriendsContactComps/Friend/FriendHeader";
 import FriendsContact from "../childComponents/FriendsContactComps/FriendsContact";
 
-export default function ContactSideBar() {
+
+function ContactSideBar(props)
+{
+
+const {listFriends,listTeachers,groupsData} = props
+
   return (
-    <>
+    <div >
       <FriendHeader />
-      <FriendsContact />
-    </>
-  );
+        < FriendsContact
+          listFriends={listFriends}
+          listTeachers={listTeachers}
+          groupsData={groupsData} />
+      
+    </div>
+
+  )
 }
+
+export default ContactSideBar

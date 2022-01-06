@@ -7,23 +7,23 @@ import boring from "../../page/Profile/assets/img/boring.png"
 
 
 PostComp.prototype = {
-    userPost: PropTypes.array,
+    userPosts: PropTypes.array,
     onPostClick: PropTypes.func,
 }
 
 PostComp.defaultProps = {
-    userPost: [],
+    userPosts: [],
     onPostClick: null
 }
 
 function PostComp(props) {
 
 
-
-    const { userPost, onPostClick } = props
+    const { userPosts, onPostClick } = props
     
     const handleClick = (userPost) => {
         if (onPostClick) {
+
             onPostClick(userPost)
         }
     }
@@ -31,9 +31,12 @@ function PostComp(props) {
 
     return (
         <div className="Tag_action_write Row">
-            {   userPost.length > 0 ?
-                userPost.map(userPost => (
-                    <div key={userPost._id} onClick={handleClick} className="Col C-4">
+            {   userPosts.length > 0 ?
+                userPosts.map(userPost => (
+                    <div 
+                    key={userPost._id}
+                    onClick={()=> handleClick(userPost)}
+                     className="Col C-4">
                         <img className="Tag_action_post" src={userPost.image} alt="#" />
                     </div>
                 )

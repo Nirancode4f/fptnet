@@ -1,15 +1,16 @@
 import React from "react";
-
-export default function GroupListItem() {
+import avatar from "./avatar-user.png";
+export default function GroupListItem({ group }) {
+  console.log(`this is group list= `);
   return (
     <>
       <li className="GroupListItem">
         <img
           className="UserListItemAvatar"
-          src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"
+          src={group.picture || avatar}
           alt="avatar user"
         />
-        <div className="UserListItemName">PC17310</div>
+        <div className="UserListItemName">{group.name || "no name"}</div>
       </li>
     </>
   );

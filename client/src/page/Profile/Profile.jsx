@@ -1,16 +1,25 @@
 /* eslint-disable no-unused-expressions */
 import React from "react";
 import { Link } from "react-router-dom";
+import { Router, Route } from 'react-router'
+import { useState, useEffect } from "react";
+import axios from 'axios';
+import  ReactDOM  from 'react-dom';
+
+
+import boring from "./assets/img/boring.png"
+import ProfilePopUp from "../../component/Profile//ProfilePopUp";
 import MainLayout from "../../component/MainPage/MainLayout";
 import "./assets/css/profile.css"
 import PostComp from "../../component/Profile/PostComp";
-import { useState, useEffect } from "react";
-import axios from 'axios';
-import { ReactDOM } from 'react-dom';
-import boring from "./assets/img/boring.png"
+
 const URL_MAIN = process.env.REACT_APP_URL_MAIN || "https://fanserverapi.herokuapp.com"
 
 export const Profile = (props) => {
+
+    const [ShowPopup, setShowPopup] = useState(null)
+    const [PopUpdata, setPopUpdata] = useState({})
+
 
     const user = JSON.parse(localStorage.getItem("loginData"));
     const error = "https://upload.wikimedia.org/wikipedia/commons/c/c7/No_Pic.jpg"
@@ -42,13 +51,24 @@ export const Profile = (props) => {
         }
     }
 
+    // run this shit first
     useEffect(() => {
-        
+        // run first  
         handleLoading(block)
        
     }, [])
 
 
+    function handlePostClick(data){
+
+        setShowPopup(true)
+        setPopUpdata(data)
+
+}
+    function handleClickOut(event){  
+      setShowPopup(event)
+    
+}
 
 
     return (
@@ -62,7 +82,7 @@ export const Profile = (props) => {
                         Trang cá nhân
                     </div>
 
-                    <div className="Profile_container">
+                    <div className="Profile_container" >
 
                         <div className="Profile_info_and_img">
                             <div className="Profile_user_img">
@@ -90,16 +110,28 @@ export const Profile = (props) => {
                                 <Link className="Profile_user_action_achievement_tag" to="/">Thành Tích</Link>
                             </div>
 
-                            <Link to="/" href="#" className="Profile_account_friend">Bạn Bè</Link>
+                            <Link to="/" to="#" className="Profile_account_friend">Bạn Bè</Link>
 
                         </div>
 
-                        <div className="Tag_action">
+                        <div className="Tag_action ">
                
-                               <PostComp userPost={userPost.post} />
+                        <PostComp userPosts={userPost.post}  onPostClick={handlePostClick}/>
+
+                        <div id="Post-information">
+                            
+                        {
+                            ShowPopup ?                           
+                            (
+                            <ProfilePopUp data={PopUpdata} OnClickout={handleClickOut}/>
+                             ):
+                             <></>
+                                
+                        }
 
                         </div>
-
+                        </div>
+                     
 
                     </div>
 

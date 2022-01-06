@@ -15,7 +15,7 @@
 /* friend list */
 .FriendsContact {
   border-right: 1px solid var(--bg-color);
-  padding: 10px 20px 10px 10px;
+  padding: 10px 10px 10px 10px;
   position: fixed;
   z-index: 10;
   max-height: 635px;
@@ -96,9 +96,9 @@
   color: #fff !important;
   font-size: 700;
   border-radius: 4px;
-  transform: scale(1.1);
   color: var(--bg-color);
   cursor: pointer;
+  overflow-x: hidden;
 }
 .FriendListItem,
 .TeacherListItem,

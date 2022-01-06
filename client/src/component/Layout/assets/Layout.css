@@ -328,7 +328,9 @@ line-height: 48px;
     cursor: pointer;
     background-color: #fff;
     color: var(--bg-color );
-    border-radius: 8px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+
 }
 
 

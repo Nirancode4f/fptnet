@@ -1,7 +1,10 @@
 import React from "react";
 import TeacherListItem from "./TeacherListItem";
 
-export default function TeacherList() {
+
+export default function TeacherList({ listTeachers }) {
+  
+    
   return (
     <>
       <ul className="TeacherList">
@@ -16,7 +19,18 @@ export default function TeacherList() {
         <label htmlFor="OpenTeacherList">
           <i className="ShowListIcon fas fa-angle-down"></i>
         </label>
-        <TeacherListItem />
+        
+        {
+
+listTeachers.length > 0 ? (
+  listTeachers.map((teacher) => (
+    <TeacherListItem key={teacher._id} teacher={teacher} />
+  ))
+) : (
+  <></>
+)
+
+        }
       </ul>
     </>
   );
