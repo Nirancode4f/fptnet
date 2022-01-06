@@ -18,7 +18,7 @@ class PosterTime extends React.Component{
                             </div>
                         </div>
 
-                        <div className="more-info-btn" /> 
+                        <div className="more-info-post-btn">...</div> 
                     </div>
         )
     }

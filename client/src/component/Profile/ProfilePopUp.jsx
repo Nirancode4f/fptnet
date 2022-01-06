@@ -64,17 +64,23 @@ function ProfilePopUp(props) {
 
     <div className="modal-wiew-detail-post-content-comment">
         <div className="modal-wiew-detail-post-content-action">
-            <i className="far fa-heart like-post unlike"></i>
-            {/* <i className="fas fa-heart like-post liked"></i> */}
-            <div className="comment-post">
-                <input type="text" placeholder="Viết bình luận của bạn" />
-                <i className="fas fa-paper-plane add-cmt-btn"></i>
+             <div>
+            <i className="far fa-heart like-post unlike"> </i>
+            <span>Thích</span>
+            </div>
+            {/* <i className="fas fa-heart like-post liked">Bở Thích</i> */}
+             <div className='click-to-show-comment-content'>
+            <i class="far fa-comment-alt to-comment"></i>
+            <span>Bình Luận</span>
             </div>
             <div className="modal-wiew-detail-post-content-share-btn">
                 <i className="fas fa-share-square share-post-btn"></i>
+                <span>Chia sẻ</span>
             </div>
         </div>
-        
+
+        {/* ẩn cmt thì class comment-main display:none */}
+         <div className="comment-main">
         <div className="modal-wiew-detail-post-content-comment-content">
 
             <div className="comment-box">
@@ -84,19 +90,19 @@ function ProfilePopUp(props) {
                     </div>
                     <div className="comment-box-infor-commenter-name">
                         Tên commenter
-                        <div className="more-info-btn" > ... </div>
+                        <span className="more-info-cmt-btn" > ... </span>
 
                     </div>
                 </div>
                 <div className="comment-box-content">
                     nơi hiển thị nội dung comment mỗi comment chứa trong 1 thẻ div có class là comment-box
                     <div className="reaction-comment">
-                        <div >
+                        <span >
                             Thích
-                        </div>
-                        <div >
+                        </span>
+                        <span >
                             Trả lời
-                        </div>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -108,19 +114,19 @@ function ProfilePopUp(props) {
                     </div>
                     <div className="comment-box-infor-commenter-name">
                         Tên commenter
-                        <div className="more-info-btn" > ... </div>
+                        <span className="more-info-cmt-btn" > ... </span>
 
                     </div>
                 </div>
                 <div className="comment-box-content">
                     nơi hiển thị nội dung comment mỗi comment chứa trong 1 thẻ div có class là comment-box
                     <div className="reaction-comment">
-                        <div >
+                        <span >
                             Thích
-                        </div>
-                        <div >
+                        </span>
+                        <span >
                             Trả lời
-                        </div>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -132,27 +138,35 @@ function ProfilePopUp(props) {
                     </div>
                     <div className="comment-box-infor-commenter-name">
                         Tên commenter
-                        <div className="more-info-btn" > ... </div>
+                        <span className="more-info-cmt-btn" > ... </span>
 
                     </div>
                 </div>
                 <div className="comment-box-content">
                     nơi hiển thị nội dung comment mỗi comment chứa trong 1 thẻ div có class là comment-box
                     <div className="reaction-comment">
-                        <div >
+                        <span >
                             Thích
-                        </div>
-                        <div >
+                        </span>
+                        <span >
                             Trả lời
-                        </div>
+                        </span>
                     </div>
                 </div>
+
+         
+
             </div>
 
 
 
-
+           
         </div>
+        <div className="comment-post">
+                <input type="text" placeholder="Viết bình luận của bạn" />
+                <i className="fas fa-paper-plane add-cmt-btn"></i>
+            </div>
+            </div>
     </div>
 
     </div>

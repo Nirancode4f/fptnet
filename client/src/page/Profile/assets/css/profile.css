@@ -180,8 +180,24 @@
   width: 800px;
   padding: 10px 20px; 
   display: flex;
+  animation: slidetotop linear 0.3s;
 
+  
 }
+@keyframes slidetotop {
+    from{
+        opacity: 0;
+        transform: translateY(-350px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
 .modal-wiew-detail-post-img {
     width: 50%;
     height: 100%;
@@ -232,6 +248,7 @@
     
 }
 .more-info-post-btn {
+    display: inline;
     position: absolute;
     top: 0;
     right: 10px;
@@ -254,7 +271,11 @@
     font-size: 30px;
     display: none;
 }
-
+.more-info-post-btn:hover ,
+.more-info-cmt-btn:hover {
+    user-select: none;
+    cursor: pointer;
+}
 
 
 .modal-wiew-detail-post-info-post-avt-user {
@@ -296,6 +317,7 @@
     border-bottom: 1px solid var(--bg-color);
     padding: 10px;
     align-items: center;
+    justify-content: space-around;
 }
 .modal-wiew-detail-post-content-action .unlike ,
 .modal-wiew-detail-post-content-action .liked {
@@ -304,7 +326,15 @@
     margin-right:12px ;
   
 }
-.modal-wiew-detail-post-content-action .comment-post {
+.modal-wiew-detail-post-content-action span,
+.modal-wiew-detail-post-content-action span {
+    color: var(--bg-color);
+    font-size: 16px;
+    line-height: 21px;
+  
+}
+
+.comment-post {
     flex: 1;
     border: 1px solid var(--bg-color);
     height: 26px;
@@ -315,8 +345,7 @@
     display: flex;
     align-items: center;
     padding: 0 10px;
-}
-.modal-wiew-detail-post-content-action .comment-post input {
+} .comment-post input {
     height: 100%;
     padding: 10px;
     outline: none;
@@ -325,19 +354,30 @@
     font-weight: 500;
 
 }
-.modal-wiew-detail-post-content-action .comment-post i {
+.comment-post i {
     color: var(--bg-color);
     font-size: 20px;
 }
-.modal-wiew-detail-post-content-action .modal-wiew-detail-post-content-share-btn {
+.to-comment ,.modal-wiew-detail-post-content-share-btn  {
     margin-left: 20px;
     font-size: 20px;
     color: var(--bg-color);
 }
+.to-comment  ,.modal-wiew-detail-post-content-share-btn i {
+    margin-right: 12px;
 
+}
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+.comment-main {
+    display: flex;
+    flex-direction: column;
+    display: none;
+    
+}
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 .modal-wiew-detail-post-content-comment-content {
     padding: 10px 0;
-    max-height: 210px;
+    max-height: 200px;
     overflow-y: auto;
 
 }
@@ -376,7 +416,7 @@
     line-height: 1.4;
     padding: 0 30px;
 }
-.reaction-comment a {
+.reaction-comment span {
     display: inline-block;
     margin-top: 3px;
     text-decoration: none;
@@ -390,6 +430,10 @@
  .liked:hover ,
 .add-cmt-btn:hover ,
 .share-post-btn:hover ,
-.reaction-comment a :hover {
+.modal-wiew-detail-post-content-action div:hover {
     cursor: pointer;
 }
+.reaction-comment span:hover {
+    cursor: pointer;
+}
+
