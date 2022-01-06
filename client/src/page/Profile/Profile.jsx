@@ -7,8 +7,6 @@ import axios from 'axios';
 import  ReactDOM  from 'react-dom';
 
 
-
-
 import boring from "./assets/img/boring.png"
 import ProfilePopUp from "../../component/Profile/ProfilePopUp";
 import MainLayout from "../../component/MainPage/MainLayout";
@@ -18,6 +16,10 @@ import PostInfor from "../../component/Profile/PostInfor";
 const URL_MAIN = process.env.REACT_APP_URL_MAIN || "https://fanserverapi.herokuapp.com"
 
 export const Profile = (props) => {
+
+    const [ShowPopup, setShowPopup] = useState(null)
+    const [PopUpdata, setPopUpdata] = useState({})
+
 
     const user = JSON.parse(localStorage.getItem("loginData"));
     const error = "https://upload.wikimedia.org/wikipedia/commons/c/c7/No_Pic.jpg"
@@ -55,16 +57,18 @@ export const Profile = (props) => {
         handleLoading(block)
        
     }, [])
-    const instanceRef = React.createRef();
+
 
     function handlePostClick(data){
-        console.log(data)
-        ReactDOM.render(
-        <ProfilePopUp data={data}/>,
-        document.getElementById("Post-information")
-            )
-    }
 
+        setShowPopup(true)
+        setPopUpdata(data)
+
+}
+    function handleClickOut(event){  
+      setShowPopup(event)
+    
+}
 
 
     return (
@@ -113,8 +117,19 @@ export const Profile = (props) => {
                         <div className="Tag_action ">
                
                         <PostComp userPosts={userPost.post}  onPostClick={handlePostClick}/>
-                        
-                        <div id="Post-information"></div>
+
+                        <div id="Post-information">
+                            
+                        {
+                            ShowPopup ?                           
+                            (
+                            <ProfilePopUp data={PopUpdata} OnClickout={handleClickOut}/>
+                             ):
+                             <></>
+                                
+                        }
+
+                        </div>
                         </div>
                      
 
