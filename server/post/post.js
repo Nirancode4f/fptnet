@@ -39,6 +39,67 @@ router.get("/get/:postId", async (req, res) => {
     }
 });
 
+router.get("/like/:postId", async (req, res) => {
+    try {
+        params = req.params
+        body = await req.body
+
+        post = await Posts.findById(params.postId)
+        if (!post) {
+            return res.status(200).json({ success: false, message: "This post not exist" });
+        }
+
+        user = await Users.findById(body.userId)
+        if (!user) {
+            return res.status(200).json({ success: false, message: "userId is invalid" });
+        }
+
+        if(post.likelist.includes(body.userId)){
+            return res.status(200).json({ success: false, message: "You have already like this post" });
+        }
+
+        post.likelist.push(body.userId)
+        post.like++
+        await post.save()
+
+        res.status(200).json({ success: true });
+    } catch (err) {
+        res.status(500).json(err.message);
+    }
+});
+
+router.get("/unlike/:postId", async (req, res) => {
+    try {
+        params = req.params
+        body = req.body
+
+        post = await Posts.findById(params.postId)
+
+        if (!post) {
+            return res.status(200).json({ success: true, message: "This post not exist" });
+        }
+
+        ok = false
+        for (var i = 0; i < post.likelist.length; i++) {
+            if (post.likelist[i] == body.userId) {
+                post.likelist.splice(i, 1);
+                ok = true
+                break;
+            }
+        }
+
+        if(ok) post.like--
+        else{
+            return res.status(200).json({ success: true, message: "You haven't like this post yet" });
+        }
+        await post.save()
+
+        res.status(200).json({ success: true });
+    } catch (err) {
+        res.status(500).json(err.message);
+    }
+});
+
 router.post("/getposts", async (req, res) => {
     try {
         //number of posts per block
