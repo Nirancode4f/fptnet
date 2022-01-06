@@ -245,7 +245,9 @@ Content-Type: application/json
 
 {
     "userId": "61c2b42177efb03d08b9031f",
-    "content": "asdf2342"
+    "content": "asdf2342",
+    "image": "https://st.quantrimang.com/photos/image/2020/06/19/Hinh-Nen-Meo-Ngao-46.jpg"
+
 }
 
 ### get post
