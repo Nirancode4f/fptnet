@@ -10,24 +10,26 @@ const Conversations = require("./Conversations");
 //create a conversation and add conversationId to each user
 router.post("/create", async (req, res) => {
   try {
+    body = req.body
+
     const check = await Users.find({
       _id: {
-        $in: req.body.members
+        $in: body.members
       }
     });
 
-    if (check.length != req.body.members.length) {
+    if (check.length != body.members.length) {
       return res.status(200).json({ success: false, message: "Some users not exist!!" });
     }
 
     const Conv = new GroupConversation({
-      name: req.body.name,
-      members: req.body.members,
+      name: body.name,
+      members: body.members,
     });
     await Conv.save();
     // add conversationId to userId
-    for (let i = 0; i < req.body.members.length; i++) {
-      user = await Users.findById(req.body.member[i])
+    for (let i = 0; i < body.members.length; i++) {
+      user = await Users.findById(body.member[i])
       user.chatlist.groupconversations.push(Conv._id)
       await user.save()
     }
@@ -42,13 +44,13 @@ router.post("/create", async (req, res) => {
 router.post("/edit", async (req, res) => {
   try {
     body = req.body
-
+    //find conversation
     conv = await Conversations.findById(body.conversationId)
-
+    //check exist conversation
     if (!conv) {
       return res.status(200).json({ success: false, message: "Not exist this conversation" });
     }
-
+    //check user is a member in conversation or not?
     if (!conv.members.includes(body.userId)) {
       return res.status(200).json({ success: false, message: "You can't edit this conversation" });
     }
@@ -79,6 +81,11 @@ router.post("/get", async (req, res) => {
 
     if (!Conv) return res.status(200).json({ success: false, message: "Not exist this GroupConversation!" });
 
+    //check user is a member in conversation or not?
+    if (!Conv.members.includes(body.userId)) {
+      return res.status(200).json({ success: false, message: "You can't get this conversation" });
+    }
+
     return res.status(200).json({ success: true, message: "Success", conversation: Conv });
 
   } catch (err) {
@@ -97,21 +104,33 @@ function difference(setA, setB) {
 //add a some new users to conversation
 router.post("/addusers", async (req, res) => {
   try {
+    body = req.body
     const check = await Users.find({
       _id: {
-        $in: req.body.members
+        $in: body.members
       }
     });
 
-    if (check.length != req.body.members.length) {
+    if (check.length != body.members.length) {
       return res.status(200).json({ success: false, message: "Some users not exist!!" });
     }
 
-    Conv = await GroupConversation.findById(req.body.conversationId);
+    //find conversation
+    Conv = await GroupConversation.findById(body.conversationId);
+
+    //check exist conversation
+    if (!Conv) {
+      return res.status(200).json({ success: false, message: "Not exist this conversation" });
+    }
+
+    //check user is a member in conversation or not?
+    if (!Conv.members.includes(body.userId)) {
+      return res.status(200).json({ success: false, message: "You can't add user to this conversation" });
+    }
 
     //find difference of body.members from Conv.members
     set1 = new Set(Conv.members);
-    set2 = new Set(req.body.members);
+    set2 = new Set(body.members);
     arr = difference(set2, set1);
     for (let member of arr) {
       Conv.members.push(member);
@@ -141,13 +160,15 @@ router.post("/getconvs", async (req, res) => {
   try {
     body = req.body
 
+    //find user
     user = await Users.findById(body.userId)
 
     conversations = []
 
-    for(conversationId of user.chatlist.groupconversations){
+    //add each conversation to array
+    for (conversationId of user.chatlist.groupconversations) {
       conv = await Conversations.findById(conversationId)
-      if(!conv) continue;
+      if (!conv) continue;
       conversations.push(conv)
     }
 
@@ -165,6 +186,11 @@ router.post("/deleteusers", async (req, res) => {
     Conv = await GroupConversation.findById(body.conversationId);
 
     if (!Conv) return res.status(200).json({ success: false, message: "Not exist this GroupConversation!" });
+
+    //check user is a member in conversation or not?
+    if (!Conv.members.includes(body.userId)) {
+      return res.status(200).json({ success: false, message: "You can't delete user from this conversation" });
+    }
 
     let set = new Set(Conv.members);
 
@@ -186,6 +212,18 @@ router.post("/deleteusers", async (req, res) => {
 router.post("/delete", async (req, res) => {
   try {
     const body = req.body
+
+    //find conversation
+    conv = await Conversations.findById(body.conversationId)
+    //check exist conversation
+    if (!conv) {
+      return res.status(200).json({ success: false, message: "Not exist this conversation" });
+    }
+    //check user is a member in conversation or not?
+    if (!conv.members.includes(body.userId)) {
+      return res.status(200).json({ success: false, message: "You can't delete this conversation" });
+    }
+
     await GroupConversation.findByIdAndRemove(body.conversationId);
 
     //delete all message

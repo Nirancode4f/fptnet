@@ -179,7 +179,7 @@ POST http://localhost:3000/api/group/conversation/get
 Content-Type: application/json
 
 {
-    "conversationId": "61c6b423b2f94fef6d8bb227"
+    "conversationId": "61d1e596c05ab32b31f874ec"
 }
 
 ### get all groupconversation of a user
@@ -222,10 +222,10 @@ POST http://localhost:3000/api/group/message/create
 Content-Type: application/json
 
 {
-    "userId": "61d2b6e43084635e471b542a",
-    "conversationId": "61d46657f2071d3db136d368",
-    "content": "Bonus thêm tấm hình",
-    "image": "https://yt3.ggpht.com/ytc/AKedOLSV9pqwI5XI_ES4qVyAUyBFkhY0_PqK4ZISokxg=s900-c-k-c0x00ffffff-no-rj"
+    "userId": "61c2b42177efb03d08b9031f",
+    "conversationId": "61d1e596c05ab32b31f874ec",
+    "content": "add totalmessages",
+    "image": ""
 }
 
 ### get a block messages of a groupconversation, each block contain 20 messages
@@ -234,7 +234,7 @@ Content-Type: application/json
 
 {
     "userId": "61c2b42177efb03d08b9031f",
-    "conversationId": "61d46657f2071d3db136d368",
+    "conversationId": "61d1e596c05ab32b31f874ec",
     "block": 1
 }
 
@@ -243,8 +243,8 @@ POST http://localhost:3000/api/group/message/get
 Content-Type: application/json
 
 {
-    "userId": "61c2b4ae4818a8dcd2d6abd9",
-    "conversationId": "61c6b423b2f94fef6d8bb227"
+    "userId": "61c2b42177efb03d08b9031f",
+    "conversationId": "61d1e596c05ab32b31f874ec"
 }
 
 ### unsend a groupmessages
@@ -273,9 +273,7 @@ Content-Type: application/json
 
 {
     "userId": "61c2b42177efb03d08b9031f",
-    "content": "asdf2342",
-    "image": "https://st.quantrimang.com/photos/image/2020/06/19/Hinh-Nen-Meo-Ngao-46.jpg"
-
+    "content": "asdf2342"
 }
 
 ### get post
