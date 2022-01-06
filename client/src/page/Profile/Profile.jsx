@@ -57,7 +57,7 @@ export const Profile = (props) => {
     }, [])
     const instanceRef = React.createRef();
 
-    async function handlePostClick(data){
+    function handlePostClick(data){
         console.log(data)
         ReactDOM.render(
         <ProfilePopUp data={data}/>,
@@ -112,7 +112,7 @@ export const Profile = (props) => {
 
                         <div className="Tag_action ">
                
-                               <PostComp userPosts={userPost.post}  onPostClick={handlePostClick}/>
+                        <PostComp userPosts={userPost.post}  onPostClick={handlePostClick}/>
 
                         </div>
                      

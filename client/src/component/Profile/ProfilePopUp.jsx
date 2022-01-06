@@ -17,11 +17,28 @@ const ProfilePopUp = (props) => {
     const UserName = Data.user.username
     const errorPic = "https://upload.wikimedia.org/wikipedia/commons/c/c7/No_Pic.jpg"
 
+    function handleOnClickparent(event){
+         
+      
+        var ele = document.getElementById("postpopup")
+        ele.remove()
+
+        console.log(event.currentTarget)
+    }
+
+    function handleOnClick(event){    
+        
+        
+        console.log(event.currentTarget)
+    }
+
+
+
 
     return (
 
-        <div className="modal-wiew-detail-post">
-            <div className="modal-wiew-detail-post-container">
+        <div className="modal-wiew-detail-post" id='postpopup' onClick={handleOnClickparent}  >
+            <div className="modal-wiew-detail-post-container" onClick={handleOnClick} >
                 <div className="modal-wiew-detail-post-img">
 
                    <Postimage image={data.image}  errorPic={errorPic} />
