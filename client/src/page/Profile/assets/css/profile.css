@@ -321,6 +321,7 @@
     padding: 10px;
     align-items: center;
     justify-content: space-around;
+    user-select: none;
 }
 .modal-wiew-detail-post-content-action .unlike ,
 .modal-wiew-detail-post-content-action .liked {
