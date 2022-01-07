@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import GroupListItem from "./GroupListItem";
-import { v4 as uuidv4 } from "uuid";
 
 const TEMP_URL = "http://localhost:3000";
 const URL_MAIN =
@@ -26,7 +25,9 @@ export default function GroupList({ listGroups }) {
           <i className="ShowListIcon fas fa-angle-down"></i>
         </label>
         {listGroups.length > 0 ? (
-          listGroups.map((group) => <GroupListItem key={group._id} group={group} />)
+          listGroups.map((group) => (
+            <GroupListItem key={group._id} group={group} />
+          ))
         ) : (
           <></>
         )}
