@@ -26,7 +26,7 @@ export default function GroupList({ listGroups }) {
           <i className="ShowListIcon fas fa-angle-down"></i>
         </label>
         {listGroups.length > 0 ? (
-          listGroups.map((group) => <GroupListItem key={group} group={group} />)
+          listGroups.map((group) => <GroupListItem key={group._id} group={group} />)
         ) : (
           <></>
         )}
