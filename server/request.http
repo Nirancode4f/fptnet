@@ -293,7 +293,7 @@ POST http://localhost:3000/api/post/getposts
 Content-Type: application/json
 
 {
-    "userId": "61c2b42177efb03d08b9031f",
+    "userId": "61d3b226e673653cd2452cce",
     "block": 1
 }
 
