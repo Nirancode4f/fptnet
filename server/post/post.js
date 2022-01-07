@@ -39,12 +39,12 @@ router.get("/get/:postId", async (req, res) => {
     }
 });
 
-router.get("/like/:postId", async (req, res) => {
+router.post("/like", async (req, res) => {
     try {
         params = req.params
         body = await req.body
 
-        post = await Posts.findById(params.postId)
+        post = await Posts.findById(body.postId)
         if (!post) {
             return res.status(200).json({ success: false, message: "This post not exist" });
         }
@@ -68,12 +68,12 @@ router.get("/like/:postId", async (req, res) => {
     }
 });
 
-router.get("/unlike/:postId", async (req, res) => {
+router.post("/unlike", async (req, res) => {
     try {
         params = req.params
         body = req.body
 
-        post = await Posts.findById(params.postId)
+        post = await Posts.findById(body.postId)
 
         if (!post) {
             return res.status(200).json({ success: true, message: "This post not exist" });

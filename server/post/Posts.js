@@ -25,9 +25,9 @@ const PostSchema = new Schema({
         default: 0
     },
     likelist: [String],
-    comments: [String],
+    comments: [Schema.Types.Mixed],
     createAt: {
-        type: String,
+        type: Number,
         default: Date.now
     }
 });
