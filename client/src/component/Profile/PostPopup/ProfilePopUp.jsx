@@ -6,6 +6,7 @@ import Postimage from './Postimage'
 import ShowLikeCmt from './ShowLikeCmt'
 
 import PropTypes from "prop-types"
+import CmtBox from './CmtPost/CmtBox'
 
 
 
@@ -24,16 +25,16 @@ ProfilePopUp.defaultProps = {
 
 function ProfilePopUp(props) {
 
-    
-    const {data, OnClickout} = props
+
+    const { data, OnClickout } = props
 
     const Data = JSON.parse(localStorage.getItem("loginData"))
     const Avatar = Data.user.picture
     const UserName = Data.user.username
     const errorPic = "https://upload.wikimedia.org/wikipedia/commons/c/c7/No_Pic.jpg"
 
-    function handleOnClickout(){
-        
+    function handleOnClickout() {
+
         OnClickout(null)
 
     }
@@ -42,115 +43,67 @@ function ProfilePopUp(props) {
 
     return (
 
-       
-    <div className="modal-wiew-detail-post"  onClick={handleOnClickout}  >
-    <div className="modal-wiew-detail-post-container"  onClick={(event)=> event.stopPropagation()} >
-    <div className="modal-wiew-detail-post-img">
 
-    <Postimage image={data.image}  errorPic={errorPic} />
+        <div className="modal-wiew-detail-post" onClick={handleOnClickout}  >
+            <div className="modal-wiew-detail-post-container" onClick={(event) => event.stopPropagation()} >
+                <div className="modal-wiew-detail-post-img">
 
-    <ShowLikeCmt like={data.like} />
+                    <Postimage image={data.image} errorPic={errorPic} />
 
-    </div>
+                    <ShowLikeCmt like={data.like} />
 
-    <div className="modal-wiew-detail-post-content">
+                </div>
 
-     <div className="modal-wiew-detail-post-content-header"> 
-    <PosterTime UserName={UserName} Postdate={data.createAt} Avatar={Avatar} errorPic={errorPic} />
+                <div className="modal-wiew-detail-post-content">
 
-    <PostContent content={data.content} />
+                    <div className="modal-wiew-detail-post-content-header">
+                        <PosterTime UserName={UserName} Postdate={data.createAt} Avatar={Avatar} errorPic={errorPic} />
 
-        <div className="modal-wiew-detail-post-content-action">
-             <div>
-            <i className="far fa-heart like-post unlike"> </i>
-            <span>Thích</span>
+                        <PostContent content={data.content} />
+
+                        <div className="modal-wiew-detail-post-content-action">
+                            <div>
+                                <i className="far fa-heart like-post unlike"> </i>
+                                <span>Thích</span>
+                            </div>
+                            {/* <i className="fas fa-heart like-post liked">Bở Thích</i> */}
+                            <div className='click-to-show-comment-content'>
+                                <i className="far fa-comment-alt to-comment"></i>
+                                <span>Bình Luận</span>
+                            </div>
+                            <div className="modal-wiew-detail-post-content-share-btn">
+                                <i className="fas fa-share-square share-post-btn"></i>
+                                <span>Chia sẻ</span>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div className="modal-wiew-detail-post-content-comment">
+                        {/* ẩn cmt thì class comment-main display:none */}
+                        <div className="comment-main">
+                            <div className="modal-wiew-detail-post-content-comment-content">
+
+
+
+                            <CmtBox postData={data} />
+
+
+                            </div>
+                            <div className="comment-post">
+                                <input type="text" placeholder="Viết bình luận của bạn" />
+                                <i className="fas fa-paper-plane add-cmt-btn"></i>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
             </div>
-            {/* <i className="fas fa-heart like-post liked">Bở Thích</i> */}
-             <div className='click-to-show-comment-content'>
-            <i className="far fa-comment-alt to-comment"></i>
-            <span>Bình Luận</span>
-            </div>
-            <div className="modal-wiew-detail-post-content-share-btn">
-                <i className="fas fa-share-square share-post-btn"></i>
-                <span>Chia sẻ</span>
-            </div>
-
 
         </div>
-        </div>
-    <div className="modal-wiew-detail-post-content-comment">
-        {/* ẩn cmt thì class comment-main display:none */}
-         <div className="comment-main">
-        <div className="modal-wiew-detail-post-content-comment-content">
 
-            <div className="comment-box">
-                <div className="comment-box-infor-commenter">
-                    <div className="comment-box-infor-commenter-avt">
-                        <img src="https://yt3.ggpht.com/ytc/AKedOLR1qNHkmPssXVH0Yr-FeFhNtcvxw9XNYxGOQgWp6g=s48-c-k-c0x00ffffff-no-rj" alt="" />
-                    </div>
-                    <div className="comment-box-infor-commenter-name">
-                        Tên commenter
-                        <span className="more-info-cmt-btn" > ... </span>
-
-                    </div>
-                </div>
-                <div className="comment-box-content">
-                    nơi hiển thị nội dung comment mỗi comment chứa trong 1 thẻ div có class là comment-box
-                    <div className="reaction-comment">
-                        <span >
-                            Thích
-                        </span>
-                        <span >
-                            Trả lời
-                        </span>
-                    </div>
-                </div>
-            </div>
-
-            <div className="comment-box">
-                <div className="comment-box-infor-commenter">
-                    <div className="comment-box-infor-commenter-avt">
-                        <img src="https://yt3.ggpht.com/ytc/AKedOLR1qNHkmPssXVH0Yr-FeFhNtcvxw9XNYxGOQgWp6g=s48-c-k-c0x00ffffff-no-rj" alt="" />
-                    </div>
-                    <div className="comment-box-infor-commenter-name">
-                        Tên commenter
-                        <span className="more-info-cmt-btn" > ... </span>
-
-                    </div>
-                </div>
-                <div className="comment-box-content">
-                    nơi hiển thị nội dung comment mỗi comment chứa trong 1 thẻ div có class là comment-box
-                    <div className="reaction-comment">
-                        <span >
-                            Thích
-                        </span>
-                        <span >
-                            Trả lời
-                        </span>
-                    </div>
-                </div>
-            </div>
-
-            
-
-
-
-           
-        </div>
-        
-            </div>
-    </div>
-    <div className="comment-post">
-                <input type="text" placeholder="Viết bình luận của bạn" />
-                <i className="fas fa-paper-plane add-cmt-btn"></i>
-            </div>
-
-    </div>
-
-    </div>
-
-    </div>
-     
 
 
     )

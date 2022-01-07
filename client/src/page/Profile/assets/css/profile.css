@@ -154,12 +154,13 @@
     width: 100%;
    object-position: center;
    box-shadow: 1px solid #666;
-   transition: linear 0.3s;
+   transition: linear 0.1s;
 
 }
 .Tag_action_post:hover {
     transform: scale(1.05);
     box-shadow: 0 0 1px #666;
+    cursor: pointer;
 }
 /* modal view post detail */
 .modal-wiew-detail-post {
@@ -180,18 +181,18 @@
   width: 800px;
   padding: 10px 20px; 
   display: flex;
-  animation: slidetotop linear 0.3s;
+  animation: grow linear 0.4s;
 
   
 }
-@keyframes slidetotop {
+@keyframes grow {
     from{
-        opacity: 0;
-        transform: translateY(-350px);
+        opacity: 0.5;
+        transform: scale(0);
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: scale(1);
     }
 }
 
@@ -320,6 +321,7 @@
     padding: 10px;
     align-items: center;
     justify-content: space-around;
+    user-select: none;
 }
 .modal-wiew-detail-post-content-action .unlike ,
 .modal-wiew-detail-post-content-action .liked {
@@ -381,6 +383,7 @@
 .modal-wiew-detail-post-content-comment-content {
     padding: 10px 0;
     max-height: 210px;
+    min-height: 210px;
     overflow-y: auto;
 
 }
