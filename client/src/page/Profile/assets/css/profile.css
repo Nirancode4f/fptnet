@@ -381,6 +381,7 @@
 .modal-wiew-detail-post-content-comment-content {
     padding: 10px 0;
     max-height: 210px;
+    min-height: 210px;
     overflow-y: auto;
 
 }
