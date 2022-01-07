@@ -311,7 +311,7 @@
 }
 .modal-wiew-detail-post-content-comment {
     /* border-top:  1px solid var(--bg-color); */
-    padding: 10px;
+    padding:0 10px;
 
 }
 .modal-wiew-detail-post-content-action {
@@ -350,6 +350,8 @@
     align-items: center;
     padding: 0 10px;
     margin-top: 8px;
+    transform: translateY(-12px);
+
 } .comment-post input {
     height: 100%;
     padding: 10px;
@@ -357,7 +359,6 @@
     border: none;
     flex: 1;
     font-weight: 500;
-
 }
 .comment-post i {
     color: var(--bg-color);
@@ -382,8 +383,8 @@
 /* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 .modal-wiew-detail-post-content-comment-content {
     padding: 10px 0;
-    max-height: 210px;
-    min-height: 210px;
+    max-height: 170px;
+    min-height: 170px;
     overflow-y: auto;
 
 }
