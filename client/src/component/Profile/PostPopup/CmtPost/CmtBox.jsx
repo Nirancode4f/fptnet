@@ -31,7 +31,7 @@ function CmtBox(props) {
                             <CmtUser
 
                                 key={comment._id}
-                                Content={comment.content}
+                                Cmt={comment}
                                
 
                             />

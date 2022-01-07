@@ -11,6 +11,8 @@ import CmtBox from './CmtPost/CmtBox'
 
 import dateFormat from "dateformat";
 
+import Button from '@mui/material/Button';
+import SendIcon from '@mui/icons-material/Send';
 ProfilePopUp.prototype = {
     data: PropTypes.object,
     OnClickout: PropTypes.func,
@@ -129,7 +131,9 @@ function ProfilePopUp(props) {
                             </div>
                             <div className="comment-post">
                                 <input type="text" placeholder="Viết bình luận của bạn" />
-                                <i className="fas fa-paper-plane add-cmt-btn"></i>
+                                <Button 
+                                 style={{color : "#f36f21"}}
+                                endIcon={<SendIcon  style={{color : "#f36f21" }}/>}></Button>
                             </div>
                         </div>
                     </div>
