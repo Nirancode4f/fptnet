@@ -16,7 +16,6 @@ export default function Messenger() {
   const [listFriends, setListFriends] = useState([]);
   const [listTeachers, setListTeachers] = useState([]);
   const [listGroups, setListGroups] = useState([]);
-  const [groupsData, setGroupsData] = useState([]);
   const userId = JSON.parse(localStorage.getItem("loginData")).user._id;
 
   // get friend list
@@ -75,33 +74,38 @@ export default function Messenger() {
   //take data for the first times
 
   useEffect(() => {
+    let isMounted = true;
+
     //run this to take the friend list
     getListFriends(userId)
       .then((res) => {
-        setListFriends(res.data.friends);
-        console.log("🚀 this is the friendlist= ", res.data.friends);
+        // if component umount before we get api, drop it
+        if (isMounted) setListFriends(res.data.friends);
       })
       .catch((err) => console.log(err));
 
     // run this to take teaccherlist
     getListTeachers(userId)
       .then((res) => {
-        setListTeachers(res);
-        console.log(`this is teacherlist= `, res);
+        // if component umount before we get api, drop it
+        if (isMounted) setListTeachers(res);
       })
       .catch((err) => console.log(err));
 
     // run this to take group list
     getListGroups(userId)
       .then((res) => {
-        var data = res.data.conversations;
-        setListGroups(data);
-        console.log(`here`, data);
+        // if component umount before we get api, drop it
+        if (isMounted) {
+          var data = res.data.conversations;
+          setListGroups(data);
+        }
       })
       .catch((err) => console.log(err));
 
-    // take list group conversation
-    //this line cant run if empty array setting
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   return (
