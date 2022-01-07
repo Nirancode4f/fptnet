@@ -27,12 +27,12 @@ function CmtBox(props) {
 
                         comments.map(comment => (
 
+
                             <CmtUser
 
                                 key={comment._id}
                                 Content={comment.content}
-                                likelist={comment.likelist}
-                                createAt={comment.createAt}
+                               
 
                             />
 
