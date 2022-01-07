@@ -315,20 +315,22 @@ Content-Type: application/json
     "postId": "61d3e08cf654e730eb23c26c"
 }
 
-### like post api/post/like/{postId}
-GET http://localhost:3000/api/post/like/61d40f8ed5c3e626d22e27d6
+### like post
+POST http://localhost:3000/api/post/like
 Content-Type: application/json
 
 {
-    "userId": "61c275d7cb85f50e673d6a0f"
+    "userId": "61c275d7cb85f50e673d6a0f",
+    "postId": "61d40f8ed5c3e626d22e27d6"
 }
 
-### unlike post api/post/like/{postId}
-GET http://localhost:3000/api/post/unlike/61d40f8ed5c3e626d22e27d6
+### unlike post
+POST http://localhost:3000/api/post/unlike
 Content-Type: application/json
 
 {
-    "userId": "61c275d7cb85f50e673d6a0f"
+    "userId": "61c275d7cb85f50e673d6a0f",
+    "postId": "61d40f8ed5c3e626d22e27d6"
 }
 
 ### create comment
@@ -363,20 +365,22 @@ Content-Type: application/json
     "commentId": "61c53fa391da473275df5955"
 }
 
-### like comment api/comment/like/{commentId}
-GET http://localhost:3000/api/comment/like/61d6f8f8ed1d4b2aff961fde
+### like comment
+POST http://localhost:3000/api/comment/like
 Content-Type: application/json
 
 {
-    "userId": "61c275d7cb85f50e673d6a0f"
+    "userId": "61c275d7cb85f50e673d6a0f",
+    "commentId": "61d6f8f8ed1d4b2aff961fde"
 }
 
-### unlike comment api/comment/like/{commentId}
-GET http://localhost:3000/api/comment/unlike/61d6f8f8ed1d4b2aff961fde
+### unlike comment
+POST http://localhost:3000/api/comment/unlike
 Content-Type: application/json
 
 {
-    "userId": "61c275d7cb85f50e673d6a0f"
+    "userId": "61c275d7cb85f50e673d6a0f",
+    "commentId": "61d6f8f8ed1d4b2aff961fde"
 }
 
 ### create deadline

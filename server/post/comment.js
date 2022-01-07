@@ -45,12 +45,12 @@ router.get("/get/:postId/:block/:sorttype", async (req, res) => {
     }
 });
 
-router.get("/like/:commentId", async (req, res) => {
+router.post("/like", async (req, res) => {
     try {
         params = req.params
         body = await req.body
 
-        comment = await Comments.findById(params.commentId)
+        comment = await Comments.findById(body.commentId)
         if (!comment) {
             return res.status(200).json({ success: false, message: "This comment not exist" });
         }
@@ -74,12 +74,12 @@ router.get("/like/:commentId", async (req, res) => {
     }
 });
 
-router.get("/unlike/:commentId", async (req, res) => {
+router.post("/unlike", async (req, res) => {
     try {
         params = req.params
         body = req.body
 
-        comment = await Comments.findById(params.commentId)
+        comment = await Comments.findById(body.commentId)
 
         if (!comment) {
             return res.status(200).json({ success: true, message: "This comment not exist" });
