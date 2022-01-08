@@ -100,23 +100,18 @@
     justify-content: center;
     margin-bottom: 20px;
 }
-.Add_friend_btn {
-    margin-right: 24px;
-    outline: none;
-    padding: 10px 20px;
-    border: none;
-    color: #fff;
-    background-color: var(--bg-color);
-    font-weight: 600;
-    margin-top: 50px;
-    border-radius: 4px;
-    float: right;
-    transition: linear 0.3s;
-}
-.Add_friend_btn:hover {
+
+.mui-add-btn:hover {
     transform: scale(1.05);
     cursor: pointer;
 }
+.mui-add-btn {
+    float: right;
+    padding: 50px 12px 0 0;
+    transition: linear 0.3s;
+
+}
+
 .Profile_user_action_write {
     
 }

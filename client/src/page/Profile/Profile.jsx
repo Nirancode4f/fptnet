@@ -98,7 +98,9 @@ export const Profile = (props) => {
                     height: 200,
                   }}
                   style={{
-                    margin: 15
+                    margin: 15,
+                   
+
                   }}
                   src={user.user.picture || error}
                     alt="avatar"
@@ -122,13 +124,14 @@ export const Profile = (props) => {
                   "Future won't happen if you don't create it"
                 </div>
 
-              
-                <Button variant="contained"  
+                 <div className="mui-add-btn">
+                <Button  variant="contained"  
                 style={{
                   color : "white",
                   width: 100,
                    backgroundColor: "#f36f21"}} >Add 
                 </Button>
+                </div>
               </div>
             </div>
             <div className="Profile_user_action">
