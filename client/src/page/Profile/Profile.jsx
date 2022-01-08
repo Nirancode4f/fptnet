@@ -122,7 +122,7 @@ export const Profile = (props) => {
                 </div>
 
                 <div className="Profile_user_info_description">
-                  "Future won't happen if you don't create it"
+                 {user.user.slogan}
                 </div>
 
                  <div className="mui-add-btn">
