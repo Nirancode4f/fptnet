@@ -6,7 +6,7 @@ class ShowLikeCmt extends React.Component{
         return (
             <div className="display-like-and-comment-quanlity">
                         <i className="fas fa-heart">   <span>{this.props.like}</span></i>
-                        <i className="fas fa-comments">  <span>642</span></i>
+                        <i className="fas fa-comments">  <span>{this.props.cmt}</span></i>
                     </div>
         )
     }

@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
+import Avatar from '@mui/material/Avatar';
 import { Link, useNavigate } from "react-router-dom";
 import avata from "./assets/avata-user.png";
 import { bake_cookie, read_cookie, delete_cookie } from "sfcookies";
@@ -56,7 +57,8 @@ function Header(props) {
         </div>
         <div className="header__member-user">
         <a href="#">
-            <img className="header__member-user-avt" src={pic.user.picture ? pic.user.picture : avata } alt="" />
+
+            <Avatar src={pic.user.picture ? pic.user.picture : avata } alt="" />
           </a>
           <div className="user-menu">
             <div className="avatar-user-in-menu">

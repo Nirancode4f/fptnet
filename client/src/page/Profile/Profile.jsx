@@ -5,7 +5,11 @@ import { Router, Route } from "react-router";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import ReactDOM from "react-dom";
-
+import Button from '@mui/material/Button';
+import Input from '@mui/material/Input';
+import { IconButton } from "@mui/material";
+import CameraAltIcon from '@mui/icons-material/CameraAlt';
+import Avatar from '@mui/material/Avatar';
 import boring from "./assets/img/boring.png";
 import ProfilePopUp from "../../component/Profile/PostPopup/ProfilePopUp";
 import MainLayout from "../../component/MainPage/MainLayout";
@@ -26,7 +30,7 @@ export const Profile = (props) => {
 
   const [userPost, setuserPost] = useState([]);
 
-  function handleLoading(block) {}
+  function handleLoading(block) { }
 
   // run this shit first
   useEffect(() => {
@@ -86,11 +90,22 @@ export const Profile = (props) => {
           <div className="Profile_container">
             <div className="Profile_info_and_img">
               <div className="Profile_user_img">
-                <img
-                  className="Profile_user_avatar"
+
+                <div className="test">
+                  <Avatar
+                  sx={{
+                    width: 200,
+                    height: 200,
+                  }}
+                  style={{
+                    margin: 15
+                  }}
                   src={user.user.picture || error}
-                  alt="avatar"
-                />
+                    alt="avatar"
+                  />
+                </div>
+                
+               
               </div>
 
               <div className="Profile_user_info">
@@ -106,7 +121,14 @@ export const Profile = (props) => {
                 <div className="Profile_user_info_description">
                   "Future won't happen if you don't create it"
                 </div>
-                <button className="Add_friend_btn">Add friend</button>
+
+              
+                <Button variant="contained"  
+                style={{
+                  color : "white",
+                  width: 100,
+                   backgroundColor: "#f36f21"}} >Add 
+                </Button>
               </div>
             </div>
             <div className="Profile_user_action">
