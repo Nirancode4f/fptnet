@@ -129,7 +129,7 @@ export const Profile = (props) => {
                 style={{
                   color : "white",
                   width: 100,
-                   backgroundColor: "#f36f21"}} >Add 
+                   backgroundColor: "#f36f21"}} > <b>Add</b> 
                 </Button>
                 </div>
               </div>

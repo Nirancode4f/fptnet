@@ -112,6 +112,10 @@
     transition: linear 0.3s;
 
 }
+.mui-add-btn b {
+    font-size: 15px;
+    letter-spacing: 1px;
+}
 
 .Profile_user_action_write {
     
