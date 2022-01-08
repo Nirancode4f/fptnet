@@ -52,7 +52,7 @@ html{
 }
 
 .header__name{
-
+user-select: none;
 font-size: 24px;
 font-weight: 700;
 color: var(--bg-color);
@@ -93,14 +93,14 @@ border-radius: 20px;
 
 }
 
-.header__member-notification{
-width: 18px;
-height: 18px;
-text-align: center;
-line-height: 18px;
-}
+
 .header__member-notification i {
     color: var(--bg-color);
+    margin-right: 20px;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+    line-height: 18px;
 }
 .header__member-notification i:hover {
     opacity: 0.8;

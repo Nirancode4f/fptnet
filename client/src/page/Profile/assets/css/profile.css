@@ -103,7 +103,7 @@
 }
 
 .mui-add-btn:hover {
-    transform: scale(1.05);
+    transform: scale(1.005);
     cursor: pointer;
 }
 .mui-add-btn {
@@ -262,6 +262,7 @@
     line-height: 4px;
     font-weight: 700;
     font-size: 30px;
+    user-select: none;
 }
 
 
@@ -274,6 +275,7 @@
     line-height: 4px;
     font-weight: 700;
     font-size: 30px;
+    user-select: none;
     display: none;
 }
 .more-info-post-btn:hover ,
@@ -320,10 +322,20 @@
     display: flex;
     flex-direction: row;
     border-bottom: 1px solid var(--bg-color);
-    padding: 10px;
+    padding:3px 10px;
     align-items: center;
     justify-content: space-around;
     user-select: none;
+}
+.modal-wiew-detail-post-content-action div {
+    min-height: 40px;
+    min-width: 100px;
+    text-align: center;
+}
+.modal-wiew-detail-post-content-action div:hover{
+    border-radius: 6px;
+    background-color: rgba(0,0,0,0.1);
+
 }
 .modal-wiew-detail-post-content-action .unlike ,
 .modal-wiew-detail-post-content-action .liked {
@@ -336,7 +348,7 @@
 .modal-wiew-detail-post-content-action span {
     color: var(--bg-color);
     font-size: 16px;
-    line-height: 21px;
+    line-height: 40px;
   
 }
 
