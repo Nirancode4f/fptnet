@@ -30,12 +30,14 @@ export const Profile = (props) => {
 
   const [userPost, setuserPost] = useState([]);
 
-  function handleLoading(block) { }
+
 
   // run this shit first
   useEffect(() => {
     // run first
-    var userId = JSON.parse(localStorage.getItem("loginData")).user._id;
+    var localData = JSON.parse(localStorage.getItem("loginData"));
+
+    const userId = localData.user._id
     // check if component is mounted
     let isMouted = true;
     try {
@@ -56,7 +58,6 @@ export const Profile = (props) => {
           // after unmount component but asynchronous task still run, drop it.
           if (isMouted) {
             setuserPost(res.data);
-            console.log(res.data);
           }
         })
         .catch((err) => {
@@ -149,7 +150,7 @@ export const Profile = (props) => {
                 </Link>
               </div>
 
-              <Link to="/" to="#" className="Profile_account_friend">
+              <Link to="/" className="Profile_account_friend">
                 Bạn Bè
               </Link>
             </div>

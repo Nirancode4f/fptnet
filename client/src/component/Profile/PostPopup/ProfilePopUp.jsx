@@ -38,13 +38,14 @@ function ProfilePopUp(props) {
     const UserName = Data.user.username
     const errorPic = "https://upload.wikimedia.org/wikipedia/commons/c/c7/No_Pic.jpg"
 
-    const totalcmt = Object.keys(data.comments).length
+    
+    
     const d = new Date(data.createAt)
      
 
-    
-
     useEffect(()=>{
+
+        
         let currentyear = dateFormat(date,"yyyy")
         let day = dateFormat(d,"d")
         let month = dateFormat(d,"m")
@@ -52,8 +53,8 @@ function ProfilePopUp(props) {
         let hour = dateFormat(d,"h")
         let minute = dateFormat(d,"MM")
         let TT = dateFormat(d,"TT")
-
-        
+       
+  
         
 
         if (currentyear === year)
@@ -89,7 +90,7 @@ function ProfilePopUp(props) {
 
                     <Postimage image={data.image} errorPic={errorPic} />
 
-                    <ShowLikeCmt like={data.like} cmt={totalcmt} />
+                    <ShowLikeCmt like={data.like} cmt={data.totalcmt} />
 
                 </div>
 
