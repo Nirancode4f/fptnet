@@ -57,6 +57,8 @@
     .Profile_user_info {
         margin-top: 12px;
         width: 100%;
+        min-width:188px;
+        position: relative;
     }
     
     .Profile_user_info_name{
@@ -107,9 +109,11 @@
     cursor: pointer;
 }
 .mui-add-btn {
-    float: right;
     padding: 50px 12px 0 0;
     transition: linear 0.3s;
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
 
 }
 .mui-add-btn b {
