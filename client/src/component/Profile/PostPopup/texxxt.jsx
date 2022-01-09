@@ -80,7 +80,7 @@ function ProfilePopUp(props) {
 
                         </div>
                     </div>
-                    <div className="modal-wiew-detail-post-content-comment">
+                    <div className="modal-wiew-detail-post-comment">
                         {/* ẩn cmt thì class comment-main display:none */}
                         <div className="comment-main">
                             <div className="modal-wiew-detail-post-content-comment-content">
@@ -164,12 +164,13 @@ function ProfilePopUp(props) {
 
 
                             </div>
+                        </div>
+                        {/* end of cmt main*/}
+                    </div>
                             <div className="comment-post">
                                 <input type="text" placeholder="Viết bình luận của bạn" />
                                 <i className="fas fa-paper-plane add-cmt-btn"></i>
                             </div>
-                        </div>
-                    </div>
 
                 </div>
 

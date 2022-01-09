@@ -242,7 +242,7 @@
     height: 100%;
     box-shadow:  0 0 1px #666;
     display: flex;
-    flex-direction: column;
+    flex-direction: column;position: relative;
 
 }
 
@@ -363,14 +363,20 @@
     border-radius: 4px;
     outline: none;
     color: #ccc;
-    overflow: hidden;
     display: flex;
     align-items: center;
     padding-left: 10px;
-    margin-top: 8px;
+    background-color: #fff;
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: -1px;
+
+    /* display: none; */
+
 
 } .comment-post input {
-    height: 32px;
+    height: 30px;
     padding: 10px;
     outline: none;
     border: none;
@@ -392,20 +398,28 @@
 }
 /* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 .comment-main {
-    display: flex;
-    flex-direction: column;
-    /* display: none; */
+    height: 220px;
+    
     
 }
+.comment-main::-webkit-scrollbar{
+    display: none;
+}
 /* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+.modal-wiew-detail-post-comment {
+    height: 250px;
+        
+}
+
 .modal-wiew-detail-post-content-comment-content {
     padding: 10px 0;
-    max-height: 220px;
-    min-height: 220px;
+    height:270px;
     overflow-y: auto;
+    transition: linear 0.2s;
 
 }
 .modal-wiew-detail-post-content-comment-content::-webkit-scrollbar{
+    scroll-behavior: smooth;
     display: none;
 }
 .comment-box {
