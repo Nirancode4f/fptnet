@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { render } from 'react-dom';
+
 const URL_MAIN =
   process.env.REACT_APP_URL_MAIN || "https://fanserverapi.herokuapp.com";
 
@@ -29,8 +30,8 @@ function CmtUser(props) {
           </div>
           <div className="comment-box-infor-commenter-name">
            {username}
-            <span className="more-info-cmt-btn" > ... </span>
-
+            {/* <span className="more-info-cmt-btn" > ... </span> */}
+          
           </div>
         </div>
         <div className="comment-box-content">

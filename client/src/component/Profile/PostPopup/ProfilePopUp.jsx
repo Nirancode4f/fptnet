@@ -11,9 +11,10 @@ import CmtBox from './CmtPost/CmtBox'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import dateFormat from "dateformat";
 import { SendBox } from './CmtPost/SendBox';
-import { Button, ButtonGroup } from '@mui/material';
+import { Button, ButtonGroup, Checkbox } from '@mui/material';
 import ForumOutlinedIcon from '@mui/icons-material/ForumOutlined';
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
+import Favorite from '@mui/icons-material/Favorite';
 ProfilePopUp.prototype = {
     data: PropTypes.object,
     OnClickout: PropTypes.func,
@@ -114,26 +115,34 @@ function ProfilePopUp(props) {
 
                         
 
-                        <ButtonGroup 
-                        style={{fill: "#f36f21" }}
-                        color='inherit' 
-                        fullWidth={true} 
-                        variant="text" 
-                        aria-label="text button group"
-                         >
-                            <Button  style={{color: "#f36f21" }} >
-                            <FavoriteBorderIcon style={{ color: "inherit"}}  />
-                                <p style={{color: "inherit"}} >Like</p>
-                                </Button>
-                            <Button onClick={handleShowCmt} style={{color: "#f36f21" }} >
-                                <ForumOutlinedIcon style={{ color: "inherit"}} />
-                                <p style={{color: "inherit"}} >Comment</p>
-                                </Button>
-                            <Button style={{color: "#f36f21" }} >
-                                <ShareOutlinedIcon style={{ color: "inherit"}}/>
-                                <p style={{color: "inherit"}} >Share</p>
-                                </Button>
-                        </ButtonGroup>
+                            <ButtonGroup
+                            size="small"
+                            sx={{height: "40px"}}
+                            style={{fill: "#f36f21" }}
+                            color='inherit'
+                            height={20}
+                            fullWidth={true}
+                            variant="text"
+                            aria-label="small button group"
+                             >
+                                <Button  style={{color: "#f36f21" }} >
+                                <Checkbox
+                                style={{ color: "#f36f21"}}
+                                icon={ <FavoriteBorderIcon style={{ color: "#f36f21"}}  />}
+                                checkedIcon={<Favorite style={{ color: "#f36f21"}} />} />
+                            
+                                    <p style={{color: "inherit"}} >Like</p>
+                                    </Button>
+                                <Button onClick={handleShowCmt} style={{color: "#f36f21" }} >
+                                    <ForumOutlinedIcon style={{ color: "inherit"}} />
+                                    <p style={{color: "inherit"}} >Comment</p>
+                                    </Button>
+                                <Button style={{color: "#f36f21" }} >
+                                    <ShareOutlinedIcon style={{ color: "inherit"}}/>
+                                    <p style={{color: "inherit"}} >Share</p>
+                                    </Button>
+                            </ButtonGroup>
+                     
 
                     </div>
                     <div className="modal-wiew-detail-post-content-comment">
