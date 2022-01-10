@@ -55,6 +55,9 @@ function CmtBox(props) {
       // console log error
       console.log(error);
     }
+    return ()=>{
+      setisunmound(false)
+    }
 
   },[]);
 

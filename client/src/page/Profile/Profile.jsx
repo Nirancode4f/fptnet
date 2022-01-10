@@ -7,7 +7,7 @@ import axios from "axios";
 import ReactDOM from "react-dom";
 import Button from '@mui/material/Button';
 import Input from '@mui/material/Input';
-import { IconButton } from "@mui/material";
+import { ButtonGroup, IconButton } from "@mui/material";
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import Avatar from '@mui/material/Avatar';
 import boring from "./assets/img/boring.png";
@@ -130,29 +130,26 @@ export const Profile = (props) => {
                 style={{
                   color : "white",
                   width: 100,
-                   backgroundColor: "#f36f21"}} > <b>Add</b> 
+                  backgroundColor: "#f36f21"}} > <b>Add </b> 
                 </Button>
                 </div>
               </div>
             </div>
             <div className="Profile_user_action">
-              <div className="Profile_user_action_write">
-                <Link
-                  className="Profile_user_action_write_tag Active_tag"
-                  to="/"
-                >
-                  Bài Viết
-                </Link>
-              </div>
-              <div className="Profile_user_action_achievement">
-                <Link className="Profile_user_action_achievement_tag" to="/">
-                  Thành Tích
-                </Link>
-              </div>
+ 
+          <ButtonGroup 
+           style={{fill: "#f36f21",color:"red" }}
+           color='inherit' 
+           fullWidth={true} 
+           variant="text" 
+           aria-label="text button group"
+           
+           >
+            <Button  style={{color: "#f36f21" }} ><p style={{color: "black"}}>Post</p></Button>
+            <Button style={{color: "#f36f21" }} ><p style={{color: "black"}}>Achievement</p></Button>
+            <Button style={{color: "#f36f21" }} ><p style={{color: "black"}}>Friend</p></Button>
+          </ButtonGroup>
 
-              <Link to="/" className="Profile_account_friend">
-                Bạn Bè
-              </Link>
             </div>
 
             <div className="Tag_action ">

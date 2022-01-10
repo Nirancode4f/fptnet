@@ -10,9 +10,9 @@ import PropTypes from "prop-types"
 import CmtBox from './CmtPost/CmtBox'
 
 import dateFormat from "dateformat";
+import { SendBox } from './CmtPost/SendBox';
 
-import Button from '@mui/material/Button';
-import SendIcon from '@mui/icons-material/Send';
+
 ProfilePopUp.prototype = {
     data: PropTypes.object,
     OnClickout: PropTypes.func,
@@ -30,7 +30,7 @@ function ProfilePopUp(props) {
 
 
     const { data, OnClickout } = props
-   
+    const [ShowSendBox, setShowSendBox] = useState(false)
     const [date, setdate] = useState(Date())
 
     const Data = JSON.parse(localStorage.getItem("loginData"))
@@ -38,7 +38,6 @@ function ProfilePopUp(props) {
     const UserName = Data.user.username
     const errorPic = "https://upload.wikimedia.org/wikipedia/commons/c/c7/No_Pic.jpg"
 
-    
     
     const d = new Date(data.createAt)
      
@@ -130,12 +129,7 @@ function ProfilePopUp(props) {
 
 
                             </div>
-                            <div className="comment-post">
-                                <input type="text" placeholder="Viết bình luận của bạn" />
-                                <Button 
-                                 style={{color : "#f36f21"}}
-                                endIcon={<SendIcon  style={{color : "#f36f21" }}/>}></Button>
-                            </div>
+                            <SendBox postId={data._id} />
                         </div>
                     </div>
 
