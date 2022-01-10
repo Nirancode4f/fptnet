@@ -5,14 +5,15 @@ import PostContent from './PostContent'
 import PosterTime from './PosterTime'
 import Postimage from './Postimage'
 import ShowLikeCmt from './ShowLikeCmt'
-
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import PropTypes from "prop-types"
 import CmtBox from './CmtPost/CmtBox'
-
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import dateFormat from "dateformat";
 import { SendBox } from './CmtPost/SendBox';
-
-
+import { Button, ButtonGroup } from '@mui/material';
+import ForumOutlinedIcon from '@mui/icons-material/ForumOutlined';
+import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 ProfilePopUp.prototype = {
     data: PropTypes.object,
     OnClickout: PropTypes.func,
@@ -100,23 +101,29 @@ function ProfilePopUp(props) {
 
                         <PostContent content={data.content} />
 
-                        <div className="modal-wiew-detail-post-content-action">
-                            <div>
-                                <i className="far fa-heart like-post unlike"> </i>
-                                <span>Thích</span>
-                            </div>
-                            {/* <i className="fas fa-heart like-post liked">Bở Thích</i> */}
-                            <div className='click-to-show-comment-content'>
-                                <i className="far fa-comment-alt to-comment"></i>
-                                <span>Bình Luận</span>
-                            </div>
-                            <div className="modal-wiew-detail-post-content-share-btn">
-                                <i className="fas fa-share-square share-post-btn"></i>
-                                <span>Chia sẻ</span>
-                            </div>
+                        
 
+                        <ButtonGroup 
+                        style={{fill: "#f36f21" }}
+                        color='inherit' 
+                        fullWidth={true} 
+                        variant="text" 
+                        aria-label="text button group"
+                         >
+                            <Button style={{color: "#f36f21" }} >
+                            <FavoriteBorderIcon style={{ color: "black"}}  />
+                                <p style={{color: "black"}} >Like</p>
+                                </Button>
+                            <Button style={{color: "#f36f21" }} >
+                                <ForumOutlinedIcon style={{ color: "black"}} />
+                                <p style={{color: "black"}} >Comment</p>
+                                </Button>
+                            <Button style={{color: "#f36f21" }} >
+                                <ShareOutlinedIcon style={{ color: "black"}}/>
+                                <p style={{color: "black"}} >Share</p>
+                                </Button>
+                        </ButtonGroup>
 
-                        </div>
                     </div>
                     <div className="modal-wiew-detail-post-content-comment">
                         {/* ẩn cmt thì class comment-main display:none */}
