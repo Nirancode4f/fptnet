@@ -32,6 +32,7 @@ function ProfilePopUp(props) {
 
     const { data, OnClickout } = props
     const [ShowSendBox, setShowSendBox] = useState(false)
+
     const [date, setdate] = useState(Date())
 
     const Data = JSON.parse(localStorage.getItem("loginData"))
@@ -42,6 +43,17 @@ function ProfilePopUp(props) {
     
     const d = new Date(data.createAt)
      
+
+
+
+    const handleShowCmt =() =>{
+       
+        if (!ShowSendBox){
+            setShowSendBox(true)
+        }else{
+            setShowSendBox(false)
+        }
+    }
 
     useEffect(()=>{
 
@@ -54,8 +66,6 @@ function ProfilePopUp(props) {
         let minute = dateFormat(d,"MM")
         let TT = dateFormat(d,"TT")
        
-  
-        
 
         if (currentyear === year)
         { 
@@ -110,11 +120,11 @@ function ProfilePopUp(props) {
                         variant="text" 
                         aria-label="text button group"
                          >
-                            <Button style={{color: "#f36f21" }} >
+                            <Button  style={{color: "#f36f21" }} >
                             <FavoriteBorderIcon style={{ color: "inherit"}}  />
                                 <p style={{color: "inherit"}} >Like</p>
                                 </Button>
-                            <Button style={{color: "#f36f21" }} >
+                            <Button onClick={handleShowCmt} style={{color: "#f36f21" }} >
                                 <ForumOutlinedIcon style={{ color: "inherit"}} />
                                 <p style={{color: "inherit"}} >Comment</p>
                                 </Button>
@@ -136,7 +146,7 @@ function ProfilePopUp(props) {
 
 
                             </div>
-                            <SendBox postId={data._id}  />
+                           {  ShowSendBox && <SendBox postId={data._id}  />}
                         </div>
                     </div>
 

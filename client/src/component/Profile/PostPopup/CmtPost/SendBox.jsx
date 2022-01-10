@@ -60,8 +60,7 @@ export const SendBox = (props) => {
 
 
     
-   
-    console.log(Localdata)
+
 
     return (
         <form onSubmit={handleSend} className="comment-post">
