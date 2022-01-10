@@ -146,9 +146,9 @@ export const Profile = (props) => {
            aria-label="text button group"
            
            >
-            <Button  style={{color: "#f36f21" }} ><p style={{color: "black"}}>Post</p></Button>
-            <Button style={{color: "#f36f21" }} ><p style={{color: "black"}}>Achievement</p></Button>
-            <Button style={{color: "#f36f21" }} ><p style={{color: "black"}}>Friend</p></Button>
+            <Button  style={{color: "#f36f21" }} ><p style={{color: "black", fontWeight:"700" , fontFamily:"Segoe UI"}}>Post</p></Button>
+            <Button style={{color: "#f36f21" }} ><p style={{color: "black", fontWeight:"700" , fontFamily:"Segoe UI"}}>Achievement</p></Button>
+            <Button style={{color: "#f36f21" }} ><p style={{color: "black", fontWeight:"700" , fontFamily:"Segoe UI"}}>Friend</p></Button>
           </ButtonGroup>
 
             </div>
