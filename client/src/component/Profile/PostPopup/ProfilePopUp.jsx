@@ -111,16 +111,16 @@ function ProfilePopUp(props) {
                         aria-label="text button group"
                          >
                             <Button style={{color: "#f36f21" }} >
-                            <FavoriteBorderIcon style={{ color: "black"}}  />
-                                <p style={{color: "black"}} >Like</p>
+                            <FavoriteBorderIcon style={{ color: "inherit"}}  />
+                                <p style={{color: "inherit"}} >Like</p>
                                 </Button>
                             <Button style={{color: "#f36f21" }} >
-                                <ForumOutlinedIcon style={{ color: "black"}} />
-                                <p style={{color: "black"}} >Comment</p>
+                                <ForumOutlinedIcon style={{ color: "inherit"}} />
+                                <p style={{color: "inherit"}} >Comment</p>
                                 </Button>
                             <Button style={{color: "#f36f21" }} >
-                                <ShareOutlinedIcon style={{ color: "black"}}/>
-                                <p style={{color: "black"}} >Share</p>
+                                <ShareOutlinedIcon style={{ color: "inherit"}}/>
+                                <p style={{color: "inherit"}} >Share</p>
                                 </Button>
                         </ButtonGroup>
 
@@ -132,11 +132,11 @@ function ProfilePopUp(props) {
 
 
 
-                            <CmtBox postData={data} />
+                            <CmtBox postData={data}  />
 
 
                             </div>
-                            <SendBox postId={data._id} />
+                            <SendBox postId={data._id}  />
                         </div>
                     </div>
 
