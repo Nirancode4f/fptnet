@@ -182,6 +182,7 @@
     /* display: none; */
 }
 .modal-wiew-detail-post-container {
+    border-radius: 8px;
     background-color: #fff;
   height: 440px;
   width: 800px;
@@ -307,9 +308,10 @@
     font-weight: 700;
 }
 .modal-wiew-detail-post-info-post-time {
-    font-size: 14px;
-    font-weight: 600;
-    margin-top: 5px;
+    font-size: 12px;
+    opacity: 0.7;
+    font-weight: 600;margin-left: 2px;
+    line-height: 12px;
 }
 .modal-wiew-detail-post-content-text {
     padding: 10px;
@@ -453,6 +455,8 @@
     font-weight: 500;
     line-height: 1.4;
     padding: 0 30px;
+    display: block;
+    
 }
 .reaction-comment span {
     display: inline-block;
