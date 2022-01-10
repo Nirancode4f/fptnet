@@ -31,6 +31,7 @@ function ProfilePopUp(props) {
 
 
     const { data, OnClickout } = props
+    
     const [ShowSendBox, setShowSendBox] = useState(false)
 
     const [date, setdate] = useState(Date())

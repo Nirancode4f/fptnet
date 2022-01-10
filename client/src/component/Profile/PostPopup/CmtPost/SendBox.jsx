@@ -21,7 +21,7 @@ export const SendBox = (props) => {
 
 
 
-
+    console.log(`postid = `,postId)
     const handleSend = (e)=>{
     e.preventDefault()
     var localData = JSON.parse(localStorage.getItem("loginData"));
@@ -35,7 +35,7 @@ export const SendBox = (props) => {
             `${URL_MAIN}/api/comment/create`,
             {
             "userId": `${userId}`,
-            "postId": "61d40f8ed5c3e626d22e27d6",
+            "postId": `${postId}`,
             "content": `${CommentText}`
             },
             {
