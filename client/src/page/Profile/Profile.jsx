@@ -77,6 +77,7 @@ export const Profile = (props) => {
     setPopUpdata(data);
   }
   function handleClickOut(event) {
+        
     setShowPopup(event);
   }
 
