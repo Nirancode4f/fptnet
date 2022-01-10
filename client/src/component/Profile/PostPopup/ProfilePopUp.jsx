@@ -36,7 +36,7 @@ function ProfilePopUp(props) {
     const [ShowSendBox, setShowSendBox] = useState(false)
 
     const [date, setdate] = useState(Date())
-
+    const [LikeCheck, setLikeCheck] = useState(false)
     const Data = JSON.parse(localStorage.getItem("loginData"))
     const Avatar = Data.user.picture
     const UserName = Data.user.username
@@ -46,7 +46,13 @@ function ProfilePopUp(props) {
     const d = new Date(data.createAt)
      
 
-
+    const LikeOrUnLike = () =>{
+        if (LikeCheck === false){
+            setLikeCheck(true)
+        }else{
+            setLikeCheck(false)
+        }
+    }
 
     const handleShowCmt =() =>{
        
@@ -113,8 +119,8 @@ function ProfilePopUp(props) {
 
                         <PostContent content={data.content} />
 
-                        
-
+                        {/* */}
+                            {/* */}
                             <ButtonGroup
                             size="small"
                             sx={{height: "40px"}}
@@ -125,14 +131,15 @@ function ProfilePopUp(props) {
                             variant="text"
                             aria-label="small button group"
                              >
-                                <Button  style={{color: "#f36f21" }} >
-                                <Checkbox
-                                style={{ color: "#f36f21"}}
-                                icon={ <FavoriteBorderIcon style={{ color: "#f36f21"}}  />}
-                                checkedIcon={<Favorite style={{ color: "#f36f21"}} />} />
-                            
+                                <Button onClick={LikeOrUnLike}  style={{color: "#f36f21" }} >
+                                    {
+                                        !LikeCheck ? 
+                                           <FavoriteBorderIcon style={{ color: "#f36f21"}} />
+                                           :
+                                           <Favorite style={{ color: "#f36f21"}} /> 
+                                    }
                                     <p style={{color: "inherit"}} >Like</p>
-                                    </Button>
+                                </Button>
                                 <Button onClick={handleShowCmt} style={{color: "#f36f21" }} >
                                     <ForumOutlinedIcon style={{ color: "inherit"}} />
                                     <p style={{color: "inherit"}} >Comment</p>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState , useRef } from 'react'
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import { useEffect } from 'react';
@@ -11,17 +11,19 @@ const URL_MAIN =
 
 
 export const SendBox = (props) => {
-    const {postId} = props
-
+    const {postId } = props
+    const choose = useRef(true)
     const [Localdata,setLocaldata] = useState({})
     const [isUnmound, setisUnmound] = useState(true)
     const [CommentText, setCommentText] = useState("")
 
 
-
-
-
-    console.log(`postid = `,postId)
+    
+    
+useEffect(()=>{
+    choose.current.focus()
+},[])
+   
     const handleSend = (e)=>{
     e.preventDefault()
     var localData = JSON.parse(localStorage.getItem("loginData"));
@@ -59,12 +61,16 @@ export const SendBox = (props) => {
     }
 
 
-    
 
 
     return (
         <form onSubmit={handleSend} className="comment-post">
-            <input type="text" onChange={(e)=>setCommentText(e.target.value)} placeholder="Input your comment here" />
+            <input 
+            ref={choose}
+            type="text" 
+            onChange={(e)=>setCommentText(e.target.value)} 
+            placeholder="Input your comment here" />
+
             <Button
             onClick={handleSend}
             style={{ color: "#f36f21" }}
