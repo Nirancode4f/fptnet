@@ -14,6 +14,7 @@ import { bake_cookie, read_cookie, delete_cookie } from "sfcookies";
 import "./Main.css";
 
 import MainLayout from "../../component/MainPage/MainLayout";
+import Newfeed from "../../component/MainPage/NewFeed";
 
 
 const Main = () => {
@@ -57,6 +58,7 @@ const Main = () => {
           <Link to={"/login"}>you need login</Link>
         </>
       )}
+      <Newfeed/>
     </div>
   );
 };

@@ -74,7 +74,7 @@ useEffect(()=>{
             <Button
             onClick={handleSend}
             style={{ color: "#f36f21" }}
-            endIcon={<SendIcon style={{ color: "#f36f21" }} />}></Button>
+            endIcon={<SendIcon onClick={handleSend} style={{ color: "#f36f21" }} />}></Button>
         </form>
     )
 }

@@ -1,6 +1,6 @@
 /* eslint-disable no-unreachable */
 
-import React from 'react'
+
 import PropTypes from "prop-types"
 
 import boring from "../../../page/Profile/assets/img/boring.png"

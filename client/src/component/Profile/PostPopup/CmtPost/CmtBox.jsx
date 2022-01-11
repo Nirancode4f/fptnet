@@ -14,52 +14,69 @@ function CmtBox(props) {
 
 
   const { postData } = props
-
+  const [Block, setBlock] = useState(1)
   const [isunmound, setisunmound] = useState(true)
   const [Usercmt, setUsercmt] = useState([])
   const { Cmt } = props
 
+    
+  const handleScrollCmt = (e)=>{
+    
+    console.log(`error cuộn `)
+  
+  }
 
+    const Getaxios = ()=>{
+      try {
+        axios
+          .post(
+            `${URL_MAIN}/api/comment/get`,
+            {
+              "postId": `${postData._id}`,
+              "block": Block,
+              "sorttype": 2
+            },
+            {
+              headers: {
+                "Content-Type": "application/json",
+  
+              },
+            }
+          )
+          .then((res) => {
+            // after unmount component but asynchronous task still run, drop it.
+            if (isunmound) {
+              setUsercmt(res.data.comments)
+        
+            }
+          })
+          .catch((err) => {
+            console.log(err.message);
+          });
+      } catch (error) {
+        // console log error
+        console.log(error);
+      }
+    }
+
+
+
+
+
+  console.log(Block)
 
   // run this shit first
   useEffect(() => {
     // run first
     // check if component is mounte
-    try {
-      axios
-        .post(
-          `${URL_MAIN}/api/comment/get`,
-          {
-            "postId": `${postData._id}`,
-            "block": 1,
-            "sorttype": 2
-          },
-          {
-            headers: {
-              "Content-Type": "application/json",
+    Getaxios()
 
-            },
-          }
-        )
-        .then((res) => {
-          // after unmount component but asynchronous task still run, drop it.
-          if (isunmound) {
-            setUsercmt(res.data.comments)
-      
-          }
-        })
-        .catch((err) => {
-          console.log(err.message);
-        });
-    } catch (error) {
-      // console log error
-      console.log(error);
-    }
     return ()=>{
       setisunmound(false)
     }
 
   },[]);
+
 
   useEffect(() => {
  
@@ -76,8 +93,8 @@ function CmtBox(props) {
 
     <div>
       <div
-        className="comment-main">
-        <div className="modal-wiew-detail-post-content-comment-content" id='cmt_ele'>
+        className="comment-main" >
+        <div className="modal-wiew-detail-post-content-comment-content" id='cmt_ele' onScroll={handleScrollCmt} >
 
 
 

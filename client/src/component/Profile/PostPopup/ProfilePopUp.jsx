@@ -44,7 +44,9 @@ function ProfilePopUp(props) {
 
     
     const d = new Date(data.createAt)
-     
+    
+
+
 
     const LikeOrUnLike = () =>{
         if (LikeCheck === false){
@@ -73,7 +75,7 @@ function ProfilePopUp(props) {
         let hour = dateFormat(d,"h")
         let minute = dateFormat(d,"MM")
         let TT = dateFormat(d,"TT")
-       
+        
 
         if (currentyear === year)
         { 
@@ -155,11 +157,11 @@ function ProfilePopUp(props) {
                     <div className="modal-wiew-detail-post-content-comment">
                         {/* ẩn cmt thì class comment-main display:none */}
                         <div className="comment-main">
-                            <div className="modal-wiew-detail-post-content-comment-content">
+                            <div className="modal-wiew-detail-post-content-comment-content" >
 
 
 
-                            <CmtBox postData={data}  />
+                            <CmtBox  postData={data}  />
 
 
                             </div>
