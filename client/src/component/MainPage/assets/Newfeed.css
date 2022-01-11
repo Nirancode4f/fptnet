@@ -5,7 +5,7 @@
     --blue-color:#82c5e2;
     --fade-color:#908c8c;
     --header-height: 64px;
-    --nav-width: 86px;
+    --nav-width: 60px;
 }
 
 
@@ -170,13 +170,13 @@ margin-left: 12px;
 }
 
 .Newfeed-body-post-content-reaction-button {
-    display: flex;
-    justify-content: space-around;
+    width: 100%;
     align-items: center;
-    padding: 10px;
     border-bottom: 1px solid var(--bg-color);
     height: 60px;
     padding: 10px;
+    display: flex;
+    justify-content: space-around;
 }
 .like-post-button{
     margin: 0;

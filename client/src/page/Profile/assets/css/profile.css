@@ -9,7 +9,7 @@
     left: var(--nav-width);
     top: var(--header-height);
     max-width: calc(100% - var(--nav-width));
-    min-height: 100%;
+    min-height: 100vh;
     
 }
 

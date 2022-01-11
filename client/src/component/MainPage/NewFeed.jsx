@@ -11,6 +11,7 @@ import ThreeDRotation from '@mui/icons-material/ThreeDRotation';
 import { useInput } from '@mui/material'
 import { InputUnstyled } from '@mui/material'
 import { styled } from '@mui/system';
+import { ButtonGroup } from '@mui/material'
 
 export default function Newfeed() {
     return (
@@ -37,7 +38,8 @@ export default function Newfeed() {
                    />
                 </div>
                 <div className="Newfeed-header-quick-add">
-                    <div className="Newfeed-header-add-img">
+                <ButtonGroup variant="text" aria-label="text button group">
+                <div className="Newfeed-header-add-img">
                         <Button variant="text"
                         style={{
                             color:"#f36f21",
@@ -48,7 +50,7 @@ export default function Newfeed() {
                         </Button>
                         
                     </div>
-
+                  
                     <div className="Newfeed-header-add-emotion">
                     <Button variant="text"
                         style={{
@@ -60,6 +62,11 @@ export default function Newfeed() {
                         </Button>
                       
                     </div>
+                 
+                 </ButtonGroup>
+
+               
+
 
                 </div>
             </div>
@@ -117,40 +124,44 @@ export default function Newfeed() {
                         </div>
                         </div>
                             <div className="Newfeed-body-post-content-reaction-button">
-
-                                <div className="like-post-button">
-                                <Button variant="text"
+                            <ButtonGroup variant="text" aria-label="text button group" fullWidth={true}  >
+                                <Button variant="text" 
                                  style={{
                                      color:"#f36f21",
                                      display:"block",
+                                     
                                  }}>
                                     {/* <!-- <i className="fas fa-heart"></i> -->                   */}
                                     <i className="far fa-heart"></i>
                                         <span>Thích</span>
                                 </Button>
-                                </div>
-                                <div className="comment-post-button">
-                                <Button variant="text"
+
+                                <Button variant="text" 
                                      style={{
                                          color:"#f36f21",
                                          display:"block",
+                                         
                                      }}>
                                     <i className="far fa-comment-dots"></i>
                                    <span> Bình luận</span>
                               </Button>
-                                </div>
-                                <div className="share-post-button">
-                                <Button variant="text"
+
+                                <Button variant="text" 
                                     style={{
                                         color:"#f36f21",
                                         display:"block",
+                                        
                                     }}>
                                     <i className="far fa-share-square"></i>
                                     <span>Chia sẻ</span>
-                        </Button>
+                                </Button>
 
 
-                                </div>
+                            </ButtonGroup>
+
+                           
+                                
+                            
 
 
                             </div>
