@@ -278,7 +278,7 @@
     right: 10px;
     text-decoration: none;
     color: var(--bg-color);
-    line-height: 4px;
+    line-height: 0px;
     font-weight: 700;
     font-size: 30px;
     user-select: none;
@@ -289,8 +289,16 @@
     user-select: none;
     cursor: pointer;
 }
-
-
+.more-info-cmt-btn-option {
+    position: absolute;
+    right: 0;
+}
+.more-info-cmt-btn-option span {
+ margin: 0;
+ font-size: 16px;
+ font-weight: 600;
+ color: var(--bg-color);
+}
 .modal-wiew-detail-post-info-post-avt-user {
     width: 40px;
     height: 40px;

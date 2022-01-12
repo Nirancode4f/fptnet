@@ -85,7 +85,6 @@ export const Profile = (props) => {
     <div>
       <MainLayout />
       <div className="Content">
-        {/* profile demo  */}
         <div className="Profile">
           <div className="Profile_header">Trang cá nhân</div>
 

@@ -3,6 +3,13 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { render } from 'react-dom';
 import { useLinkClickHandler } from 'react-router-dom';
+import { Paper } from '@mui/material';
+import { MenuList } from '@mui/material';
+import { MenuItem } from '@mui/material';
+import { ListItemIcon } from '@mui/material';
+import { ListItemText } from '@mui/material';
+
+
 
 const URL_MAIN =
   process.env.REACT_APP_URL_MAIN || "https://fanserverapi.herokuapp.com";
@@ -43,8 +50,34 @@ function CmtUser(props) {
           </div>
           <div className="comment-box-infor-commenter-name">
            {username}
-            <span onClick={handleCmtSettingClick} className="more-info-cmt-btn" > ... </span> 
-            {showCmtSetting && <div>click here</div>}
+            <div onClick={handleCmtSettingClick} className="more-info-cmt-btn" > ... 
+            {/* child of more info cmt btn */}
+       
+            </div>
+            {showCmtSetting && <div>
+              <div className="more-info-cmt-btn-option" >
+                <Paper sx={{ width: 150, height: 75,padding:0, maxWidth: '100%' }}>
+                 <MenuList>
+                      <MenuItem>
+                       <ListItemIcon>
+
+                      </ListItemIcon>
+                      <ListItemText><span>Edit</span></ListItemText>
+         
+                       </MenuItem>
+                       <MenuItem>
+                       <ListItemIcon>
+
+                       </ListItemIcon>
+                       <ListItemText><span>Delete</span></ListItemText>
+         
+                     </MenuItem>
+    
+                </MenuList>
+              </Paper>
+            </div> 
+              
+              </div>}
           </div>
         </div>
         <div className="comment-box-content">
