@@ -124,19 +124,19 @@ export default function Newfeed() {
                         </div>
                         </div>
                             <div className="Newfeed-body-post-content-reaction-button">
-                            <ButtonGroup variant="text" aria-label="text button group" fullWidth={true}  >
+                            <ButtonGroup variant="text"  aria-label="text button group" fullWidth={true} color='inherit' >
                                 <Button variant="text" 
                                  style={{
                                      color:"#f36f21",
                                      display:"block",
                                      
                                  }}>
-                                    {/* <!-- <i className="fas fa-heart"></i> -->                   */}
-                                    <i className="far fa-heart"></i>
+                                    {/* <!-- <i className="fas fa-heart"></i> --> */}
+                                    <i className="far fa-heart like-icon"></i>
                                         <span>Thích</span>
                                 </Button>
 
-                                <Button variant="text" 
+                                <Button
                                      style={{
                                          color:"#f36f21",
                                          display:"block",
@@ -146,7 +146,7 @@ export default function Newfeed() {
                                    <span> Bình luận</span>
                               </Button>
 
-                                <Button variant="text" 
+                                <Button  
                                     style={{
                                         color:"#f36f21",
                                         display:"block",
@@ -168,7 +168,7 @@ export default function Newfeed() {
                             <div className="Newfeed-body-post-content-comment-area">
                                 <div className="Newfeed-body-post-content-comment-label">
    
-                                <TextField label="Nhập bình luận của bạn" color="warning" focused
+                                <TextField label="  Nhập bình luận của bạn   " color="warning" focused
                                 style={{
                                     width:"100%",
                                     height:"100%",
@@ -196,6 +196,7 @@ export default function Newfeed() {
                                                 You and me run the same course
                                             </p>
                                             <div className="comment-reaction">
+                                            <ButtonGroup size="small" aria-label="small button group">
                                             <Button variant="text"
                                               style={{
                                               color:"#f36f21",
@@ -213,7 +214,7 @@ export default function Newfeed() {
                                            
                                               <span>Trả lời</span>
                                              </Button>
-                                                
+                                            </ButtonGroup>
                                             
 
                                             </div>

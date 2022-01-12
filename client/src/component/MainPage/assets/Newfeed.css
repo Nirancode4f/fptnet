@@ -178,53 +178,22 @@ margin-left: 12px;
     display: flex;
     justify-content: space-around;
 }
-.like-post-button{
-    margin: 0;
-    line-height: 24px;
-    min-width: 110px;
-    height: 50px;
-    border-radius: 10px;
-    user-select: none;
-    transition: linear 0.3s;
 
-}
 
-.comment-post-button{
-    min-width: 110px;
-    height: 50px;
-    border-radius: 10px;
-    user-select: none;
-    transition: linear 0.3s;
 
-}
-
-.share-post-button{
-    min-width: 110px;
-    height: 50px;
-    border-radius: 10px;
-    user-select: none;
-    transition: linear 0.3s;
-
-}
-.like-post-button i{
+.Newfeed-body-post-content-reaction-button .like-icon{
 color: red;
 font-size: 24px;
 margin-right: 4px;
 }
-.like-post-button:hover ,
-.comment-post-button:hover,
-.share-post-button:hover {
-cursor: pointer;
-transform: scale(1.08);
+
+.Newfeed-body-post-content-reaction-button span {
+font-size: 16px;
+font-weight: 600;
+
 }
-
-
-.comment-post-button i,
-.share-post-button i
-{
-color: var(--bg-color);
-font-size: 24px;
-margin-right: 4px;
+.Newfeed-body-post-content-reaction-button i {
+    font-size: 24px;
 }
 
 .Newfeed-body-post-content-comment-area {
