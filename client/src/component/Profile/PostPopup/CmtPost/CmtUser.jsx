@@ -8,8 +8,8 @@ import { MenuList } from '@mui/material';
 import { MenuItem } from '@mui/material';
 import { ListItemIcon } from '@mui/material';
 import { ListItemText } from '@mui/material';
-
-
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const URL_MAIN =
   process.env.REACT_APP_URL_MAIN || "https://fanserverapi.herokuapp.com";
@@ -50,24 +50,21 @@ function CmtUser(props) {
           </div>
           <div className="comment-box-infor-commenter-name">
            {username}
-            <div onClick={handleCmtSettingClick} className="more-info-cmt-btn" > ... 
-            {/* child of more info cmt btn */}
-       
-            </div>
+            <div onClick={handleCmtSettingClick} className="more-info-cmt-btn" > ...  </div>
             {showCmtSetting && <div>
               <div className="more-info-cmt-btn-option" >
-                <Paper sx={{ width: 150, height: 75,padding:0, maxWidth: '100%' }}>
+                <Paper sx={{ width: 135, height: 75,padding:0, maxWidth: '100%' }}>
                  <MenuList>
                       <MenuItem>
                        <ListItemIcon>
-
+                       <EditIcon fontSize="small" color=''/>
                       </ListItemIcon>
                       <ListItemText><span>Edit</span></ListItemText>
          
                        </MenuItem>
                        <MenuItem>
                        <ListItemIcon>
-
+                       <DeleteIcon fontSize='small'/>
                        </ListItemIcon>
                        <ListItemText><span>Delete</span></ListItemText>
          
