@@ -17,8 +17,10 @@ function CmtBox(props) {
   const [Block, setBlock] = useState(1)
   const [isunmound, setisunmound] = useState(true)
   const [Usercmt, setUsercmt] = useState([])
-  const { Cmt } = props
-
+  const [ShowMore, setShowMore] = useState( Usercmt.length < postData.totalcmt ?
+                                                    true : false         )
+ 
+  console.log(`Cmt = `,postData)
 
 
 
@@ -43,10 +45,11 @@ function CmtBox(props) {
             // after unmount component but asynchronous task still run, drop it.
             if (isunmound) {
           const newUsercmt = [...Usercmt]
-
-              newUsercmt.push(res.data.comments)
+              let a = Block + 1
+              setBlock(a)
+              // newUsercmt.push(res.data.comments[0])
               let sumUsercmt = newUsercmt.concat(res.data.comments)
-              setUsercmt(newUsercmt[0])
+              setUsercmt(sumUsercmt)
         
             }
           })
@@ -59,46 +62,6 @@ function CmtBox(props) {
       }
     }
 
-const Getaxios2 = ()=>{
-      try {
-        axios
-          .post(
-            `${URL_MAIN}/api/comment/get`,
-            {
-              "postId": `${postData._id}`,
-              "block": 2,
-              "sorttype": 1
-            },
-            {
-              headers: {
-                "Content-Type": "application/json",
-  
-              },
-            }
-          )
-          .then((res) => {
-            // after unmount component but asynchronous task still run, drop it.
-            if (isunmound) {
-          
-              
-              const newUsercmt = [...Usercmt]
-
-              // newUsercmt.push(res.data.comments)
-
-             let sumUsercmt = newUsercmt.concat(res.data.comments)
-
-              setUsercmt(sumUsercmt)
-              console.log(`newusercmt = `,sumUsercmt)
-            }
-          })
-          .catch((err) => {
-            console.log(err.message);
-          });
-      } catch (error) {
-        // console log error
-        console.log(error);
-      }
-    }
 
 console.log(`userdata`, Usercmt)
 
@@ -119,7 +82,14 @@ console.log(`userdata`, Usercmt)
 
 
   useEffect(() => {
- 
+    
+    if(Usercmt.length < postData.totalcmt )
+    {
+      setShowMore(true)
+    }else{
+      setShowMore(false)
+    }
+    
     var e = Usercmt.map((cmt) =>
         <CmtUser key={cmt._id}  CmtInfor={cmt} />
       )
@@ -132,7 +102,7 @@ console.log(`userdata`, Usercmt)
       
   const handleScrollCmt = (e)=>{
     
-    Getaxios2()
+    Getaxios()
   
   }
 
@@ -148,7 +118,7 @@ console.log(`userdata`, Usercmt)
 
 
         </div>
-        <div onClick={handleScrollCmt}>click for more...</div>
+        { ShowMore && <div onClick={handleScrollCmt}>click for more...</div>}
       </div>
 
     </div>
