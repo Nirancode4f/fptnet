@@ -10,20 +10,19 @@ export default function Newfeed() {
     
      <div className='Deadline-container'>
          {/* begin student info  */}
-         <div className='Content'>
+         <div className='Content-deadline'>
                <div className="Deadline">
                     <div className="deadline-status"> NEVER GIVE UP!</div>
-                     <div className="student">
 
-                           <div className="student-info">
-                               <div className="student-info-name">
-                                  Họ và Tên: <p> Tên sinh viên</p>
-                              </div>
                                <div className="student-info-number">
                                    MSSV: <p>Mã số sinh viên</p>
                                 </div>
+                     <div className="student">
+                           <div className="student-info">
+                               
+
                                <div className="student-info-quanlity-deadline"> 
-                                   Deadline: <p>số deadline của sinh viên</p>
+                                   Unfinished: <p>20</p>
                                </div>
                             </div>    
                             <div className="student-quick-add-deadline"> 

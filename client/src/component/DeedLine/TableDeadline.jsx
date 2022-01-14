@@ -14,7 +14,18 @@ function createData(deadlineName, description, date, status, note) {
 
 const rows = [
   createData('1000 bài tập JS cơ bản', 'Làm theo yêu cầu của giáo viên', '14/12/2022', <Chip label="URGENT" color="error" />, 'code sao ra kết quả'),
+  createData('1000 bài tập JS cơ bản', 'Làm theo yêu cầu của giáo viên', '14/12/2022', <Chip label="URGENT" color="error" />, 'code sao ra kết quả'),
+  createData('1000 bài tập JS cơ bản', 'Làm theo yêu cầu của giáo viên', '14/12/2022', <Chip label="URGENT" color="error" />, 'code sao ra kết quả'),
+  createData('1000 bài tập JS cơ bản', 'Làm theo yêu cầu của giáo viên', '14/12/2022', <Chip label="URGENT" color="error" />, 'code sao ra kết quả'),
+  createData('1000 bài tập JS cơ bản', 'Làm theo yêu cầu của giáo viên', '14/12/2022', <Chip label="URGENT" color="error" />, 'code sao ra kết quả'),
+  createData('1000 bài tập JS cơ bản', 'Làm theo yêu cầu của giáo viên', '14/12/2022', <Chip label="URGENT" color="error" />, 'code sao ra kết quả'),
+  createData('1000 bài tập JS cơ bản', 'Làm theo yêu cầu của giáo viên', '14/12/2022', <Chip label="URGENT" color="error" />, 'code sao ra kết quả'),
   createData('Tiếng anh chuyên ngành 6', 'Làm theo yêu cầu của giáo viên', '14/12/2022', <Chip label="URGENT" color="error" />, 'không có ngữ pháp'),
+  createData('Bài tập Python cơ bản','Làm theo yêu cầu của giáo viên','14/12/2022',<Chip label="NORMAL" color="warning" />,'dùng hàm để giải'),
+  createData('Bài tập Python cơ bản','Làm theo yêu cầu của giáo viên','14/12/2022',<Chip label="NORMAL" color="warning" />,'dùng hàm để giải'),
+  createData('Bài tập Python cơ bản','Làm theo yêu cầu của giáo viên','14/12/2022',<Chip label="NORMAL" color="warning" />,'dùng hàm để giải'),
+  createData('Bài tập Python cơ bản','Làm theo yêu cầu của giáo viên','14/12/2022',<Chip label="NORMAL" color="warning" />,'dùng hàm để giải'),
+  createData('Bài tập Python cơ bản','Làm theo yêu cầu của giáo viên','14/12/2022',<Chip label="NORMAL" color="warning" />,'dùng hàm để giải'),
   createData('Bài tập Python cơ bản','Làm theo yêu cầu của giáo viên','14/12/2022',<Chip label="NORMAL" color="warning" />,'dùng hàm để giải'),
   createData('Vovinam 2 video', 'Làm theo yêu cầu của giáo viên', '14/12/2022', <Chip label="NORMAL" color="warning" />, ''),
   createData('Vovinam 2 video', 'Làm theo yêu cầu của giáo viên', '14/12/2022', <Chip label="NORMAL" color="warning" />, ''),
@@ -28,7 +39,8 @@ const rows = [
 
 export default function TableDeadline() {
   return (
-      <div className="Content">
+    <div className='Content-deadline'>
+    
     <div className="Table-deadline">
     <TableContainer component={Paper}>
     <Table sx={{ minWidth: 650 }} aria-label="simple table" >
