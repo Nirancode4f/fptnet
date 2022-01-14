@@ -11,7 +11,7 @@ const AxiosMain = axios.create({
     paramsSerializer: params => queryString.stringify(params),
 }) ;
 AxiosMain.interceptors.request.use(async (config) => {
-    ///handle token 
+
     return config
 })
         
@@ -26,5 +26,5 @@ AxiosMain.interceptors.response.use((response)=>{
 )
 
 
-
+/// chưa code xong đừng sửa
 export default AxiosMain

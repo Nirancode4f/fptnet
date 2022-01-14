@@ -31,8 +31,12 @@ function FomatData(date)  {
      }
     },[])
     
-      
+      /// you can adđ more object if you want 
+    //   like {timeString, data , ... pla pla pla}
+    // if you want take it out. just use like ||   const { data } = Fomatdata()
+// khaangnguyeen ... 
     return {timeString};
      
 }
+
 export default FomatData

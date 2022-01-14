@@ -15,14 +15,14 @@ import ProfilePopUp from "../../component/Profile/PostPopup/ProfilePopUp";
 import MainLayout from "../../component/MainPage/MainLayout";
 import "./assets/css/profile.css";
 import PostComp from "../../component/Profile/PostPopup/PostComp";
-
+import { CircularProgress, LinearProgress } from '@mui/material';
 const URL_MAIN =
   process.env.REACT_APP_URL_MAIN || "https://fanserverapi.herokuapp.com";
 
 export const Profile = (props) => {
   const [ShowPopup, setShowPopup] = useState(null);
   const [PopUpdata, setPopUpdata] = useState({});
-
+  const [Loading, setLoading] = useState(false)
   const user = JSON.parse(localStorage.getItem("loginData"));
   const error =
     "https://upload.wikimedia.org/wikipedia/commons/c/c7/No_Pic.jpg";
@@ -55,6 +55,7 @@ export const Profile = (props) => {
           }
         )
         .then((res) => {
+          setLoading(false)
           // after unmount component but asynchronous task still run, drop it.
           if (isMouted) {
             setuserPost(res.data);
@@ -63,6 +64,7 @@ export const Profile = (props) => {
         .catch((err) => {
           console.log(err.message);
         });
+      setLoading(true)
     } catch (error) {
       // console log error
       console.log(error);
@@ -77,7 +79,7 @@ export const Profile = (props) => {
     setPopUpdata(data);
   }
   function handleClickOut(event) {
-        
+
     setShowPopup(event);
   }
 
@@ -94,21 +96,21 @@ export const Profile = (props) => {
 
                 <div className="test">
                   <Avatar
-                  sx={{
-                    width: 200,
-                    height: 200,
-                  }}
-                  style={{
-                    margin: 15,
-                   
+                    sx={{
+                      width: 200,
+                      height: 200,
+                    }}
+                    style={{
+                      margin: 15,
 
-                  }}
-                  src={user.user.picture || error}
+
+                    }}
+                    src={user.user.picture || error}
                     alt="avatar"
                   />
                 </div>
-                
-               
+
+
               </div>
 
               <div className="Profile_user_info">
@@ -122,43 +124,47 @@ export const Profile = (props) => {
                 </div>
 
                 <div className="Profile_user_info_description">
-                 {user.user.slogan}
+                  {user.user.slogan}
                 </div>
 
-                 <div className="mui-add-btn">
-                <Button  variant="contained"  
-                style={{
-                  color : "white",
-                  width: 100,
-                  backgroundColor: "#f36f21"}} > <b>Add </b> 
-                </Button>
+                <div className="mui-add-btn">
+                  <Button variant="contained"
+                    style={{
+                      color: "white",
+                      width: 100,
+                      backgroundColor: "#f36f21"
+                    }} > <b>Add </b>
+                  </Button>
                 </div>
               </div>
             </div>
             <div className="Profile_user_action">
- 
-          <ButtonGroup 
-           style={{fill: "#f36f21",color:"red" }}
-           color='inherit' 
-           fullWidth={true} 
-           variant="text" 
-           aria-label="text button group"
-           
-           >
-            <Button  style={{color: "#f36f21" }} ><p style={{color: "black", fontWeight:"700" , fontFamily:"Segoe UI"}}>Post</p></Button>
-            <Button style={{color: "#f36f21" }} ><p style={{color: "black", fontWeight:"700" , fontFamily:"Segoe UI"}}>Achievement</p></Button>
-            <Button style={{color: "#f36f21" }} ><p style={{color: "black", fontWeight:"700" , fontFamily:"Segoe UI"}}>Friend</p></Button>
-          </ButtonGroup>
+
+              <ButtonGroup
+                style={{ fill: "#f36f21", color: "red" }}
+                color='inherit'
+                fullWidth={true}
+                variant="text"
+                aria-label="text button group"
+
+              >
+                <Button style={{ color: "#f36f21" }} ><p style={{ color: "black", fontWeight: "700", fontFamily: "Segoe UI" }}>Post</p></Button>
+                <Button style={{ color: "#f36f21" }} ><p style={{ color: "black", fontWeight: "700", fontFamily: "Segoe UI" }}>Achievement</p></Button>
+                <Button style={{ color: "#f36f21" }} ><p style={{ color: "black", fontWeight: "700", fontFamily: "Segoe UI" }}>Friend</p></Button>
+              </ButtonGroup>
 
             </div>
 
             <div className="Tag_action ">
+              {Loading && <LinearProgress color='inherit' style={{ color: "#f36f21" }} />}
+
               <PostComp
                 userPosts={userPost.post}
                 onPostClick={handlePostClick}
               />
 
               <div id="Post-information">
+
                 {ShowPopup ? (
                   <ProfilePopUp data={PopUpdata} OnClickout={handleClickOut} />
                 ) : (
