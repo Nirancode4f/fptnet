@@ -25,7 +25,6 @@ function CmtBox(props) {
   const [ShowMore, setShowMore] = useState( Usercmt.length < postData.totalcmt ?
                                                     true : false         )
   const [Loading, setLoading] = useState(false)
-  console.log(`Cmt = `,postData)
 
 
 
@@ -71,7 +70,7 @@ function CmtBox(props) {
     }
 
 
-console.log(`userdata`, Usercmt)
+
 
 
   
