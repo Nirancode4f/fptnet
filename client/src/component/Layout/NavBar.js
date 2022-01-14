@@ -24,7 +24,7 @@ function NavBar() {
         </Link>
       </div>
       <div className="nav__deadline">
-        <Link to="/">
+        <Link to="/deadline">
           <i className="fas fa-stopwatch"></i>
         </Link>
       </div>

@@ -7,12 +7,12 @@ import { Button } from '@mui/material';
 export default function Newfeed() {
  
     return (
-    <>
+    
      <div className='Deadline-container'>
          {/* begin student info  */}
          <div className='Content'>
                <div className="Deadline">
-                    <div class="deadline-status"> NEVER GIVE UP!</div>
+                    <div className="deadline-status"> NEVER GIVE UP!</div>
                      <div className="student">
 
                            <div className="student-info">
@@ -73,6 +73,6 @@ export default function Newfeed() {
          </div>
          
      </div>
-    </>
+    
     )
 }
