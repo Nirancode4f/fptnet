@@ -19,12 +19,8 @@ function CmtBox(props) {
   const [Usercmt, setUsercmt] = useState([])
   const { Cmt } = props
 
-    
-  const handleScrollCmt = (e)=>{
-    
-    console.log(`error cuộn `)
-  
-  }
+
+
 
     const Getaxios = ()=>{
       try {
@@ -34,7 +30,7 @@ function CmtBox(props) {
             {
               "postId": `${postData._id}`,
               "block": Block,
-              "sorttype": 2
+              "sorttype": 1
             },
             {
               headers: {
@@ -46,7 +42,11 @@ function CmtBox(props) {
           .then((res) => {
             // after unmount component but asynchronous task still run, drop it.
             if (isunmound) {
-              setUsercmt(res.data.comments)
+          const newUsercmt = [...Usercmt]
+
+              newUsercmt.push(res.data.comments)
+              let sumUsercmt = newUsercmt.concat(res.data.comments)
+              setUsercmt(newUsercmt[0])
         
             }
           })
@@ -59,11 +59,51 @@ function CmtBox(props) {
       }
     }
 
+const Getaxios2 = ()=>{
+      try {
+        axios
+          .post(
+            `${URL_MAIN}/api/comment/get`,
+            {
+              "postId": `${postData._id}`,
+              "block": 2,
+              "sorttype": 1
+            },
+            {
+              headers: {
+                "Content-Type": "application/json",
+  
+              },
+            }
+          )
+          .then((res) => {
+            // after unmount component but asynchronous task still run, drop it.
+            if (isunmound) {
+          
+              
+              const newUsercmt = [...Usercmt]
+
+              // newUsercmt.push(res.data.comments)
+
+             let sumUsercmt = newUsercmt.concat(res.data.comments)
+
+              setUsercmt(sumUsercmt)
+              console.log(`newusercmt = `,sumUsercmt)
+            }
+          })
+          .catch((err) => {
+            console.log(err.message);
+          });
+      } catch (error) {
+        // console log error
+        console.log(error);
+      }
+    }
+
+console.log(`userdata`, Usercmt)
 
 
-
-
-  console.log(Block)
+  
 
   // run this shit first
   useEffect(() => {
@@ -89,19 +129,26 @@ function CmtBox(props) {
   })
 
 
+      
+  const handleScrollCmt = (e)=>{
+    
+    Getaxios2()
+  
+  }
+
   return (
 
     <div>
       <div
         className="comment-main" >
-        <div className="modal-wiew-detail-post-content-comment-content" id='cmt_ele' onScroll={handleScrollCmt} >
+        <div className="modal-wiew-detail-post-content-comment-content" id='cmt_ele'  >
 
 
 
 
 
         </div>
-
+        <div onClick={handleScrollCmt}>click for more...</div>
       </div>
 
     </div>

@@ -7,6 +7,7 @@ import Messenger from "./page/Messenger/Messenger";
 import {BrowserRouter,Routes,Route } from "react-router-dom"
 import { NotFound } from './page/NotFound/NotFound';
 import { Profile } from './page/Profile/Profile';
+import { DeadlinePage } from "./page/DeadLine/DeadlinePage";
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
   <Route path="/messenger" element={<Messenger />}></Route>
   <Route  path="/*" element={ <NotFound/> }></Route>
   <Route  path="/profile" element={ <Profile/> }></Route>
+  <Route  path="/deadline" element={ <DeadlinePage/> }></Route>
   </Routes>
   </BrowserRouter>
   );

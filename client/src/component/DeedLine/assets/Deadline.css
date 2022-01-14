@@ -1,0 +1,84 @@
+
+:root{
+    --bg-color: #f36f21;
+    --text-color:#fff;
+    --blue-color:#82c5e2;
+    --fade-color:#908c8c;
+    --header-height: 64px;
+    --nav-width: 86px;
+}
+
+
+.Content {
+    position: absolute;
+    right:0;
+    left: var(--nav-width);
+    top: var(--header-height);
+    max-width: calc(100% - var(--nav-width));
+    background-color: #fafafa;
+    height: 322px;
+    position: relative;
+    padding-bottom: 10px;
+    
+    
+}
+.Deadline {
+    margin: 0 auto;
+    max-width: 960px;
+
+}
+.deadline-status {
+    width: 30%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 32px;
+    color: var(--bg-color);
+   border: 1px solid var(--bg-color);margin-top: 12px;
+}
+.student {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+}
+.student-info {
+    padding-top: 32px;
+    width: 50%;
+    line-height: 3;
+}
+.student-info-name,
+.student-info-number,
+.student-info-quanlity-deadline {
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+} 
+.student-info-name p,
+.student-info-number p,
+.student-info-quanlity-deadline p{
+    font-size: 20px;
+    font-weight: 600;
+    color: black;
+    margin: 0 12px;
+}
+.student-info-quanlity-deadline p{
+    font-size: 20px;
+    font-weight: 600;
+    color: red;
+    margin: 0 12px;
+}
+
+.student-quick-add-deadline {
+    width: 50%;
+
+}
+.quick-add-deadline-btn {
+    width: 100%;
+    text-align: right;
+}
+.Table-deadline {
+    max-width: 960px;
+    margin: 0 auto;
+    position: relative;
+    padding-bottom: 40px;
+    background-color: #fafafa;
+}
