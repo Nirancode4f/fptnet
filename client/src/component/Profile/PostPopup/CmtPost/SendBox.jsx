@@ -26,6 +26,7 @@ useEffect(()=>{
    
     const handleSend = (e)=>{
     e.preventDefault()
+    setCommentText("")
     var localData = JSON.parse(localStorage.getItem("loginData"));
 
     const userId = localData.user._id
@@ -48,7 +49,7 @@ useEffect(()=>{
         )
         .then((res) => {
             console.log(res.data)
-            setCommentText("")
+           
             
         })
         .catch((err) => {
