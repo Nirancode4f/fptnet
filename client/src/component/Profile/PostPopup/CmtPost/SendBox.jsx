@@ -67,6 +67,7 @@ useEffect(()=>{
         <form onSubmit={handleSend} className="comment-post">
             <input 
             ref={choose}
+            value={CommentText}
             type="text" 
             onChange={(e)=>setCommentText(e.target.value)} 
             placeholder="Input your comment here" />
