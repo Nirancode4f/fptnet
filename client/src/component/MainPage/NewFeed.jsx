@@ -124,7 +124,7 @@ export default function Newfeed() {
                         </div>
                         </div>
                             <div className="Newfeed-body-post-content-reaction-button">
-                            <ButtonGroup variant="text"  aria-label="text button group" fullWidth={true} color='inherit' >
+                            <ButtonGroup  variant="text"  aria-label="text button group" fullWidth={true} color='inherit' >
                                 <Button variant="text" 
                                  style={{
                                      color:"#f36f21",
@@ -159,11 +159,7 @@ export default function Newfeed() {
 
                             </ButtonGroup>
 
-                           
-                                
-                            
-
-
+    
                             </div>
                             <div className="Newfeed-body-post-content-comment-area">
                                 <div className="Newfeed-body-post-content-comment-label">
