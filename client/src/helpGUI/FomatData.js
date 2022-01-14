@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import dateFormat from "dateformat";
 
 
@@ -7,13 +7,13 @@ import dateFormat from "dateformat";
 
 
 ///take the time
-function FomatData(data) {
+function FomatData(date)  {
+    const [timeString, settimeString] = useState(Date())
+    const d = date
 
-    const d =  data
-
-    const [date, setdate] = useState(Date())
-
-    let currentyear = dateFormat(date,"yyyy")
+  
+    useEffect(()=>{
+        let currentyear = dateFormat(timeString,"yyyy")
     let day = dateFormat(d,"d")
     let month = dateFormat(d,"m")
     let year = dateFormat(d, "yyyy")    
@@ -25,15 +25,18 @@ function FomatData(data) {
     if (currentyear === year)
     { 
         const fo = `${day} tháng ${month} lúc ${hour}:${minute} ${TT}`
-        setdate(fo)
+        settimeString(fo)
         
     }
     else { 
 
         const fo = `${day}/${month}/${year}`
-        setdate(fo)
+        settimeString(fo)
      }
-     return date
+    },[])
+    
+      
+    return {timeString};
      
 }
 export default FomatData

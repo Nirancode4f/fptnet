@@ -15,6 +15,7 @@ import { Button, ButtonGroup, Checkbox } from '@mui/material';
 import ForumOutlinedIcon from '@mui/icons-material/ForumOutlined';
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import Favorite from '@mui/icons-material/Favorite';
+import FomatData from '../../../helpGUI/FomatData';
 ProfilePopUp.prototype = {
     data: PropTypes.object,
     OnClickout: PropTypes.func,
@@ -30,13 +31,14 @@ ProfilePopUp.defaultProps = {
 
 function ProfilePopUp(props) {
 
-
+    
     const { data, OnClickout } = props
     
     const [ShowSendBox, setShowSendBox] = useState(false)
 
     const [date, setdate] = useState(Date())
     const [LikeCheck, setLikeCheck] = useState(false)
+
     const Data = JSON.parse(localStorage.getItem("loginData"))
     const Avatar = Data.user.picture
     const UserName = Data.user.username
@@ -45,9 +47,9 @@ function ProfilePopUp(props) {
     
     const d = new Date(data.createAt)
     
-
-
-
+    const {timeString} = FomatData(new Date(data.createAt))
+   
+    
     const LikeOrUnLike = () =>{
         if (LikeCheck === false){
             setLikeCheck(true)
@@ -65,33 +67,6 @@ function ProfilePopUp(props) {
         }
     }
 
-    useEffect(()=>{
-
-        
-        let currentyear = dateFormat(date,"yyyy")
-        let day = dateFormat(d,"d")
-        let month = dateFormat(d,"m")
-        let year = dateFormat(d, "yyyy")    
-        let hour = dateFormat(d,"h")
-        let minute = dateFormat(d,"MM")
-        let TT = dateFormat(d,"TT")
-        
-
-        if (currentyear === year)
-        { 
-            const fo = `${day} tháng ${month} lúc ${hour}:${minute} ${TT}`
-            setdate(fo)
-            
-        }
-        else { 
-
-            const fo = `${day}/${month}/${year}`
-            setdate(fo)
-         }
-        
-        
-        
-        },[])
 
     function handleOnClickout() {
 
@@ -117,7 +92,7 @@ function ProfilePopUp(props) {
                 <div className="modal-wiew-detail-post-content">
 
                     <div className="modal-wiew-detail-post-content-header">
-                        <PosterTime UserName={UserName} Postdate={date} Avatar={Avatar} errorPic={errorPic} />
+                        <PosterTime UserName={UserName} Postdate={timeString} Avatar={Avatar} errorPic={errorPic} />
 
                         <PostContent content={data.content} />
 
