@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from "react";
 import CmtUser from './CmtUser';
 import ReactDOM from 'react-dom';
-
+import { bake_cookie, read_cookie, delete_cookie } from "sfcookies";
 import axios from "axios";
 const URL_MAIN =
   process.env.REACT_APP_URL_MAIN || "https://fanserverapi.herokuapp.com";
@@ -37,6 +37,7 @@ function CmtBox(props) {
             {
               headers: {
                 "Content-Type": "application/json",
+                'Authorization': read_cookie("accessToken")
   
               },
             }

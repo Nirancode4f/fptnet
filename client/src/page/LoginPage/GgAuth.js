@@ -44,6 +44,7 @@ function GgAuth() {
           localStorage.setItem("loginData", JSON.stringify(res.data));
 
           bake_cookie("accessToken", res.data.accessToken);
+          
           navigate("/");
         })
         .catch((error) => {

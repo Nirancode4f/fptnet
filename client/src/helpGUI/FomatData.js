@@ -2,10 +2,6 @@ import { useEffect, useState } from "react"
 import dateFormat from "dateformat";
 
 
-
-
-
-
 ///take the time
 function FomatData(date)  {
     const [timeString, settimeString] = useState(Date())
@@ -13,7 +9,7 @@ function FomatData(date)  {
 
   
     useEffect(()=>{
-        let currentyear = dateFormat(timeString,"yyyy")
+    let currentyear = dateFormat(timeString,"yyyy")
     let day = dateFormat(d,"d")
     let month = dateFormat(d,"m")
     let year = dateFormat(d, "yyyy")    
