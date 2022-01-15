@@ -7,7 +7,7 @@ import axios from "axios";
 import ReactDOM from "react-dom";
 import Button from '@mui/material/Button';
 import Input from '@mui/material/Input';
-import { ButtonGroup, IconButton } from "@mui/material";
+import { ButtonGroup, IconButton, Tab, TabsContext } from "@mui/material";
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import Avatar from '@mui/material/Avatar';
 import boring from "./assets/img/boring.png";
@@ -16,10 +16,17 @@ import MainLayout from "../../component/MainPage/MainLayout";
 import "./assets/css/profile.css";
 import PostComp from "../../component/Profile/PostPopup/PostComp";
 import { CircularProgress, LinearProgress } from '@mui/material';
+import { Box } from "@mui/system";
+import { TabContext, TabList, TabPanel } from '@mui/lab';
+import { Tabs } from '@mui/material';
+
+
+
 const URL_MAIN =
   process.env.REACT_APP_URL_MAIN || "https://fanserverapi.herokuapp.com";
 
 export const Profile = (props) => {
+  const [valueChange, setvalueChange] = useState("1")
   const [ShowPopup, setShowPopup] = useState(null);
   const [PopUpdata, setPopUpdata] = useState({});
   const [Loading, setLoading] = useState(false)
@@ -74,7 +81,11 @@ export const Profile = (props) => {
     };
   }, []);
 
-  function handlePostClick(data) {
+  const handleChange = (event, newValue) => {
+    setvalueChange(newValue);
+  };
+
+  function handlePostClick(data) {  
     setShowPopup(true);
     setPopUpdata(data);
   }
@@ -138,25 +149,38 @@ export const Profile = (props) => {
                 </div>
               </div>
             </div>
-            <div className="Profile_user_action">
 
-              <ButtonGroup
-                style={{ fill: "#f36f21", color: "red" }}
-                color='inherit'
-                fullWidth={true}
-                variant="text"
-                aria-label="text button group"
+            {/* new update here */}
 
-              >
-                <Button style={{ color: "#f36f21" }} ><p style={{ color: "black", fontWeight: "700", fontFamily: "Segoe UI" }}>Post</p></Button>
-                <Button style={{ color: "#f36f21" }} ><p style={{ color: "black", fontWeight: "700", fontFamily: "Segoe UI" }}>Achievement</p></Button>
-                <Button style={{ color: "#f36f21" }} ><p style={{ color: "black", fontWeight: "700", fontFamily: "Segoe UI" }}>Friend</p></Button>
-              </ButtonGroup>
+            
+            
+            
+            
+            
+          <TabContext 
+                value={valueChange}
+                >
+          <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+            <TabList 
+            variant="fullWidth"  
+            onChange={handleChange} 
+            textColor="inherit"
+            TabIndicatorProps={{style: {background:'#f36f21'}}}
+            style={{ color : "black", height: "2px"}}
+            aria-label="active profile"
+            
+            >
+               
+              <Tab  label="Post" value="1" />
+              <Tab label="Achievement" value="2" />
+              <Tab label="Friend" value="3" />
+            </TabList>
+          </Box>
+          <TabPanel value="1">
 
-            </div>
-
-            <div className="Tag_action ">
-              {Loading && <LinearProgress color='inherit' style={{ color: "#f36f21" }} />}
+         
+          <div className="Tag_action ">
+          {Loading && <LinearProgress color='inherit' style={{ color: "#f36f21" }} />}
 
               <PostComp
                 userPosts={userPost.post}
@@ -172,6 +196,61 @@ export const Profile = (props) => {
                 )}
               </div>
             </div>
+
+          </TabPanel>
+          <TabPanel value="2">Achievement</TabPanel>
+          <TabPanel value="3">Friend</TabPanel>
+              </TabContext>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            {/* <div className="Profile_user_action">
+
+              <ButtonGroup
+                style={{ fill: "#f36f21", color: "red" }}
+                color='inherit'
+                fullWidth={true}
+                variant="text"
+                aria-label="text button group"
+
+              >
+                <Button style={{ color: "#f36f21" }} ><p style={{ color: "black", fontWeight: "700", fontFamily: "Segoe UI" }}>Post</p></Button>
+                <Button style={{ color: "#f36f21" }} ><p style={{ color: "black", fontWeight: "700", fontFamily: "Segoe UI" }}>Achievement</p></Button>
+                <Button style={{ color: "#f36f21" }} ><p style={{ color: "black", fontWeight: "700", fontFamily: "Segoe UI" }}>Friend</p></Button>
+              </ButtonGroup>
+
+            </div> */}
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
           </div>
         </div>
       </div>

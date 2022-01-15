@@ -110,8 +110,11 @@ function CmtBox(props) {
   return (
 
     <div>
+       
       <div
+      
         className="comment-main" >
+         
         <div className="modal-wiew-detail-post-content-comment-content" id='cmt_ele'  >
 
 
@@ -119,8 +122,14 @@ function CmtBox(props) {
 
 
         </div>
-        { Loading && <LinearProgress color='inherit' style={{color : "#f36f21"}} />}
+         { Loading && 
+         <LinearProgress 
+         color='inherit' 
+         style={{color : "#f36f21", height: "2px"}}
+         
+         />}
         { ShowMore && <div className='click-for-more-btn' onClick={handleScrollCmt}>Click for more...</div>}
+       
       </div>
 
     </div>
