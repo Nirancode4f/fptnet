@@ -10,6 +10,7 @@ import { ListItemIcon } from '@mui/material';
 import { ListItemText } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
+import FomatData from '../../../../helpGUI/FomatData';
 
 const URL_MAIN =
   process.env.REACT_APP_URL_MAIN || "https://fanserverapi.herokuapp.com";
@@ -27,6 +28,8 @@ function CmtUser(props) {
   const username = CmtInfor.userId.username
   const ref = useRef()
 
+  const {timeString, CmtDate} = FomatData(new Date(CmtInfor.createAt))
+console.log(CmtInfor)
 
   const handleCmtSettingClick = ()=>{
     if (!showCmtSetting){
@@ -36,9 +39,16 @@ function CmtUser(props) {
     }
 }
 
+
+let SettingRef = useRef()
+
 useEffect(()=>{
-  document.addEventListener("mousedown",()=>{
-    setshowCmtSetting(false)
+  document.addEventListener("mousedown",(event)=>{
+    if(!SettingRef.current.contains(event.target))
+    {
+        setshowCmtSetting(false)
+    }
+  
   })
 })
 
@@ -55,12 +65,12 @@ useEffect(()=>{
           </div>
           <div className="comment-box-infor-commenter-name"  >
            {username}
-              <b className='comment-time-post' >10/11/21 lúc 01:01</b>
+              <b className='comment-time-post' >{CmtDate}</b>
             <div onClick={handleCmtSettingClick} className="more-info-cmt-btn" > ...  </div>
             {showCmtSetting &&
             
             <div>
-            <div className="more-info-cmt-btn-option" id='setting-modal' >
+            <div ref={SettingRef} className="more-info-cmt-btn-option" id='setting-modal' >
               <Paper sx={{ width: 130, height: 75,padding:0, maxWidth: '100%' }}>
                <MenuList>
                     <MenuItem style={{ height:30 }}>

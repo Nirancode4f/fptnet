@@ -44,10 +44,9 @@ function ProfilePopUp(props) {
     const UserName = Data.user.username
     const errorPic = "https://upload.wikimedia.org/wikipedia/commons/c/c7/No_Pic.jpg"
 
+  
     
-    const d = new Date(data.createAt)
-    
-    const {timeString} = FomatData(new Date(data.createAt))
+    const {timeString , } = FomatData(new Date(data.createAt))
    
     
     const LikeOrUnLike = () =>{
