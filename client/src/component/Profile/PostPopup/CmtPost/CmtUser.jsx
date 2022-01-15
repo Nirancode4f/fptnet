@@ -50,6 +50,7 @@ function CmtUser(props) {
           </div>
           <div className="comment-box-infor-commenter-name">
            {username}
+              <b className='comment-time-post' >10/11/21 lúc 01:01</b>
             <div onClick={handleCmtSettingClick} className="more-info-cmt-btn" > ...  </div>
             {showCmtSetting && <div>
               <div className="more-info-cmt-btn-option" >
