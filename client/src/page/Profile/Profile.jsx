@@ -172,14 +172,15 @@ export const Profile = (props) => {
             
             >
                
-              <Tab 
-                
-                label="Post" value="1" />
-              <Tab label="Achievement" value="2" />
-              <Tab label="Friend" value="3" />
+              <Tab label={<span>Post</span>} value="1" />
+              <Tab label={<span>Achievement</span>} value="2" />
+              <Tab label={<span>Friend</span>} value="3" />
+
             </TabList>
           </Box>
           <TabPanel value="1" style={{padding: 1}} >
+
+         {/* profile props  */}
 
          
           <div className="Tag_action ">
