@@ -160,23 +160,26 @@ export const Profile = (props) => {
           <TabContext 
                 value={valueChange}
                 >
-          <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+          <Box sx={{borderBottom: 1, borderColor: 'divider' }}>
             <TabList 
+            sx={{p : 0}}
             variant="fullWidth"  
             onChange={handleChange} 
             textColor="inherit"
             TabIndicatorProps={{style: {background:'#f36f21'}}}
-            style={{ color : "black", height: "2px"}}
+            
             aria-label="active profile"
             
             >
                
-              <Tab  label="Post" value="1" />
+              <Tab 
+                
+                label="Post" value="1" />
               <Tab label="Achievement" value="2" />
               <Tab label="Friend" value="3" />
             </TabList>
           </Box>
-          <TabPanel value="1">
+          <TabPanel value="1" style={{padding: 1}} >
 
          
           <div className="Tag_action ">
