@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom';
 import { bake_cookie, read_cookie, delete_cookie } from "sfcookies";
 import axios from "axios";
 import { CircularProgress, LinearProgress } from '@mui/material';
+import AxiosMain from '../../../../API/AxiosMain';
 
 const URL_MAIN =
   process.env.REACT_APP_URL_MAIN || "https://fanserverapi.herokuapp.com";
@@ -31,23 +32,13 @@ function CmtBox(props) {
 
   const Getaxios = () => {
     try {
-      axios
-        .post(
-          `${URL_MAIN}/api/comment/get`,
-          {
-            "postId": `${postData._id}`,
-            "block": Block,
-            "sorttype": 1
-          },
-          {
-            headers: {
-              "Content-Type": "application/json",
-              'Authorization': read_cookie("accessToken")
 
-            },
-          }
-        )
-        .then((res) => {
+        AxiosMain.post("/api/comment/get",{
+          "postId": `${postData._id}`,
+          "block": Block,
+          "sorttype": 1
+        }).then((res)=>{
+          console.log(res)
           setLoading(false)
           // after unmount component but asynchronous task still run, drop it.
           if (isunmound) {
@@ -55,21 +46,17 @@ function CmtBox(props) {
             let a = Block + 1
             setBlock(a)
             // newUsercmt.push(res.data.comments[0])
-            let sumUsercmt = newUsercmt.concat(res.data.comments)
+            let sumUsercmt = newUsercmt.concat(res.comments)
             setUsercmt(sumUsercmt)
+              }})
+              setLoading(true)
+            }catch (error) {
+                // console log error
+                console.log(error);
+              }
 
-          }
-        })
-        .catch((err) => {
-          console.log(err.message);
-        });
-      setLoading(true)
-    } catch (error) {
-      // console log error
-      console.log(error);
     }
-  }
-
+  
 
   // run this shit first
   useEffect(() => {
