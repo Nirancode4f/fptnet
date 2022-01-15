@@ -43,13 +43,15 @@ console.log(CmtInfor)
 let SettingRef = useRef()
 
 useEffect(()=>{
-  document.addEventListener("mousedown",(event)=>{
-    if(!SettingRef.current.contains(event.target))
+ if(showCmtSetting)
+  { document.addEventListener("mousedown",(event)=>{
+    if( !SettingRef.current.contains(event.target) && showCmtSetting)
     {
         setshowCmtSetting(false)
     }
-  
-  })
+  console.log("nothing")
+  })}
+ 
 })
 
     return (
