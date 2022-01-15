@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { render } from 'react-dom';
@@ -25,7 +25,7 @@ function CmtUser(props) {
   const { CmtInfor } = props
   const picture = CmtInfor.userId.picture
   const username = CmtInfor.userId.username
-
+  const ref = useRef()
 
 
   const handleCmtSettingClick = ()=>{
@@ -36,6 +36,11 @@ function CmtUser(props) {
     }
 }
 
+useEffect(()=>{
+  document.addEventListener("mousedown",()=>{
+    setshowCmtSetting(false)
+  })
+})
 
     return (
 
@@ -48,34 +53,37 @@ function CmtUser(props) {
   
             } alt="" />
           </div>
-          <div className="comment-box-infor-commenter-name">
+          <div className="comment-box-infor-commenter-name"  >
            {username}
               <b className='comment-time-post' >10/11/21 lúc 01:01</b>
             <div onClick={handleCmtSettingClick} className="more-info-cmt-btn" > ...  </div>
-            {showCmtSetting && <div>
-              <div className="more-info-cmt-btn-option" >
-                <Paper sx={{ width: 130, height: 75,padding:0, maxWidth: '100%' }}>
-                 <MenuList>
-                      <MenuItem style={{ height:30 }}>
-                       <ListItemIcon>
-                       <EditIcon fontSize="small" color=''/>
-                      </ListItemIcon>
-                      <ListItemText><span>Edit</span></ListItemText>
-         
-                       </MenuItem>
-                       <MenuItem style={{ height:30 }}>
-                       <ListItemIcon>
-                       <DeleteIcon fontSize='small'/>
-                       </ListItemIcon>
-                       <ListItemText><span>Delete</span></ListItemText>
-         
+            {showCmtSetting &&
+            
+            <div>
+            <div className="more-info-cmt-btn-option" id='setting-modal' >
+              <Paper sx={{ width: 130, height: 75,padding:0, maxWidth: '100%' }}>
+               <MenuList>
+                    <MenuItem style={{ height:30 }}>
+                     <ListItemIcon>
+                     <EditIcon fontSize="small" color=''/>
+                    </ListItemIcon>
+                    <ListItemText><span>Edit</span></ListItemText>
+       
                      </MenuItem>
-    
-                </MenuList>
-              </Paper>
-            </div> 
-              
-              </div>}
+                     <MenuItem style={{ height:30 }}>
+                     <ListItemIcon>
+                     <DeleteIcon fontSize='small'/>
+                     </ListItemIcon>
+                     <ListItemText><span>Delete</span></ListItemText>
+       
+                   </MenuItem>
+  
+              </MenuList>
+            </Paper>
+          </div> 
+      </div>
+            
+            }
           </div>
         </div>
         <div className="comment-box-content">
