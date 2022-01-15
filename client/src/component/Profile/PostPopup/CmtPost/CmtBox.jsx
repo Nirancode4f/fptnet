@@ -18,7 +18,8 @@ const error =
 function CmtBox(props) {
 
 
-  const { postData } = props
+  const { postData , ShowCmtSetting }= props
+
   const [Block, setBlock] = useState(1)
   const [isunmound, setisunmound] = useState(true)
   const [Usercmt, setUsercmt] = useState([])
@@ -92,7 +93,7 @@ function CmtBox(props) {
     }
 
     var e = Usercmt.map((cmt) =>
-      <CmtUser key={cmt._id} CmtInfor={cmt} />
+      <CmtUser key={cmt._id} CmtInfor={cmt} CmtSetting={ShowCmtSetting} />
     )
     ReactDOM.render(e, document.getElementById("cmt_ele"))
 
@@ -118,10 +119,11 @@ function CmtBox(props) {
         <div className="modal-wiew-detail-post-content-comment-content" id='cmt_ele'  >
 
 
-
+                {/* Cmt will be here */}
 
 
         </div>
+
          { Loading && 
          <LinearProgress 
          color='inherit' 
@@ -135,5 +137,6 @@ function CmtBox(props) {
     </div>
   );
 }
+
 
 export default CmtBox;

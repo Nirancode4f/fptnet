@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@mui/x-data-grid": "^5.2.2"
+    "@mui/x-data-grid": "^5.2.2",
+    "react-detect-click-outside": "^1.1.2"
   }
 }

@@ -162,7 +162,8 @@ export const Profile = (props) => {
                 >
           <Box sx={{ borderColor: 'divider' }}>
             <TabList 
-            sx={{p : 0}}
+            sx={{p : -1}}
+
             variant="fullWidth"  
             onChange={handleChange} 
             textColor="inherit"
@@ -209,53 +210,7 @@ export const Profile = (props) => {
             
             
             
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            {/* <div className="Profile_user_action">
 
-              <ButtonGroup
-                style={{ fill: "#f36f21", color: "red" }}
-                color='inherit'
-                fullWidth={true}
-                variant="text"
-                aria-label="text button group"
-
-              >
-                <Button style={{ color: "#f36f21" }} ><p style={{ color: "black", fontWeight: "700", fontFamily: "Segoe UI" }}>Post</p></Button>
-                <Button style={{ color: "#f36f21" }} ><p style={{ color: "black", fontWeight: "700", fontFamily: "Segoe UI" }}>Achievement</p></Button>
-                <Button style={{ color: "#f36f21" }} ><p style={{ color: "black", fontWeight: "700", fontFamily: "Segoe UI" }}>Friend</p></Button>
-              </ButtonGroup>
-
-            </div> */}
-
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
           </div>
         </div>
       </div>
