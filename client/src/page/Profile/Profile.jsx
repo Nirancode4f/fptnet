@@ -167,7 +167,7 @@ export const Profile = (props) => {
             onChange={handleChange} 
             textColor="inherit"
             TabIndicatorProps={{style: {background:'#f36f21'}}}
-            
+            style={{fill : "#f36f21", color: "#f36f21"}}
             aria-label="active profile"
             
             >
@@ -184,12 +184,13 @@ export const Profile = (props) => {
 
          
           <div className="Tag_action ">
-          {Loading && <LinearProgress color='inherit' style={{ color: "#f36f21" }} />}
+        
 
               <PostComp
                 userPosts={userPost.post}
                 onPostClick={handlePostClick}
               />
+                {Loading && <LinearProgress color='inherit' style={{ color: "#f36f21" }} />}
 
               <div id="Post-information">
 
