@@ -160,7 +160,7 @@ export const Profile = (props) => {
           <TabContext 
                 value={valueChange}
                 >
-          <Box sx={{borderBottom: 1, borderColor: 'divider' }}>
+          <Box sx={{ borderColor: 'divider' }}>
             <TabList 
             sx={{p : 0}}
             variant="fullWidth"  
@@ -172,9 +172,9 @@ export const Profile = (props) => {
             
             >
                
-              <Tab label={<span>Post</span>} value="1" />
-              <Tab label={<span>Achievement</span>} value="2" />
-              <Tab label={<span>Friend</span>} value="3" />
+              <Tab label={<span className="profile-tag-action">Post</span>} value="1" />
+              <Tab label={<span className="profile-tag-action">Achievement</span>} value="2" />
+              <Tab label={<span className="profile-tag-action">Friend</span>} value="3" />
 
             </TabList>
           </Box>
