@@ -126,7 +126,7 @@ function CmtBox(props) {
 
         </div>
         { Loading && <LinearProgress color='inherit' style={{color : "#f36f21"}} />}
-        { ShowMore && <div onClick={handleScrollCmt}>click for more...</div>}
+        { ShowMore && <div className='click-for-more-btn' onClick={handleScrollCmt}>Click for more...</div>}
       </div>
 
     </div>

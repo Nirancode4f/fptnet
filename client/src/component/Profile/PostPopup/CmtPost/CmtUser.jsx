@@ -53,16 +53,16 @@ function CmtUser(props) {
             <div onClick={handleCmtSettingClick} className="more-info-cmt-btn" > ...  </div>
             {showCmtSetting && <div>
               <div className="more-info-cmt-btn-option" >
-                <Paper sx={{ width: 135, height: 75,padding:0, maxWidth: '100%' }}>
+                <Paper sx={{ width: 130, height: 75,padding:0, maxWidth: '100%' }}>
                  <MenuList>
-                      <MenuItem>
+                      <MenuItem style={{ height:30 }}>
                        <ListItemIcon>
                        <EditIcon fontSize="small" color=''/>
                       </ListItemIcon>
                       <ListItemText><span>Edit</span></ListItemText>
          
                        </MenuItem>
-                       <MenuItem>
+                       <MenuItem style={{ height:30 }}>
                        <ListItemIcon>
                        <DeleteIcon fontSize='small'/>
                        </ListItemIcon>
