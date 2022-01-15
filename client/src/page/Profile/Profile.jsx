@@ -30,7 +30,7 @@ export const Profile = (props) => {
 
   const [userPost, setuserPost] = useState([]);
 
-
+ 
 
   // run this shit first
   useEffect(() => {

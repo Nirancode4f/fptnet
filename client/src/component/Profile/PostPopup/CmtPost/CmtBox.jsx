@@ -22,58 +22,53 @@ function CmtBox(props) {
   const [Block, setBlock] = useState(1)
   const [isunmound, setisunmound] = useState(true)
   const [Usercmt, setUsercmt] = useState([])
-  const [ShowMore, setShowMore] = useState( Usercmt.length < postData.totalcmt ?
-                                                    true : false         )
+  const [ShowMore, setShowMore] = useState(Usercmt.length < postData.totalcmt ?
+    true : false)
   const [Loading, setLoading] = useState(false)
 
 
 
-    const Getaxios = ()=>{
-      try {
-        axios
-          .post(
-            `${URL_MAIN}/api/comment/get`,
-            {
-              "postId": `${postData._id}`,
-              "block": Block,
-              "sorttype": 1
+  const Getaxios = () => {
+    try {
+      axios
+        .post(
+          `${URL_MAIN}/api/comment/get`,
+          {
+            "postId": `${postData._id}`,
+            "block": Block,
+            "sorttype": 1
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+              'Authorization': read_cookie("accessToken")
+
             },
-            {
-              headers: {
-                "Content-Type": "application/json",
-                'Authorization': read_cookie("accessToken")
-  
-              },
-            }
-          )
-          .then((res) => {
-            setLoading(false)
-            // after unmount component but asynchronous task still run, drop it.
-            if (isunmound) {
-          const newUsercmt = [...Usercmt]
-              let a = Block + 1
-              setBlock(a)
-              // newUsercmt.push(res.data.comments[0])
-              let sumUsercmt = newUsercmt.concat(res.data.comments)
-              setUsercmt(sumUsercmt)
-        
-            }
-          })
-          .catch((err) => {
-            console.log(err.message);
-          });
-          setLoading(true)
-      } catch (error) {
-        // console log error
-        console.log(error);
-      }
+          }
+        )
+        .then((res) => {
+          setLoading(false)
+          // after unmount component but asynchronous task still run, drop it.
+          if (isunmound) {
+            const newUsercmt = [...Usercmt]
+            let a = Block + 1
+            setBlock(a)
+            // newUsercmt.push(res.data.comments[0])
+            let sumUsercmt = newUsercmt.concat(res.data.comments)
+            setUsercmt(sumUsercmt)
+
+          }
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+      setLoading(true)
+    } catch (error) {
+      // console log error
+      console.log(error);
     }
+  }
 
-
-
-
-
-  
 
   // run this shit first
   useEffect(() => {
@@ -81,36 +76,35 @@ function CmtBox(props) {
     // check if component is mounte
     Getaxios()
 
-    return ()=>{
+    return () => {
       setisunmound(false)
     }
 
-  },[]);
+  }, []);
 
 
   useEffect(() => {
-    
-    if(Usercmt.length < postData.totalcmt )
-    {
+
+    if (Usercmt.length < postData.totalcmt) {
       setShowMore(true)
-    }else{
+    } else {
       setShowMore(false)
     }
-    
+
     var e = Usercmt.map((cmt) =>
-        <CmtUser key={cmt._id}  CmtInfor={cmt} />
-      )
-      ReactDOM.render(e, document.getElementById("cmt_ele"))
-    
-  return 
+      <CmtUser key={cmt._id} CmtInfor={cmt} />
+    )
+    ReactDOM.render(e, document.getElementById("cmt_ele"))
+
+    return
   })
 
 
-      
-  const handleScrollCmt = (e)=>{
-    
+
+  const handleScrollCmt = (e) => {
+
     Getaxios()
-  
+
   }
 
   return (
@@ -121,12 +115,13 @@ function CmtBox(props) {
         <div className="modal-wiew-detail-post-content-comment-content" id='cmt_ele'  >
 
 
-   
+
 
 
         </div>
-        { Loading && <LinearProgress color='inherit' style={{color : "#f36f21"}} />}
-        { ShowMore && <div onClick={handleScrollCmt}>click for more...</div>}
+        {Loading && <LinearProgress color='inherit' style={{ color: "#f36f21" }} />}
+
+        {ShowMore && <div onClick={handleScrollCmt}>click for more...</div>}
       </div>
 
     </div>
