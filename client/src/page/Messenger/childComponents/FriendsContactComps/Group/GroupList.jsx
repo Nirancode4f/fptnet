@@ -1,14 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import GroupListItem from "./GroupListItem";
+import { v4 } from "uuid";
 
 const TEMP_URL = "http://localhost:3000";
 const URL_MAIN =
   process.env.REACT_APP_URL_MAIN || "https://fanserverapi.herokuapp.com";
-export default function GroupList({ listGroups }) {
-  // const [listGroups, setlistGroups] = useState([]);
-
-  console.log(listGroups.length);
+export default function GroupList(props) {
+  const { itemsData, handleEvent } = props;
 
   return (
     <>
@@ -24,9 +23,13 @@ export default function GroupList({ listGroups }) {
         <label htmlFor="OpenGroupList">
           <i className="ShowListIcon fas fa-angle-down"></i>
         </label>
-        {listGroups.length > 0 ? (
-          listGroups.map((group) => (
-            <GroupListItem key={group._id} group={group} />
+        {itemsData.length > 0 ? (
+          itemsData.map((item) => (
+            <GroupListItem
+              key={v4()}
+              data={{ gName: item.name, avatar: item.picture, id: item._id }}
+              OnClickGetItem={handleEvent}
+            />
           ))
         ) : (
           <></>

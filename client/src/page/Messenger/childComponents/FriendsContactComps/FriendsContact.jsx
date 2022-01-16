@@ -4,13 +4,13 @@ import GroupList from "./Group/GroupList";
 import TeacherList from "./Teacher/TeacherList";
 
 export default function FriendsContact(props) {
-  const { listFriends, listTeachers, listGroups } = props;
+  const { friendsData, teachersData, groupsData, handleGetItem } = props;
   return (
     <>
       <div className="FriendsContact">
-        <FriendList listFriends={listFriends} />
-        <TeacherList listTeachers={listTeachers} />
-        <GroupList listGroups={listGroups} />
+        <FriendList itemsData={friendsData} handleEvent={handleGetItem} />
+        <TeacherList itemsData={teachersData} handleEvent={handleGetItem} />
+        <GroupList itemsData={groupsData} handleEvent={handleGetItem} />
       </div>
     </>
   );
