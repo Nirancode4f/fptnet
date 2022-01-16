@@ -1,338 +1,86 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import ChatBoxMain from "./ChatBoxMain";
+import ChatBoxMessage from "./ChatBoxMessage";
+import ChatBoxMessageOwnerUser from "./ChatBoxMessageOwnerUser";
 
-export default function ChatBox() {
+const URL_MAIN =
+  process.env.REACT_APP_URL_MAIN || `https://fanserverapi.herokuapp.com`;
+
+const block = 1; //testing
+
+export default function ChatBox(props) {
+  const { chatData, userId } = props;
+  const [convsId, setConvsId] = useState("");
+  const [messages, setMessages] = useState([]);
+  const [isAPISucceed, setIsAPISucceed] = useState();
+
+  const getFriendConvsId = async (userId, targetId) => {
+    let result;
+    try {
+      result = await axios.post(`${URL_MAIN}/api/conversation/getfriendconv`, {
+        userId: userId,
+        friendId: targetId,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+    return result;
+  };
+
+  const getFriendMessages = async (userId, convsId, block) => {
+    let result;
+    try {
+      result = await axios.post(`${URL_MAIN}/api/message/getblock`, {
+        userId: userId,
+        conversationId: convsId,
+        block: block,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+    return result;
+  };
+
+  useEffect(() => {
+    if (chatData.convs_type === "friend") {
+      // get friend conversation here
+      console.log(chatData.targetId);
+      getFriendConvsId(userId, chatData.targetId)
+        .then((res) => {
+          // setIsAPISucceed(res.data.success);
+          const convsId = res.data.conversation._id;
+          console.log(
+            "🚀 ~ file: ChatBox.jsx ~ line 50 ~ .then ~ convsId",
+            res.data
+          );
+
+          // after that get messages
+          if (res.data.success)
+            return getFriendMessages(userId, convsId, block);
+          else setMessages([]);
+        })
+        .then((res) => {
+          if (res.data.success) {
+            const result = res.data.messages;
+            setMessages(result);
+            console.log(result);
+          } else {
+            setMessages([]);
+          }
+        })
+        .catch((err) => {
+          setMessages([]);
+          console.log(err.messages);
+        });
+    }
+    console.log(messages);
+  }, [props]);
+
   return (
     <>
       <div className="ChatBox">
-        <div className="ChatBoxMain">
-          <div className="ChatBoxMessage">
-            <img
-              className="ChatBoxMessageAvatar"
-              src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"
-              alt="avatar user"
-            />
-            <div className="ChatBoxMessageContent">
-              <div className="ChatBoxMessageInfo">
-                <h4 className="ChatBoxMessageInfoName">Nhân</h4>
-                <h5 className="ChatBoxMessageInfoTime">11:34 24/12/2021</h5>
-              </div>
-              <div className="ChatBoxMessageContentText">
-                Google Dịch là một công cụ dịch thuật trực tuyến do Google phát
-                triển. Nó cung cấp giao diện trang web, ứng dụng trên thiết bị
-                di động cho hệ điều hành Android và iOS và giao diện lập trình
-                ứng dụng giúp nhà phát triển xây dựng tiện ích mở rộng trình
-                duyệt web và ứng dụng phần mềm. Wikipedia
-              </div>
-            </div>
-          </div>
-          <div className="ChatBoxMessageOwnerUser">
-            <img
-              className="ChatBoxMessageAvatar"
-              src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"
-              alt="avatar user"
-            />
-            <div className="ChatBoxMessageContent">
-              <div className="ChatBoxMessageInfo">
-                <h4 className="ChatBoxMessageInfoName">Tôi</h4>
-                <h5 className="ChatBoxMessageInfoTime">11:34 24/12/2021</h5>
-              </div>
-              <div className="ChatBoxMessageContentText">
-                Google Dịch là một công cụ dịch thuật trực tuyến do Google phát
-                triển. Nó cung cấp giao diện trang web, ứng dụng trên thiết bị
-                di động cho hệ điều hành Android và iOS và giao diện lập trình
-                ứng dụng giúp nhà phát triển xây dựng tiện ích mở rộng trình
-                duyệt web và ứng dụng phần mềm. Wikipedia
-              </div>
-            </div>
-          </div>
-
-          <div className="ChatBoxMessage">
-            <img
-              className="ChatBoxMessageAvatar"
-              src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"
-              alt="avatar user"
-            />
-            <div className="ChatBoxMessageContent">
-              <div className="ChatBoxMessageInfo">
-                <h4 className="ChatBoxMessageInfoName">Nhân</h4>
-                <h5 className="ChatBoxMessageInfoTime">11:34 24/12/2021</h5>
-              </div>
-              <div className="ChatBoxMessageContentText">
-                Google Dịch là một công cụ dịch thuật trực tuyến do Google phát
-                triển. Nó cung cấp giao diện trang web, ứng dụng trên thiết bị
-                di động cho hệ điều hành Android và iOS và giao diện lập trình
-                ứng dụng giúp nhà phát triển xây dựng tiện ích mở rộng trình
-                duyệt web và ứng dụng phần mềm. Wikipedia
-              </div>
-            </div>
-          </div>
-          <div className="ChatBoxMessageOwnerUser">
-            <img
-              className="ChatBoxMessageAvatar"
-              src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"
-              alt="avatar user"
-            />
-            <div className="ChatBoxMessageContent">
-              <div className="ChatBoxMessageInfo">
-                <h4 className="ChatBoxMessageInfoName">Tôi</h4>
-                <h5 className="ChatBoxMessageInfoTime">11:34 24/12/2021</h5>
-              </div>
-              <div className="ChatBoxMessageContentText">
-                Google Dịch là một công cụ dịch thuật trực tuyến do Google phát
-                triển. Nó cung cấp giao diện trang web, ứng dụng trên thiết bị
-                di động cho hệ điều hành Android và iOS và giao diện lập trình
-                ứng dụng giúp nhà phát triển xây dựng tiện ích mở rộng trình
-                duyệt web và ứng dụng phần mềm. Wikipedia
-              </div>
-            </div>
-          </div>
-
-          <div className="ChatBoxMessage">
-            <img
-              className="ChatBoxMessageAvatar"
-              src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"
-              alt="avatar user"
-            />
-            <div className="ChatBoxMessageContent">
-              <div className="ChatBoxMessageInfo">
-                <h4 className="ChatBoxMessageInfoName">Nhân</h4>
-                <h5 className="ChatBoxMessageInfoTime">11:34 24/12/2021</h5>
-              </div>
-              <div className="ChatBoxMessageContentText">
-                Google Dịch là một công cụ dịch thuật trực tuyến do Google phát
-                triển. Nó cung cấp giao diện trang web, ứng dụng trên thiết bị
-                di động cho hệ điều hành Android và iOS và giao diện lập trình
-                ứng dụng giúp nhà phát triển xây dựng tiện ích mở rộng trình
-                duyệt web và ứng dụng phần mềm. Wikipedia
-              </div>
-            </div>
-          </div>
-          <div className="ChatBoxMessageOwnerUser">
-            <img
-              className="ChatBoxMessageAvatar"
-              src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"
-              alt="avatar user"
-            />
-            <div className="ChatBoxMessageContent">
-              <div className="ChatBoxMessageInfo">
-                <h4 className="ChatBoxMessageInfoName">Tôi</h4>
-                <h5 className="ChatBoxMessageInfoTime">11:34 24/12/2021</h5>
-              </div>
-              <div className="ChatBoxMessageContentText">
-                Google Dịch là một công cụ dịch thuật trực tuyến do Google phát
-                triển. Nó cung cấp giao diện trang web, ứng dụng trên thiết bị
-                di động cho hệ điều hành Android và iOS và giao diện lập trình
-                ứng dụng giúp nhà phát triển xây dựng tiện ích mở rộng trình
-                duyệt web và ứng dụng phần mềm. Wikipedia
-              </div>
-            </div>
-          </div>
-
-          <div className="ChatBoxMessage">
-            <img
-              className="ChatBoxMessageAvatar"
-              src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"
-              alt="avatar user"
-            />
-            <div className="ChatBoxMessageContent">
-              <div className="ChatBoxMessageInfo">
-                <h4 className="ChatBoxMessageInfoName">Nhân</h4>
-                <h5 className="ChatBoxMessageInfoTime">11:34 24/12/2021</h5>
-              </div>
-              <div className="ChatBoxMessageContentText">
-                Google Dịch là một công cụ dịch thuật trực tuyến do Google phát
-                triển. Nó cung cấp giao diện trang web, ứng dụng trên thiết bị
-                di động cho hệ điều hành Android và iOS và giao diện lập trình
-                ứng dụng giúp nhà phát triển xây dựng tiện ích mở rộng trình
-                duyệt web và ứng dụng phần mềm. Wikipedia
-              </div>
-            </div>
-          </div>
-          <div className="ChatBoxMessageOwnerUser">
-            <img
-              className="ChatBoxMessageAvatar"
-              src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"
-              alt="avatar user"
-            />
-            <div className="ChatBoxMessageContent">
-              <div className="ChatBoxMessageInfo">
-                <h4 className="ChatBoxMessageInfoName">Tôi</h4>
-                <h5 className="ChatBoxMessageInfoTime">11:34 24/12/2021</h5>
-              </div>
-              <div className="ChatBoxMessageContentText">
-                Google Dịch là một công cụ dịch thuật trực tuyến do Google phát
-                triển. Nó cung cấp giao diện trang web, ứng dụng trên thiết bị
-                di động cho hệ điều hành Android và iOS và giao diện lập trình
-                ứng dụng giúp nhà phát triển xây dựng tiện ích mở rộng trình
-                duyệt web và ứng dụng phần mềm. Wikipedia
-              </div>
-            </div>
-          </div>
-
-          <div className="ChatBoxMessage">
-            <img
-              className="ChatBoxMessageAvatar"
-              src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"
-              alt="avatar user"
-            />
-            <div className="ChatBoxMessageContent">
-              <div className="ChatBoxMessageInfo">
-                <h4 className="ChatBoxMessageInfoName">Nhân</h4>
-                <h5 className="ChatBoxMessageInfoTime">11:34 24/12/2021</h5>
-              </div>
-              <div className="ChatBoxMessageContentText">
-                Google Dịch là một công cụ dịch thuật trực tuyến do Google phát
-                triển. Nó cung cấp giao diện trang web, ứng dụng trên thiết bị
-                di động cho hệ điều hành Android và iOS và giao diện lập trình
-                ứng dụng giúp nhà phát triển xây dựng tiện ích mở rộng trình
-                duyệt web và ứng dụng phần mềm. Wikipedia
-              </div>
-            </div>
-          </div>
-          <div className="ChatBoxMessageOwnerUser">
-            <img
-              className="ChatBoxMessageAvatar"
-              src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"
-              alt="avatar user"
-            />
-            <div className="ChatBoxMessageContent">
-              <div className="ChatBoxMessageInfo">
-                <h4 className="ChatBoxMessageInfoName">Tôi</h4>
-                <h5 className="ChatBoxMessageInfoTime">11:34 24/12/2021</h5>
-              </div>
-              <div className="ChatBoxMessageContentText">
-                Google Dịch là một công cụ dịch thuật trực tuyến do Google phát
-                triển. Nó cung cấp giao diện trang web, ứng dụng trên thiết bị
-                di động cho hệ điều hành Android và iOS và giao diện lập trình
-                ứng dụng giúp nhà phát triển xây dựng tiện ích mở rộng trình
-                duyệt web và ứng dụng phần mềm. Wikipedia
-              </div>
-            </div>
-          </div>
-
-          <div className="ChatBoxMessage">
-            <img
-              className="ChatBoxMessageAvatar"
-              src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"
-              alt="avatar user"
-            />
-            <div className="ChatBoxMessageContent">
-              <div className="ChatBoxMessageInfo">
-                <h4 className="ChatBoxMessageInfoName">Nhân</h4>
-                <h5 className="ChatBoxMessageInfoTime">11:34 24/12/2021</h5>
-              </div>
-              <div className="ChatBoxMessageContentText">
-                Google Dịch là một công cụ dịch thuật trực tuyến do Google phát
-                triển. Nó cung cấp giao diện trang web, ứng dụng trên thiết bị
-                di động cho hệ điều hành Android và iOS và giao diện lập trình
-                ứng dụng giúp nhà phát triển xây dựng tiện ích mở rộng trình
-                duyệt web và ứng dụng phần mềm. Wikipedia
-              </div>
-            </div>
-          </div>
-          <div className="ChatBoxMessageOwnerUser">
-            <img
-              className="ChatBoxMessageAvatar"
-              src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"
-              alt="avatar user"
-            />
-            <div className="ChatBoxMessageContent">
-              <div className="ChatBoxMessageInfo">
-                <h4 className="ChatBoxMessageInfoName">Tôi</h4>
-                <h5 className="ChatBoxMessageInfoTime">11:34 24/12/2021</h5>
-              </div>
-              <div className="ChatBoxMessageContentText">
-                Google Dịch là một công cụ dịch thuật trực tuyến do Google phát
-                triển. Nó cung cấp giao diện trang web, ứng dụng trên thiết bị
-                di động cho hệ điều hành Android và iOS và giao diện lập trình
-                ứng dụng giúp nhà phát triển xây dựng tiện ích mở rộng trình
-                duyệt web và ứng dụng phần mềm. Wikipedia
-              </div>
-            </div>
-          </div>
-
-          <div className="ChatBoxMessage">
-            <img
-              className="ChatBoxMessageAvatar"
-              src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"
-              alt="avatar user"
-            />
-            <div className="ChatBoxMessageContent">
-              <div className="ChatBoxMessageInfo">
-                <h4 className="ChatBoxMessageInfoName">Nhân</h4>
-                <h5 className="ChatBoxMessageInfoTime">11:34 24/12/2021</h5>
-              </div>
-              <div className="ChatBoxMessageContentText">
-                Google Dịch là một công cụ dịch thuật trực tuyến do Google phát
-                triển. Nó cung cấp giao diện trang web, ứng dụng trên thiết bị
-                di động cho hệ điều hành Android và iOS và giao diện lập trình
-                ứng dụng giúp nhà phát triển xây dựng tiện ích mở rộng trình
-                duyệt web và ứng dụng phần mềm. Wikipedia
-              </div>
-            </div>
-          </div>
-          <div className="ChatBoxMessageOwnerUser">
-            <img
-              className="ChatBoxMessageAvatar"
-              src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"
-              alt="avatar user"
-            />
-            <div className="ChatBoxMessageContent">
-              <div className="ChatBoxMessageInfo">
-                <h4 className="ChatBoxMessageInfoName">Tôi</h4>
-                <h5 className="ChatBoxMessageInfoTime">11:34 24/12/2021</h5>
-              </div>
-              <div className="ChatBoxMessageContentText">
-                Google Dịch là một công cụ dịch thuật trực tuyến do Google phát
-                triển. Nó cung cấp giao diện trang web, ứng dụng trên thiết bị
-                di động cho hệ điều hành Android và iOS và giao diện lập trình
-                ứng dụng giúp nhà phát triển xây dựng tiện ích mở rộng trình
-                duyệt web và ứng dụng phần mềm. Wikipedia
-              </div>
-            </div>
-          </div>
-
-          <div className="ChatBoxMessage">
-            <img
-              className="ChatBoxMessageAvatar"
-              src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"
-              alt="avatar user"
-            />
-            <div className="ChatBoxMessageContent">
-              <div className="ChatBoxMessageInfo">
-                <h4 className="ChatBoxMessageInfoName">Nhân</h4>
-                <h5 className="ChatBoxMessageInfoTime">11:34 24/12/2021</h5>
-              </div>
-              <div className="ChatBoxMessageContentText">
-                Google Dịch là một công cụ dịch thuật trực tuyến do Google phát
-                triển. Nó cung cấp giao diện trang web, ứng dụng trên thiết bị
-                di động cho hệ điều hành Android và iOS và giao diện lập trình
-                ứng dụng giúp nhà phát triển xây dựng tiện ích mở rộng trình
-                duyệt web và ứng dụng phần mềm. Wikipedia
-              </div>
-            </div>
-          </div>
-          <div className="ChatBoxMessageOwnerUser">
-            <img
-              className="ChatBoxMessageAvatar"
-              src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"
-              alt="avatar user"
-            />
-            <div className="ChatBoxMessageContent">
-              <div className="ChatBoxMessageInfo">
-                <h4 className="ChatBoxMessageInfoName">Tôi</h4>
-                <h5 className="ChatBoxMessageInfoTime">11:34 24/12/2021</h5>
-              </div>
-              <div className="ChatBoxMessageContentText">
-                Google Dịch là một công cụ dịch thuật trực tuyến do Google phát
-                triển. Nó cung cấp giao diện trang web, ứng dụng trên thiết bị
-                di động cho hệ điều hành Android và iOS và giao diện lập trình
-                ứng dụng giúp nhà phát triển xây dựng tiện ích mở rộng trình
-                duyệt web và ứng dụng phần mềm. Wikipedia
-              </div>
-            </div>
-          </div>
-        </div>
+        {messages ? <ChatBoxMain messages={messages} userId={userId} /> : <></>}
       </div>
     </>
   );

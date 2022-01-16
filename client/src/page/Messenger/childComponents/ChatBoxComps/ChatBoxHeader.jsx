@@ -1,16 +1,33 @@
 import React from "react";
+import defautAvatar from "../../../../component/Layout/assets/avatar-user.png";
+import Avatar from "@mui/material/Avatar";
+import PropTypes from "prop-types";
 
-export default function ChatBoxHeader() {
+ChatBoxHeader.prototype = {
+  headerInfo: PropTypes.object,
+};
+
+ChatBoxHeader.defaultProps = {
+  headerInfo: {},
+};
+
+export default function ChatBoxHeader(props) {
+  const { headerData } = props;
+  const avatarStyles = {
+    ml: 1,
+    mr: 1,
+    border: 2,
+    borderColor: "#808080",
+  };
   return (
     <>
       <div className="ChatBoxHeader">
         <div className="Person">
-          <img
-            className="FriendAvatar"
-            src="https://cdn3.vectorstock.com/i/1000x1000/64/42/passed-stamp-checkmark-sign-and-symbol-vector-14856442.jpg"
-            alt="avatar user"
+          <Avatar
+            src={headerData.avatar || defautAvatar}
+            sx={{ ...avatarStyles }}
           />
-          <span className="FriendName">Thanh Nhân</span>
+          <span className="FriendName">{headerData.name}</span>
         </div>
         <div className="ChatSearch">
           <i className="fas fa-search"></i>

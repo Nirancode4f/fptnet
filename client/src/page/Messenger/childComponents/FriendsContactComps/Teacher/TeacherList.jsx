@@ -1,10 +1,9 @@
 import React from "react";
 import TeacherListItem from "./TeacherListItem";
+import { v4 } from "uuid";
 
-
-export default function TeacherList({ listTeachers }) {
-  
-    
+export default function TeacherList(props) {
+  const { itemsData, handleEvent } = props;
   return (
     <>
       <ul className="TeacherList">
@@ -19,18 +18,21 @@ export default function TeacherList({ listTeachers }) {
         <label htmlFor="OpenTeacherList">
           <i className="ShowListIcon fas fa-angle-down"></i>
         </label>
-        
-        {
-
-listTeachers.length > 0 ? (
-  listTeachers.map((teacher) => (
-    <TeacherListItem key={teacher._id} teacher={teacher} />
-  ))
-) : (
-  <></>
-)
-
-        }
+        {itemsData.length > 0 ? (
+          itemsData.map((item) => (
+            <TeacherListItem
+              key={v4()}
+              data={{
+                username: item.username,
+                avatar: item.picture,
+                id: item._id,
+              }}
+              OnClickGetItem={handleEvent}
+            />
+          ))
+        ) : (
+          <></>
+        )}
       </ul>
     </>
   );
