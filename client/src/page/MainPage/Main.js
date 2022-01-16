@@ -23,27 +23,19 @@ const Main = () => {
       ? JSON.parse(localStorage.getItem("loginData"))
       : null
   );
-
+  const [Token, setToken] = useState( read_cookie("accessToken") === [] ? false :  read_cookie("accessToken") )
+   
   const navigate = useNavigate();
-
+  console.log(`tt `,read_cookie("accessToken"))
   // if not logindata changeroute to login page
   useEffect(() => {
-    if (!LoginData) {
+    if ( !Token || !LoginData) {
       navigate("/login");
-    }
-  }, [LoginData, navigate]);
+   }
+  }, []);
 
   // eslint-disable-next-line no-unused-vars
-  const handleLogout = () => {
-    delete_cookie("accessToken");
-    ///remove login data in local storage
-    localStorage.removeItem("loginData");
 
-    if (LoginData) {
-      setLoginData(null);
-    }
-    navigate("/login");
-  };
 
   return (
     <div className="Main">
@@ -51,6 +43,7 @@ const Main = () => {
         (
           <>
             <MainLayout />
+            <Newfeed/>
           </>
         ) || <div>loading...</div>
       ) : (
@@ -58,7 +51,7 @@ const Main = () => {
           <Link to={"/login"}>you need login</Link>
         </>
       )}
-      <Newfeed/>
+      
     </div>
   );
 };

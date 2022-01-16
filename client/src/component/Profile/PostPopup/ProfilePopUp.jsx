@@ -46,7 +46,7 @@ function ProfilePopUp(props) {
 
   
     
-    const {timeString , } = FomatData(new Date(data.createAt))
+    const {timeString  } = FomatData(new Date(data.createAt))
    
     
     const LikeOrUnLike = () =>{

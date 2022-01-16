@@ -11,10 +11,11 @@ import { bake_cookie, read_cookie, delete_cookie } from "sfcookies";
 const URL_MAIN = process.env.REACT_APP_URL_MAIN || "https://fanserverapi.herokuapp.com"
 
 const Login = () => {
+
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const [info, setinfo] = useState("");
-
+const [Token, setToken] = useState( read_cookie("accessToken") !== "" ?   read_cookie("accessToken") : false )
   const [LoginData, setLoginData] = useState(
     localStorage.getItem("loginData")
       ? JSON.parse(localStorage.getItem("loginData"))
@@ -30,7 +31,7 @@ const Login = () => {
   }, [info]);
 
   useEffect(() => {
-    if (LoginData) {
+    if (LoginData && Token) {
       navigate("/");
     }
   }, [LoginData, navigate]);

@@ -19,13 +19,20 @@ import { CircularProgress, LinearProgress } from '@mui/material';
 import { Box } from "@mui/system";
 import { TabContext, TabList, TabPanel } from '@mui/lab';
 import { Tabs } from '@mui/material';
-
-
-
+import { useNavigate } from "react-router-dom";
 const URL_MAIN =
   process.env.REACT_APP_URL_MAIN || "https://fanserverapi.herokuapp.com";
 
-export const Profile = (props) => {
+
+
+
+export const Profile = () => {
+  const [LoginData, setLoginData] = useState(
+    localStorage.getItem("loginData")
+      ? JSON.parse(localStorage.getItem("loginData"))
+      : null
+  );
+  const navigate = useNavigate();
   const [valueChange, setvalueChange] = useState("1")
   const [ShowPopup, setShowPopup] = useState(null);
   const [PopUpdata, setPopUpdata] = useState({});
@@ -37,7 +44,7 @@ export const Profile = (props) => {
 
   const [userPost, setuserPost] = useState([]);
 
- 
+
 
   // run this shit first
   useEffect(() => {
@@ -47,7 +54,11 @@ export const Profile = (props) => {
     const userId = localData.user._id
     // check if component is mounted
     let isMouted = true;
-    try {
+
+    
+    if (!LoginData){navigate("/login")}
+    else
+    {try {
       axios
         .post(
           `${URL_MAIN}/api/post/getposts`,
@@ -75,7 +86,7 @@ export const Profile = (props) => {
     } catch (error) {
       // console log error
       console.log(error);
-    }
+    }}
     return () => {
       isMouted = false;
     };
