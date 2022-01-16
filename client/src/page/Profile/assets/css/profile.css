@@ -137,7 +137,12 @@
 }
 
 .Active_tag {
-    border-bottom: 1px solid var(--bg-color);
+}
+
+.profile-tag-action {
+    color: black;
+    font-size: 18px;
+    font-weight: 700;
 }
 
 .Row{
@@ -406,9 +411,16 @@
     bottom: -1px;
 
     /* display: none; */
+}
+.comment-time-post{
+    font-size:9px;
+    margin-right: 6px;
+    font-weight: bold;
+    text-shadow: 0 0  1px #000;
+    letter-spacing: 1px;
+}
 
-
-} .comment-post input {
+ .comment-post input {
     height: 30px;
     padding: 10px;
     outline: none;
@@ -432,7 +444,6 @@
 /* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 .comment-main {
     height: 220px;
-  
     
 }
 .comment-main::-webkit-scrollbar{
@@ -519,4 +530,12 @@
 }
 .click-for-more-btn:hover {
     cursor: pointer;
+}
+
+.like-cmt-btn ,.liked-cmt-btn {
+    float: right;
+    transform: translateY(18px) translateX(-11px);
+}
+.like-cmt-btn:hover ,.liked-cmt-btn:hover {
+    cursor: pointer;;
 }

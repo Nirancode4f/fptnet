@@ -33,7 +33,7 @@ function ProfilePopUp(props) {
 
     
     const { data, OnClickout } = props
-    
+    const [ShowCmtSetting, setShowCmtSetting] = useState(false)
     const [ShowSendBox, setShowSendBox] = useState(false)
 
     const [date, setdate] = useState(Date())
@@ -44,10 +44,9 @@ function ProfilePopUp(props) {
     const UserName = Data.user.username
     const errorPic = "https://upload.wikimedia.org/wikipedia/commons/c/c7/No_Pic.jpg"
 
+  
     
-    const d = new Date(data.createAt)
-    
-    const {timeString} = FomatData(new Date(data.createAt))
+    const {timeString  } = FomatData(new Date(data.createAt))
    
     
     const LikeOrUnLike = () =>{
@@ -69,7 +68,8 @@ function ProfilePopUp(props) {
 
 
     function handleOnClickout() {
-
+        
+        
         OnClickout(null)
 
     }
@@ -136,7 +136,7 @@ function ProfilePopUp(props) {
 
 
 
-                            <CmtBox  postData={data}  />
+                            <CmtBox  postData={data} ShowCmtSetting={ShowCmtSetting} />
 
 
                             </div>

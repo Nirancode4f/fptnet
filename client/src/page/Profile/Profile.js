@@ -7,7 +7,7 @@ import axios from "axios";
 import ReactDOM from "react-dom";
 import Button from '@mui/material/Button';
 import Input from '@mui/material/Input';
-import { ButtonGroup, IconButton } from "@mui/material";
+import { ButtonGroup, IconButton, Tab, TabsContext } from "@mui/material";
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import Avatar from '@mui/material/Avatar';
 import boring from "./assets/img/boring.png";
@@ -16,10 +16,24 @@ import MainLayout from "../../component/MainPage/MainLayout";
 import "./assets/css/profile.css";
 import PostComp from "../../component/Profile/PostPopup/PostComp";
 import { CircularProgress, LinearProgress } from '@mui/material';
+import { Box } from "@mui/system";
+import { TabContext, TabList, TabPanel } from '@mui/lab';
+import { Tabs } from '@mui/material';
+import { useNavigate } from "react-router-dom";
 const URL_MAIN =
   process.env.REACT_APP_URL_MAIN || "https://fanserverapi.herokuapp.com";
 
-export const Profile = (props) => {
+
+
+
+export const Profile = () => {
+  const [LoginData, setLoginData] = useState(
+    localStorage.getItem("loginData")
+      ? JSON.parse(localStorage.getItem("loginData"))
+      : null
+  );
+  const navigate = useNavigate();
+  const [valueChange, setvalueChange] = useState("1")
   const [ShowPopup, setShowPopup] = useState(null);
   const [PopUpdata, setPopUpdata] = useState({});
   const [Loading, setLoading] = useState(false)
@@ -40,7 +54,11 @@ export const Profile = (props) => {
     const userId = localData.user._id
     // check if component is mounted
     let isMouted = true;
-    try {
+
+    
+    if (!LoginData){navigate("/login")}
+    else
+    {try {
       axios
         .post(
           `${URL_MAIN}/api/post/getposts`,
@@ -68,13 +86,17 @@ export const Profile = (props) => {
     } catch (error) {
       // console log error
       console.log(error);
-    }
+    }}
     return () => {
       isMouted = false;
     };
   }, []);
 
-  function handlePostClick(data) {
+  const handleChange = (event, newValue) => {
+    setvalueChange(newValue);
+  };
+
+  function handlePostClick(data) {  
     setShowPopup(true);
     setPopUpdata(data);
   }
@@ -138,30 +160,49 @@ export const Profile = (props) => {
                 </div>
               </div>
             </div>
-            <div className="Profile_user_action">
 
-              <ButtonGroup
-                style={{ fill: "#f36f21", color: "red" }}
-                color='inherit'
-                fullWidth={true}
-                variant="text"
-                aria-label="text button group"
+            {/* new update here */}
 
-              >
-                <Button style={{ color: "#f36f21" }} ><p style={{ color: "black", fontWeight: "700", fontFamily: "Segoe UI" }}>Post</p></Button>
-                <Button style={{ color: "#f36f21" }} ><p style={{ color: "black", fontWeight: "700", fontFamily: "Segoe UI" }}>Achievement</p></Button>
-                <Button style={{ color: "#f36f21" }} ><p style={{ color: "black", fontWeight: "700", fontFamily: "Segoe UI" }}>Friend</p></Button>
-              </ButtonGroup>
+            
+            
+            
+            
+            
+          <TabContext 
+                value={valueChange}
+                >
+          <Box sx={{ borderColor: 'divider' }}>
+            <TabList 
+            sx={{p : -1}}
 
-            </div>
+            variant="fullWidth"  
+            onChange={handleChange} 
+            textColor="inherit"
+            TabIndicatorProps={{style: {background:'#f36f21'}}}
+            style={{fill : "#f36f21", color: "#f36f21"}}
+            aria-label="active profile"
+            
+            >
+               
+              <Tab label={<span className="profile-tag-action">Post</span>} value="1" />
+              <Tab label={<span className="profile-tag-action">Achievement</span>} value="2" />
+              <Tab label={<span className="profile-tag-action">Friend</span>} value="3" />
 
-            <div className="Tag_action ">
-              {Loading && <LinearProgress color='inherit' style={{ color: "#f36f21" }} />}
+            </TabList>
+          </Box>
+          <TabPanel value="1" style={{padding: 1}} >
+
+         {/* profile props  */}
+
+         
+          <div className="Tag_action ">
+        
 
               <PostComp
                 userPosts={userPost.post}
                 onPostClick={handlePostClick}
               />
+                {Loading && <LinearProgress color='inherit' style={{ color: "#f36f21" }} />}
 
               <div id="Post-information">
 
@@ -172,6 +213,15 @@ export const Profile = (props) => {
                 )}
               </div>
             </div>
+
+          </TabPanel>
+          <TabPanel value="2">Achievement</TabPanel>
+          <TabPanel value="3">Friend</TabPanel>
+              </TabContext>
+            
+            
+            
+
           </div>
         </div>
       </div>
