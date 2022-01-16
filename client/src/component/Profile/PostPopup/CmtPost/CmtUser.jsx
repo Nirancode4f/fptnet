@@ -11,6 +11,10 @@ import { ListItemText } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import FomatData from '../../../../helpGUI/FomatData';
+import { Icon } from '@mui/material';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+
 
 const URL_MAIN =
   process.env.REACT_APP_URL_MAIN || "https://fanserverapi.herokuapp.com";
@@ -67,10 +71,13 @@ useEffect(()=>{
           </div>
           <div className="comment-box-infor-commenter-name"  >
            {username}
-              <b className='comment-time-post' >{CmtDate}</b>
+              
+           <div className="like-cmt-btn"> <FavoriteBorderIcon color='error' fontSize='small'/> </div> 
+           {/* <div className="liked-cmt-btn"> <FavoriteIcon color='error' fontSize='small'/> </div>  */}
+             
             <div onClick={handleCmtSettingClick} className="more-info-cmt-btn" > ...  </div>
-            {showCmtSetting &&
-            
+           {showCmtSetting &&
+           
             <div>
             <div ref={SettingRef} className="more-info-cmt-btn-option" id='setting-modal' >
               <Paper sx={{ width: 130, height: 75,padding:0, maxWidth: '100%' }}>
@@ -101,9 +108,7 @@ useEffect(()=>{
         <div className="comment-box-content">
           {CmtInfor.content}
           <div className="reaction-comment">
-            <span >
-              Thích
-            </span>
+          <b className='comment-time-post' >{CmtDate}</b>
             <span >
               Trả lời
             </span>

@@ -6,7 +6,7 @@ import { bake_cookie, read_cookie, delete_cookie } from "sfcookies";
 import axios from "axios";
 import { CircularProgress, LinearProgress } from '@mui/material';
 import AxiosMain from '../../../../API/AxiosMain';
-
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 const URL_MAIN =
   process.env.REACT_APP_URL_MAIN || "https://fanserverapi.herokuapp.com";
 
@@ -110,7 +110,6 @@ function CmtBox(props) {
 
 
         </div>
-
          { Loading && 
          <LinearProgress 
          color='inherit' 
