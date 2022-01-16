@@ -20,6 +20,7 @@ import { Box } from "@mui/system";
 import { TabContext, TabList, TabPanel } from '@mui/lab';
 import { Tabs } from '@mui/material';
 import { useNavigate } from "react-router-dom";
+import AxiosMain from "../../API/AxiosMain";
 const URL_MAIN =
   process.env.REACT_APP_URL_MAIN || "https://fanserverapi.herokuapp.com";
 
@@ -37,7 +38,7 @@ export const Profile = () => {
   const [ShowPopup, setShowPopup] = useState(null);
   const [PopUpdata, setPopUpdata] = useState({});
   const [Loading, setLoading] = useState(false)
-  const user = JSON.parse(localStorage.getItem("loginData"));
+  const [isMouted , setisMoute]= useState(true);
   const error =
     "https://upload.wikimedia.org/wikipedia/commons/c/c7/No_Pic.jpg";
   const block = 1;
@@ -45,52 +46,43 @@ export const Profile = () => {
   const [userPost, setuserPost] = useState([]);
 
 
+    const handleLoadingData = async () =>{
+
+
+      try {
+        AxiosMain.post("/api/post/getposts",{
+             "userId": `${LoginData.user._id}`,
+              "block": block,
+            }
+          )
+          .then((res) => {
+            setLoading(false)
+            // after unmount component but asynchronous task still run, drop it.
+            if (isMouted) {
+              setuserPost(res);
+            }
+          })
+        setLoading(true)
+      } catch (error) {
+        // console log error
+        console.log(error);
+      }
+    }
+
 
   // run this shit first
   useEffect(() => {
-    // run first
-    var localData = JSON.parse(localStorage.getItem("loginData"));
-
-    const userId = localData.user._id
-    // check if component is mounted
-    let isMouted = true;
 
     
     if (!LoginData){navigate("/login")}
     else
-    {try {
-      axios
-        .post(
-          `${URL_MAIN}/api/post/getposts`,
-          {
-            userId: userId,
-            block: block,
-          },
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        )
-        .then((res) => {
-          setLoading(false)
-          // after unmount component but asynchronous task still run, drop it.
-          if (isMouted) {
-            setuserPost(res.data);
-          }
-        })
-        .catch((err) => {
-          console.log(err.message);
-        });
-      setLoading(true)
-    } catch (error) {
-      // console log error
-      console.log(error);
-    }}
+    {
+        handleLoadingData()
+    }
     return () => {
-      isMouted = false;
+      setisMoute(false);
     };
-  }, []);
+  }, [LoginData, navigate]);
 
   const handleChange = (event, newValue) => {
     setvalueChange(newValue);
@@ -110,7 +102,7 @@ export const Profile = () => {
       <MainLayout />
       <div className="Content">
         <div className="Profile">
-          <div className="Profile_header">Trang cá nhân</div>
+          <div className="Profile_header">Profile</div>
 
           <div className="Profile_container">
             <div className="Profile_info_and_img">
@@ -127,7 +119,7 @@ export const Profile = () => {
 
 
                     }}
-                    src={user.user.picture || error}
+                    src={LoginData.user.picture || error}
                     alt="avatar"
                   />
                 </div>
@@ -138,7 +130,7 @@ export const Profile = () => {
               <div className="Profile_user_info">
                 <div className="Profile_user_info_name_and_code">
                   <div className="Profile_user_info_name">
-                    {user.user.username || "cant take name !!! error !!!"}
+                    {LoginData.user.username || "cant take name !!! error !!!"}
                     <div className="Profile_user_info_student_number">
                       CE171197
                     </div>{" "}
@@ -146,7 +138,7 @@ export const Profile = () => {
                 </div>
 
                 <div className="Profile_user_info_description">
-                  {user.user.slogan}
+                  {LoginData.user.slogan || ""}
                 </div>
 
                 <div className="mui-add-btn">

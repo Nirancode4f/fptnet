@@ -30,7 +30,7 @@ function CmtBox(props) {
 
 
 
-  const Getaxios = () => {
+  const Getaxios = async () => {
     try {
 
         AxiosMain.post("/api/comment/get",{

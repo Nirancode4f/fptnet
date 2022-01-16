@@ -33,7 +33,7 @@ function CmtUser(props) {
   const ref = useRef()
 
   const {timeString, CmtDate} = FomatData(new Date(CmtInfor.createAt))
-console.log(CmtInfor)
+
 
   const handleCmtSettingClick = ()=>{
     if (!showCmtSetting){
