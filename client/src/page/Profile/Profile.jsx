@@ -208,7 +208,61 @@ export const Profile = () => {
 
           </TabPanel>
           <TabPanel value="2">Achievement</TabPanel>
-          <TabPanel value="3">Friend</TabPanel>
+          <TabPanel value="3">
+        <div className="Tag_action">
+             <div className="Tag_action-friend">
+                <div className="Tag_action-friend-request">
+                <div className="Friend-request-header">Request</div>
+                    <div className="Friend-request-container">
+                      {/* mỗi request chứa trong 1 request section */}
+                      <div className="request-section">
+                        <div className="requester-info">
+                        <Avatar sx={{ width: 50, height : 50}}  src="/static/images/avatar/1.jpg" />
+                          <div className="requester-info-name-and-btn">
+                            <div className="requester-info-name">
+                              Tên Requester
+                            </div>
+                            <div className="requester-info-btn">
+                            <Button size="small" color="warning" variant="contained"> <b>Accept</b> </Button>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+
+                                {/* mỗi request chứa trong 1 request section */}
+                                <div className="request-section">
+                        <div className="requester-info">
+                        <Avatar sx={{ width: 50, height : 50}}  src="/static/images/avatar/1.jpg" />
+                          <div className="requester-info-name-and-btn">
+                            <div className="requester-info-name">
+                              Tên Requester
+                            </div>
+                            <div className="requester-info-btn">
+                            <Button size="small" color="warning" variant="contained"> <b>Accept</b> </Button>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+
+
+                     
+
+                    
+
+                        
+
+                    </div>
+                </div>
+
+
+               <div className="Tag_action-friend-content">
+"Để Trống"
+               </div>
+             </div>
+        </div>
+          </TabPanel>
               </TabContext>
             
             

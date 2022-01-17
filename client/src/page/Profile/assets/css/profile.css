@@ -538,3 +538,40 @@
 .like-cmt-btn:hover ,.liked-cmt-btn:hover {
     cursor: pointer;;
 }
+
+/* friend tag */
+.Tag_action-friend {
+  width: 100%;
+  display: flex
+}
+.Tag_action-friend-request{
+width: 30%;
+border-right: 1px solid var(--bg-color);
+}
+
+.Tag_action-friend-content {
+width: 70%;
+}
+
+.Friend-request-header {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--bg-color);
+}
+
+.request-section {
+    margin: 10px 0;
+}
+
+.requester-info {
+    display: flex;
+}
+
+.requester-info-name-and-btn {
+    margin-left: 10px;
+}
+
+.requester-info-name {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
