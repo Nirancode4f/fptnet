@@ -318,7 +318,7 @@
 .more-info-cmt-btn-option span {
     margin: 0;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--bg-color);
 }
 .more-info-post-btn:hover ,
@@ -415,8 +415,7 @@
 .comment-time-post{
     font-size:9px;
     margin-right: 6px;
-    font-weight: bold;
-    text-shadow: 0 0  1px #000;
+    font-weight: 600;
     letter-spacing: 1px;
 }
 
@@ -493,8 +492,8 @@
     position: relative;
 }
 .comment-box-content {
-    font-size: 13px;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: 500;
     line-height: 1.4;
     padding: 0 30px;
     display: block;
