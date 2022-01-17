@@ -180,7 +180,8 @@
   top: calc( var(--friend-header-hight) + var(--header-height) + 10px ) ;
   left: calc(var(--nav-width) + 340px + 12px);
   width: calc( 100vw - var(--nav-width) - 340px - 12px  );
-  max-height: calc(100vh - var(--friend-header-hight) + var(--header-height) + 10px );
+  max-height: calc(100vh - 150px);
+  padding-bottom: 50px;
   overflow-y: auto;
  
 }
