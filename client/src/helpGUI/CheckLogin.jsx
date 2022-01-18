@@ -21,11 +21,12 @@ export const CheckLogin = () => {
         setaccept(true)
     }else{
         setaccept(false)
+        navigate("/login")
     }
         
     },[])
 
-console.log(`accept = `,accept)
+
     return { accept }
 }
 export default CheckLogin

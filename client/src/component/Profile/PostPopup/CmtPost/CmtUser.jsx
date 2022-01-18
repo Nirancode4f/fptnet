@@ -14,7 +14,7 @@ import FomatData from '../../../../helpGUI/FomatData';
 import { Icon } from '@mui/material';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-
+import PropTypes from "prop-types"
 
 const URL_MAIN =
   process.env.REACT_APP_URL_MAIN || "https://fanserverapi.herokuapp.com";
@@ -22,27 +22,38 @@ const URL_MAIN =
 const error = "https://upload.wikimedia.org/wikipedia/commons/c/c7/No_Pic.jpg";
 
 
+CmtUser.prototype = {
+  CmtInfor: PropTypes.object,
+  onDELETE: PropTypes.func
+}
+
+CmtUser.defaultProps = {
+  CmtInfor: {},
+  onDELETE:null
+}
+
 
 function CmtUser(props) {
   
   const [showCmtSetting, setshowCmtSetting] = useState(false)
   const [SaveCmt, setSaveCmt] = useState({})
-  const { CmtInfor } = props
+  const { CmtInfor , onDELETE } = props
   const picture = CmtInfor.userId.picture
   const username = CmtInfor.userId.username
+
   const ref = useRef()
 
   const {timeString, CmtDate} = FomatData(new Date(CmtInfor.createAt))
 
-
   const handleCmtSettingClick = ()=>{
     if (!showCmtSetting){
       setshowCmtSetting(true)
-    }else{
-      setshowCmtSetting(false)
     }
 }
 
+const handleDelete = () =>{
+  onDELETE(CmtInfor)
+}
 
 let SettingRef = useRef()
 
@@ -53,7 +64,7 @@ useEffect(()=>{
     {
         setshowCmtSetting(false)
     }
-  console.log("nothing")
+
   })}
  
 })
@@ -75,7 +86,7 @@ useEffect(()=>{
            <div className="like-cmt-btn"> <FavoriteBorderIcon color='error' fontSize='small'/> </div> 
            {/* <div className="liked-cmt-btn"> <FavoriteIcon color='error' fontSize='small'/> </div>  */}
              
-            <div onClick={handleCmtSettingClick} className="more-info-cmt-btn" > ...  </div>
+            <div onClick={handleCmtSettingClick} className="more-info-cmt-btn" >{ !showCmtSetting && `...`  }</div>
            {showCmtSetting &&
            
             <div>
@@ -93,7 +104,7 @@ useEffect(()=>{
                      <ListItemIcon>
                      <DeleteIcon fontSize='small'/>
                      </ListItemIcon>
-                     <ListItemText><span>Delete</span></ListItemText>
+                     <ListItemText onClick={handleDelete}><span>Delete</span></ListItemText>
        
                    </MenuItem>
   
