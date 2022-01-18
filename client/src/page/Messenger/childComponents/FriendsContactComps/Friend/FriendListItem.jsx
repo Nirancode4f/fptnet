@@ -9,7 +9,6 @@ export default function FriendListItem(props) {
     border: 2,
     borderColor: "#808080",
   };
-  console.log("run");
   return (
     <>
       <li

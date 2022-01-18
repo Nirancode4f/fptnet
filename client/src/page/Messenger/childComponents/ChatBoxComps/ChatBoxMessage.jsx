@@ -35,6 +35,14 @@ export default function ChatBoxMessage(props) {
               </h4>
               <h5 className="ChatBoxMessageInfoTime">{message.creatAt}</h5>
             </div>
+            {/* <div className="ChatBoxMessageContentImage">
+              <img
+                src={
+                  "https://images.ctfassets.net/hrltx12pl8hq/7yQR5uJhwEkRfjwMFJ7bUK/dc52a0913e8ff8b5c276177890eb0129/offset_comp_772626-opt.jpg?fit=fill&w=800&h=300"
+                }
+                alt=""
+              />
+            </div> */}
             <div className="ChatBoxMessageContentText">{message.content}</div>
           </div>
         </div>

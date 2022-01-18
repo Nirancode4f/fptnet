@@ -10,7 +10,8 @@ const URL_MAIN =
 const block = 1; //testing
 
 export default function ChatBox(props) {
-  const { chatData, userId } = props;
+  const { chatData, userId, onCurrentConvsIdChange } = props;
+
   const [convsId, setConvsId] = useState("");
   const [messages, setMessages] = useState([]);
   const [isAPISucceed, setIsAPISucceed] = useState();
@@ -42,18 +43,43 @@ export default function ChatBox(props) {
     return result;
   };
 
+  const getGroupMessages = async (userId, convsId, block) => {
+    let result;
+    try {
+      result = await axios.post(`${URL_MAIN}/api/group/message/getblock`, {
+        userId: userId,
+        conversationId: convsId,
+        block: block,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+    return result;
+  };
+
   useEffect(() => {
-    if (chatData.convs_type === "friend") {
+    // set messages default null value
+    setMessages(null);
+    if (chatData.convs_type === "group") {
+      // Lift-state up
+      onCurrentConvsIdChange(chatData.targetId);
+      // get block messages from conversation id
+      getGroupMessages(userId, chatData.targetId, block)
+        .then((res) => {
+          const result = res.data.messages;
+          setMessages(result);
+        })
+        .catch((err) => {
+          setMessages([]);
+          console.log(err.message);
+        });
+    } else {
       // get friend conversation here
-      console.log(chatData.targetId);
       getFriendConvsId(userId, chatData.targetId)
         .then((res) => {
-          // setIsAPISucceed(res.data.success);
           const convsId = res.data.conversation._id;
-          console.log(
-            "🚀 ~ file: ChatBox.jsx ~ line 50 ~ .then ~ convsId",
-            res.data
-          );
+          //Lift-state up
+          onCurrentConvsIdChange(convsId);
 
           // after that get messages
           if (res.data.success)
@@ -64,7 +90,6 @@ export default function ChatBox(props) {
           if (res.data.success) {
             const result = res.data.messages;
             setMessages(result);
-            console.log(result);
           } else {
             setMessages([]);
           }
@@ -74,7 +99,6 @@ export default function ChatBox(props) {
           console.log(err.messages);
         });
     }
-    console.log(messages);
   }, [props]);
 
   return (

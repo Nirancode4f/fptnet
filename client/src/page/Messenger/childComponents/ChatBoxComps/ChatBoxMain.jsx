@@ -5,7 +5,6 @@ import { v4 } from "uuid";
 
 export default function ChatBoxMain(props) {
   const { messages, userId, targetAvtSrc } = props;
-  console.log(messages);
   return (
     <div className="ChatBoxMain">
       {messages.length > 0 ? (
