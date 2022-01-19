@@ -3,6 +3,29 @@ import "./assets/Deadline.css"
 import { useState, useEffect } from "react";
 import { TextField } from '@mui/material';
 import { Button } from '@mui/material';
+import { styled } from '@mui/system';
+
+const CssTextField = styled(TextField)({
+    '& label.Mui-focused': {
+        color: '#f36f21',
+    },
+    '& .MuiInput-underline:after': {
+        borderBottomColor: '#f36f21',
+    },
+    '& .MuiOutlinedInput-root': {
+        '& fieldset': {
+            borderColor: 'black',
+        },
+        '&:hover fieldset': {
+            borderColor: '#f36f21',
+        },
+        '&.Mui-focused fieldset': {
+            borderColor: '#f36f21',
+        },
+    },
+});
+
+
 
 export default function Newfeed() {
     const [LoginData, setLoginData] = useState(
@@ -50,15 +73,13 @@ export default function Newfeed() {
                                 bordercolor:"#f36f21"
                             }}
                             />
-                                <TextField
+                                <CssTextField
                                  id="date"
-                                 label="Hạn nộp"
+                                 label="Due"
                                  type="date"
                                  defaultValue="2022-01-01"
                                  sx={{ width: "100%" }}
-                                 InputLabelProps={{
-                                   shrink: true,
-                                 }}
+                                 
                                  style={{
                                      marginTop:"12px",
                                  }}
