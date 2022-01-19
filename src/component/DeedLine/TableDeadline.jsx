@@ -42,47 +42,73 @@ export default function TableDeadline() {
     <div className='Content-deadline'>
     
     <div className="Table-deadline">
-    <TableContainer component={Paper}>
-    <Table sx={{ minWidth: 650 }} aria-label="simple table" >
-      <TableHead>
-        <TableRow >
-          <TableCell style={{fontweight:"700",color:"#f36f21", }}
-          >Deadline Name
-          
-          </TableCell>
-          <TableCell style={{fontweight:"700",color:"#f36f21", }}
-          align="right">Description
-          
-          </TableCell>
-          <TableCell style={{fontweight:"700",color:"#f36f21", }}
-          align="right">Date
-          
-          </TableCell>
-          <TableCell style={{fontweight:"700",color:"#f36f21", }}
-          align="right">Status
-          
-          </TableCell>
-          <TableCell style={{fontweight:"700",color:"#f36f21", }}
-          align="right">Note
-          
-          </TableCell>
-        </TableRow>
-      </TableHead>
-      <TableBody>
-        {rows.map((row) => (
-          <TableRow key={row.name} sx={{ '&:last-child td, &:last-child th': { border: 0 } }} >
-            <TableCell component="th" scope="row">
-             <b> {row.deadlineName} </b>
-            </TableCell>
-            <TableCell align="right">{row.description}</TableCell>
-            <TableCell align="right">{row.date}</TableCell>
-            <TableCell align="right"> {row.status } </TableCell>
-            <TableCell align="right">{row.note}</TableCell>
-          </TableRow>
-        ))}
-      </TableBody>
-    </Table>
-  </TableContainer>
+      <div className="row-deadline-header ">
+          <div className="name-col title-table">Name </div>
+          <div className="description-col title-table">Description</div>
+          <div className="date-col title-table">Date</div>
+      </div>
+
+       {/* mỗi Job 1 row */}
+       <div className="row-deadline ">
+          <div className="name-col">       <Chip style={{fontweight:600}} label="Deadline 1" color="primary" variant='outlined' /></div>
+          <div className="description-col"><Chip style={{fontweight:600}} label="Nothing Nothing Nothing Nothing Nothing Nothing Nothing Nothing " color="primary" variant='outlined'/></div>
+          <div className="date-col">       <Chip style={{fontweight:600}} label="20/11/2022" color="error" variant='filled'/> </div>
+      </div>
+
+      <div className="row-deadline ">
+          <div className="name-col">       <Chip style={{fontweight:600}} label="Deadline 1" color="primary" variant='outlined' /></div>
+          <div className="description-col"><Chip style={{fontweight:600}} label="Nothing Nothing Nothing Nothing Nothing Nothing Nothing Nothing " color="primary" variant='outlined'/></div>
+          <div className="date-col">       <Chip style={{fontweight:600}} label="20/11/2022" color="error" variant='filled'/> </div>
+      </div>
+
+      <div className="row-deadline ">
+          <div className="name-col">       <Chip style={{fontweight:600}} label="Deadline 1" color="primary" variant='outlined' /></div>
+          <div className="description-col"><Chip style={{fontweight:600}} label="Nothing Nothing Nothing Nothing Nothing Nothing Nothing Nothing " color="primary" variant='outlined'/></div>
+          <div className="date-col">       <Chip style={{fontweight:600}} label="20/11/2022" color="error" variant='filled'/> </div>
+      </div>
+
+      <div className="row-deadline ">
+          <div className="name-col">       <Chip style={{fontweight:600}} label="Deadline 1" color="primary" variant='outlined' /></div>
+          <div className="description-col"><Chip style={{fontweight:600}} label="Nothing Nothing Nothing Nothing Nothing Nothing Nothing Nothing " color="primary" variant='outlined'/></div>
+          <div className="date-col">       <Chip style={{fontweight:600}} label="20/11/2022" color="error" variant='filled'/> </div>
+      </div>
+
+      <div className="row-deadline ">
+          <div className="name-col">       <Chip style={{fontweight:600}} label="Deadline 1" color="primary" variant='outlined' /></div>
+          <div className="description-col"><Chip style={{fontweight:600}} label="Nothing Nothing Nothing Nothing Nothing Nothing Nothing Nothing " color="primary" variant='outlined'/></div>
+          <div className="date-col">       <Chip style={{fontweight:600}} label="20/11/2022" color="warning" variant='filled'/> </div>
+      </div>
+
+      <div className="row-deadline ">
+          <div className="name-col">       <Chip style={{fontweight:600}} label="Deadline 1" color="primary" variant='outlined' /></div>
+          <div className="description-col"><Chip style={{fontweight:600}} label="Nothing Nothing Nothing Nothing Nothing Nothing Nothing Nothing " color="primary" variant='outlined'/></div>
+          <div className="date-col">       <Chip style={{fontweight:600}} label="20/11/2022" color="warning" variant='filled'/> </div>
+      </div>
+
+      <div className="row-deadline ">
+          <div className="name-col">       <Chip style={{fontweight:600}} label="Deadline 1" color="primary" variant='outlined' /></div>
+          <div className="description-col"><Chip style={{fontweight:600}} label="Nothing Nothing Nothing Nothing Nothing Nothing Nothing Nothing " color="primary" variant='outlined'/></div>
+          <div className="date-col">       <Chip style={{fontweight:600}} label="20/11/2022" color="warning" variant='filled'/> </div>
+      </div>
+
+      <div className="row-deadline ">
+          <div className="name-col">       <Chip style={{fontweight:600}} label="Deadline 1" color="primary" variant='outlined' /></div>
+          <div className="description-col"><Chip style={{fontweight:600}} label="Nothing Nothing Nothing Nothing Nothing Nothing Nothing Nothing " color="primary" variant='outlined'/></div>
+          <div className="date-col">       <Chip style={{fontweight:600}} label="20/11/2022" color="warning" variant='filled'/> </div>
+      </div>
+
+      <div className="row-deadline ">
+          <div className="name-col">       <Chip style={{fontweight:600}} label="Deadline 1" color="primary" variant='outlined' /></div>
+          <div className="description-col"><Chip style={{fontweight:600}} label="Nothing Nothing Nothing Nothing Nothing Nothing Nothing Nothing " color="primary" variant='outlined'/></div>
+          <div className="date-col">       <Chip style={{fontweight:600}} label="20/11/2022" color="success" variant='filled'/> </div>
+      </div>
+
+      <div className="row-deadline ">
+          <div className="name-col">       <Chip style={{fontweight:600}} label="Deadline 1" color="primary" variant='outlined' /></div>
+          <div className="description-col"><Chip style={{fontweight:600}} label="Nothing Nothing Nothing Nothing Nothing Nothing Nothing Nothing " color="primary" variant='outlined'/></div>
+          <div className="date-col">       <Chip style={{fontweight:600}} label="20/11/2022" color="success" variant='filled'/> </div>
+      </div>
+
   </div>
   </div>
     )
