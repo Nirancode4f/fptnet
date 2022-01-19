@@ -10,6 +10,7 @@ import { bake_cookie, read_cookie, delete_cookie } from "sfcookies";
 const URL_MAIN =
   process.env.REACT_APP_URL_MAIN || "https://fanserverapi.herokuapp.com";
 function GgAuth() {
+  
   // eslint-disable-next-line no-undef
 
   const [LoginData, setLoginData] = useState(
@@ -47,10 +48,7 @@ function GgAuth() {
           
           navigate("/");
         })
-        .catch((error) => {
-          if (error.request) console.log(error.request);
-          if (error.respone) console.log(error.respone);
-        });
+        
     } catch (error) {
       // console log error
       console.log(error);

@@ -26,7 +26,7 @@ const Main = () => {
   const [Token, setToken] = useState( read_cookie("accessToken") === [] ? false :  read_cookie("accessToken") )
    
   const navigate = useNavigate();
-  console.log(`tt `,read_cookie("accessToken"))
+  
   // if not logindata changeroute to login page
 
   useEffect(() => {
