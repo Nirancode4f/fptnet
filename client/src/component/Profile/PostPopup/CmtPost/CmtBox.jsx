@@ -7,7 +7,7 @@ import axios from "axios";
 import { CircularProgress, LinearProgress } from '@mui/material';
 import AxiosMain from '../../../../API/AxiosMain';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import DeleteCmt from '../../../../API/cmtApi/deleteCmt';
+
 const URL_MAIN =
   process.env.REACT_APP_URL_MAIN || "https://fanserverapi.herokuapp.com";
 
@@ -20,70 +20,69 @@ const error =
 function CmtBox(props) {
 
 
-  const { postData , ShowCmtSetting }= props
+  const { postData, ShowCmtSetting } = props
 
   const [Block, setBlock] = useState(1)
   const [isunmound, setisunmound] = useState(true)
   const [Usercmt, setUsercmt] = useState([])
-  const [ShowMore, setShowMore] = useState(Usercmt.length < postData.totalcmt ?
-    true : false)
+  const [ShowMore, setShowMore] = useState(true)
   const [Loading, setLoading] = useState(false)
 
 
 
 
-const handleRemove= async (data) =>{
-  
-  try{
-    const body = 
-    {
-      "commentId": `${data._id}`
+  const handleRemove = async (data) => {
+
+    try {
+
+      AxiosMain.post("/api/comment/delete", {
+        "commentId": `${data._id}`
+      }).then((res) => {
+        const index = Usercmt.filter((cmt) => {
+          return (cmt._id !== data._id)
+
+        })
+        setUsercmt(index)
+        console.log(res)
+      })
+
+
+
+    } catch (error) {
+      console.log(error)
     }
-    const respone = await DeleteCmt.postDelete(body)
-    console.log(respone)
-    console.log(data)
 
-  }catch(error){
-    console.log(error)
+
+
   }
-  
-
-
-
-
-  const index = Usercmt.filter((cmt)=>{
-      return (cmt._id !== data._id)
-
-  })
-  setUsercmt(index)
-}
 
   const Getaxios = async () => {
     try {
 
-        AxiosMain.post("/api/comment/get",{
-          "postId": `${postData._id}`,
-          "block": Block,
-          "sorttype": 1
-        }).then((res)=>{
-        
-          setLoading(false)
-          // after unmount component but asynchronous task still run, drop it.
-          if (isunmound) {
-            const newUsercmt = [...Usercmt]
-            let a = Block + 1
-            setBlock(a)
-            let sumUsercmt = newUsercmt.concat(res.comments)
-            setUsercmt(sumUsercmt)
-              }})
-              setLoading(true)
-            }catch (error) {
-                // console log error
-                console.log(error);
-              }
-
+      AxiosMain.post("/api/comment/get", {
+        "postId": `${postData._id}`,
+        "block": Block,
+        "sorttype": 1
+      }).then((res) => {
+        if(!res.comments){setShowMore(false)}
+        setLoading(false)
+        // after unmount component but asynchronous task still run, drop it.
+        if (isunmound) {
+          const newUsercmt = [...Usercmt]
+          let a = Block + 1
+          setBlock(a)
+          let sumUsercmt = newUsercmt.concat(res.comments)
+          setUsercmt(sumUsercmt)
+        }
+      })
+      setLoading(true)
+    } catch (error) {
+      // console log error
+      console.log(error);
     }
-  
+
+  }
+
 
   // run this shit first
   useEffect(() => {
@@ -125,26 +124,26 @@ const handleRemove= async (data) =>{
   return (
 
     <div>
-       
+
       <div
-      
+
         className="comment-main" >
-         
+
         <div className="modal-wiew-detail-post-content-comment-content" id='cmt_ele'  >
 
 
-                {/* Cmt will be here */}
+          {/* Cmt will be here */}
 
 
         </div>
-         { Loading && 
-         <LinearProgress 
-         color='inherit' 
-         style={{color : "#f36f21", height: "2px"}}
-         
-         />}
-        { ShowMore && <div className='click-for-more-btn' onClick={handleScrollCmt}>Click for more...</div>}
-       
+        {Loading &&
+          <LinearProgress
+            color='inherit'
+            style={{ color: "#f36f21", height: "2px" }}
+
+          />}
+        {ShowMore && <div className='click-for-more-btn' onClick={handleScrollCmt}>Click for more...</div>}
+
       </div>
 
     </div>

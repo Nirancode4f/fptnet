@@ -28,6 +28,7 @@ const Main = () => {
   const navigate = useNavigate();
   console.log(`tt `,read_cookie("accessToken"))
   // if not logindata changeroute to login page
+
   useEffect(() => {
     if ( !Token || !LoginData) {
       navigate("/login");
@@ -45,7 +46,7 @@ const Main = () => {
             <MainLayout />
             <Newfeed/>
           </>
-        ) || <div>loading...</div>
+        ) 
       ) : (
         <>
           <Link to={"/login"}>you need login</Link>
