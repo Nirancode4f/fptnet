@@ -3,7 +3,7 @@ import queryString from "query-string"
 import { bake_cookie, read_cookie, delete_cookie } from "sfcookies";
 
 const AxiosMain = axios.create({
-    baseURL: process.env.REACT_APP_URL_MAIN,
+    baseURL: "https://fanserverapi.herokuapp.com",
     headers:{
         'content-type': "application/json"
        
