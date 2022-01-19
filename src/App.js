@@ -20,7 +20,7 @@ function App() {
   <Route path="/messenger" element={<Messenger />}></Route>
   <Route  path="/*" element={ <NotFound/> }></Route>
   <Route  path="/profile" element={ <Profile/> }></Route>
-  <Route  path="/deadline" element={ <DeadlinePage/> }></Route>
+  {/* <Route  path="/deadline" element={ <DeadlinePage/> }></Route> */}
   </Routes>
   </BrowserRouter>
   );
