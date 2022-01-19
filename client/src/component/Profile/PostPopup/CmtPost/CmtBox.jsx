@@ -7,6 +7,7 @@ import axios from "axios";
 import { CircularProgress, LinearProgress } from '@mui/material';
 import AxiosMain from '../../../../API/AxiosMain';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import DeleteCmt from '../../../../API/cmtApi/deleteCmt';
 const URL_MAIN =
   process.env.REACT_APP_URL_MAIN || "https://fanserverapi.herokuapp.com";
 
@@ -30,6 +31,33 @@ function CmtBox(props) {
 
 
 
+
+const handleRemove= async (data) =>{
+  
+  try{
+    const body = 
+    {
+      "commentId": `${data._id}`
+    }
+    const respone = await DeleteCmt.postDelete(body)
+    console.log(respone)
+    console.log(data)
+
+  }catch(error){
+    console.log(error)
+  }
+  
+
+
+
+
+  const index = Usercmt.filter((cmt)=>{
+      return (cmt._id !== data._id)
+
+  })
+  setUsercmt(index)
+}
+
   const Getaxios = async () => {
     try {
 
@@ -38,14 +66,13 @@ function CmtBox(props) {
           "block": Block,
           "sorttype": 1
         }).then((res)=>{
-          console.log(res)
+        
           setLoading(false)
           // after unmount component but asynchronous task still run, drop it.
           if (isunmound) {
             const newUsercmt = [...Usercmt]
             let a = Block + 1
             setBlock(a)
-            // newUsercmt.push(res.data.comments[0])
             let sumUsercmt = newUsercmt.concat(res.comments)
             setUsercmt(sumUsercmt)
               }})
@@ -80,7 +107,7 @@ function CmtBox(props) {
     }
 
     var e = Usercmt.map((cmt) =>
-      <CmtUser key={cmt._id} CmtInfor={cmt} CmtSetting={ShowCmtSetting} />
+      <CmtUser key={cmt._id} CmtInfor={cmt} onDELETE={handleRemove} />
     )
     ReactDOM.render(e, document.getElementById("cmt_ele"))
 

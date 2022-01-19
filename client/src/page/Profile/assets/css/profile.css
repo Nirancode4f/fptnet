@@ -495,7 +495,7 @@
     font-size: 16px;
     font-weight: 500;
     line-height: 1.4;
-    padding: 0 30px;
+    padding: 0 40px 0 30px;
     display: block;
     
 }
@@ -533,7 +533,7 @@
 
 .like-cmt-btn ,.liked-cmt-btn {
     float: right;
-    transform: translateY(18px) translateX(-11px);
+    transform: translateY(32px) translateX(-14px);
 }
 .like-cmt-btn:hover ,.liked-cmt-btn:hover {
     cursor: pointer;;

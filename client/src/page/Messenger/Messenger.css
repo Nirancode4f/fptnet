@@ -275,27 +275,30 @@
 }
 
 .FriendList > .FriendListItem {
-  display: none;
+   display: flex;
+
 }
 
 .TeacherList > .TeacherListItem {
-  display: none;
+   display: flex;
+
 }
 
 .GroupList > .GroupListItem {
-  display: none;
+   display: flex;
+
 }
 
 .ShowFriendListBtn:checked ~ .FriendListItem {
-  display: flex;
+  display: none;
 }
 
 .ShowTeacherListBtn:checked ~ .TeacherListItem {
-  display: flex;
+  display: none;
 }
 
 .ShowGroupListBtn:checked ~ .GroupListItem {
-  display: flex;
+  display: none;
 }
 .ShowListIcon {
   margin-left: 3px;

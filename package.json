@@ -2,6 +2,7 @@
   "dependencies": {
     "@mui/lab": "^5.0.0-alpha.64",
     "@mui/x-data-grid": "^5.2.2",
+    "cors": "^2.8.5",
     "query-string": "^7.1.0",
     "react-detect-click-outside": "^1.1.2"
   }

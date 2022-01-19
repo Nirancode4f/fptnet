@@ -5,7 +5,6 @@ export default function ChatBoxFooter(props) {
   const [text, setText] = React.useState("");
   const handleOnChange = (e, text) => {
     // setText(e.target.);
-    console.log(e.target);
   };
 
   return (

@@ -65,8 +65,6 @@ function ProfilePopUp(props) {
             setShowSendBox(false)
         }
     }
-
-
     function handleOnClickout() {
         
         
