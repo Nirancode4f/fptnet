@@ -1,11 +1,19 @@
 import React from 'react'
 import "./assets/Deadline.css"
-
+import { useState, useEffect } from "react";
 import { TextField } from '@mui/material';
 import { Button } from '@mui/material';
 
 export default function Newfeed() {
- 
+    const [LoginData, setLoginData] = useState(
+        localStorage.getItem("loginData")
+          ? JSON.parse(localStorage.getItem("loginData"))
+          : null
+      );
+
+    
+
+
     return (
     
      <div className='Deadline-container'>
@@ -15,7 +23,7 @@ export default function Newfeed() {
                     <div className="deadline-status"> NEVER GIVE UP!</div>
 
                                <div className="student-info-number">
-                                   MSSV: <p>Mã số sinh viên</p>
+                                   MSSV: <p>{LoginData.user.mssv ? LoginData.user.mssv : "" }</p>
                                 </div>
                      <div className="student">
                            <div className="student-info">
@@ -61,7 +69,7 @@ export default function Newfeed() {
                         <div className="quick-add-deadline-btn">
                         <Button color='warning' variant="contained" style={{
                             
-                        }}>Tạo Deadline</Button>
+                        }}>Make Deadline</Button>
 
                         </div>
                </div>
