@@ -26,6 +26,7 @@ export default function TableDeadline() {
       </div>
 
        {/* mỗi Job 1 row */}
+       
        <div className="row-deadline ">
           <div className="name-col">       <Chip style={{fontweight:600}} label="Deadline 1" color="primary" variant='outlined' /></div>
           <div className="description-col"><Chip style={{fontweight:600}} label="Nothing Nothing Nothing Nothing Nothing Nothing Nothing Nothing " color="primary" variant='outlined'/></div>
