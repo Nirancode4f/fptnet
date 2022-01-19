@@ -47,6 +47,11 @@ export const Profile = () => {
   const [userPost, setuserPost] = useState([]);
 
 
+  
+
+  // run this shit first
+  useEffect(() => {
+
     const handleLoadingData = async () =>{
 
 
@@ -71,9 +76,6 @@ export const Profile = () => {
     }
 
 
-  // run this shit first
-  useEffect(() => {
-
     
     if (!LoginData){navigate("/login")}
     else
@@ -83,7 +85,7 @@ export const Profile = () => {
     return () => {
       setisMoute(false);
     };
-  }, [LoginData, navigate]);
+  }, [LoginData, isMouted, navigate]);
 
   const handleChange = (event, newValue) => {
     setvalueChange(newValue);

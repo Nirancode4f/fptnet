@@ -33,7 +33,7 @@ const Main = () => {
     if ( !Token || !LoginData) {
       navigate("/login");
    }
-  }, []);
+  }, [LoginData, Token, navigate]);
 
   // eslint-disable-next-line no-unused-vars
 

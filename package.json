@@ -68,6 +68,7 @@
     ]
   },
   "devDependencies": {
-    "dotenv-webpack": "^7.0.3"
+    "dotenv-webpack": "^7.0.3",
+    "eslint-plugin-react": "^7.28.0"
   }
 }
