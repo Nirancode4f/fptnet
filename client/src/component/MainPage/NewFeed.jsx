@@ -15,15 +15,39 @@ import { styled } from '@mui/system';
 import { ButtonGroup } from '@mui/material'
 import Box from '@mui/material/Box';
 import AccountCircle from '@mui/icons-material/AccountCircle';
+// import CssTextField from "../../CssMUISettings/CssTextField"
 const error =
-"https://upload.wikimedia.org/wikipedia/commons/c/c7/No_Pic.jpg";
+    "https://upload.wikimedia.org/wikipedia/commons/c/c7/No_Pic.jpg";
+
+
+const CssTextField = styled(TextField)({
+    '& label.Mui-focused': {
+        color: '#f36f21',
+    },
+    '& .MuiInput-underline:after': {
+        borderBottomColor: '#f36f21',
+    },
+    '& .MuiOutlinedInput-root': {
+        '& fieldset': {
+            borderColor: 'black',
+        },
+        '&:hover fieldset': {
+            borderColor: '#f36f21',
+        },
+        '&.Mui-focused fieldset': {
+            borderColor: '#f36f21',
+        },
+    },
+});
+
+
 
 export default function Newfeed() {
     const [LoginData, setLoginData] = useState(
         localStorage.getItem("loginData")
-          ? JSON.parse(localStorage.getItem("loginData"))
-          : null
-      );
+            ? JSON.parse(localStorage.getItem("loginData"))
+            : null
+    );
 
 
 
@@ -35,22 +59,28 @@ export default function Newfeed() {
                         <Container maxWidth="sm">
                             <div className="Newfeed-header">
                                 <div style={{ width: "500px" }} className="Newfeed-header-input">
-                                 
-                                <AccountCircle
-                                 src={LoginData.user.picture || error}
-                                 sx={{ width: 60 ,height: 60, mr: 1, my: 0.5 }} />
 
-                                <TextField 
-                                style={{
-                                    color:"#f36f21",
-                                    fill:"#f36f21"
-                                }}
-                                
-                                variant="outlined" 
-                                fullWidth={true} 
-                                id="input-with-sx" 
-                                label="Tell me what are you thinking about"  />
-                                   
+
+                                    <Avatar
+                                        sx={{
+                                            width: 55,
+                                            height: 55,
+                                        }}
+                                        style={{
+                                            margin: 15,
+
+
+                                        }}
+                                        src={LoginData.user.picture || error}
+                                        alt="avatar"
+                                    />
+                                    <CssTextField
+                                        fullWidth={true}
+                                        label="Tell me what are you thinking about"
+                                        id="custom-css-outlined-input" />
+
+
+
                                 </div>
                                 <div className="Newfeed-header-quick-add">
                                     <ButtonGroup variant="text" aria-label="text button group">
