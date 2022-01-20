@@ -1,11 +1,42 @@
 import React from 'react'
 import "./assets/Deadline.css"
-
+import { useState, useEffect } from "react";
 import { TextField } from '@mui/material';
 import { Button } from '@mui/material';
+import { styled } from '@mui/system';
+
+const CssTextField = styled(TextField)({
+    '& label.Mui-focused': {
+        color: '#f36f21',
+    },
+    '& .MuiInput-underline:after': {
+        borderBottomColor: '#f36f21',
+    },
+    '& .MuiOutlinedInput-root': {
+        '& fieldset': {
+            borderColor: 'black',
+        },
+        '&:hover fieldset': {
+            borderColor: '#f36f21',
+        },
+        '&.Mui-focused fieldset': {
+            borderColor: '#f36f21',
+        },
+    },
+});
+
+
 
 export default function Newfeed() {
- 
+    const [LoginData, setLoginData] = useState(
+        localStorage.getItem("loginData")
+          ? JSON.parse(localStorage.getItem("loginData"))
+          : null
+      );
+
+    
+
+
     return (
     
      <div className='Deadline-container'>
@@ -15,7 +46,9 @@ export default function Newfeed() {
                     <div className="deadline-status"> NEVER GIVE UP!</div>
 
                      <div className="student">
-                               <div className="student-info-number">MSSV: <p>Mã số sinh viên</p></div>
+                               <div className="student-info-number">
+                                   MSSV: <p>{LoginData.user.mssv ? LoginData.user.mssv : "CE170396" }</p>
+                                </div>
                                <div className="student-info">
                                <div className="student-info-quanlity-deadline"> 
                                    Unfinished: <p>20</p>
@@ -37,15 +70,13 @@ export default function Newfeed() {
                                 bordercolor:"#f36f21"
                             }}
                             />
-                                <TextField
+                                <CssTextField
                                  id="date"
-                                 label="Hạn nộp"
+                                 label="Due"
                                  type="date"
                                  defaultValue="2022-01-01"
                                  sx={{ width: "100%" }}
-                                 InputLabelProps={{
-                                   shrink: true,
-                                 }}
+                                 
                                  style={{
                                      marginTop:"12px",
                                  }}
@@ -58,7 +89,7 @@ export default function Newfeed() {
                         <div className="quick-add-deadline-btn">
                         <Button color='warning' variant="contained" style={{
                             
-                        }}>Tạo Deadline</Button>
+                        }}>Make Deadline</Button>
 
                         </div>
                </div>

@@ -60,7 +60,7 @@ const [Token, setToken] = useState( read_cookie("accessToken") !== "" ?   read_c
             setinfo("wrong email or password");
           } else {
             bake_cookie("accessToken", res.data.accessToken);
-            localStorage.setItem("loginData", JSON.stringify(res.data.user));
+            localStorage.setItem("loginData", JSON.stringify(res.data));
             localStorage.setItem("FAN_user_info", JSON.stringify(res.data));
             navigate("/");
           }

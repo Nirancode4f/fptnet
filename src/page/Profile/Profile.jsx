@@ -46,9 +46,6 @@ export const Profile = () => {
 
   const [userPost, setuserPost] = useState([]);
 
-
-  
-
   // run this shit first
   useEffect(() => {
 
@@ -137,7 +134,7 @@ export const Profile = () => {
                   <div className="Profile_user_info_name">
                     {LoginData.user.username || "cant take name !!! error !!!"}
                     <div className="Profile_user_info_student_number">
-                      CE171197
+                      {LoginData.user.mssv || ""}
                     </div>{" "}
                   </div>
                 </div>
