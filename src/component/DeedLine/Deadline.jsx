@@ -14,17 +14,12 @@ export default function Newfeed() {
                <div className="Deadline">
                     <div className="deadline-status"> NEVER GIVE UP!</div>
 
-                               <div className="student-info-number">
-                                   MSSV: <p>Mã số sinh viên</p>
-                                </div>
                      <div className="student">
-                           <div className="student-info">
-                               
-
+                               <div className="student-info-number">MSSV: <p>Mã số sinh viên</p></div>
+                               <div className="student-info">
                                <div className="student-info-quanlity-deadline"> 
                                    Unfinished: <p>20</p>
                                </div>
-                            </div>    
                             <div className="student-quick-add-deadline"> 
                             <TextField id="standard-basic" label="Tên Deadline" variant="standard" color='warning'   
                             style={{
@@ -58,6 +53,8 @@ export default function Newfeed() {
 
                             </div>         
                             </div>
+                            </div>    
+
                         <div className="quick-add-deadline-btn">
                         <Button color='warning' variant="contained" style={{
                             
