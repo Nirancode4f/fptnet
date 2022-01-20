@@ -1,8 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import ChatBoxMain from "./ChatBoxMain";
-import ChatBoxMessage from "./ChatBoxMessage";
-import ChatBoxMessageOwnerUser from "./ChatBoxMessageOwnerUser";
 
 const URL_MAIN =
   process.env.REACT_APP_URL_MAIN || `https://fanserverapi.herokuapp.com`;
@@ -16,6 +14,7 @@ export default function ChatBox(props) {
   const [messages, setMessages] = useState([]);
   const [isAPISucceed, setIsAPISucceed] = useState();
 
+  // get friend conversation id
   const getFriendConvsId = async (userId, targetId) => {
     let result;
     try {
@@ -29,6 +28,7 @@ export default function ChatBox(props) {
     return result;
   };
 
+  // get friend messages
   const getFriendMessages = async (userId, convsId, block) => {
     let result;
     try {
@@ -43,6 +43,7 @@ export default function ChatBox(props) {
     return result;
   };
 
+  // get group messages
   const getGroupMessages = async (userId, convsId, block) => {
     let result;
     try {
@@ -60,6 +61,7 @@ export default function ChatBox(props) {
   useEffect(() => {
     // set messages default null value
     setMessages(null);
+    // there are three type of conversation: friend, teacher, group
     if (chatData.convs_type === "group") {
       // Lift-state up
       onCurrentConvsIdChange(chatData.targetId);
@@ -84,7 +86,10 @@ export default function ChatBox(props) {
           // after that get messages
           if (res.data.success)
             return getFriendMessages(userId, convsId, block);
-          else setMessages([]);
+          else {
+            onCurrentConvsIdChange(null);
+            setMessages([]);
+          }
         })
         .then((res) => {
           if (res.data.success) {
@@ -95,7 +100,10 @@ export default function ChatBox(props) {
           }
         })
         .catch((err) => {
+          // no data get from API
           setMessages([]);
+          onCurrentConvsIdChange(null);
+
           console.log(err.messages);
         });
     }
