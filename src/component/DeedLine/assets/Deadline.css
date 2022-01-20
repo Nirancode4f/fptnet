@@ -40,12 +40,13 @@
    margin-top: 34px;
 }
 .student {
+    width: 960px;
     margin-top: 20px;
-    width: 100%;
     display: flex;
+    flex-direction: column;
+    margin: 0 auto;
 }
 .student-info {
-    width: 50%;
     line-height: 3;
     display: flex;
    align-items: center;
@@ -63,18 +64,16 @@
 
 }
 .student-info-quanlity-deadline {
-    padding-left: 120px;
    font-size: 50px;
    line-height: 192px;
 }
 
 
-.student-info-name p,
 .student-info-number p{
-    font-size: 20px;
     font-weight: 600;
     color: black;
     margin: 0 12px;
+    color: var(--bg-color);
 }
 .student-info-quanlity-deadline p{
     font-size: 100px;
@@ -84,13 +83,14 @@
 }
 
 .student-quick-add-deadline {
-    width: 50%
+    flex: 1;
 
 }
 .quick-add-deadline-btn {
-    width: 100%;
+    width: 960px;
     text-align: right;
-    margin: 10px 0;
+    margin:  10px auto;
+
 }
 .Table-deadline {
     max-width: 960px;
@@ -111,6 +111,8 @@
     height: 40px;
     line-height: 40px;
     font-weight: bold;
+    border-bottom: 1px solid #908c8c;
+    margin-bottom: 5px;
 }
 
 
@@ -123,9 +125,14 @@ font-weight: 500;
     display: flex;
     width: 100%;
     flex-wrap: nowrap;
+    margin-top: 10px;
     margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #908c8c;
 }
-
+.row-deadline:hover .edit-deadline-btn  {
+    display: block;
+}
 .name-col{
 width: 30%;
 max-width: 30%;
@@ -137,6 +144,23 @@ max-width: 50%;
 }
 
 .date-col {
-    width: 20%;
-    max-width: 20%;
+    width: 15%;
+    max-width: 15%;
+}
+.edit-col {
+    width:5% ;
+    max-width: 5%;
+    
+}
+
+.edit-deadline-btn {
+    max-height: 40px;
+    text-align: center;
+    font-size: 24px;
+    color: var(--bg-color);
+    display: none;
+    transition: display linear 0.3s;
+}
+.edit-deadline-btn:hover {
+    cursor: pointer;
 }

@@ -30,7 +30,7 @@ const CssTextField = styled(TextField)({
     },
     '& .MuiOutlinedInput-root': {
         '& fieldset': {
-            borderColor: 'black',
+            
         },
         '&:hover fieldset': {
             borderColor: '#f36f21',
@@ -68,7 +68,7 @@ export default function Newfeed() {
                                             height: 55,
                                         }}
                                         style={{
-                                            margin: 15,
+                                            margin:"0 15px 0 0",
 
 
                                         }}
@@ -78,7 +78,13 @@ export default function Newfeed() {
                                     <CssTextField
                                         fullWidth={true}
                                         label="Tell me what are you thinking about"
-                                        id="custom-css-outlined-input" />
+                                        id="custom-css-outlined-input"
+                                        style={{
+                                            borderRight:"2px solid #f36f21",
+                                            borderLeft:"2px solid #f36f21",
+                                            borderBottom:"1px solid #f36f21",
+                                            borderRadius:5
+                                        }} />
 
 
 
