@@ -1,0 +1,166 @@
+
+:root{
+    --bg-color: #f36f21;
+    --text-color:#fff;
+    --blue-color:#82c5e2;
+    --fade-color:#908c8c;
+    --header-height: 64px;
+    --nav-width: 60px;
+}
+
+
+.Content-deadline {
+    top: var(--header-height);
+    max-width: calc(100% - var(--nav-width));
+    background-color: #fafafa;
+    position: relative;
+    padding-bottom: 10px;
+    right:0;
+    left: var(--nav-width);
+    display: flex;
+    flex-direction: column;
+    
+    
+}
+.Deadline {
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    max-width: 1200px;
+
+}
+.deadline-status {
+    width: 30%;
+    margin:0 auto;
+    text-align: center;
+    font-size: 32px;
+    color: var(--bg-color);
+   border: 1px solid var(--bg-color);
+   margin-top: 34px;
+}
+.student {
+    width: 960px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+.student-info {
+    line-height: 3;
+    display: flex;
+   align-items: center;
+}
+.student-info-number,
+.student-info-quanlity-deadline {
+    font-weight: 700;
+    display: flex;
+} 
+.student-info-number{
+    justify-content: right;
+    width: 100%;
+}
+.student-info-number{
+
+}
+.student-info-quanlity-deadline {
+   font-size: 50px;
+   line-height: 192px;
+}
+
+
+.student-info-number p{
+    font-weight: 600;
+    color: black;
+    margin: 0 12px;
+    color: var(--bg-color);
+}
+.student-info-quanlity-deadline p{
+    font-size: 100px;
+    font-weight: 600;
+    color: red;
+    margin: 0 40px;
+}
+
+.student-quick-add-deadline {
+    flex: 1;
+
+}
+.quick-add-deadline-btn {
+    width: 960px;
+    text-align: right;
+    margin:  10px auto;
+
+}
+.Table-deadline {
+    max-width: 960px;
+    margin: 0 auto;
+    position: absolute;
+    padding-bottom: 40px;
+    background-color: #fafafa;
+    right: 0;
+    left: 0;
+    top:360px;
+    padding: 0 10px;
+}
+
+.row-deadline-header {
+    display: flex;
+    width: 100%;
+    flex-wrap: nowrap;
+    height: 40px;
+    line-height: 40px;
+    font-weight: bold;
+    border-bottom: 1px solid #908c8c;
+    margin-bottom: 5px;
+}
+
+
+.title-table {
+color: #f36f21;
+text-transform: uppercase;
+font-weight: 500;
+}
+.row-deadline {
+    display: flex;
+    width: 100%;
+    flex-wrap: nowrap;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #908c8c;
+}
+.row-deadline:hover .edit-deadline-btn  {
+    display: block;
+}
+.name-col{
+width: 30%;
+max-width: 30%;
+}
+
+.description-col {
+width: 50%;
+max-width: 50%;
+}
+
+.date-col {
+    width: 15%;
+    max-width: 15%;
+}
+.edit-col {
+    width:5% ;
+    max-width: 5%;
+    
+}
+
+.edit-deadline-btn {
+    max-height: 40px;
+    text-align: center;
+    font-size: 24px;
+    color: var(--bg-color);
+    display: none;
+    transition: display linear 0.3s;
+}
+.edit-deadline-btn:hover {
+    cursor: pointer;
+}

@@ -1,0 +1,308 @@
+.Messenger {
+  position: relative;
+  right: 0;
+  left: var(--nav-width);
+  top: var(--header-height);
+  max-width: calc(100% - var(--nav-width));
+  min-height: 1000px;
+}
+
+.MessengerContainer {
+  margin: 10px 0 0 10px;
+  display: flex;
+}
+
+/* friend list */
+.FriendsContact {
+  border-right: 1px solid var(--bg-color);
+  padding: 10px 10px 10px 10px;
+  position: fixed;
+  z-index: 10;
+  max-height: 635px;
+  top: calc(var(--header-height) + 7px);
+  left: calc(var(--nav-bar-width) + 1px);
+  overflow-y: auto;
+  width: 340px;
+  margin-top: 55px;
+}
+
+.FriendHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-bottom: 1px solid #999;
+  position: fixed;
+  top: calc(var(--header-height) + var(--friend-header-height) +2px);
+  left: var(--nav-width);
+}
+.FriendHeaderSearch {
+  border: 1px solid var(--bg-color);
+  border-radius: 12px;
+  margin: 0 12px;
+  padding: 0 10px;
+  min-width: 260px;
+}
+.FriendHeaderSearch i {
+  font-size: 12px;
+  line-height: 28px;
+  color: var(--bg-color);
+}
+.FriendHeaderSearch i:hover {
+  cursor: pointer;
+}
+.Friend_HearchLabel {
+  border: none;
+  outline: none;
+  line-height: 28px;
+  width: 90%;
+}
+.Friend_Header_Setting {
+  background-color: transparent;
+  border: none;
+  color: var(--bg-color);
+  line-height: 30px;
+  margin: 0 10px;
+}
+.Friend_Header_Setting:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+.FriendList {
+  margin: 0 0 20px 6px;
+  font-size: 18px;
+  user-select: none;
+}
+.TeacherList {
+  margin: 0 0 20px 6px;
+  user-select: none;
+}
+.GroupList {
+  position: relative;
+  margin: 0 0 20px 6px;
+  overflow-y: auto;
+  user-select: none;
+}
+
+.FriendList i,
+.TeacherList i,
+.GroupList i {
+  color: var(--bg-color);
+}
+.FriendListItem:hover,
+.TeacherListItem:hover,
+.GroupListItem:hover {
+  background-color: rgba(243, 111, 33, 0.6);
+  color: #fff !important;
+  font-size: 700;
+  border-radius: 4px;
+  color: var(--bg-color);
+  cursor: pointer;
+  overflow-x: hidden;
+}
+.FriendListItem,
+.TeacherListItem,
+.GroupListItem {
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
+  margin-top: 10px;
+  transition: linear 0.3s;
+}
+.UserListItemAvatar {
+  width: 32px;
+  margin: 0 12px;
+  border-radius: 50%;
+  border: 3px solid #ccc;
+}
+
+.UserListItemName {
+  line-height: 44px;
+  border-top: 1px solid var(--bg-color);
+}
+
+/* chatbox */
+.ChatBoxHeader {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px 0;
+  background-color: rgba(235, 154, 7, 1);
+
+  color: #fff;
+  font-size: 18px;
+  position: fixed;
+  z-index: 1;
+  top: calc(var(--header-height) + var(--friend-header-height) +2px);
+  left: calc(var(--nav-width) + 340px + 12px);
+  border-radius: 2px;
+}
+
+.Person {
+  display: flex;
+  align-items: center;
+}
+
+.FriendAvatar {
+  width: 32px;
+  margin: 0 12px;
+  border-radius: 50%;
+  border: 2px solid var(--bg-color);
+}
+
+.ChatSearch {
+  background-color: #fff;
+  height: 34px;
+  line-height: 34px;
+  padding: 0 20px;
+  border-radius: 20px;
+  color: #666;
+  margin-right: 12px;
+  position: fixed;
+  top: calc(var(--header-height) + var(--friend-header-height) +2px);
+  right: 0;
+}
+.ChatSearch i {
+  line-height: 34px;
+  font-size: 14px;
+  margin-right: 10px;
+}
+.ChatSearchLabel {
+  outline: none;
+  border: none;
+}
+
+.ChatBox {
+  width: 100%;
+}
+.ChatBoxMain {
+  position: fixed;
+  top: calc(var(--friend-header-hight) + var(--header-height) + 10px);
+  left: calc(var(--nav-width) + 340px + 12px);
+  width: calc(100vw - var(--nav-width) - 340px - 12px);
+  max-height: calc(100vh - 150px);
+  padding-bottom: 50px;
+  overflow-y: auto;
+}
+
+.ChatBoxMessage {
+  width: 100%;
+  padding: 20px 20px 0 20px;
+  display: flex;
+  align-items: flex-start;
+  border-left: 2px solid transparent;
+}
+
+.ChatBoxMessageAvatar {
+  width: 34px;
+  margin: 12px;
+  border-radius: 50%;
+}
+
+.ChatBoxMessageContent {
+  /* text-align: justify; */
+}
+
+.ChatBoxMessageInfo {
+}
+
+.ChatBoxMessageInfoName {
+  font-size: 14px;
+}
+
+.ChatBoxMessageContentText {
+  font-style: 9px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+.ChatBoxMessageOwnerUser {
+  width: 100%;
+  padding: 20px 20px 0 20px;
+  display: flex;
+  align-items: flex-start;
+  border-left: 2px solid var(--bg-color);
+}
+.ChatBoxMessageOwnerUser .ChatBoxMessageInfoName {
+  color: var(--bg-color);
+}
+
+.BoxChatFooter {
+  background-color: #fff;
+  --nav-width: 60px;
+  --friend-list-width: 340px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 44px;
+  border: 1px solid var(--bg-color);
+  border-radius: 12px;
+  max-width: 1030px;
+  position: fixed;
+  left: calc(var(--friend-list-width) + var(--nav-width) + 30px);
+  bottom: 10px;
+  margin-right: 30px;
+  max-width: calc(
+    100vw - calc(var(--friend-list-width) + var(--nav-width) + 28px) - 24px
+  );
+}
+
+.WriteMessage {
+  flex: 1;
+}
+
+.WriteLabel {
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  height: 100%;
+  margin: 0 0 0 10px;
+  width: 100%;
+  padding-left: 12px;
+}
+
+.Attachment {
+  margin: 0 24px;
+}
+.Attachment i {
+  padding: 0 12px;
+  transition: linear 0.2;
+}
+.Attachment i:hover {
+  cursor: pointer;
+  color: var(--bg-color);
+  transform: scale(1.3);
+}
+
+.FriendList > .FriendListItem {
+   display: flex;
+
+}
+
+.TeacherList > .TeacherListItem {
+   display: flex;
+
+}
+
+.GroupList > .GroupListItem {
+   display: flex;
+
+}
+
+.ShowFriendListBtn:checked ~ .FriendListItem {
+  display: none;
+}
+
+.ShowTeacherListBtn:checked ~ .TeacherListItem {
+  display: none;
+}
+
+.ShowGroupListBtn:checked ~ .GroupListItem {
+  display: none;
+}
+.ShowListIcon {
+  margin-left: 3px;
+  padding: 0 4px;
+  font-size: 20px;
+  cursor: pointer;
+}

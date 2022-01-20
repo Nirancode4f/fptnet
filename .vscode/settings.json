@@ -1,27 +1,6 @@
 {
-    "C_Cpp.errorSquiggles": "Disabled",
+    "git.ignoreLimitWarning": true,
     "cSpell.words": [
-        "Clickout",
-        "Clickparent",
-        "currentyear",
-        "Fomat",
-        "getposts",
-        "Infor",
-        "isunmound",
-        "likelist",
-        "Mouted",
-        "Newfeed",
-        "piture",
-        "Postimage",
-        "Postinformation",
-        "postpopup",
-        "quanlity",
-        "setisunmound",
-        "setuser",
-        "setvalue",
-        "sfcookies",
-        "totalcmt",
-        "Updata",
-        "wiew"
+        "mssv"
     ]
 }

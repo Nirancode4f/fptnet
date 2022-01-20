@@ -1,0 +1,577 @@
+
+.test{
+    margin-bottom: 14px;
+}
+
+.Content {
+    position: absolute;
+    right:0;
+    left: var(--nav-width);
+    top: var(--header-height);
+    max-width: calc(100% - var(--nav-width));
+    min-height: 100vh;
+    
+}
+
+
+.Profile {
+    margin: 0 auto;
+    max-width: 976px;
+    background-color: #fafafa;
+}
+.Profile_header{
+    font-size: 18px;
+    padding: 20px 0 5px 20px    ;
+    font-weight: 600;
+    border-bottom: 1px solid var(--bg-color);
+}
+.Profile_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.Profile_info_and_img {
+    display: flex;
+    margin-top: 20px;
+    
+}
+.Profile_user_img {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 40px;
+
+}
+
+.Profile_user_avatar {
+    width: 300px;
+    margin: 0 40px 20px ;
+    border-radius: 50%;
+    border:1px solid var(--bg-color);
+    
+}
+    .Profile_user_info_name_and_code {
+        width: 100%;
+        text-align: center;
+    }
+    .Profile_user_info {
+        margin-top: 12px;
+        width: 100%;
+        min-width:188px;
+        position: relative;
+    }
+    
+    .Profile_user_info_name{
+        margin-top: 20px;
+        font-size: 28px;
+        font-weight: 600;
+        text-align: center;
+        display: block;
+        position: relative;
+}
+.Profile_user_info_student_number {
+    position: absolute;
+    top: -12px;
+    right: 140px;
+    font-weight: 600;
+    font-size: 17px;
+  
+    
+}
+.Profile_user_info_description {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+
+}
+.Profile_account {
+    margin:20px 0 ;
+    width: 100%;
+    font-size: 21px;
+    font-weight: 600;
+    justify-content: right;
+    
+}
+.Profile_account_friend {
+}
+.Profile_user_action {
+    border-top: 1px solid #666;
+    width: 100%;
+    padding-top: 20px ;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.mui-add-btn:hover {
+    transform: scale(1.005);
+    cursor: pointer;
+}
+.mui-add-btn {
+    padding: 50px 12px 0 0;
+    transition: linear 0.3s;
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+
+}
+.mui-add-btn b {
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+.Profile_user_action_write {
+    
+}
+.Profile_user_action_write_tag , .Profile_user_action_achievement_tag , .Profile_account_friend {
+    text-decoration: none;
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+    width: 200px;
+    color: #333;
+    margin: 0 80px;
+    text-align: center;
+}
+
+.Active_tag {
+}
+
+.profile-tag-action {
+    color: black;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.Row{
+    width: 100%;
+    margin: 0 ;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.Col {
+   padding: 0 10px;
+}
+
+.C-4 {
+    flex: 0 0 33.33333%;
+    max-width: 33.33333%;
+    margin: auto 0;
+}
+.Tag_action_post {
+    margin-top: 12px;
+    width: 100%;
+   object-position: center;
+   box-shadow: 1px solid #666;
+   transition: linear 0.1s;
+
+}
+.Tag_action_post:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 1px #666;
+    cursor: pointer;
+}
+/* modal view post detail */
+.modal-wiew-detail-post {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* display: none; */
+}
+.modal-wiew-detail-post-container {
+    border-radius: 8px;
+    background-color: #fff;
+  height: 440px;
+  width: 800px;
+  padding: 10px 20px; 
+  display: flex;
+  animation: grow linear 0.4s;
+
+  
+}
+@keyframes grow {
+    from{
+        opacity: 0.5;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+
+
+.modal-wiew-detail-post-img {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    margin-right: 5px;
+        
+}
+.modal-wiew-detail-post-img:hover .display-like-and-comment-quanlity {
+  display: flex;
+}
+.display-like-and-comment-quanlity {
+    position: absolute;
+    top:0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fafafa;
+    font-size: 20px;
+    display: none;
+}
+.display-like-and-comment-quanlity i {
+    margin: 10px;
+}
+.display-like-and-comment-quanlity span {
+    margin: 10px;
+}
+
+.modal-wiew-detail-post-content {
+    width: 50%;
+    height: 100%;
+    box-shadow:  0 0 1px #666;
+    display: flex;
+    flex-direction: column;position: relative;
+
+}
+
+.modal-wiew-detail-post-info-post {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    border-bottom:  1px solid var(--bg-color);
+    padding: 10px;
+    position: relative;
+    width: 100%;
+    
+}
+.more-info-post-btn {
+    display: inline;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    text-decoration: none;
+    color: var(--bg-color);
+    line-height: 4px;
+    font-weight: 700;
+    font-size: 30px;
+    user-select: none;
+}
+.more-info-post-btn {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    text-decoration: none;
+    color: var(--bg-color);
+    line-height: 0px;
+    font-weight: 700;
+    font-size: 30px;
+    user-select: none;
+    display: none;
+}
+.more-info-post-btn-option {
+    position: absolute;
+    right: 0;
+}
+.more-info-post-btn-option span {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--bg-color);
+}
+
+
+.more-info-cmt-btn {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    text-decoration: none;
+    color: var(--bg-color);
+    line-height: 0px;
+    font-weight: 700;
+    font-size: 30px;
+    user-select: none;
+    display: none;
+}
+.more-info-cmt-btn-option {
+    position: absolute;
+    right: 0;
+}
+.more-info-cmt-btn-option span {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--bg-color);
+}
+.more-info-post-btn:hover ,
+.more-info-cmt-btn:hover {
+    user-select: none;
+    cursor: pointer;
+}
+.modal-wiew-detail-post-info-post-avt-user {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--bg-color);
+    overflow: hidden;
+}
+.name-and-time{
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    
+}
+.modal-wiew-detail-post-info-post-name-user {
+    font-size: 16px;
+    font-weight: 700;
+}
+.modal-wiew-detail-post-info-post-time {
+    font-size: 12px;
+    opacity: 0.7;
+    font-weight: 600;margin-left: 2px;
+    line-height: 12px;
+}
+.modal-wiew-detail-post-content-text {
+    padding: 10px;
+    font-weight: 500;
+    line-height: 1.4;
+
+}
+.modal-wiew-detail-post-content-comment {
+    /* border-top:  1px solid var(--bg-color); */
+    padding:0 10px;
+
+}
+.modal-wiew-detail-post-content-action {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid var(--bg-color);
+    padding:3px 10px;
+    align-items: center;
+    justify-content: space-around;
+    user-select: none;
+}
+.modal-wiew-detail-post-content-action div {
+    min-height: 40px;
+    min-width: 100px;
+    text-align: center;
+}
+.modal-wiew-detail-post-content-action div:hover{
+    border-radius: 6px;
+    background-color: rgba(0,0,0,0.1);
+
+}
+.modal-wiew-detail-post-content-action .unlike ,
+.modal-wiew-detail-post-content-action .liked {
+    color: red;
+    font-size: 20px;
+    margin-right:12px ;
+  
+}
+.modal-wiew-detail-post-content-action span,
+.modal-wiew-detail-post-content-action span {
+    color: var(--bg-color);
+    font-size: 16px;
+    line-height: 40px;
+  
+}
+
+.comment-post {
+    flex: 1;
+    border: 1px solid var(--bg-color);
+    height: 32px;
+    border-radius: 4px;
+    outline: none;
+    color: #ccc;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    background-color: #fff;
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: -1px;
+
+    /* display: none; */
+}
+.comment-time-post{
+    font-size:9px;
+    margin-right: 6px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+ .comment-post input {
+    height: 30px;
+    padding: 10px;
+    outline: none;
+    border: none;
+    flex: 1;
+    font-weight: 500;
+}
+.comment-post i {
+    color: var(--bg-color);
+    font-size: 20px;
+}
+.to-comment ,.modal-wiew-detail-post-content-share-btn  {
+    margin-left: 20px;
+    font-size: 20px;
+    color: var(--bg-color);
+}
+.to-comment  ,.modal-wiew-detail-post-content-share-btn i {
+    margin-right: 12px;
+
+}
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+.comment-main {
+    height: 220px;
+    
+}
+.comment-main::-webkit-scrollbar{
+    display: none;
+}
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+.modal-wiew-detail-post-comment {
+    height: 250px;
+        
+}
+
+.modal-wiew-detail-post-content-comment-content {
+    padding: 10px 0;
+    height:270px;
+    overflow-y: auto;
+    transition: linear 0.2s;
+
+}
+.modal-wiew-detail-post-content-comment-content::-webkit-scrollbar{
+    scroll-behavior: smooth;
+    display: none;
+}
+.comment-box {
+    padding-bottom: 20px;
+}
+.comment-box:hover .more-info-cmt-btn {
+    display: inline;
+}
+.comment-box-infor-commenter{
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+.comment-box-infor-commenter-avt {
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+    border-radius: 50%;
+    border-radius: 50%;
+}
+
+.comment-box-infor-commenter-name {
+    font-size: 17px;
+    flex: 1;
+    font-weight: 600;
+    margin-left: 10px;
+    position: relative;
+}
+.comment-box-content {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.4;
+    padding: 0 40px 0 30px;
+    display: block;
+    
+}
+.reaction-comment span {
+    display: inline-block;
+    margin-top: 3px;
+    text-decoration: none;
+    color: var(--bg-color);
+    font-weight: 600;
+    margin-right: 12px;
+}
+
+.modal-wiew-detail-post-img :hover ,
+ .unlike:hover ,
+ .liked:hover ,
+.add-cmt-btn:hover ,
+.share-post-btn:hover ,
+.modal-wiew-detail-post-content-action div:hover {
+    cursor: pointer;
+}
+.reaction-comment span:hover {
+    cursor: pointer;
+}
+
+.click-for-more-btn {
+    height: 24px;
+    line-height: 24px;
+    font-weight: 600;
+    color: var(--bg-color);
+    user-select: none;
+}
+.click-for-more-btn:hover {
+    cursor: pointer;
+}
+
+.like-cmt-btn ,.liked-cmt-btn {
+    float: right;
+    transform: translateY(32px) translateX(-14px);
+}
+.like-cmt-btn:hover ,.liked-cmt-btn:hover {
+    cursor: pointer;;
+}
+
+/* friend tag */
+.Tag_action-friend {
+  width: 100%;
+  display: flex
+}
+.Tag_action-friend-request{
+width: 30%;
+border-right: 1px solid var(--bg-color);
+}
+
+.Tag_action-friend-content {
+width: 70%;
+}
+
+.Friend-request-header {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--bg-color);
+}
+
+.request-section {
+    margin: 10px 0;
+}
+
+.requester-info {
+    display: flex;
+}
+
+.requester-info-name-and-btn {
+    margin-left: 10px;
+}
+
+.requester-info-name {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
