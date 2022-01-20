@@ -4,16 +4,19 @@ import Register from "./page/RegisterPage/Register";
 import Login from "./page/LoginPage/Login";
 import Main from "./page/MainPage/Main";
 import Messenger from "./page/Messenger/Messenger";
-import {BrowserRouter,Routes,Route } from "react-router-dom"
+import {BrowserRouter,Routes,Route,Navigate} from "react-router-dom"
 import { NotFound } from './page/NotFound/NotFound';
 import { Profile } from './page/Profile/Profile';
 import { DeadlinePage } from "./page/DeadLine/DeadlinePage";
+import Protect from "./ProtectRoutes/Protect";
 
 function App() {
 
   return ( 
   <BrowserRouter>
   <Routes>
+  <Route element={<Protect/>}></Route>
+  
   <Route  path="/login" element={ <Login/> }></Route>
   <Route   path="/" element={ <Main/> }></Route>
   <Route  path="/register" element={ <Register/> }></Route>
