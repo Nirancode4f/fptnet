@@ -37,10 +37,6 @@
     "os-browserify": "^0.3.0",
     "path-browserify": "^1.0.1",
     "query-string": "^7.1.0",
-<<<<<<< HEAD
-    "react-detect-click-outside": "^1.1.2",
-    "react-scroll": "^1.8.4"
-=======
     "react": "^17.0.2",
     "react-bootstrap": "^2.0.4",
     "react-dom": "^17.0.2",
@@ -85,6 +81,5 @@
   "devDependencies": {
     "dotenv-webpack": "^7.0.3",
     "eslint-plugin-react": "^7.28.0"
->>>>>>> e5ad645a1220c0fb2453aaf191717b22a4e12025
   }
 }
