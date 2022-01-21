@@ -15,7 +15,6 @@ const Login = () => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const [info, setinfo] = useState("");
-const [Token, setToken] = useState( read_cookie("accessToken") !== "" ?   read_cookie("accessToken") : false )
   const [LoginData, setLoginData] = useState(
     localStorage.getItem("loginData")
       ? JSON.parse(localStorage.getItem("loginData"))
@@ -31,7 +30,7 @@ const [Token, setToken] = useState( read_cookie("accessToken") !== "" ?   read_c
   }, [info]);
 
   useEffect(() => {
-    if (LoginData && Token) {
+    if (LoginData ) {
       navigate("/");
     }
   }, [LoginData, navigate]);

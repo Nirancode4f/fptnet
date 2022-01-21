@@ -1,14 +1,30 @@
-import { Navigate, Outlet } from "react-router-dom"
+import { useState } from "react"
+import { useEffect } from "react"
+import { Navigate, Outlet, useNavigate } from "react-router-dom"
+import { useLocation } from "react-router-dom"
 
 
-const useAuth =()=>{
-    const user = { loggedIn: false }
-    return user && user.loggedIn
-}
 
-const Protect = () =>{
-    const isAuth = useAuth()
-    return isAuth ? <Outlet/> : <Navigate to='/login' />
+
+
+
+async function Protect(){
+ 
+    const [user, setUser] = useState(false);
+
+    useEffect(() => {
+    const data = localStorage.getItem("loginData")
+    if(data){
+        setUser(true)
+    }else{
+        setUser(false)
+    }
+  
+    },[user]);
+    
+
+
+    return user
 }
 
 export default Protect

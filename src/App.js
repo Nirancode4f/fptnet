@@ -9,21 +9,30 @@ import { NotFound } from './page/NotFound/NotFound';
 import { Profile } from './page/Profile/Profile';
 import { DeadlinePage } from "./page/DeadLine/DeadlinePage";
 import Protect from "./ProtectRoutes/Protect";
+import { useEffect, useState } from "react";
 
 function App() {
+ const user  = Protect()
+ 
+
 
   return ( 
   <BrowserRouter>
   <Routes>
-  <Route element={<Protect/>}></Route>
-  
-  <Route  path="/login" element={ <Login/> }></Route>
-  <Route   path="/" element={ <Main/> }></Route>
+
   <Route  path="/register" element={ <Register/> }></Route>
-  <Route path="/messenger" element={<Messenger />}></Route>
-  <Route  path="/*" element={ <NotFound/> }></Route>
-  <Route  path="/profile" element={ <Profile/> }></Route>
-  <Route  path="/deadline" element={ <DeadlinePage/> }></Route>
+
+  <Route  path="/login" element={<Login/> }></Route>
+
+  <Route   path="/" element={user ? <Main/> : <Navigate to={"/login"}/>}></Route>
+
+  <Route path="/messenger" element={ user ? <Messenger/> : <Navigate to={"/login"}/>}></Route>
+
+  <Route  path="/profile" element={  user ? <Profile/> : <Navigate to={"/login"}/> }></Route>
+
+  <Route  path="/deadline" element={  user ? <DeadlinePage/> : <Navigate to={"/login"}/> }></Route>
+
+  <Route  path="*" element={ <NotFound/> }></Route>
   </Routes>
   </BrowserRouter>
   );
