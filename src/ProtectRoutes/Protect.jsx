@@ -9,7 +9,7 @@ import { useLocation } from "react-router-dom"
 
 
 async function Protect(){
- 
+
     const [user, setUser] = useState(false);
 
     useEffect(() => {
@@ -24,7 +24,7 @@ async function Protect(){
     
 
 
-    return user
+    return {user}
 }
 
 export default Protect

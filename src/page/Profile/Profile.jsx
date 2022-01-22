@@ -22,8 +22,6 @@ import { Tabs } from '@mui/material';
 import { useNavigate } from "react-router-dom";
 import AxiosMain from "../../API/AxiosMain";
 
-const URL_MAIN =
-  process.env.REACT_APP_URL_MAIN || "https://fanserverapi.herokuapp.com";
 
 
 
@@ -45,6 +43,19 @@ export const Profile = () => {
   const block = 1;
 
   const [userPost, setuserPost] = useState([]);
+
+
+
+
+  useEffect(() => {
+    if(!LoginData){
+
+      navigate("/login")
+
+    }
+  
+  
+  }, []);
 
   // run this shit first
   useEffect(() => {
@@ -73,12 +84,8 @@ export const Profile = () => {
     }
 
 
-    
-    if (!LoginData){navigate("/login")}
-    else
-    {
         handleLoadingData()
-    }
+
     return () => {
       setisMoute(false);
     };
@@ -99,9 +106,12 @@ export const Profile = () => {
     setShowPopup(event);
   }
 
+
+  
+
   return (
     <div>
-      <MainLayout />
+      {LoginData ? <MainLayout /> : <></>}
       <div className="Content">
         <div className="Profile">
           <div className="Profile_header">Profile</div>
@@ -121,7 +131,7 @@ export const Profile = () => {
 
 
                     }}
-                    src={LoginData.user.picture || error}
+                    src={ LoginData ? LoginData.user.picture : error}
                     alt="avatar"
                   />
                 </div>
@@ -132,15 +142,15 @@ export const Profile = () => {
               <div className="Profile_user_info">
                 <div className="Profile_user_info_name_and_code">
                   <div className="Profile_user_info_name">
-                    {LoginData.user.username || "cant take name !!! error !!!"}
+                    { LoginData ? LoginData.user.username : "cant take name !!! error !!!"}
                     <div className="Profile_user_info_student_number">
-                      {LoginData.user.mssv || ""}
+                      { LoginData ? LoginData.user.mssv : ""}
                     </div>{" "}
                   </div>
                 </div>
 
                 <div className="Profile_user_info_description">
-                  {LoginData.user.slogan || ""}
+                  { LoginData ? LoginData.user.slogan : "" }
                 </div>
 
                 <div className="mui-add-btn">
@@ -157,9 +167,6 @@ export const Profile = () => {
 
             {/* new update here */}
 
-            
-            
-            
             
             
           <TabContext 

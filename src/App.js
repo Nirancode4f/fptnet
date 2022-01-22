@@ -13,8 +13,6 @@ import { useEffect, useState } from "react";
 
 function App() {
  const user  = Protect()
- 
-
 
   return ( 
   <BrowserRouter>
@@ -24,13 +22,13 @@ function App() {
 
   <Route  path="/login" element={<Login/> }></Route>
 
-  <Route   path="/" element={user ? <Main/> : <Navigate to={"/login"}/>}></Route>
+  <Route   path="/" element={ <Main/>}></Route>
 
-  <Route path="/messenger" element={ user ? <Messenger/> : <Navigate to={"/login"}/>}></Route>
+  <Route path="/messenger" element={ <Messenger/>}></Route>
 
-  <Route  path="/profile" element={  user ? <Profile/> : <Navigate to={"/login"}/> }></Route>
+  <Route  path="/profile" element={ <Profile/> }></Route>
 
-  <Route  path="/deadline" element={  user ? <DeadlinePage/> : <Navigate to={"/login"}/> }></Route>
+  <Route  path="/deadline" element={<DeadlinePage/>  }></Route>
 
   <Route  path="*" element={ <NotFound/> }></Route>
   </Routes>
