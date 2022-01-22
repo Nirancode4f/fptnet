@@ -24,7 +24,7 @@ export const CheckLogin = () => {
         navigate("/login")
     }
         
-    },[])
+    },[LoginData, Token, navigate])
 
 
     return { accept }

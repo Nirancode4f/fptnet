@@ -76,15 +76,13 @@ export default function Newfeed() {
                                         alt="avatar"
                                     />
                                     <CssTextField
+                                        size='small'
+                                        
                                         fullWidth={true}
                                         label="Tell me what are you thinking about"
                                         id="custom-css-outlined-input"
-                                        style={{
-                                            borderRight:"2px solid #f36f21",
-                                            borderLeft:"2px solid #f36f21",
-                                            borderBottom:"1px solid #f36f21",
-                                            borderRadius:5
-                                        }} />
+                                        
+                                        />
 
 
 

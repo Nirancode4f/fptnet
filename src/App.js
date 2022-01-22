@@ -7,12 +7,12 @@ import Messenger from "./page/Messenger/Messenger";
 import {BrowserRouter,Routes,Route,Navigate} from "react-router-dom"
 import { NotFound } from './page/NotFound/NotFound';
 import { Profile } from './page/Profile/Profile';
-import { DeadlinePage } from "./page/DeadLine/DeadlinePage";
-import Protect from "./ProtectRoutes/Protect";
+import  DeadlinePage from "./page/DeadLine/DeadlinePage";
+
 import { useEffect, useState } from "react";
 
 function App() {
- const user  = Protect()
+
 
   return ( 
   <BrowserRouter>
