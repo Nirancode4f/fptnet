@@ -16,6 +16,7 @@ import { ButtonGroup } from '@mui/material'
 import Box from '@mui/material/Box';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import { PostBlock } from './PostBlock'
+import { useNavigate } from 'react-router-dom'
 // import CssTextField from "../../CssMUISettings/CssTextField"
 const error =
     "https://upload.wikimedia.org/wikipedia/commons/c/c7/No_Pic.jpg";
@@ -49,7 +50,13 @@ export default function Newfeed() {
             ? JSON.parse(localStorage.getItem("loginData"))
             : null
     );
-
+const navigate = useNavigate()
+  // if not logindata changeroute to login page
+  useEffect(() => {
+    if ( !LoginData) {
+      navigate("/login");
+   }
+  }, [LoginData,  navigate]);
 
 
     return (
@@ -72,7 +79,7 @@ export default function Newfeed() {
 
 
                                         }}
-                                        src={LoginData.user.picture || error}
+                                        src={ LoginData.user.picture ? LoginData.user.picture : error}
                                         alt="avatar"
                                     />
                                     <CssTextField

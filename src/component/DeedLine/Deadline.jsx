@@ -9,6 +9,8 @@ import DateTimePicker from "@mui/lab/DateTimePicker";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import MobileDateTimePicker from '@mui/lab/MobileDateTimePicker';
+import { useNavigate } from "react-router-dom";
+import AxiosMain from "../../API/AxiosMain";
 
 const CssTextField = styled(TextField)({
   "& label.Mui-focused": {
@@ -40,6 +42,11 @@ export default function Newfeed() {
       : null
   );
 
+const [Loading, setLoading] = useState(false);
+const [isMouted, setisMouted] = useState(false)
+const [DeadlineList, setDeadlineList] = useState([]);
+
+  const navigate = useNavigate();
   const [DateValue, setDateValue] = useState(Date());
 
 
@@ -47,6 +54,55 @@ export default function Newfeed() {
 
 
 
+
+
+
+//   Call api 
+  useEffect(() => {
+    setisMouted(true)
+    try{
+        AxiosMain.post("/api/deadline/get",{
+            "userId": `${LoginData.user._id}`,
+           }
+         )
+         .then((res) => {
+           setLoading(false)
+           // after unmount component but asynchronous task still run, drop it.
+           if (isMouted) {
+             console.log(res)
+           }
+         })
+       setLoading(true)
+       
+
+    }catch(error){console.log(error)}
+  
+    return () => {
+      setisMouted(false)
+    };
+  }, [LoginData.user._id, isMouted]);
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+  // if not logindata changeroute to login page
+  useEffect(() => {
+    if ( !LoginData) {
+      navigate("/login");
+   }
+  }, [LoginData,  navigate]);
 
 
 
@@ -63,8 +119,8 @@ export default function Newfeed() {
 
           <div className="student">
             <div className="student-info-number">
-              MSSV:{" "}
-              <p>{LoginData.user.mssv ? LoginData.user.mssv : "CE170396"}</p>
+              
+              <p>MSSV: { LoginData.user.mssv ? LoginData.user.mssv : ""}</p>
             </div>
             <div className="student-info">
               <div className="student-info-quanlity-deadline">
@@ -100,11 +156,7 @@ export default function Newfeed() {
                   <MobileDateTimePicker
                     renderInput={(props) => <CssTextField fullWidth size="small" {...props}  
                      sx={{
-
                         svg: { color: "#f36f21" },
-                        
-                        
-
                       }} />}
                     inputFormat="dd/MM/yyyy hh:mm a"
                     label="DUE"

@@ -18,11 +18,13 @@ function DeadlinePage () {
 
 const navigate = useNavigate()
 
-useEffect(() => {
-  if(!LoginData){
-    Navigate("/login")
-  }
-}, [LoginData]);
+  // if not logindata changeroute to login page
+  useEffect(() => {
+    if ( !LoginData) {
+      navigate("/login");
+   }
+  }, [LoginData,  navigate]);
+
 
     return (
         <div>
