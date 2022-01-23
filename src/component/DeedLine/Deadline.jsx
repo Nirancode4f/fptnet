@@ -42,45 +42,52 @@ export default function Newfeed() {
       : null
   );
 
+
 const [Loading, setLoading] = useState(false);
-const [isMouted, setisMouted] = useState(false)
+const [isMouted, setisMouted] = useState(true)
 const [DeadlineList, setDeadlineList] = useState([]);
 
-  const navigate = useNavigate();
-  const [DateValue, setDateValue] = useState(Date());
+const navigate = useNavigate();
+const [DateValue, setDateValue] = useState(Date());
 
+ const [time, setTime] = useState(0);
 
+function GetDeadline(){
 
+  try{
+      AxiosMain.post("/api/deadline/get",{
+          "userId": `${LoginData.user._id}`,
+         }
+       )
+       .then((res) => {
+         setLoading(false)
+         // after unmount component but asynchronous task still run, drop it.
+         if (isMouted) {
+              setDeadlineList(res.deadlines)
+              console.log(res)
+         }
+       })
+     setLoading(true)
+     
 
+  }catch(error){console.log(error)}
 
+}
 
 
 
 
 //   Call api 
   useEffect(() => {
-    setisMouted(true)
-    try{
-        AxiosMain.post("/api/deadline/get",{
-            "userId": `${LoginData.user._id}`,
-           }
-         )
-         .then((res) => {
-           setLoading(false)
-           // after unmount component but asynchronous task still run, drop it.
-           if (isMouted) {
-             console.log(res)
-           }
-         })
-       setLoading(true)
-       
+    GetDeadline()
+    const timer = setInterval(() => setTime((t) =>  GetDeadline()), 5000);
+   
 
-    }catch(error){console.log(error)}
-  
     return () => {
       setisMouted(false)
+      clearInterval(timer);
     };
-  }, [LoginData.user._id, isMouted]);
+  }, []);
   
 
 
@@ -89,12 +96,6 @@ const [DeadlineList, setDeadlineList] = useState([]);
 
 
 
-
-
-
-
-
-  
 
 
   // if not logindata changeroute to login page
@@ -103,7 +104,6 @@ const [DeadlineList, setDeadlineList] = useState([]);
       navigate("/login");
    }
   }, [LoginData,  navigate]);
-
 
 
 
@@ -124,7 +124,7 @@ const [DeadlineList, setDeadlineList] = useState([]);
             </div>
             <div className="student-info">
               <div className="student-info-quanlity-deadline">
-                Unfinished: <p>20</p>
+                Unfinished: <p>{DeadlineList.length}</p>
               </div>
               <div className="student-quick-add-deadline">
                 <TextField
@@ -155,9 +155,12 @@ const [DeadlineList, setDeadlineList] = useState([]);
                 <LocalizationProvider dateAdapter={AdapterDateFns}>
                   <MobileDateTimePicker
                     renderInput={(props) => <CssTextField fullWidth size="small" {...props}  
-                     sx={{
+                     sx=
+                     {{
                         svg: { color: "#f36f21" },
-                      }} />}
+                        
+                      }}
+                    />}
                     inputFormat="dd/MM/yyyy hh:mm a"
                     label="DUE"
                     value={DateValue}

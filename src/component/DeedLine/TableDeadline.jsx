@@ -16,7 +16,12 @@ import DeadlineTag from './DeadlineTag';
 
 
 
+
 export default function TableDeadline() {
+
+
+
+
   return (
     <div className='Content-deadline'>
     
@@ -29,8 +34,8 @@ export default function TableDeadline() {
       </div>
 
        {/* mỗi Job 1 row */}
-       
-      <DeadlineTag/>
+
+      <DeadlineTag  />
 
 
   </div>
