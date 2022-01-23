@@ -45,6 +45,7 @@
     "react-router-dom": "^6.2.1",
     "react-scripts": "^5.0.0",
     "react-scroll": "^1.8.4",
+    "redux": "^4.1.2",
     "sfcookies": "^1.0.2",
     "universal-cookie": "^4.0.4",
     "uuid": "^8.3.2",
