@@ -79,7 +79,7 @@ const navigate = useNavigate()
 
 
                                         }}
-                                        src={ LoginData.user.picture ? LoginData.user.picture : error}
+                                        src={ LoginData.user ? LoginData.user.picture : error}
                                         alt="avatar"
                                     />
                                     <CssTextField

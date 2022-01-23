@@ -11,6 +11,7 @@ import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import MobileDateTimePicker from '@mui/lab/MobileDateTimePicker';
 import { useNavigate } from "react-router-dom";
 import AxiosMain from "../../API/AxiosMain";
+import { useSelector } from "react-redux";
 
 const CssTextField = styled(TextField)({
   "& label.Mui-focused": {
@@ -41,19 +42,27 @@ export default function Newfeed() {
       ? JSON.parse(localStorage.getItem("loginData"))
       : null
   );
-
+const navigate = useNavigate();
+const deadlineList = useSelector(state => state.deadline.list)
 
 const [Loading, setLoading] = useState(false);
 const [isMouted, setisMouted] = useState(true)
 const [DeadlineList, setDeadlineList] = useState([]);
 
-const navigate = useNavigate();
+
 const [DateValue, setDateValue] = useState(Date());
 
- const [time, setTime] = useState(0);
+const [time, setTime] = useState(0);
 
+
+
+
+
+
+
+
+// eslint-disable-next-line react-hooks/exhaustive-deps
 function GetDeadline(){
-
   try{
       AxiosMain.post("/api/deadline/get",{
           "userId": `${LoginData.user._id}`,
@@ -80,20 +89,14 @@ function GetDeadline(){
 //   Call api 
   useEffect(() => {
     GetDeadline()
-    const timer = setInterval(() => setTime((t) =>  GetDeadline()), 5000);
-   
-
+    const timer = setInterval(() =>   GetDeadline(), 5000);
+    console.log(time)
     return () => {
       setisMouted(false)
       clearInterval(timer);
     };
   }, []);
   
-
-
-
-
-
 
 
 

@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import Avatar from '@mui/material/Avatar';
 import { Link, useNavigate } from "react-router-dom";
 import avata from "./assets/avata-user.png";
@@ -9,7 +9,14 @@ import { bake_cookie, read_cookie, delete_cookie } from "sfcookies";
 
 
 function Header(props) {
-  const pic = JSON.parse(localStorage.getItem("loginData"));
+
+  const [LoginData, setLoginData] = useState(
+    localStorage.getItem("loginData")
+        ? JSON.parse(localStorage.getItem("loginData"))
+        : null
+);
+
+  const pic = LoginData.user ? LoginData.user.picture : "https://upload.wikimedia.org/wikipedia/commons/c/c7/No_Pic.jpg" ;
   const avata = "https://upload.wikimedia.org/wikipedia/commons/c/c7/No_Pic.jpg"
   const navigate = useNavigate();
 
@@ -58,11 +65,11 @@ function Header(props) {
         <div className="header__member-user">
         <a href="#">
 
-            <Avatar src={pic.user.picture ? pic.user.picture : avata } alt="" />
+            <Avatar src={pic ? pic : avata } alt="" />
           </a>
           <div className="user-menu">
             <div className="avatar-user-in-menu">
-              <img className="user-in-menu-img" src={pic.user.picture ? pic.user.picture : avata} /> </div>
+              <img className="user-in-menu-img" src={pic ? pic : avata} /> </div>
             <div onClick={handleProfile}  className="link-to-user-profile">Trang Cá Nhân</div>
             <div className="link-to-user-setting">Cài Đặt</div>
             <div className="log-out-btn">
