@@ -139,11 +139,15 @@ max-width: 30%;
 }
 
 .description-col {
-width: 50%;
-max-width: 50%;
+width: 35%;
+max-width: 35%;
 }
 
-.date-col {
+.date-col-receive {
+    width: 15%;
+    max-width: 15%;
+}
+.date-col-return {
     width: 15%;
     max-width: 15%;
 }
