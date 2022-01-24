@@ -20,11 +20,15 @@ function DeadlineTag(props) {
     <div className="row-deadline ">
       <div className="name-col">
         {" "}
-          <div> Ch có deadline để test</div>
+          <div> </div>
       </div>
       <div className="description-col">
-       <div> Ch có deadline để test</div>
+          <div> </div>
       </div>
+       <div className="form-col">
+         <div> ad</div>
+       </div>
+
       <div className="date-col-receive">
         {" "}
         <Chip
