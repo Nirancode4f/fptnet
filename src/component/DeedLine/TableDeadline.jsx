@@ -53,7 +53,9 @@ return () => {
       <div className="row-deadline-header ">
           <div className="name-col title-table">Name </div>
           <div className="description-col title-table">Description</div>
-          <div className="date-col title-table">Date</div>
+          <div className="form-col title-table">From</div>
+          <div className="date-col-receive title-table">Date Receive </div>
+          <div className="date-col-return title-table">Date Return</div>
           <div className="edit-col title-table "></div>
       </div>
 
