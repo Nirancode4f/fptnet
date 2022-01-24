@@ -31,6 +31,7 @@ function CmtBox(props) {
 
 
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleRemove = async (data) => {
 
     try {

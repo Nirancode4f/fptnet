@@ -30,7 +30,7 @@ const navigate = useNavigate()
         <div>
         {LoginData ? <MainLayout /> : <></>}
             <Deadline/>
-            <TableDeadline/>
+            
         </div>
     )
 }

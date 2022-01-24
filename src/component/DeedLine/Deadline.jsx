@@ -8,10 +8,11 @@ import { styled } from "@mui/system";
 import DateTimePicker from "@mui/lab/DateTimePicker";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
-import MobileDateTimePicker from '@mui/lab/MobileDateTimePicker';
+import MobileDateTimePicker from "@mui/lab/MobileDateTimePicker";
 import { useNavigate } from "react-router-dom";
 import AxiosMain from "../../API/AxiosMain";
 import { useSelector } from "react-redux";
+import TableDeadline from "./TableDeadline";
 
 const CssTextField = styled(TextField)({
   "& label.Mui-focused": {
@@ -31,10 +32,7 @@ const CssTextField = styled(TextField)({
       borderColor: "#f36f21",
     },
   },
-  
 });
-
-
 
 export default function Newfeed() {
   const [LoginData, setLoginData] = useState(
@@ -42,76 +40,52 @@ export default function Newfeed() {
       ? JSON.parse(localStorage.getItem("loginData"))
       : null
   );
-const navigate = useNavigate();
-const deadlineList = useSelector(state => state.deadline.list)
+  const navigate = useNavigate();
+  const deadlineList = useSelector((state) => state.deadline.list);
 
-const [Loading, setLoading] = useState(false);
-const [isMouted, setisMouted] = useState(true)
-const [DeadlineList, setDeadlineList] = useState([]);
+  const [Loading, setLoading] = useState(false);
+  const [isMouted, setisMouted] = useState(true);
+  const [DeadlineList, setDeadlineList] = useState([]);
 
+  const [DateValue, setDateValue] = useState(Date());
 
-const [DateValue, setDateValue] = useState(Date());
+  const [time, setTime] = useState(0);
 
-const [time, setTime] = useState(0);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  function GetDeadline() {
+    try {
+      AxiosMain.post("/api/deadline/get", {
+        userId: `${LoginData.user._id}`,
+      }).then((res) => {
+        setLoading(false);
+        // after unmount component but asynchronous task still run, drop it.
+        if (isMouted) {
+          setDeadlineList(res.deadlines);
+        }
+      });
+      setLoading(true);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
-
-
-
-
-
-
-
-// eslint-disable-next-line react-hooks/exhaustive-deps
-function GetDeadline(){
-  try{
-      AxiosMain.post("/api/deadline/get",{
-          "userId": `${LoginData.user._id}`,
-         }
-       )
-       .then((res) => {
-         setLoading(false)
-         // after unmount component but asynchronous task still run, drop it.
-         if (isMouted) {
-              setDeadlineList(res.deadlines)
-              console.log(res)
-         }
-       })
-     setLoading(true)
-     
-
-  }catch(error){console.log(error)}
-
-}
-
-
-
-
-//   Call api 
+  //   Call api
   useEffect(() => {
-    GetDeadline()
-    const timer = setInterval(() =>   GetDeadline(), 5000);
-    console.log(time)
+    GetDeadline();
+    const timer = setInterval(() => GetDeadline(), 5000);
+    console.log(time);
     return () => {
-      setisMouted(false)
+      setisMouted(false);
       clearInterval(timer);
     };
   }, []);
-  
-
-
-
 
   // if not logindata changeroute to login page
   useEffect(() => {
-    if ( !LoginData) {
+    if (!LoginData) {
       navigate("/login");
-   }
-  }, [LoginData,  navigate]);
-
-
-
-
-
+    }
+  }, [LoginData, navigate]);
 
   return (
     <div className="Deadline-container">
@@ -122,8 +96,7 @@ function GetDeadline(){
 
           <div className="student">
             <div className="student-info-number">
-              
-              <p>MSSV: { LoginData.user.mssv ? LoginData.user.mssv : ""}</p>
+              <p>MSSV: {LoginData.user.mssv ? LoginData.user.mssv : ""}</p>
             </div>
             <div className="student-info">
               <div className="student-info-quanlity-deadline">
@@ -157,13 +130,16 @@ function GetDeadline(){
 
                 <LocalizationProvider dateAdapter={AdapterDateFns}>
                   <MobileDateTimePicker
-                    renderInput={(props) => <CssTextField fullWidth size="small" {...props}  
-                     sx=
-                     {{
-                        svg: { color: "#f36f21" },
-                        
-                      }}
-                    />}
+                    renderInput={(props) => (
+                      <CssTextField
+                        fullWidth
+                        size="small"
+                        {...props}
+                        sx={{
+                          svg: { color: "#f36f21" },
+                        }}
+                      />
+                    )}
                     inputFormat="dd/MM/yyyy hh:mm a"
                     label="DUE"
                     value={DateValue}
@@ -185,6 +161,7 @@ function GetDeadline(){
         </div>
         {/* end student info  */}
       </div>
+      <TableDeadline Deadlinelist={DeadlineList} />
     </div>
   );
 }

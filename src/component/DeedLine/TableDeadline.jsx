@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./assets/Deadline.css"
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -17,7 +17,25 @@ import DeadlineTag from './DeadlineTag';
 
 
 
-export default function TableDeadline() {
+export default function TableDeadline(props) {
+
+
+
+
+const {Deadlinelist} = props
+
+const [Ismount, setIsmount] = useState(false);
+
+
+
+useEffect(() => {
+  
+  console.log(`something`,Deadlinelist)
+
+return () => {
+    ;
+  };
+}, [Deadlinelist]);
 
 
 
