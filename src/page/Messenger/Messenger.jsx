@@ -12,6 +12,7 @@ const URL_MAIN =
 
 export default function Messenger() {
   const [currentItem, setCurrentItem] = useState({});
+  const [currentConvsId, setCurrentConvsId] = useState("");
 
   const userId = JSON.parse(localStorage.getItem("loginData")).user._id;
 
@@ -25,6 +26,10 @@ export default function Messenger() {
   // const calBlocks = (totalMess) => {
   //   return (totalMess - (totalMess % 20)) / 20 + !!(totalMess % 20);
   // };
+  const handleConvsIdChange = (convsId) => {
+    setCurrentConvsId(convsId);
+    console.log(convsId);
+  };
 
   return (
     <>
@@ -37,7 +42,12 @@ export default function Messenger() {
 
           {/* chatbox */}
 
-          <ChatBoxContainer currentItem={currentItem} userId={userId} />
+          <ChatBoxContainer
+            currentItem={currentItem}
+            userId={userId}
+            onConvsChange={handleConvsIdChange}
+            conversationId={currentConvsId}
+          />
         </div>
       </div>
     </>

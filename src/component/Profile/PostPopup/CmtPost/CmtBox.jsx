@@ -31,6 +31,7 @@ function CmtBox(props) {
 
 
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleRemove = async (data) => {
 
     try {
@@ -94,7 +95,7 @@ function CmtBox(props) {
       setisunmound(false)
     }
 
-  }, []);
+  },[]);
 
 
   useEffect(() => {
@@ -111,7 +112,7 @@ function CmtBox(props) {
     ReactDOM.render(e, document.getElementById("cmt_ele"))
 
     return
-  })
+  }, [Usercmt, postData.totalcmt, handleRemove])
 
 
 

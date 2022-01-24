@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./assets/Deadline.css"
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -11,14 +11,41 @@ import { Chip } from '@mui/material';
 import { Icon } from '@mui/material';
 import { Menu } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import DeadlineTag from './DeadlineTag';
+import { propTypes } from 'react-bootstrap/esm/Image';
 
-function createData(deadlineName, description, date, status, note) {
-  return { deadlineName, description, date, status, note };
+import PropTypes from "prop-types"
+
+
+
+TableDeadline.prototype={
+  Deadlinelist: PropTypes.array
+}
+TableDeadline.defaultProps = {
+  Deadlinelist: []
 }
 
+export default function TableDeadline(props) {
 
 
-export default function TableDeadline() {
+const {Deadlinelist} = props
+
+const [Ismount, setIsmount] = useState(false);
+
+
+
+useEffect(() => {
+  
+  console.log(`something`,Deadlinelist)
+  
+return () => {
+    ;
+  };
+}, [Deadlinelist]);
+
+
+
+
   return (
     <div className='Content-deadline'>
     
@@ -31,111 +58,17 @@ export default function TableDeadline() {
       </div>
 
        {/* mỗi Job 1 row */}
-       
-       <div className="row-deadline ">
-          <div className="name-col">       <Chip style={{fontweight:600}} label="Deadline 1" color="primary" variant='outlined' /></div>
-          <div className="description-col"><Chip style={{fontweight:600}} label="Nothing Nothing Nothing Nothing Nothing Nothing Nothing Nothing " color="primary" variant='outlined'/></div>
-          <div className="date-col">       <Chip style={{fontweight:600}} label="20/11/2022" color="error" variant='filled'/> </div>
-      <div className="edit-col"> <span className='edit-deadline-btn'> <i class="fas fa-bars"> </i> </span></div>
-      </div>
 
-      <div className="row-deadline ">
-          <div className="name-col">       <Chip style={{fontweight:600}} label="Deadline 1" color="primary" variant='outlined' /></div>
-          <div className="description-col"><Chip style={{fontweight:600}} label="Nothing Nothing Nothing Nothing Nothing Nothing Nothing Nothing " color="primary" variant='outlined'/></div>
-          <div className="date-col">       <Chip style={{fontweight:600}} label="20/11/2022" color="error" variant='filled'/> </div>
-      <div className="edit-col"><span className='edit-deadline-btn'> <i class="fas fa-bars"> </i> </span></div>
-      </div>
+      {
+         // eslint-disable-next-line array-callback-return
+         Deadlinelist ?
+         Deadlinelist.map(e=>(
+          <DeadlineTag key={e._id} data={e}  />
+         ))
+          : (<></>)
+  
+      }
 
-      <div className="row-deadline ">
-          <div className="name-col">       <Chip style={{fontweight:600}} label="Deadline 1" color="primary" variant='outlined' /></div>
-          <div className="description-col"><Chip style={{fontweight:600}} label="Nothing Nothing Nothing Nothing Nothing Nothing Nothing Nothing " color="primary" variant='outlined'/></div>
-          <div className="date-col">       <Chip style={{fontweight:600}} label="20/11/2022" color="error" variant='filled'/> </div>
-      <div className="edit-col"><span className='edit-deadline-btn'> <i class="fas fa-bars"> </i> </span></div>
-      </div>
-
-      <div className="row-deadline ">
-          <div className="name-col">       <Chip style={{fontweight:600}} label="Deadline 1" color="primary" variant='outlined' /></div>
-          <div className="description-col"><Chip style={{fontweight:600}} label="Nothing Nothing Nothing Nothing Nothing Nothing Nothing Nothing " color="primary" variant='outlined'/></div>
-          <div className="date-col">       <Chip style={{fontweight:600}} label="20/11/2022" color="error" variant='filled'/> </div>
-      <div className="edit-col"><span className='edit-deadline-btn'> <i class="fas fa-bars"> </i> </span></div>
-      </div>
-
-      <div className="row-deadline ">
-          <div className="name-col">       <Chip style={{fontweight:600}} label="Deadline 1" color="primary" variant='outlined' /></div>
-          <div className="description-col"><Chip style={{fontweight:600}} label="Nothing Nothing Nothing Nothing Nothing Nothing Nothing Nothing " color="primary" variant='outlined'/></div>
-          <div className="date-col">       <Chip style={{fontweight:600}} label="20/11/2022" color="warning" variant='filled'/> </div>
-      <div className="edit-col"><span className='edit-deadline-btn'> <i class="fas fa-bars"> </i> </span></div>
-      </div>
-
-      <div className="row-deadline ">
-          <div className="name-col">       <Chip style={{fontweight:600}} label="Deadline 1" color="primary" variant='outlined' /></div>
-          <div className="description-col"><Chip style={{fontweight:600}} label="Nothing Nothing Nothing Nothing Nothing Nothing Nothing Nothing " color="primary" variant='outlined'/></div>
-          <div className="date-col">       <Chip style={{fontweight:600}} label="20/11/2022" color="warning" variant='filled'/> </div>
-      <div className="edit-col"><span className='edit-deadline-btn'> <i class="fas fa-bars"> </i> </span></div>
-      </div>
-
-      <div className="row-deadline ">
-          <div className="name-col">       <Chip style={{fontweight:600}} label="Deadline 1" color="primary" variant='outlined' /></div>
-          <div className="description-col"><Chip style={{fontweight:600}} label="Nothing Nothing Nothing Nothing Nothing Nothing Nothing Nothing " color="primary" variant='outlined'/></div>
-          <div className="date-col">       <Chip style={{fontweight:600}} label="20/11/2022" color="warning" variant='filled'/> </div>
-      <div className="edit-col"><span className='edit-deadline-btn'> <i class="fas fa-bars"> </i> </span></div>
-      </div>
-
-      <div className="row-deadline ">
-          <div className="name-col">       <Chip style={{fontweight:600}} label="Deadline 1" color="primary" variant='outlined' /></div>
-          <div className="description-col"><Chip style={{fontweight:600}} label="Nothing Nothing Nothing Nothing Nothing Nothing Nothing Nothing " color="primary" variant='outlined'/></div>
-          <div className="date-col">       <Chip style={{fontweight:600}} label="20/11/2022" color="warning" variant='filled'/> </div>
-      <div className="edit-col"><span className='edit-deadline-btn'> <i class="fas fa-bars"> </i> </span></div>
-      </div>
-
-      <div className="row-deadline ">
-          <div className="name-col">       <Chip style={{fontweight:600}} label="Deadline 1" color="primary" variant='outlined' /></div>
-          <div className="description-col"><Chip style={{fontweight:600}} label="Nothing Nothing Nothing Nothing Nothing Nothing Nothing Nothing " color="primary" variant='outlined'/></div>
-          <div className="date-col">       <Chip style={{fontweight:600}} label="20/11/2022" color="success" variant='filled'/> </div>
-      <div className="edit-col"><span className='edit-deadline-btn'> <i class="fas fa-bars"> </i> </span></div>
-      </div>
-
-      <div className="row-deadline ">
-          <div className="name-col">       <Chip style={{fontweight:600}} label="Deadline 1" color="primary" variant='outlined' /></div>
-          <div className="description-col"><Chip style={{fontweight:600}} label="Nothing Nothing Nothing Nothing Nothing Nothing Nothing Nothing " color="primary" variant='outlined'/></div>
-          <div className="date-col">       <Chip style={{fontweight:600}} label="20/11/2022" color="success" variant='filled'/> </div>
-      <div className="edit-col"><span className='edit-deadline-btn'> <i class="fas fa-bars"> </i> </span></div>
-      </div>
-
-      <div className="row-deadline ">
-          <div className="name-col">       <Chip style={{fontweight:600}} label="Deadline 1" color="primary" variant='outlined' /></div>
-          <div className="description-col"><Chip style={{fontweight:600}} label="Nothing Nothing Nothing Nothing Nothing Nothing Nothing Nothing " color="primary" variant='outlined'/></div>
-          <div className="date-col">       <Chip style={{fontweight:600}} label="20/11/2022" color="success" variant='filled'/> </div>
-      <div className="edit-col"><span className='edit-deadline-btn'> <i class="fas fa-bars"> </i> </span></div>
-      </div>
-
-      <div className="row-deadline ">
-          <div className="name-col">       <Chip style={{fontweight:600}} label="Deadline 1" color="primary" variant='outlined' /></div>
-          <div className="description-col"><Chip style={{fontweight:600}} label="Nothing Nothing Nothing Nothing Nothing Nothing Nothing Nothing " color="primary" variant='outlined'/></div>
-          <div className="date-col">       <Chip style={{fontweight:600}} label="20/11/2022" color="success" variant='filled'/> </div>
-      <div className="edit-col"><span className='edit-deadline-btn'> <i class="fas fa-bars"> </i> </span></div>
-      </div>
-
-      <div className="row-deadline ">
-          <div className="name-col">       <Chip style={{fontweight:600}} label="Deadline 1" color="primary" variant='outlined' /></div>
-          <div className="description-col"><Chip style={{fontweight:600}} label="Nothing Nothing Nothing Nothing Nothing Nothing Nothing Nothing " color="primary" variant='outlined'/></div>
-          <div className="date-col">       <Chip style={{fontweight:600}} label="20/11/2022" color="success" variant='filled'/> </div>
-      <div className="edit-col"><span className='edit-deadline-btn'> <i class="fas fa-bars"> </i> </span></div>
-      </div>
-
-      <div className="row-deadline ">
-          <div className="name-col">       <Chip style={{fontweight:600}} label="Deadline 1" color="primary" variant='outlined' /></div>
-          <div className="description-col"><Chip style={{fontweight:600}} label="Nothing Nothing Nothing Nothing Nothing Nothing Nothing Nothing " color="primary" variant='outlined'/></div>
-          <div className="date-col">       <Chip style={{fontweight:600}} label="20/11/2022" color="success" variant='filled'/> </div>
-      <div className="edit-col"><span className='edit-deadline-btn'> <i class="fas fa-bars"> </i> </span></div>
-      </div>
-
-      <div className="row-deadline ">
-          <div className="name-col">       <Chip style={{fontweight:600}} label="Deadline 1" color="primary" variant='outlined' /></div>
-          <div className="description-col"><Chip style={{fontweight:600}} label="Nothing Nothing Nothing Nothing Nothing Nothing Nothing Nothing " color="primary" variant='outlined'/></div>
-          <div className="date-col">       <Chip style={{fontweight:600}} label="20/11/2022" color="success" variant='filled'/> </div>
-      <div className="edit-col"><span className='edit-deadline-btn'> <i class="fas fa-bars"> </i> </span></div>
-      </div>
 
   </div>
   </div>
