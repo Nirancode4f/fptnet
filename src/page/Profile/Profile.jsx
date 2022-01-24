@@ -223,7 +223,9 @@ export const Profile = () => {
                 <div className="Tag_action-friend-request">
                 <div className="Friend-request-header">Request</div>
                     <div className="Friend-request-container">
+                      
                       {/* mỗi request chứa trong 1 request section */}
+
                       <div className="request-section">
                         <div className="requester-info">
                         <Avatar sx={{ width: 50, height : 50}}  src="/static/images/avatar/1.jpg" />

@@ -12,14 +12,20 @@ import { Icon } from '@mui/material';
 import { Menu } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import DeadlineTag from './DeadlineTag';
+import { propTypes } from 'react-bootstrap/esm/Image';
+
+import PropTypes from "prop-types"
 
 
 
-
+TableDeadline.prototype={
+  Deadlinelist: PropTypes.array
+}
+TableDeadline.defaultProps = {
+  Deadlinelist: []
+}
 
 export default function TableDeadline(props) {
-
-
 
 
 const {Deadlinelist} = props
@@ -31,7 +37,7 @@ const [Ismount, setIsmount] = useState(false);
 useEffect(() => {
   
   console.log(`something`,Deadlinelist)
-
+  
 return () => {
     ;
   };
@@ -53,7 +59,15 @@ return () => {
 
        {/* mỗi Job 1 row */}
 
-      <DeadlineTag  />
+      {
+         // eslint-disable-next-line array-callback-return
+         Deadlinelist ?
+         Deadlinelist.map(e=>(
+          <DeadlineTag key={e._id} data={e}  />
+         ))
+          : (<></>)
+  
+      }
 
 
   </div>
