@@ -28,15 +28,16 @@ function DeadlineTag(props) {
        <div className="form-col">
          <div> ad</div>
        </div>
-
+       <div className="due-col">
       <div className="date-col-receive">
         {" "}
         <Chip
-          style={{ fontweight: 600 }}
+          style={{ fontweight: 600 , marginRight:"12px"}}
           label="20/11/2022"
           color="success"
           variant="filled"
-        />{" "}
+       
+       />{" "}
       </div>
 
       <div className="date-col-return">
@@ -48,7 +49,7 @@ function DeadlineTag(props) {
           variant="filled"
         />{" "}
       </div>
-
+      </div>
       <div className="edit-col">
         <span className="edit-deadline-btn">
           {" "}

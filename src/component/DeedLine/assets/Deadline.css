@@ -139,25 +139,27 @@ max-width: 30%;
 }
 
 .description-col {
-width: 25%;
-max-width: 25%;
+width: 33%;
+max-width: 33%;
 }
 .form-col {
-    width: 14%;
-    max-width: 14%;
+    width: 13%;
+    max-width: 13%;
 }
-
+.due-col {
+    width: 20%;;
+    max-width: 20%;
+    display: flex;
+}
 .date-col-receive {
-    width: 14%;
-    max-width: 14%;
+  
 }
 .date-col-return {
-    width: 14%;
-    max-width: 14%;
+
 }
 .edit-col {
-    width:3% ;
-    max-width: 3%;
+    width:4% ;
+    max-width: 4%;
     
 }
 
