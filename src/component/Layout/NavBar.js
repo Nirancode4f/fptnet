@@ -17,9 +17,12 @@ import ExtensionIcon from "@mui/icons-material/Extension";
 function NavBar() {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    return () => {};
-  }, []);
+
+function handleChangeRouter(route) {
+    navigate(route)
+  }
+
+
 
   return (
     <div className="nav">
@@ -28,6 +31,7 @@ function NavBar() {
       {/* connect to ༼ つ ◕_◕ ༽つ https://mui.com/components/stack/ */}
       <Stack spacing={2}>
         <Button
+        onClick={()=>handleChangeRouter("/")}
           endIcon={
             <NewspaperOutlinedIcon
               style={{
@@ -43,6 +47,7 @@ function NavBar() {
         ></Button>
 
         <Button
+          onClick={()=>handleChangeRouter("/messenger")}
           endIcon={
             <ForumIcon
               style={{
@@ -58,6 +63,7 @@ function NavBar() {
         ></Button>
 
         <Button
+          onClick={()=>handleChangeRouter("/deadline")}
           endIcon={
             <TimerIcon
               style={{
@@ -74,6 +80,7 @@ function NavBar() {
 
 
         <Button
+          onClick={()=>handleChangeRouter("/")}
           endIcon={
             <ExtensionIcon
               style={{
@@ -87,7 +94,8 @@ function NavBar() {
             />
           }
         />
-                <Button
+        <Button
+          onClick={()=>handleChangeRouter("/profile")}
           endIcon={
             <PersonIcon
               style={{
