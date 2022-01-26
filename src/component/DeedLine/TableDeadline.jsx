@@ -54,7 +54,7 @@ return () => {
           <div className="name-col title-table">Name </div>
           <div className="description-col title-table">Description</div>
           <div className="form-col title-table">From</div>
-         <div className="due-col title-table">Due</div>
+         <div className="due-col title-table">Date</div>
           <div className="edit-col title-table "></div>
       </div>
 
