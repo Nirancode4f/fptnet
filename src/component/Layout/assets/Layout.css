@@ -247,21 +247,7 @@ border-bottom-left-radius: 4px;
 
 
 }
-.nav__add{
-    width: 100%;
-}
 
-.nav__add a {
-    display: block;
-width: 100%;
-height: 48px;
-font-size: 24px;
-color: var(--blue-color);
-text-align: center;
-
-border-radius: 8px;
-line-height: 48px;
-}
 
 .nav__news{
 width: 100%;
@@ -307,9 +293,7 @@ border-radius: 8px;
 line-height: 48px;
 
 }
-.nav__add a {
-    color: var(--blue-color);
-}
+
  .nav__news a ,
  .nav__chat a ,
  .nav__deadline a ,
