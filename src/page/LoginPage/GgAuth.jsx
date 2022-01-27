@@ -75,7 +75,11 @@ function GgAuth() {
         />
       ) : (
         <LoadingButton 
-     
+        fullWidth
+        sx={{
+          height: 50,
+          color: "#f36f21"
+        }}
         loading 
         loadingIndicator="Loading..."
          variant="outlined"

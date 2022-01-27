@@ -10,6 +10,7 @@ import { Profile } from './page/Profile/Profile';
 import  DeadlinePage from "./page/DeadLine/DeadlinePage";
 
 import { useEffect, useState } from "react";
+import Extension from "@mui/icons-material/Extension";
 
 function App() {
 
@@ -29,6 +30,8 @@ function App() {
   <Route  path="/profile" element={ <Profile/> }></Route>
 
   <Route  path="/deadline" element={<DeadlinePage/>  }></Route>
+
+  <Route  path="/extension" element={<Extension/>  }></Route>
 
   <Route  path="*" element={ <NotFound/> }></Route>
   </Routes>
