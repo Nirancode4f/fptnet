@@ -27,9 +27,6 @@ useEffect(()=>{
 
 
   <BrowserRouter>
-  
-
-
 
   <Routes>
 
@@ -37,7 +34,7 @@ useEffect(()=>{
 
   <Route  path="/login" element={<Login/>}></Route>
 
-  <Route   path="/" element={ <Main/>}></Route>
+  <Route   path="/" element={ <Main/> }></Route>
  
   <Route path="/messenger" element={ <Messenger/>}></Route>
 
@@ -55,6 +52,9 @@ useEffect(()=>{
 
 export default App;
 
-function UpRoute(){
+const UpRoute = (props) => {
+
+
+
 
 }
