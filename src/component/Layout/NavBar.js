@@ -80,7 +80,7 @@ function handleChangeRouter(route) {
 
 
         <Button
-          onClick={()=>handleChangeRouter("/")}
+          onClick={()=>handleChangeRouter("/extension")}
           endIcon={
             <ExtensionIcon
               style={{

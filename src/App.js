@@ -10,7 +10,8 @@ import { Profile } from './page/Profile/Profile';
 import  DeadlinePage from "./page/DeadLine/DeadlinePage";
 
 import { useEffect, useState } from "react";
-import Extension from "@mui/icons-material/Extension";
+import Extension from "./page/Extension/Extension";
+
 
 function App() {
 

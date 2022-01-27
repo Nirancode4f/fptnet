@@ -78,12 +78,14 @@ function GgAuth() {
         fullWidth
         sx={{
           height: 50,
-          color: "#f36f21"
+          color: "#f36f21",
+          fill:"inherit"
         }}
         loading 
         loadingIndicator="Loading..."
-         variant="outlined"
-            style={{ color: "#f36f21" , fill: "#f36f21" }}
+        variant="outlined"
+        style={{ color: "#f36f21" , fill: "#f36f21" }}
+
          >
           
         </LoadingButton>
