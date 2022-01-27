@@ -1,5 +1,5 @@
 import "./App.css";
-
+import MainLayout from "./component/MainPage/MainLayout"
 import Register from "./page/RegisterPage/Register";
 import Login from "./page/LoginPage/Login";
 import Main from "./page/MainPage/Main";
@@ -14,18 +14,31 @@ import Extension from "./page/Extension/Extension";
 
 
 function App() {
+  const [CurrentRoute, setCurrentRoute] = useState("");
+
+useEffect(()=>{
+  setCurrentRoute(window.location.pathname)
+  console.log(window.location.pathname)
+},[])
 
 
   return ( 
+
+
+
   <BrowserRouter>
+  
+
+
+
   <Routes>
 
   <Route  path="/register" element={ <Register/> }></Route>
 
-  <Route  path="/login" element={<Login/> }></Route>
+  <Route  path="/login" element={<Login/>}></Route>
 
   <Route   path="/" element={ <Main/>}></Route>
-
+ 
   <Route path="/messenger" element={ <Messenger/>}></Route>
 
   <Route  path="/profile" element={ <Profile/> }></Route>
@@ -41,3 +54,7 @@ function App() {
 }
 
 export default App;
+
+function UpRoute(){
+
+}
