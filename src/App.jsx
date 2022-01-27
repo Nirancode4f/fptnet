@@ -15,18 +15,25 @@ import Extension from "./page/Extension/Extension";
 
 function App() {
   const [CurrentRoute, setCurrentRoute] = useState("");
+  const [LoginData, setLoginData] = useState(
+    localStorage.getItem("loginData")
+      ? JSON.parse(localStorage.getItem("loginData"))
+      : null
+  );
 
 useEffect(()=>{
-  setCurrentRoute(window.location.pathname)
-  console.log(window.location.pathname)
+  
+  setLoginData(localStorage.getItem("loginData")
+  ? JSON.parse(localStorage.getItem("loginData"))
+  : null)
+
 },[])
 
 
   return ( 
 
-
-
   <BrowserRouter>
+  { LoginData && <MainLayout/>}
 
   <Routes>
 

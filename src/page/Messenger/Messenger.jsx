@@ -33,7 +33,7 @@ export default function Messenger() {
 
   return (
     <>
-      <MainLayout />
+
       <div className="Messenger">
         <div className="MessengerContainer">
           {/* friend list */}

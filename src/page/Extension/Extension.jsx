@@ -6,7 +6,7 @@ const Extension = () => {
   return (
    
     <div>
-       <MainLayout/>
+      
       <div className='Extension-main'>
          <div className="grid">
              <div className="row new-extension-box-heading">

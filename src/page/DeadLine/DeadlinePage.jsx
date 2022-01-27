@@ -27,11 +27,10 @@ const navigate = useNavigate()
 
 
     return (
-        <div>
-        {LoginData ? <MainLayout /> : <></>}
+
+    
             <Deadline/>
-            
-        </div>
+  
     )
 }
 export default DeadlinePage
