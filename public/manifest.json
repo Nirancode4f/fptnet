@@ -1,6 +1,8 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "version": "1.0.1",
+  "manifest_version": 2,
+  "short_name": "FAN",
+  "name": "FPT University Academic Network",
   "icons": [
     {
       "src": "logo_fan.png",

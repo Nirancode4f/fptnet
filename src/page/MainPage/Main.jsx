@@ -43,7 +43,6 @@ const Main = () => {
       {LoginData ? (
         (
           <>
-            <MainLayout />
             <Newfeed/>
           </>
         ) 

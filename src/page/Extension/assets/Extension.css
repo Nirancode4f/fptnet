@@ -1,0 +1,99 @@
+:root{
+    --bg-color: #f36f21;
+    --text-color:#fff;
+    --blue-color:#82c5e2;
+    --fade-color:#908c8c;
+    --header-height: 64px;
+    --nav-width: 60px;
+}
+
+
+.Content {
+    position: absolute;
+    right:0;
+    left: var(--nav-width);
+    top: var(--header-height);
+    max-width: calc(100% - var(--nav-width));
+    background-color: #dadde1;
+    position: relative;
+    padding-bottom: 10px;
+    
+    
+}
+.Extension-main {
+    margin: 0 auto;
+    max-width: 960px;
+    margin-top: calc( var(--header-height) + 20px );
+}
+
+.grid {
+   width: 100%;
+}
+
+.row {
+    margin: 10px -6px;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;justify-content: space-between;
+}
+
+.col {
+    padding: 0 6px;
+}
+
+.col-6 {
+    max-width: 20%;
+    width: 18.7%;
+}
+.new-extension-box-title {
+    font-size: 26px;
+    color: var(--bg-color);
+    font-weight: bold;
+ justify-content: space-between;
+ padding-left: 12px;
+}
+
+.recommend-extension-box-title {
+    font-size: 26px;
+    color: var(--bg-color);
+    font-weight: bold;
+    justify-content: space-between;
+    padding-left: 12px;
+}
+
+.extension-img  {
+    width: 100%;
+    border: 2px solid #333;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.extension-img img {
+}
+
+
+.extension-name {
+    margin-top: 8px;
+    font-weight: bold;
+}
+.extension-author {
+    margin-bottom: 10px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.extension-install-btn {
+    text-align: right;
+padding-bottom: 5px;
+}
+
+.extension-item {
+    border: 2px solid #333;
+    padding: 4px;
+    border-radius: 12px;
+}
+
+.extension-item:hover {
+   cursor: pointer;
+}

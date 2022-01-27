@@ -110,8 +110,9 @@ export const Profile = () => {
   
 
   return (
+
+
     <div>
-      {LoginData ? <MainLayout /> : <></>}
       <div className="Content">
         <div className="Profile">
           <div className="Profile_header">Profile</div>

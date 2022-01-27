@@ -18,7 +18,7 @@
   padding: 10px 10px 10px 10px;
   position: fixed;
   z-index: 10;
-  max-height: 635px;
+  min-height: 100vh;
   top: calc(var(--header-height) + 7px);
   left: calc(var(--nav-bar-width) + 1px);
   overflow-y: auto;

@@ -8,18 +8,21 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import SendIcon from "@mui/icons-material/Send";
 import NewspaperOutlinedIcon from "@mui/icons-material/NewspaperOutlined";
-import BuildIcon from '@mui/icons-material/Build'
-import TimerIcon from '@mui/icons-material/Timer';
-import PersonIcon from '@mui/icons-material/Person';
-import ForumIcon from '@mui/icons-material/Forum';
-import ExtensionIcon from '@mui/icons-material/Extension';
+import BuildIcon from "@mui/icons-material/Build";
+import TimerIcon from "@mui/icons-material/Timer";
+import PersonIcon from "@mui/icons-material/Person";
+import ForumIcon from "@mui/icons-material/Forum";
+import ExtensionIcon from "@mui/icons-material/Extension";
 
 function NavBar() {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    return () => {};
-  }, []);
+
+function handleChangeRouter(route) {
+    navigate(route)
+  }
+
+
 
   return (
     <div className="nav">
@@ -27,13 +30,93 @@ function NavBar() {
 
       {/* connect to ༼ つ ◕_◕ ༽つ https://mui.com/components/stack/ */}
       <Stack spacing={2}>
-        <Button endIcon={<NewspaperOutlinedIcon style={{ color: "#fff" , fontSize:"30px", display:"block" , width:"100%", margin:"0 auto"  , transform:"translateX(-5px)"}} />}></Button>
-        <Button endIcon={<ForumIcon style={{ color: "#fff" , fontSize:"30px", display:"block" , width:"100%", margin:"0 auto"  , transform:"translateX(-5px)"}} />}></Button>
-        <Button endIcon={<TimerIcon style={{ color: "#fff" , fontSize:"30px", display:"block" , width:"100%", margin:"0 auto"  , transform:"translateX(-5px)"}} />}></Button>
-        <Button endIcon={<PersonIcon style={{ color: "#fff" , fontSize:"30px", display:"block" , width:"100%", margin:"0 auto" , transform:"translateX(-5px)" }} />}></Button>
-        <Button endIcon={<ExtensionIcon style={{ color: "#fff", fontSize:"30px", display:"block" , width:"100%", margin:"0 auto" , transform:"translateX(-5px)"}} />} />
-      </Stack>
+        <Button 
+        onClick={()=>handleChangeRouter("/")}
+          endIcon={
+            <NewspaperOutlinedIcon
+              style={{
+                color: "#fff",
+                padding:"0",
+                fontSize: "30px",
+                display: "block",
+                width: "100%",
+                margin: "0 auto",
+                transform: "translateX(-5px)",
+              }}
+            />
+          }
+        ></Button>
 
+        <Button
+          onClick={()=>handleChangeRouter("/messenger")}
+          endIcon={
+            <ForumIcon
+              style={{
+                color: "#fff",
+                padding:"0",
+                fontSize: "30px",
+                display: "block",
+                width: "100%",
+                margin: "0 auto",
+                transform: "translateX(-5px)",
+              }}
+            />
+          }
+        ></Button>
+
+        <Button
+          onClick={()=>handleChangeRouter("/deadline")}
+          endIcon={
+            <TimerIcon
+              style={{
+                color: "#fff",
+                padding:"0",
+                fontSize: "30px",
+                display: "block",
+                width: "100%",
+                margin: "0 auto",
+                transform: "translateX(-5px)",
+              }}
+            />
+          }
+        ></Button>
+
+
+        <Button
+          onClick={()=>handleChangeRouter("/extension")}
+          endIcon={
+            <ExtensionIcon
+              style={{
+                color: "#fff",
+                padding:"0",
+                fontSize: "30px",
+                display: "block",
+                width: "100%",
+                margin: "0 auto",
+                transform: "translateX(-5px)",
+              }}
+            />
+          }
+        />
+        <Button
+          onClick={()=>handleChangeRouter("/profile")}
+          endIcon={
+            <PersonIcon
+              style={{
+                color: "#fff",
+                padding:"0",
+                fontSize: "30px",
+                display: "block",
+                width: "100%",
+                margin: "0 auto",
+                transform: "translateX(-5px)",
+              }}
+            />
+          }
+        ></Button>
+
+
+      </Stack>
     </div>
   );
 }

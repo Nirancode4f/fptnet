@@ -60,7 +60,9 @@ export default function Newfeed() {
         setLoading(false);
         // after unmount component but asynchronous task still run, drop it.
         if (isMouted) {
-          setDeadlineList(res.deadlines);
+          if (res.deadlines.length !== 0)
+          {setDeadlineList(res.deadlines);}
+          
         }
       });
       setLoading(true);
