@@ -25,9 +25,12 @@ const Extension = () => {
                         <div className="extension-rating"> 
                         <Rating name="read-only" size='small' value={4} readOnly />
                         </div>
+                        <div className="extension-author">
+                            By KhangNGuyen
+                        </div>
 
-                        <div className="extension-install-btn">
-                        <Button size='small' color='success' variant="contained">Install</Button>
+                        <div className="extension-description">
+                               Something which is description                               Something which is description
                         </div>
                     </div>
                     </div>
@@ -41,9 +44,12 @@ const Extension = () => {
                         <div className="extension-rating"> 
                         <Rating name="read-only" size='small' value={4} readOnly />
                         </div>
+                        <div className="extension-author">
+                            By KhangNGuyen
+                        </div>
 
-                        <div className="extension-install-btn">
-                        <Button size='small' color='success' variant="contained">Install</Button>
+                        <div className="extension-description">
+                               Something which is description                               Something which is description
                         </div>
                     </div>
                     </div>
@@ -57,9 +63,12 @@ const Extension = () => {
                         <div className="extension-rating"> 
                         <Rating name="read-only" size='small' value={4} readOnly />
                         </div>
+                        <div className="extension-author">
+                            By KhangNGuyen
+                        </div>
 
-                        <div className="extension-install-btn">
-                        <Button size='small' color='success' variant="contained">Install</Button>
+                        <div className="extension-description">
+                               Something which is description                               Something which is description
                         </div>
                     </div>
                     </div>
@@ -73,9 +82,12 @@ const Extension = () => {
                         <div className="extension-rating"> 
                         <Rating name="read-only" size='small' value={4} readOnly />
                         </div>
+                        <div className="extension-author">
+                            By KhangNGuyen
+                        </div>
 
-                        <div className="extension-install-btn">
-                        <Button size='small' color='success' variant="contained">Install</Button>
+                        <div className="extension-description">
+                               Something which is description                               Something which is description
                         </div>
                     </div>
                     </div>
@@ -87,9 +99,12 @@ const Extension = () => {
                         <div className="extension-rating"> 
                         <Rating name="read-only" size='small' value={4} readOnly />
                         </div>
+                        <div className="extension-author">
+                            By KhangNGuyen
+                        </div>
 
-                        <div className="extension-install-btn">
-                        <Button size='small' color='success' variant="contained">Install</Button>
+                        <div className="extension-description">
+                               Something which is description                               Something which is description
                         </div>
                     </div>
                     </div>
@@ -115,9 +130,12 @@ const Extension = () => {
                         <div className="extension-rating"> 
                         <Rating name="read-only" size='small' value={4} readOnly />
                         </div>
+                        <div className="extension-author">
+                            By KhangNGuyen
+                        </div>
 
-                        <div className="extension-install-btn">
-                        <Button size='small' color='success' variant="contained">Install</Button>
+                        <div className="extension-description">
+                               Something which is description                               Something which is description
                         </div>
                     </div>
                     </div>
@@ -131,9 +149,12 @@ const Extension = () => {
                         <div className="extension-rating"> 
                         <Rating name="read-only" size='small' value={4} readOnly />
                         </div>
+                        <div className="extension-author">
+                            By KhangNGuyen
+                        </div>
 
-                        <div className="extension-install-btn">
-                        <Button size='small' color='success' variant="contained">Install</Button>
+                        <div className="extension-description">
+                               Something which is description                               Something which is description
                         </div>
                     </div>
                     </div>
@@ -147,9 +168,12 @@ const Extension = () => {
                         <div className="extension-rating"> 
                         <Rating name="read-only" size='small' value={4} readOnly />
                         </div>
+                        <div className="extension-author">
+                            By KhangNGuyen
+                        </div>
 
-                        <div className="extension-install-btn">
-                        <Button size='small' color='success' variant="contained">Install</Button>
+                        <div className="extension-description">
+                               Something which is description                               Something which is description
                         </div>
                     </div>
                     </div>
@@ -163,9 +187,12 @@ const Extension = () => {
                         <div className="extension-rating"> 
                         <Rating name="read-only" size='small' value={4} readOnly />
                         </div>
+                        <div className="extension-author">
+                            By KhangNGuyen
+                        </div>
 
-                        <div className="extension-install-btn">
-                        <Button size='small' color='success' variant="contained">Install</Button>
+                        <div className="extension-description">
+                               Something which is description                               Something which is description
                         </div>
                     </div>
                     </div>
@@ -177,9 +204,12 @@ const Extension = () => {
                         <div className="extension-rating"> 
                         <Rating name="read-only" size='small' value={4} readOnly />
                         </div>
+                        <div className="extension-author">
+                            By KhangNGuyen
+                        </div>
 
-                        <div className="extension-install-btn">
-                        <Button size='small' color='success' variant="contained">Install</Button>
+                        <div className="extension-description">
+                               Something which is description                               Something which is description
                         </div>
                     </div>
                     </div>
