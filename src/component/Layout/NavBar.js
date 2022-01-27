@@ -29,8 +29,8 @@ function handleChangeRouter(route) {
       <img src={logo} alt="" className="header__logo" />
 
       {/* connect to ༼ つ ◕_◕ ༽つ https://mui.com/components/stack/ */}
-      <Stack spacing={2}>
-        <Button 
+      <Stack spacing={0} style={{marginTop:"5px"}}>
+        <Button size="large" style={{padding : "20px 0"}} 
         onClick={()=>handleChangeRouter("/")}
           endIcon={
             <NewspaperOutlinedIcon
@@ -47,7 +47,7 @@ function handleChangeRouter(route) {
           }
         ></Button>
 
-        <Button
+        <Button size="large" style={{padding : "20px 0"}}
           onClick={()=>handleChangeRouter("/messenger")}
           endIcon={
             <ForumIcon
@@ -64,7 +64,7 @@ function handleChangeRouter(route) {
           }
         ></Button>
 
-        <Button
+        <Button size="large" style={{padding : "20px 0"}}
           onClick={()=>handleChangeRouter("/deadline")}
           endIcon={
             <TimerIcon
@@ -82,7 +82,7 @@ function handleChangeRouter(route) {
         ></Button>
 
 
-        <Button
+        <Button size="large" style={{padding : "20px 0"}}
           onClick={()=>handleChangeRouter("/extension")}
           endIcon={
             <ExtensionIcon
@@ -98,7 +98,7 @@ function handleChangeRouter(route) {
             />
           }
         />
-        <Button
+        <Button size="large" style={{padding : "20px 0"}}
           onClick={()=>handleChangeRouter("/profile")}
           endIcon={
             <PersonIcon
