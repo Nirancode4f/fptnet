@@ -221,6 +221,7 @@ export const Profile = () => {
           <TabPanel value="3">
         <div className="Tag_action">
              <div className="Tag_action-friend">
+             <div className="Tag_action-friend-request-and-quanlity">
                 <div className="Tag_action-friend-request">
                 <div className="Friend-request-header">Request</div>
                     <div className="Friend-request-container">
@@ -268,7 +269,41 @@ export const Profile = () => {
                     </div>
                 </div>
 
+              <div className="Tag_action-friend-list">
+                <div className="Tag_action-friend-list-header">
+                  Friends <span>(2 Friends)</span>
+                </div>
+                <div className="Tag_action-friends">
+                  {/* mỗi friend 1 section */}
+                  <div className="friend-section">
+                        <div className="friend-info">
+                        <Avatar sx={{ width: 50, height : 50}}  src="/static/images/avatar/1.jpg" />
+                            <div className="friend-info-name">
+                              Friend name
+                            </div>
+                        </div>
+                 </div>      {/* mỗi friend 1 section */}
+                <div className="friend-section">
+                        <div className="friend-info">
+                        <Avatar sx={{ width: 50, height : 50}}  src="/static/images/avatar/1.jpg" />
+                            <div className="friend-info-name">
+                              Friend name
+                            </div>
+                        </div>
+                 </div>      {/* mỗi friend 1 section */}
+                <div className="friend-section">
+                        <div className="friend-info">
+                        <Avatar sx={{ width: 50, height : 50}}  src="/static/images/avatar/1.jpg" />
+                            <div className="friend-info-name">
+                              Friend name
+                            </div>
+                        </div>
+                 </div>
 
+                </div>
+              </div>
+
+              </div>
                <div className="Tag_action-friend-content">
 "Để Trống"
                </div>

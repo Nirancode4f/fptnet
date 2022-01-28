@@ -105,7 +105,7 @@ form .login_type_field {
   background-color: greenyellow;
   color: #000;
   transition: 0.5s;
-  transform: scale(1.05);
+  transform: scale(1.005);
   cursor: pointer;
 }
 
@@ -165,7 +165,7 @@ form .login_type_field {
   line-height: 50px;
 }
 .gglogin_button:hover {
-  transform: scale(1.05);
+  transform: scale(1.005);
   transition: 0.5s;
   cursor: pointer;
 }

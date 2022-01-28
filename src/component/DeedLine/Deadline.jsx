@@ -141,7 +141,7 @@ export default function Newfeed() {
                           svg: { color: "#f36f21" },
                         }}
                         style={{
-                          marginTop:"15px"
+                          marginTop:"15px" ,color: "#f36f21"
                         }}
                       />
                     )}
@@ -151,6 +151,7 @@ export default function Newfeed() {
                     minDate={new Date()}
                     onChange={(newValue) => {
                       setDateValue(newValue);
+                      
                     }}
                   />
                 </LocalizationProvider>

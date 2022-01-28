@@ -545,10 +545,13 @@
   display: flex
 }
 .Tag_action-friend-request{
-width: 30%;
-border-right: 1px solid var(--bg-color);
 }
-
+.Tag_action-friend-request-and-quanlity {
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--bg-color);
+    padding-right: 10px;
+}
 .Tag_action-friend-content {
 width: 70%;
 }
@@ -558,7 +561,16 @@ width: 70%;
     font-weight: 600;
     color: var(--bg-color);
 }
-
+.Tag_action-friend-list-header {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--bg-color);
+}
+.Tag_action-friend-list-header span {
+    font-size: 20px;
+    font-weight: 500;
+    color: #333;
+}
 .request-section {
     margin: 10px 0;
 }
@@ -566,7 +578,17 @@ width: 70%;
 .requester-info {
     display: flex;
 }
+.friend-section {
+    margin-bottom: 10px;
+}
+.friend-info {
+    display: flex;
+}
+.friend-info-name {
+    margin-left: 10px; font-weight: 600;
+    line-height: 50px;
 
+}
 .requester-info-name-and-btn {
     margin-left: 10px;
 }
