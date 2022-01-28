@@ -15,6 +15,7 @@ import Extension from "./page/Extension/Extension";
 
 function App() {
   const [CurrentRoute, setCurrentRoute] = useState("");
+
   const [LoginData, setLoginData] = useState(
     localStorage.getItem("loginData")
       ? JSON.parse(localStorage.getItem("loginData"))
@@ -22,10 +23,14 @@ function App() {
   );
 
 useEffect(()=>{
-  
-  setLoginData(localStorage.getItem("loginData")
-  ? JSON.parse(localStorage.getItem("loginData"))
-  : null)
+  const E = () =>{
+    setLoginData(localStorage.getItem("loginData")
+    ? JSON.parse(localStorage.getItem("loginData"))
+    : null)
+    
+
+  }
+  setInterval(() => E(), 500);
 
 },[])
 
