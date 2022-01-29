@@ -41,11 +41,13 @@ export default function Newfeed() {
       : null
   );
   const navigate = useNavigate();
+
   const deadlineList = useSelector((state) => state.deadline.list);
 
   const [Loading, setLoading] = useState(false);
   const [isMouted, setisMouted] = useState(true);
   const [DeadlineList, setDeadlineList] = useState([]);
+  const [cloneDeadlineList, setcloneDeadlineList] = useState(DeadlineList);
 
   const [DateValue, setDateValue] = useState(Date());
 
@@ -54,15 +56,16 @@ export default function Newfeed() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   function GetDeadline() {
     try {
-      AxiosMain.post("/api/deadline/get", {
+      AxiosMain.post("/api/deadline/getdeadlines", {
         userId: `${LoginData.user._id}`,
       }).then((res) => {
         setLoading(false);
         // after unmount component but asynchronous task still run, drop it.
         if (isMouted) {
-          if (res.deadlines.length !== 0)
-          {setDeadlineList(res.deadlines);}
-          
+          if (res.deadlines.length !== 0) {
+            setDeadlineList(res.deadlines)
+            ;
+          }
         }
       });
       setLoading(true);
@@ -71,10 +74,19 @@ export default function Newfeed() {
     }
   }
 
+  
+
   //   Call api
   useEffect(() => {
     GetDeadline();
-    const timer = setInterval(() => GetDeadline(), 5000);
+    const timer = setInterval(() => {
+      GetDeadline()
+      if (DeadlineList !== cloneDeadlineList)
+      {
+        setcloneDeadlineList(DeadlineList)
+      }
+    
+    }, 5000);
     console.log(time);
     return () => {
       setisMouted(false);
@@ -98,7 +110,10 @@ export default function Newfeed() {
 
           <div className="student">
             <div className="student-info-number">
-              <p>MSSV: {LoginData.user.mssv ? LoginData.user.mssv : ""}</p>
+              <p>
+                MSSV:{" "}
+                {LoginData.user.mssv ? LoginData.user.mssv : "Not FPTU student"}
+              </p>
             </div>
             <div className="student-info">
               <div className="student-info-quanlity-deadline">
@@ -141,7 +156,8 @@ export default function Newfeed() {
                           svg: { color: "#f36f21" },
                         }}
                         style={{
-                          marginTop:"15px" ,color: "#f36f21"
+                          marginTop: "15px",
+                          color: "#f36f21",
                         }}
                       />
                     )}
@@ -151,7 +167,6 @@ export default function Newfeed() {
                     minDate={new Date()}
                     onChange={(newValue) => {
                       setDateValue(newValue);
-                      
                     }}
                   />
                 </LocalizationProvider>
