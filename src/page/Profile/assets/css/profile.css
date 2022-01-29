@@ -542,19 +542,16 @@
 /* friend tag */
 .Tag_action-friend {
   width: 100%;
-  display: flex
 }
 .Tag_action-friend-request{
 }
 .Tag_action-friend-request-and-quanlity {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    border-right: 1px solid var(--bg-color);
     padding-right: 10px;
 }
-.Tag_action-friend-content {
-width: 70%;
-}
+
 
 .Friend-request-header {
     font-size: 24px;
@@ -567,19 +564,25 @@ width: 70%;
     color: var(--bg-color);
 }
 .Tag_action-friend-list-header span {
-    font-size: 20px;
-    font-weight: 500;
+    font-size: 14px;
+    font-weight: 600;
     color: #333;
 }
 .request-section {
     margin: 10px 0;
+    flex-basis: 33.3333%;
 }
 
 .requester-info {
     display: flex;
+    width: 100%;
+}
+.requester-info-name {
+    width: 100%;
 }
 .friend-section {
     margin-bottom: 10px;
+    flex-basis: 33.3333%;
 }
 .friend-info {
     display: flex;
@@ -587,6 +590,7 @@ width: 70%;
 .friend-info-name {
     margin-left: 10px; font-weight: 600;
     line-height: 50px;
+    width: 100%;
 
 }
 .requester-info-name-and-btn {
@@ -596,4 +600,14 @@ width: 70%;
 .requester-info-name {
     font-weight: 600;
     margin-bottom: 10px;
+}
+
+.Friend-request-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.Tag_action-friends {
+    display: flex;
+    flex-wrap: wrap;
 }

@@ -237,11 +237,48 @@ export const Profile = () => {
                             </div>
                             <div className="requester-info-btn">
                             <Button size="small" color="warning" variant="contained"> <b>Accept</b> </Button>
+                            <Button size="small" color="error"  style={{marginLeft:10}} variant="contained"> <b>Remove</b> </Button>
                             </div>
 
                           </div>
                         </div>
                       </div>
+
+      {/* mỗi request chứa trong 1 request section */}
+
+      <div className="request-section">
+                        <div className="requester-info">
+                        <Avatar sx={{ width: 50, height : 50}}  src="/static/images/avatar/1.jpg" />
+                          <div className="requester-info-name-and-btn">
+                            <div className="requester-info-name">
+                              Tên Requester
+                            </div>
+                            <div className="requester-info-btn">
+                            <Button size="small" color="warning" variant="contained"> <b>Accept</b> </Button>
+                             <Button size="small" color="error"  style={{marginLeft:10}} variant="contained"> <b>Remove</b> </Button>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                           {/* mỗi request chứa trong 1 request section */}
+
+                           <div className="request-section">
+                        <div className="requester-info">
+                        <Avatar sx={{ width: 50, height : 50}}  src="/static/images/avatar/1.jpg" />
+                          <div className="requester-info-name-and-btn">
+                            <div className="requester-info-name">
+                              Tên Requester
+                            </div>
+                            <div className="requester-info-btn">
+                            <Button size="small" color="warning" variant="contained"> <b>Accept</b> </Button>
+                             <Button size="small" color="error"  style={{marginLeft:10}} variant="contained"> <b>Remove</b> </Button>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                      
 
                                 {/* mỗi request chứa trong 1 request section */}
                                 <div className="request-section">
@@ -253,6 +290,7 @@ export const Profile = () => {
                             </div>
                             <div className="requester-info-btn">
                             <Button size="small" color="warning" variant="contained"> <b>Accept</b> </Button>
+                             <Button size="small" color="error"  style={{marginLeft:10}} variant="contained"> <b>Remove</b> </Button>
                             </div>
 
                           </div>
@@ -271,7 +309,7 @@ export const Profile = () => {
 
               <div className="Tag_action-friend-list">
                 <div className="Tag_action-friend-list-header">
-                  Friends <span>(2 Friends)</span>
+                  Friends <span>23 Friends</span>
                 </div>
                 <div className="Tag_action-friends">
                   {/* mỗi friend 1 section */}
@@ -298,15 +336,173 @@ export const Profile = () => {
                               Friend name
                             </div>
                         </div>
+                 </div>  {/* mỗi friend 1 section */}
+                <div className="friend-section">
+                        <div className="friend-info">
+                        <Avatar sx={{ width: 50, height : 50}}  src="/static/images/avatar/1.jpg" />
+                            <div className="friend-info-name">
+                              Friend name
+                            </div>
+                        </div>
+                 </div>  {/* mỗi friend 1 section */}
+                <div className="friend-section">
+                        <div className="friend-info">
+                        <Avatar sx={{ width: 50, height : 50}}  src="/static/images/avatar/1.jpg" />
+                            <div className="friend-info-name">
+                              Friend name
+                            </div>
+                        </div>
+                 </div>  {/* mỗi friend 1 section */}
+                <div className="friend-section">
+                        <div className="friend-info">
+                        <Avatar sx={{ width: 50, height : 50}}  src="/static/images/avatar/1.jpg" />
+                            <div className="friend-info-name">
+                              Friend name
+                            </div>
+                        </div>
+                 </div>  {/* mỗi friend 1 section */}
+                <div className="friend-section">
+                        <div className="friend-info">
+                        <Avatar sx={{ width: 50, height : 50}}  src="/static/images/avatar/1.jpg" />
+                            <div className="friend-info-name">
+                              Friend name
+                            </div>
+                        </div>
+                 </div>  {/* mỗi friend 1 section */}
+                <div className="friend-section">
+                        <div className="friend-info">
+                        <Avatar sx={{ width: 50, height : 50}}  src="/static/images/avatar/1.jpg" />
+                            <div className="friend-info-name">
+                              Friend name
+                            </div>
+                        </div>
+                 </div>  {/* mỗi friend 1 section */}
+                <div className="friend-section">
+                        <div className="friend-info">
+                        <Avatar sx={{ width: 50, height : 50}}  src="/static/images/avatar/1.jpg" />
+                            <div className="friend-info-name">
+                              Friend name
+                            </div>
+                        </div>
+                 </div>  {/* mỗi friend 1 section */}
+                <div className="friend-section">
+                        <div className="friend-info">
+                        <Avatar sx={{ width: 50, height : 50}}  src="/static/images/avatar/1.jpg" />
+                            <div className="friend-info-name">
+                              Friend name
+                            </div>
+                        </div>
+                 </div>  {/* mỗi friend 1 section */}
+                <div className="friend-section">
+                        <div className="friend-info">
+                        <Avatar sx={{ width: 50, height : 50}}  src="/static/images/avatar/1.jpg" />
+                            <div className="friend-info-name">
+                              Friend name
+                            </div>
+                        </div>
+                 </div>  {/* mỗi friend 1 section */}
+                <div className="friend-section">
+                        <div className="friend-info">
+                        <Avatar sx={{ width: 50, height : 50}}  src="/static/images/avatar/1.jpg" />
+                            <div className="friend-info-name">
+                              Friend name
+                            </div>
+                        </div>
+                 </div>  {/* mỗi friend 1 section */}
+                <div className="friend-section">
+                        <div className="friend-info">
+                        <Avatar sx={{ width: 50, height : 50}}  src="/static/images/avatar/1.jpg" />
+                            <div className="friend-info-name">
+                              Friend name
+                            </div>
+                        </div>
+                 </div>  {/* mỗi friend 1 section */}
+                <div className="friend-section">
+                        <div className="friend-info">
+                        <Avatar sx={{ width: 50, height : 50}}  src="/static/images/avatar/1.jpg" />
+                            <div className="friend-info-name">
+                              Friend name
+                            </div>
+                        </div>
+                 </div>  {/* mỗi friend 1 section */}
+                <div className="friend-section">
+                        <div className="friend-info">
+                        <Avatar sx={{ width: 50, height : 50}}  src="/static/images/avatar/1.jpg" />
+                            <div className="friend-info-name">
+                              Friend name
+                            </div>
+                        </div>
+                 </div>  {/* mỗi friend 1 section */}
+                <div className="friend-section">
+                        <div className="friend-info">
+                        <Avatar sx={{ width: 50, height : 50}}  src="/static/images/avatar/1.jpg" />
+                            <div className="friend-info-name">
+                              Friend name
+                            </div>
+                        </div>
+                 </div>  {/* mỗi friend 1 section */}
+                <div className="friend-section">
+                        <div className="friend-info">
+                        <Avatar sx={{ width: 50, height : 50}}  src="/static/images/avatar/1.jpg" />
+                            <div className="friend-info-name">
+                              Friend name
+                            </div>
+                        </div>
+                 </div>  {/* mỗi friend 1 section */}
+                <div className="friend-section">
+                        <div className="friend-info">
+                        <Avatar sx={{ width: 50, height : 50}}  src="/static/images/avatar/1.jpg" />
+                            <div className="friend-info-name">
+                              Friend name
+                            </div>
+                        </div>
+                 </div>  {/* mỗi friend 1 section */}
+                <div className="friend-section">
+                        <div className="friend-info">
+                        <Avatar sx={{ width: 50, height : 50}}  src="/static/images/avatar/1.jpg" />
+                            <div className="friend-info-name">
+                              Friend name
+                            </div>
+                        </div>
+                 </div>  {/* mỗi friend 1 section */}
+                <div className="friend-section">
+                        <div className="friend-info">
+                        <Avatar sx={{ width: 50, height : 50}}  src="/static/images/avatar/1.jpg" />
+                            <div className="friend-info-name">
+                              Friend name
+                            </div>
+                        </div>
+                 </div>  {/* mỗi friend 1 section */}
+                <div className="friend-section">
+                        <div className="friend-info">
+                        <Avatar sx={{ width: 50, height : 50}}  src="/static/images/avatar/1.jpg" />
+                            <div className="friend-info-name">
+                              Friend name
+                            </div>
+                        </div>
+                 </div>  {/* mỗi friend 1 section */}
+                <div className="friend-section">
+                        <div className="friend-info">
+                        <Avatar sx={{ width: 50, height : 50}}  src="/static/images/avatar/1.jpg" />
+                            <div className="friend-info-name">
+                              Friend name
+                            </div>
+                        </div>
+                 </div>  {/* mỗi friend 1 section */}
+                <div className="friend-section">
+                        <div className="friend-info">
+                        <Avatar sx={{ width: 50, height : 50}}  src="/static/images/avatar/1.jpg" />
+                            <div className="friend-info-name">
+                              Friend name
+                            </div>
+                        </div>
                  </div>
 
                 </div>
               </div>
 
               </div>
-               <div className="Tag_action-friend-content">
-"Để Trống"
-               </div>
+
              </div>
         </div>
           </TabPanel>
