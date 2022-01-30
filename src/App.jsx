@@ -4,7 +4,7 @@ import Register from "./page/RegisterPage/Register";
 import Login from "./page/LoginPage/Login";
 import Main from "./page/MainPage/Main";
 import Messenger from "./page/Messenger/Messenger";
-import {BrowserRouter,Routes,Route,Navigate} from "react-router-dom"
+import {BrowserRouter,Routes,Route, useNavigate} from "react-router-dom"
 import { NotFound } from './page/NotFound/NotFound';
 import { Profile } from './page/Profile/Profile';
 import  DeadlinePage from "./page/DeadLine/DeadlinePage";
@@ -23,11 +23,16 @@ function App() {
   );
 
 useEffect(()=>{
+
   const E = () =>{
-    setLoginData(localStorage.getItem("loginData")
-    ? JSON.parse(localStorage.getItem("loginData"))
-    : null)
-    
+  let local = localStorage.getItem("loginData") ? JSON.parse(localStorage.getItem("loginData")) : null
+   // eslint-disable-next-line eqeqeq
+   if(local === []) 
+   { 
+     
+    setLoginData(null)
+
+  }
 
   }
   setInterval(() => E(), 500);
