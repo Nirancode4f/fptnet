@@ -13,6 +13,8 @@ import { Menu } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import DeadlineTag from './DeadlineTag';
 import { propTypes } from 'react-bootstrap/esm/Image';
+import { Button } from "@mui/material";
+
 
 import PropTypes from "prop-types"
 
@@ -34,9 +36,21 @@ const [Ismount, setIsmount] = useState(false);
 
 
 
+var openAddDeadLine = document.querySelector(".student-info-box")
+
+var clickToOpenDL = document.querySelector(".add-deadline-btn")
+   clickToOpenDL.onclick = (e) => {
+  openAddDeadLine.classList.toggle("open")
+
+}
+   
+
 useEffect(() => {
   
   console.log(`something`,Deadlinelist)
+
+
+
   
 return () => {
     ;
@@ -50,7 +64,14 @@ return () => {
     <div className='Content-deadline'>
     
     <div className="Table-deadline">
-    <div className="title-deadline">DEADLINE</div>
+    <div className="title-deadline-and-btns">
+      <div className="title-deadline">DEADLINE</div>
+            <div className="add-deadline-btn">
+            <Button color="warning" variant="contained" style={{}}>
+              ADD
+            </Button>
+            </div>
+      </div>
      {/* mỗi dl 1 section */}
     <div className="deadline-section">
           <div className="deadline-info-row">

@@ -107,13 +107,15 @@ export default function Newfeed() {
       <div className="Content-deadline">
         <div className="Deadline">
           <div className="deadline-status"> NEVER GIVE UP!</div>
-
+        <div className="student-info-box">
           <div className="student">
             <div className="student-info-number">
               <p>
                 MSSV:{" "}
                 {LoginData.user.mssv ? LoginData.user.mssv : "Not FPTU student"}
               </p>
+            </div>
+
             </div>
             <div className="student-info">
               <div className="student-info-quanlity-deadline">
@@ -172,12 +174,12 @@ export default function Newfeed() {
                 </LocalizationProvider>
               </div>
             </div>
-          </div>
 
           <div className="quick-add-deadline-btn">
-            <Button color="warning" variant="contained" style={{}}>
+            <Button  color="warning" variant="contained" style={{}}>
               Make Deadline
             </Button>
+          </div>
           </div>
         </div>
         {/* end student info  */}
@@ -185,4 +187,13 @@ export default function Newfeed() {
       <TableDeadline Deadlinelist={DeadlineList} />
     </div>
   );
+}
+
+
+var openAddDeadLine = document.querySelector(".student-info-box")
+
+var clickToOpenDL = document.querySelector(".add-deadline-btn")
+   clickToOpenDL.onclick = (e) => {
+  openAddDeadLine.classList.toggle("open")
+
 }
