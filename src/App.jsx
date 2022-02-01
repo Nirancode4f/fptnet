@@ -16,28 +16,24 @@ import Extension from "./page/Extension/Extension";
 function App() {
   const [CurrentRoute, setCurrentRoute] = useState("");
 
+  
   const [LoginData, setLoginData] = useState(
     localStorage.getItem("loginData")
       ? JSON.parse(localStorage.getItem("loginData"))
       : null
   );
+  const [CLone, setCLone] = useState(LoginData);
 
 useEffect(()=>{
 
-  const E = () =>{
-  let local = localStorage.getItem("loginData") ? JSON.parse(localStorage.getItem("loginData")) : null
-   // eslint-disable-next-line eqeqeq
-   if(local === []) 
-   { 
-     
-    setLoginData(null)
 
-  }
+let con =  localStorage.getItem("loginData")
+? JSON.parse(localStorage.getItem("loginData"))
+: null
 
-  }
-  setInterval(() => E(), 500);
 
-},[])
+
+},[LoginData])
 
 
   return ( 

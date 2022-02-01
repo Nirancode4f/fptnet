@@ -36,20 +36,12 @@ const [Ismount, setIsmount] = useState(false);
 
 
 
-var openAddDeadLine = document.querySelector(".student-info-box")
 
-var clickToOpenDL = document.querySelector(".add-deadline-btn")
-   clickToOpenDL.onclick = (e) => {
-  openAddDeadLine.classList.toggle("open")
-
-}
    
 
 useEffect(() => {
   
   console.log(`something`,Deadlinelist)
-
-
 
   
 return () => {

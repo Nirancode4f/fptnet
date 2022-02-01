@@ -188,12 +188,3 @@ export default function Newfeed() {
     </div>
   );
 }
-
-
-var openAddDeadLine = document.querySelector(".student-info-box")
-
-var clickToOpenDL = document.querySelector(".add-deadline-btn")
-   clickToOpenDL.onclick = (e) => {
-  openAddDeadLine.classList.toggle("open")
-
-}
