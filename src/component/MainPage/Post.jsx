@@ -1,4 +1,4 @@
-import styled from "@emotion/styled/types/base";
+import { styled } from "@mui/system";
 import { Avatar, Button, ButtonGroup, TextField } from "@mui/material";
 import React, { useState } from "react";
 import FomatData from "../../helpGUI/FomatData";
@@ -129,10 +129,10 @@ export const Post = (props) => {
       <div className="Newfeed-body-post-content-comment-area">
         <div className="Newfeed-body-post-content-comment-label">
           <CssTextField
-            label="  Nhập bình luận của bạn   "
-            color="warning"
+          
+            fullWidth={true}
             size="small"
-            label="Tell me what are you thinking about"
+            label="Your Comment Here"
           
            
           />
