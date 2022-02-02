@@ -19,14 +19,6 @@ import { Button } from "@mui/material";
 import PropTypes from "prop-types"
 
 
-
-TableDeadline.prototype={
-  Deadlinelist: PropTypes.array
-}
-TableDeadline.defaultProps = {
-  Deadlinelist: []
-}
-
 export default function TableDeadline(props) {
 
 
