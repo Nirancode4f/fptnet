@@ -108,7 +108,8 @@
 /* newlayout */
 .deadline-section {
     padding: 10px;
-    margin-bottom: 12px;
+    margin-bottom: 6px;
+    border-top: 1px solid var(--bg-color);
 }
 
 .title-deadline{
@@ -121,9 +122,10 @@
     display: flex;
     align-items: center;
     padding-bottom: 10px;
-    border: 1px solid #333;
     padding: 10px;
-    border-radius: 12px;
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
+    box-shadow: 0 1px 2px #333;
     
 
 }
@@ -136,12 +138,17 @@
 }
 
 .deadline-name {
-    width: 50%;
+    width: 40%;
+    font-weight: 600;
+}
+
+.deadline-note {
+    width: 40%;
     font-weight: 600;
 }
 
 .deadline-date {
-    width: 45%;
+    width: 15%;
     font-weight: 600;
 }
 
@@ -149,6 +156,9 @@
 
 .deadline-attachment-row {
     padding: 10px ;
+    font-size: 19px ;
+    font-weight: 500;
+    box-shadow: 0 1px 1px #999;
 }
 
 .title-deadline-and-btns {
