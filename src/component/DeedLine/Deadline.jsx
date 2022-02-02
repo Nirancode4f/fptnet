@@ -107,7 +107,7 @@ export default function Newfeed() {
       <div className="Content-deadline">
         <div className="Deadline">
           <div className="deadline-status"> NEVER GIVE UP!</div>
-        <div className="student-info-box">
+        <div className="student-info-box open">
           <div className="student">
             <div className="student-info-number">
               <p>
