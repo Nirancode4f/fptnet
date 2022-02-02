@@ -11,7 +11,7 @@ import  DeadlinePage from "./page/DeadLine/DeadlinePage";
 
 import { useEffect, useState } from "react";
 import Extension from "./page/Extension/Extension";
-
+import isEqual from 'lodash/isEqual';
 
 function App() {
   const [CurrentRoute, setCurrentRoute] = useState("");
@@ -27,13 +27,36 @@ function App() {
 useEffect(()=>{
 
 
-let con =  localStorage.getItem("loginData")
+
+setInterval(() => {
+
+const con =  localStorage.getItem("loginData")
 ? JSON.parse(localStorage.getItem("loginData"))
-: null
+: null  
+
+if(!con){
+  setLoginData(null)
+}
+else if (!isEqual(con,LoginData))
+ 
+{   
+  window.location.reload(false);
+  setLoginData(localStorage.getItem("loginData")
+  ? JSON.parse(localStorage.getItem("loginData"))
+  : null  )
+  console.log(LoginData,con)
+
+}
 
 
 
-},[LoginData])
+
+}, 500);
+
+return(()=>{
+  clearInterval()
+})
+},[])
 
 
   return ( 
