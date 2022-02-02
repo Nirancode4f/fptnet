@@ -9,18 +9,18 @@ export const PostBlock = (props) => {
     
 
     return (
-        <div className="Newfeed-body-post-container">
+      <>
             {
 
                 PostData.map((post) => 
-
-                     <Post key={post._id} Post={post} />
-                
+                     <div key={post._id} className="Newfeed-body-post-container">
+                     <Post Post={post} />
+                     </div>
                      )
 
             }
        
 
-        </div>
+      </> 
     );
 };
