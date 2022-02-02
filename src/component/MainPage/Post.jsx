@@ -1,8 +1,26 @@
+import styled from "@emotion/styled/types/base";
 import { Avatar, Button, ButtonGroup, TextField } from "@mui/material";
 import React, { useState } from "react";
 import FomatData from "../../helpGUI/FomatData";
 import Cmt from "./Cmt";
 
+const CssTextField = styled(TextField)({
+  "& label.Mui-focused": {
+    color: "#f36f21",
+  },
+  "& .MuiInput-underline:after": {
+    borderBottomColor: "#f36f21",
+  },
+  "& .MuiOutlinedInput-root": {
+    "& fieldset": {},
+    "&:hover fieldset": {
+      borderColor: "#f36f21",
+    },
+    "&.Mui-focused fieldset": {
+      borderColor: "#f36f21",
+    },
+  },
+});
 export const Post = (props) => {
   const { Post } = props;
   console.log(Post);
@@ -110,14 +128,13 @@ export const Post = (props) => {
       </div>
       <div className="Newfeed-body-post-content-comment-area">
         <div className="Newfeed-body-post-content-comment-label">
-          <TextField
+          <CssTextField
             label="  Nhập bình luận của bạn   "
             color="warning"
-            focused
-            style={{
-              width: "100%",
-              height: "100%",
-            }}
+            size="small"
+            label="Tell me what are you thinking about"
+          
+           
           />
         </div>
         
