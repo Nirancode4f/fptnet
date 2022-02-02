@@ -96,12 +96,10 @@
 
 .Table-deadline {
     max-width: 1200px;
+    width: 1200px;
     margin: 0 auto;
-    position: absolute;
     padding-bottom: 40px;
     background-color: #fafafa;
-    right: 0;
-    left: 0;
     padding: 0 10px;
 }
 
@@ -117,6 +115,7 @@
     color: red;
     font-size: 22px;
     font-weight: 600;
+    
 }
 .deadline-info-row{
     display: flex;
@@ -160,6 +159,7 @@
 }
 
 .title-deadline-and-btns {
+    width: 100%;
    display: flex;
    justify-content: space-between;
    align-items: center;
