@@ -131,8 +131,6 @@
 }
 .deadline-creater-img {
     width: 60px;
-    border-radius: 50%;
-    border: 1px solid var(--bg-color);
     margin-right: 10px;
     width: 5%;
 }
@@ -143,12 +141,12 @@
 }
 
 .deadline-note {
-    width: 40%;
+    width: 30%;
     font-weight: 600;
 }
 
 .deadline-date {
-    width: 15%;
+    width: 25%;
     font-weight: 600;
 }
 
