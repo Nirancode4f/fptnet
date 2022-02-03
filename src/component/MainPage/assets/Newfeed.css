@@ -124,7 +124,6 @@ color: var(--bg-color);
 }
 .Newfeed-body-post-content-text {
     padding:10px;
-    border-bottom: 1px solid var(--bg-color);
     margin-bottom: 10px;
 }
 .Newfeed-body-post-content-img {
@@ -133,12 +132,14 @@ color: var(--bg-color);
     display: flex;
     flex-wrap: wrap;
     padding: 2px 2px;
+    background-color: rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid #9999;
 }
 .post-img{
     margin: 0 auto;
     max-height: 400px;
     object-fit: cover;
+    box-shadow: 0 0 2px #333;
 }
 .Newfeed-body-post-content-reaction-quanlity {
     display: flex;
@@ -198,6 +199,7 @@ font-weight: 600;
 .Newfeed-body-post-content-comment-area {
     display: flex;
     flex-direction: column;
+    
     padding: 0 0 20px 0;
 }
 .Newfeed-body-post-content-comment-label {

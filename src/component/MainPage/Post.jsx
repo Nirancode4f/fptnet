@@ -112,12 +112,14 @@ export const Post = (props) => {
         <div className="Newfeed-body-post-content-comment-label">
           <TextField
             label="  Nhập bình luận của bạn   "
+            size="small" 
             color="warning"
             focused
-            style={{
-              width: "100%",
-              height: "100%",
-            }}
+          style={{
+            width:"100%",
+            height:"40px",
+            padding:"2px"
+          }}
           />
         </div>
         
