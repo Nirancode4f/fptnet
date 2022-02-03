@@ -178,3 +178,94 @@
 .open {
     display: flex;
 }
+
+/* deadline popup */
+
+.modal-view-detail-deadline {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    /* display: none; */
+}
+.modal-view-detail-deadline-container {
+    border-radius: 8px;
+    background-color: #fff;
+  height: 440px;
+  width: 800px;
+  padding: 10px 20px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  animation: grow linear 0.4s;
+
+  
+}
+@keyframes grow {
+    from{
+        opacity: 0.5;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modal-view-detail-deadline-box-content {
+    display: flex;
+    
+}
+
+.modal-view-detail-deadline-attend {
+    
+}
+
+.deadline-content-and-note-col {
+width: 70%;
+display: flex;
+flex-direction: column;
+
+}
+.deadline-content-box {
+    min-height: 250px;
+}
+.deadline-date-and-attachment-col {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.date-area {
+    display: flex;
+    flex-direction: column;
+    min-height: 250px;
+
+}
+
+.date-display  {
+ margin: 0;
+ width: 50px;
+ display: flex;
+align-items: center;
+margin-bottom: 10px;
+}
+
+.date-display p {
+    min-width: 60px;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.modal-view-detail-deadline-attend {
+    display: flex;
+    justify-content: right;
+}

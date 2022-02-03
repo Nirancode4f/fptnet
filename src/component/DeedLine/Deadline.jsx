@@ -160,6 +160,7 @@ export default function Newfeed() {
                         style={{
                           marginTop: "15px",
                           color: "#f36f21",
+                          zIndex:0,
                         }}
                       />
                     )}

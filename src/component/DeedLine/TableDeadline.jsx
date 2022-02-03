@@ -16,6 +16,7 @@ import { propTypes } from "react-bootstrap/esm/Image";
 import { Button } from "@mui/material";
 import { Badge } from "@mui/material";
 import { Avatar } from "@mui/material";
+import { TextField } from "@mui/material";
 
 import PropTypes from "prop-types";
 
@@ -37,6 +38,8 @@ export default function TableDeadline(props) {
     return () => {};
   }, [Deadlinelist]);
 
+ var lableText = "12/11/2022"
+
   return (
     <div className="Content-deadline">
       <div className="Table-deadline">
@@ -51,11 +54,10 @@ export default function TableDeadline(props) {
 
         {Deadlinelist &&
           Deadlinelist.map((e) => <DeadlineTag key={e._id} data={e} />)}
-
-
-
-   
       </div>
+
+      
+
     </div>
   );
 }
