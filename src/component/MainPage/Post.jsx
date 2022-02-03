@@ -1,8 +1,26 @@
+import { styled } from "@mui/system";
 import { Avatar, Button, ButtonGroup, TextField } from "@mui/material";
 import React, { useState } from "react";
 import FomatData from "../../helpGUI/FomatData";
 import Cmt from "./Cmt";
 
+const CssTextField = styled(TextField)({
+  "& label.Mui-focused": {
+    color: "#f36f21",
+  },
+  "& .MuiInput-underline:after": {
+    borderBottomColor: "#f36f21",
+  },
+  "& .MuiOutlinedInput-root": {
+    "& fieldset": {},
+    "&:hover fieldset": {
+      borderColor: "#f36f21",
+    },
+    "&.Mui-focused fieldset": {
+      borderColor: "#f36f21",
+    },
+  },
+});
 export const Post = (props) => {
   const { Post } = props;
   console.log(Post);
