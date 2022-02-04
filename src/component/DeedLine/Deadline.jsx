@@ -52,6 +52,7 @@ export default function Newfeed() {
 
   const [DateValue, setDateValue] = useState(Date());
 
+  const [ShowDeadline, setShowDeadline] = useState(false);
   const [time, setTime] = useState(0);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -74,7 +75,9 @@ export default function Newfeed() {
       console.log(error);
     }
   }
-
+function handleONdlickDeadline(){
+  if(!ShowDeadline){setShowDeadline(true)}else{setShowDeadline(false)}
+}
   
 
   //   Call api
@@ -178,7 +181,7 @@ export default function Newfeed() {
             </div>
 
           <div className="quick-add-deadline-btn">
-            <Button  color="warning" variant="contained" style={{}}>
+            <Button onClick={handleONdlickDeadline} color="warning" variant="contained" style={{}}>
               Make Deadline
             </Button>
           </div>
@@ -187,7 +190,7 @@ export default function Newfeed() {
         {/* end student info  */}
       </div>
       <TableDeadline Deadlinelist={DeadlineList} />
-      <DeadlinePopUp/>
+      { ShowDeadline && <DeadlinePopUp/>}
     </div>
   );
 }
