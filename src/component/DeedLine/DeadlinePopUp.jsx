@@ -1,23 +1,3 @@
-<<<<<<< HEAD
-import React from 'react';
-import { Avatar } from '@mui/material';
-import { Chip } from '@mui/material';
-import { TextField } from '@mui/material';
-import TableDeadline from './TableDeadline';
-import DeadlineTag from './DeadlineTag';
-var lableText = "12/11/2022"
-
-
-
-export default function DeadlinePopUp() {
-  return (
-    <div className="modal-view-detail-deadline"     >
-    <div className="modal-view-detail-deadline-container">
-            <div className="modal-view-detail-deadline-box-content">
-              <div className="deadline-content-and-note-col">
-                <div className="deadline-content-box">Content here</div>
-                <div className="deadline-note-box">Note here</div>
-=======
 import { Avatar, Chip, TextField } from "@mui/material";
 import React from "react";
 
@@ -42,7 +22,6 @@ export default function DeadlinePopUp() {
                   <p>End</p>
                   <Chip label={""} color="success" size="medium" />
                 </div>
->>>>>>> da2e7a4e149b2f3ce4ae1e2a8cedbb68049e41b3
               </div>
             </div>
             <div className="deadline-attachment-box">
