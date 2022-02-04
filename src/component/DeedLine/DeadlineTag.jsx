@@ -1,6 +1,7 @@
 import { Avatar, Badge, Chip } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
+import DeadlinePopUp from "./DeadlinePopUp";
 
 DeadlineTag.propTypes = {
   data: PropTypes.object,
@@ -16,8 +17,14 @@ function DeadlineTag(props) {
   const { data } = props;
   console.log(`deadlinetag `, data);
 
+  const [showDeadlineModal,setShowDeadlineModal] = useState(false)
+
+  const openDeadlineModal = () => {
+    setShowDeadlineModal(prev => !prev)
+  }
+
   return (
-    <div className="deadline-section">
+    <div className="deadline-section" onClick={openDeadlineModal}>
           <div className="deadline-info-row">
             <div className="deadline-creater-img">
               <Avatar
@@ -57,7 +64,10 @@ function DeadlineTag(props) {
           </div>
           {/* mỗi attachment 1 row */}
           <div className="deadline-attachment-row">attachment</div>
+       
+        
         </div>
+
   );
 }
 

@@ -16,6 +16,8 @@ import ForumOutlinedIcon from '@mui/icons-material/ForumOutlined';
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import Favorite from '@mui/icons-material/Favorite';
 import FomatData from '../../../helpGUI/FomatData';
+
+
 ProfilePopUp.prototype = {
     data: PropTypes.object,
     OnClickout: PropTypes.func,
@@ -128,7 +130,6 @@ function ProfilePopUp(props) {
 
                     </div>
                     <div className="modal-wiew-detail-post-content-comment">
-                        {/* ẩn cmt thì class comment-main display:none */}
                         <div className="comment-main">
                             <div className="modal-wiew-detail-post-content-comment-content" >
 

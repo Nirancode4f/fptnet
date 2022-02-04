@@ -1,8 +1,16 @@
 import React from 'react';
+import { Avatar } from '@mui/material';
+import { Chip } from '@mui/material';
+import { TextField } from '@mui/material';
+import TableDeadline from './TableDeadline';
+import DeadlineTag from './DeadlineTag';
+var lableText = "12/11/2022"
+
+
 
 export default function DeadlinePopUp() {
   return (
-    <div className="modal-view-detail-deadline">
+    <div className="modal-view-detail-deadline"     >
     <div className="modal-view-detail-deadline-container">
             <div className="modal-view-detail-deadline-box-content">
               <div className="deadline-content-and-note-col">
