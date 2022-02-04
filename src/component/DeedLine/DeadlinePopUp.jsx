@@ -1,10 +1,21 @@
+import React from 'react'
+import DeadlineTag from './DeadlineTag';
 import { Avatar, Chip, TextField } from "@mui/material";
-import React from "react";
+import { useState, useEffect } from "react";
 
-export default function DeadlinePopUp() {
+
+
+export default function DeadlinePopUp(props) {
+
+  const { show, setShow } = props
+
+  const handleShow = () => {
+    setShow(null)
+  }
+    
   return (
-    <div className="modal-view-detail-deadline">
-      <div className="modal-view-detail-deadline-container">
+    <div className="modal-view-detail-deadline" onClick={handleShow}>
+      <div className="modal-view-detail-deadline-container" onClick={(e) => e.stopPropagation()}>
         <div className="modal-view-detail-deadline-box-content">
           <div className="deadline-content-and-note-col">
             <div className="deadline-content-box">Content here</div>

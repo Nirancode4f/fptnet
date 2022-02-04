@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import DeadlinePopUp from "./DeadlinePopUp";
 
+
 DeadlineTag.propTypes = {
   data: PropTypes.object,
   onHandleClick: PropTypes.func,
@@ -17,14 +18,19 @@ function DeadlineTag(props) {
   const { data } = props;
   console.log(`deadlinetag `, data);
 
-  const [showDeadlineModal,setShowDeadlineModal] = useState(false)
+  const { modalDeadline, onDeadlineClick } = props
 
-  const openDeadlineModal = () => {
-    setShowDeadlineModal(prev => !prev)
-  }
+  const handleClick = ( modalDeadline) => {
+    if (onDeadlineClick) {
+
+      <DeadlinePopUp/>
+
+    }
+}
+
 
   return (
-    <div className="deadline-section">
+    <div className="deadline-section" onClick={handleClick(modalDeadline)}>
       <div className="deadline-info-row">
         <div className="deadline-creater-img">
           <Avatar
