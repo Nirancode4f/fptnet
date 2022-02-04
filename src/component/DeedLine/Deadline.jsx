@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 import AxiosMain from "../../API/AxiosMain";
 import { useSelector } from "react-redux";
 import TableDeadline from "./TableDeadline";
+import DeadlinePopUp from "./DeadlinePopUp";
 
 const CssTextField = styled(TextField)({
   "& label.Mui-focused": {
@@ -186,6 +187,7 @@ export default function Newfeed() {
         {/* end student info  */}
       </div>
       <TableDeadline Deadlinelist={DeadlineList} />
+      <DeadlinePopUp/>
     </div>
   );
 }
