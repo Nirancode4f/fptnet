@@ -124,13 +124,15 @@ export default function Newfeed() {
                     ? LoginData.user.mssv
                     : "Not FPTU student"}
                 </p>
+                
               </div>
+              
             </div>
             <div className="student-info">
               <div className="student-info-quanlity-deadline">
                 Unfinished: <p>{DeadlineList.length}</p>
               </div>
-              <MakeDeadline/>
+            
             </div>
 
             <div className="quick-add-deadline-btn">

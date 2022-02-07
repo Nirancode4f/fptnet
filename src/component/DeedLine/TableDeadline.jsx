@@ -19,7 +19,6 @@ import { Avatar } from "@mui/material";
 import { TextField } from "@mui/material";
 import DeadlinePopUp from "./DeadlinePopUp";
 
-
 import PropTypes from "prop-types";
 
 TableDeadline.prototype = {
@@ -40,27 +39,16 @@ export default function TableDeadline(props) {
     return () => {};
   }, [Deadlinelist]);
 
-
   return (
     <div className="Content-deadline">
       <div className="Table-deadline">
         <div className="title-deadline-and-btns">
           <div className="title-deadline">DEADLINE</div>
-          <div className="add-deadline-btn">
-            <Button color="warning" variant="contained" style={{}}>
-              ADD
-            </Button>
-          </div>
         </div>
 
         {Deadlinelist &&
           Deadlinelist.map((e) => <DeadlineTag key={e._id} data={e} />)}
       </div>
-
-
-      
-      
-
     </div>
   );
 }
