@@ -101,6 +101,7 @@ export const Profile = () => {
     setShowPopup(true);
     setPopUpdata(data);
   }
+  
   function handleClickOut(event) {
 
     setShowPopup(event);

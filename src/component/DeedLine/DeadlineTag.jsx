@@ -50,9 +50,10 @@ function DeadlineTag(props) {
             label="1/1/2022"
             size="medium"
             style={{ marginRight: 20 }}
-          >
-            DATE
-          </Chip>
+          />
+           
+         
+          
           <Badge
             badgeContent={"DUE"}
             color="warning"

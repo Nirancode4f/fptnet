@@ -79,7 +79,7 @@ function ProfilePopUp(props) {
     return (
 
 
-        <div className="modal-wiew-detail-post" onClick={handleOnClickout}  >
+        <div className="modal-wiew-detail-post" onClick={handleOnClickout} >
             <div className="modal-wiew-detail-post-container" onClick={(event) => event.stopPropagation()} >
                 <div className="modal-wiew-detail-post-img">
 

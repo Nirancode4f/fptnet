@@ -14,6 +14,8 @@ import AxiosMain from "../../API/AxiosMain";
 import { useSelector } from "react-redux";
 import TableDeadline from "./TableDeadline";
 import DeadlinePopUp from "./DeadlinePopUp";
+import { ClickAwayListener } from '@mui/base';
+import MakeDeadline from "./MakeDeadline/MakeDeadline";
 
 const CssTextField = styled(TextField)({
   "& label.Mui-focused": {
@@ -52,7 +54,7 @@ export default function Newfeed() {
 
   const [DateValue, setDateValue] = useState(Date());
 
-  const [ShowDeadline, setShowDeadline] = useState(false);
+  const [ShowDeadline, setShowDeadline] = useState(true);
   const [time, setTime] = useState(0);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -65,8 +67,7 @@ export default function Newfeed() {
         // after unmount component but asynchronous task still run, drop it.
         if (isMouted) {
           if (res.deadlines.length !== 0) {
-            setDeadlineList(res.deadlines)
-            ;
+            setDeadlineList(res.deadlines);
           }
         }
       });
@@ -75,21 +76,25 @@ export default function Newfeed() {
       console.log(error);
     }
   }
-function handleONdlickDeadline(){
-  if(!ShowDeadline){setShowDeadline(true)}else{setShowDeadline(false)}
-}
-  
+  function handleONdlickDeadline() {
+    if (!ShowDeadline) {
+      setShowDeadline(true);
+    } else {
+      setShowDeadline(false);
+    }
+  }
+  function ClickOut(event) {
+    setShowDeadline(event)
+  }
 
   //   Call api
   useEffect(() => {
     GetDeadline();
     const timer = setInterval(() => {
-      GetDeadline()
-      if (DeadlineList !== cloneDeadlineList)
-      {
-        setcloneDeadlineList(DeadlineList)
+      GetDeadline();
+      if (DeadlineList !== cloneDeadlineList) {
+        setcloneDeadlineList(DeadlineList);
       }
-    
     }, 5000);
     console.log(time);
     return () => {
@@ -110,87 +115,40 @@ function handleONdlickDeadline(){
       {/* begin student info  */}
       <div className="Content-deadline">
         <div className="Deadline">
-          <div className="deadline-status"> NEVER GIVE UP!</div>
-        <div className="student-info-box open">
-          <div className="student">
-            <div className="student-info-number">
-              <p>
-                MSSV:{" "}
-                {LoginData.user.mssv ? LoginData.user.mssv : "Not FPTU student"}
-              </p>
-            </div>
-
+          <div className="student-info-box open">
+            <div className="student">
+              <div className="student-info-number">
+                <p>
+                  MSSV:{" "}
+                  {LoginData.user.mssv
+                    ? LoginData.user.mssv
+                    : "Not FPTU student"}
+                </p>
+              </div>
             </div>
             <div className="student-info">
               <div className="student-info-quanlity-deadline">
                 Unfinished: <p>{DeadlineList.length}</p>
               </div>
-              <div className="student-quick-add-deadline">
-                <TextField
-                  id="standard-basic"
-                  label="NAME"
-                  variant="standard"
-                  color="warning"
-                  style={{
-                    marginTop: "14px",
-                    marginRight: "12px",
-                    width: "100%",
-                    bordercolor: "#f36f21",
-                  }}
-                />
-                <TextField
-                  id="standard-basic"
-                  label="DESCRIPTION"
-                  variant="standard"
-                  color="warning"
-                  style={{
-                    marginRight: "12px",
-                    marginTop: "14px",
-                    width: "100%",
-                    bordercolor: "#f36f21",
-                  }}
-                />
-
-                <LocalizationProvider dateAdapter={AdapterDateFns}>
-                  <MobileDateTimePicker
-                    renderInput={(props) => (
-                      <CssTextField
-                        fullWidth
-                        size="small"
-                        {...props}
-                        sx={{
-                          svg: { color: "#f36f21" },
-                        }}
-                        style={{
-                          marginTop: "15px",
-                          color: "#f36f21",
-                          zIndex:0,
-                        }}
-                      />
-                    )}
-                    inputFormat="dd/MM/yyyy hh:mm a"
-                    label="DUE"
-                    value={DateValue}
-                    minDate={new Date()}
-                    onChange={(newValue) => {
-                      setDateValue(newValue);
-                    }}
-                  />
-                </LocalizationProvider>
-              </div>
+              <MakeDeadline/>
             </div>
 
-          <div className="quick-add-deadline-btn">
-            <Button onClick={handleONdlickDeadline} color="warning" variant="contained" style={{}}>
-              Make Deadline
-            </Button>
-          </div>
+            <div className="quick-add-deadline-btn">
+              <Button
+                onClick={handleONdlickDeadline}
+                color="warning"
+                variant="contained"
+                style={{}}
+              >
+                Make Deadline
+              </Button>
+            </div>
           </div>
         </div>
         {/* end student info  */}
       </div>
       <TableDeadline Deadlinelist={DeadlineList} />
-      { ShowDeadline && <DeadlinePopUp/>}
+      {ShowDeadline ? <></> : (<DeadlinePopUp  OnClickOut={ClickOut} />)}
     </div>
   );
 }
