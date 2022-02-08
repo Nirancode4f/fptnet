@@ -22,6 +22,7 @@
     
 }
 .Deadline {
+    position: relative;
     right: 0;
     left: 0;
     margin-top: 25px;
@@ -38,14 +39,14 @@
    border: 1px solid var(--bg-color);
    margin-top: 34px;
 }
-/* .student {
-    width: 960px;
+.student {
+    width: 1200px;
     margin-top: 20px;
     display: flex;
     flex-direction: column;
     margin: 0 auto;
 
-} */
+}
 
 .student-info-box {
     padding: 0 30px;
@@ -56,15 +57,35 @@
 }
 
 .student-info {
-    line-height: 3;
-    display: flex;
-   align-items: center;
+width: 960px;
+margin: 0 auto;
+overflow: hidden;
 }
-.student-info-number,
-.student-info-quanlity-deadline {
-    font-weight: 700;
+.student-number {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--bg-color);
+    float: right;
+    margin-top: 20px;
+}
+
+.student-quanlity-deadline {
     display: flex;
-} 
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.student-quanlity-deadline span {
+    font-size: 58px;
+    font-weight: bold;
+}
+.student-quanlity-deadline p {
+    margin-left: 10px;
+    font-size: 58px;
+    color: red;
+    font-weight: bold;
+}
+
 .student-info-number{
     justify-content: right;
     width: 100%;
@@ -73,12 +94,12 @@
 .student-info-quanlity-deadline {
    font-size: 50px;
    line-height: 192px;
+   justify-content: center;
 }
 
 
 .student-info-number p{
     font-weight: 600;
-    margin: 0 12px;
     color: var(--bg-color);
 }
 .student-info-quanlity-deadline p{
@@ -97,7 +118,7 @@
 
 .Table-deadline {
     max-width: 1200px;
-    width: 1200px;
+    width: 960px;
     margin: 0 auto;
     padding-bottom: 40px;
     background-color: #fafafa;

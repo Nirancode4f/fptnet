@@ -114,27 +114,18 @@ export default function Newfeed() {
     <div className="Deadline-container">
       {/* begin student info  */}
       <div className="Content-deadline">
-        <div className="Deadline">
-          <div className="student-info-box open">
-            <div className="student">
-              <div className="student-info-number">
-                <p>
+          <div className="student-info">
+            <div className="student-number">
+                 <p>
                   MSSV:{" "}
                   {LoginData.user.mssv
                     ? LoginData.user.mssv
                     : "Not FPTU student"}
                 </p>
-                
-              </div>
-              
             </div>
-            <div className="student-info">
-              <div className="student-info-quanlity-deadline">
-                Unfinished: <p>{DeadlineList.length}</p>
-              </div>
-            
+            <div className="student-quanlity-deadline">
+              <span> Unfinished:</span> <p>{DeadlineList.length}</p>
             </div>
-
             <div className="quick-add-deadline-btn">
               <Button
                 onClick={handleONdlickDeadline}
@@ -146,9 +137,9 @@ export default function Newfeed() {
               </Button>
             </div>
           </div>
-        </div>
+
+       </div>     
         {/* end student info  */}
-      </div>
       <TableDeadline Deadlinelist={DeadlineList} />
       {ShowDeadline ? <></> : (<DeadlinePopUp  OnClickOut={ClickOut} />)}
     </div>
