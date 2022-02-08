@@ -12,6 +12,7 @@ import  DeadlinePage from "./page/DeadLine/DeadlinePage";
 import { useEffect, useState } from "react";
 import Extension from "./page/Extension/Extension";
 import isEqual from 'lodash/isEqual';
+import ReceiveDeadline from "./page/ReceiveDeadline/ReceiveDeadline";
 
 function App() {
   const [CurrentRoute, setCurrentRoute] = useState("");
@@ -80,7 +81,10 @@ return(()=>{
 
   <Route  path="/extension" element={<Extension/>  }></Route>
 
+  <Route  path="/share" element={<ReceiveDeadline/>  }></Route>
+
   <Route  path="*" element={ <NotFound/> }></Route>
+
   </Routes>
   </BrowserRouter>
   );
@@ -88,9 +92,4 @@ return(()=>{
 
 export default App;
 
-const UpRoute = (props) => {
 
-
-
-
-}
