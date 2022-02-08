@@ -1,0 +1,40 @@
+.Receive-deadline {
+    min-height: 100vh;
+    width: 100%;
+    background-color: rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Receive-deadline-container {
+    width: 600px;
+    height: 500px;
+    background-color: #fff;
+    padding: 20px;
+}
+
+.receiver-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.receive-conttent {
+    text-align: center;
+    min-height: 150px;
+    font-weight: 600;
+}
+
+.receive-note {
+    text-align: center;
+    min-height: 150px;
+    font-weight: 600;
+
+}
+
+.receive-footer {
+    display: flex;
+    justify-content: space-between;
+}
