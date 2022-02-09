@@ -14,6 +14,7 @@ export default function ReceiveDeadline() {
     console.log(param.get("deadline"))
   }, []);
 
+
   // eslint-disable-next-line no-restricted-globals
   console.log(queryString.parse(location.search));
 
