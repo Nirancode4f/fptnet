@@ -14,6 +14,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import ForumIcon from "@mui/icons-material/Forum";
 import ExtensionIcon from "@mui/icons-material/Extension";
 import newlogo  from "./assets/newlogo.svg"
+import Logo from "./assets/Logo";
 
 function NavBar() {
   const navigate = useNavigate();
@@ -27,8 +28,8 @@ function handleChangeRouter(route) {
 
   return (
     <div className="nav">
-      <img src={newlogo} alt="" className="header__logo" />
-
+      {/* <img src={newlogo} alt="" className="header__logo" /> */}
+    <Logo/>
       {/* connect to ༼ つ ◕_◕ ༽つ https://mui.com/components/stack/ */}
 
       <Stack spacing={0} style={{marginTop:"5px"}}>
