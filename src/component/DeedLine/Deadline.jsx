@@ -141,36 +141,38 @@ export default function Newfeed() {
             </div>
           </div>
           <div className="table_deadline">
-        <TabContext value={value}>
-          <Box sx={{ borderColor: "divider" }}>
-            <TabList
-             sx={{ p: -1 }}
-             variant="fullWidth"
-             onChange={handleChange}
-             textColor="inherit"
-             TabIndicatorProps={{ style: { background: "#f36f21" } }}
-             style={{ fill: "#f36f21", color: "#f36f21" }}
-             aria-label="deadline table"
-            >
-              <Tab label={<span className="profile-tag-action">Deadline</span>} value="1" />
-              <Tab label={<span className="profile-tag-action">received</span>} value="2" />
-            </TabList>
-          </Box>
-          <TabPanel value="1">
-            <TableDeadline Deadlinelist={DeadlineList} />
-          </TabPanel>
-          <TabPanel value="2">Item Two</TabPanel>
-        </TabContext>
-      </div>
-
-
+            <TabContext value={value}>
+              <Box sx={{ borderColor: "divider" }}>
+                <TabList
+                  sx={{ p: -1 }}
+                  variant="fullWidth"
+                  onChange={handleChange}
+                  textColor="inherit"
+                  TabIndicatorProps={{ style: { background: "#f36f21" } }}
+                  style={{ fill: "#f36f21", color: "#f36f21" }}
+                  aria-label="deadline table"
+                >
+                  <Tab
+                    label={<span className="profile-tag-action">Deadline</span>}
+                    value="1"
+                  />
+                  <Tab
+                    label={<span className="profile-tag-action">received</span>}
+                    value="2"
+                  />
+                </TabList>
+              </Box>
+              <TabPanel value="1">
+                <TableDeadline Deadlinelist={DeadlineList} />
+              </TabPanel>
+              <TabPanel value="2">Item Two</TabPanel>
+            </TabContext>
+          </div>
         </div>
         {/* end student info  */}
 
         {ShowDeadline ? <></> : <DeadlinePopUp OnClickOut={ClickOut} />}
-        
       </div>
-      
     </>
   );
 }

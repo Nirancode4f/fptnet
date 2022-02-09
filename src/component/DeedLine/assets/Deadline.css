@@ -20,7 +20,8 @@
     left: var(--nav-width);
     display: flex;
     flex-direction: column;
-    align-content: center;
+    padding-left: 50px;
+    padding-right: 50px;
     
     
 }
