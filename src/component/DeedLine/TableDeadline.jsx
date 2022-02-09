@@ -40,7 +40,7 @@ export default function TableDeadline(props) {
   }, [Deadlinelist]);
 
   return (
-    <div className="Content-deadline">
+
       <div className="Table-deadline">
         <div className="title-deadline-and-btns">
           <div className="title-deadline">DEADLINE</div>
@@ -49,6 +49,6 @@ export default function TableDeadline(props) {
         {Deadlinelist &&
           Deadlinelist.map((e) => <DeadlineTag key={e._id} data={e} />)}
       </div>
-    </div>
+    
   );
 }
