@@ -128,7 +128,7 @@ form .login_type_field {
   background-image: url(/src/page/LoginPage/assets/img/newlogo.png);
   background-repeat: no-repeat;
   background-size: contain;
-  border-radius: 15px 0 20px 0;
+  border-radius: 4px;
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.648);
 }
 
