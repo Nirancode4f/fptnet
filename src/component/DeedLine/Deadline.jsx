@@ -2,7 +2,7 @@ import React from "react";
 import "./assets/Deadline.css";
 
 import { useState, useEffect } from "react";
-import { TextField } from "@mui/material";
+import { Box, Tab, Tabs, TextField } from "@mui/material";
 import { Button } from "@mui/material";
 import { styled } from "@mui/system";
 import DateTimePicker from "@mui/lab/DateTimePicker";
@@ -14,8 +14,9 @@ import AxiosMain from "../../API/AxiosMain";
 import { useSelector } from "react-redux";
 import TableDeadline from "./TableDeadline";
 import DeadlinePopUp from "./DeadlinePopUp";
-import { ClickAwayListener } from '@mui/base';
+import { ClickAwayListener } from "@mui/base";
 import MakeDeadline from "./MakeDeadline/MakeDeadline";
+import { TabContext, TabPanel } from "@mui/lab";
 
 const CssTextField = styled(TextField)({
   "& label.Mui-focused": {
@@ -51,11 +52,14 @@ export default function Newfeed() {
   const [isMouted, setisMouted] = useState(true);
   const [DeadlineList, setDeadlineList] = useState([]);
   const [cloneDeadlineList, setcloneDeadlineList] = useState(DeadlineList);
-
   const [DateValue, setDateValue] = useState(Date());
 
   const [ShowDeadline, setShowDeadline] = useState(true);
   const [time, setTime] = useState(0);
+  const [value, setValue] = useState("1");
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   function GetDeadline() {
@@ -84,7 +88,7 @@ export default function Newfeed() {
     }
   }
   function ClickOut(event) {
-    setShowDeadline(event)
+    setShowDeadline(event);
   }
 
   //   Call api
@@ -111,17 +115,16 @@ export default function Newfeed() {
   }, [LoginData, navigate]);
 
   return (
-    <div className="Deadline-container">
-      {/* begin student info  */}
-      <div className="Content-deadline">
+    <>
+      <div className="Deadline-container">
+        {/* begin student info  */}
+        <div className="Content-deadline">
           <div className="student-info">
             <div className="student-number">
-                 <p>
-                  MSSV:{" "}
-                  {LoginData.user.mssv
-                    ? LoginData.user.mssv
-                    : "Not FPTU student"}
-                </p>
+              <p>
+                MSSV:{" "}
+                {LoginData.user.mssv ? LoginData.user.mssv : "Not FPTU student"}
+              </p>
             </div>
             <div className="student-quanlity-deadline">
               <span> Unfinished:</span> <p>{DeadlineList.length}</p>
@@ -137,11 +140,29 @@ export default function Newfeed() {
               </Button>
             </div>
           </div>
+          <div className="table_deadline">
+        <TabContext value={value}>
+          <Box sx={{ borderColor: "divider" }}>
+            <Tabs onChange={handleChange} aria-label="deadline table">
+              <Tab label="Item One" value="1" />
+              <Tab label="Item Two" value="2" />
+            </Tabs>
+          </Box>
+          <TabPanel value="1">
+            <TableDeadline Deadlinelist={DeadlineList} />
+          </TabPanel>
+          <TabPanel value="2">Item Two</TabPanel>
+        </TabContext>
+      </div>
 
-       </div>     
+
+        </div>
         {/* end student info  */}
-      <TableDeadline Deadlinelist={DeadlineList} />
-      {ShowDeadline ? <></> : (<DeadlinePopUp  OnClickOut={ClickOut} />)}
-    </div>
+
+        {ShowDeadline ? <></> : <DeadlinePopUp OnClickOut={ClickOut} />}
+        
+      </div>
+      
+    </>
   );
 }

@@ -28,12 +28,12 @@ function handleChangeRouter(route) {
 
   return (
     <div className="nav">
-      {/* <img src={newlogo} alt="" className="header__logo" /> */}
+
 
     <div className="header__logo">
       <Logo />
     </div>
-    
+
       {/* connect to ༼ つ ◕_◕ ༽つ https://mui.com/components/stack/ */}
 
       <Stack spacing={0} style={{marginTop:"5px"}}>
