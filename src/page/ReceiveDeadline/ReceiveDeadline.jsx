@@ -1,23 +1,62 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./assets/ReceiveDeadline.css";
 import { Avatar } from "@mui/material";
 import ArrowForward from "@mui/icons-material/ArrowForward";
 import { Button } from "@mui/material";
 import { Chip } from "@mui/material";
 import queryString from "query-string";
-import { useSearchParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
+import { read_cookie } from "sfcookies";
+import { useNavigate } from "react-router-dom";
+import ShareLink from "../../helpGUI/ShareLink";
 
 export default function ReceiveDeadline() {
-  const [param, setparam] = useSearchParams();
+  const [LoginData, setLoginData] = useState(
+    localStorage.getItem("loginData")
+      ? JSON.parse(localStorage.getItem("loginData"))
+      : null
+  );
+  const [Token, setToken] = useState(
+    read_cookie("accessToken") === [] ? false : read_cookie("accessToken")
+  );
+
+
+
+  const [param, setparam] = useSearchParams({});
+  const {id} = useParams()
+  const navigate = useNavigate();
+
+
+
 
   useEffect(() => {
-    console.log(param.get("deadline"))
+    setparam({
+
+      deadline:"khang",
+      owner :"update"
+      
+    })
+    const test = ShareLink.Deadline({anhyeu:"toi khong yeeu anh"})
+    console.log(param.get("deadline"));
+    console.log(id)
   }, []);
+
 
 
   // eslint-disable-next-line no-restricted-globals
   console.log(queryString.parse(location.search));
 
+
+
+
+
+
+
+  useEffect(() => {
+    if (!Token || !LoginData) {
+      navigate("/login");
+    }
+  });
   return (
     <div className="Receive-deadline">
       <div className="Receive-deadline-container">

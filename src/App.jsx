@@ -81,7 +81,7 @@ return(()=>{
 
   <Route  path="/extension" element={<Extension/>  }></Route>
 
-  <Route  path="/share" element={<ReceiveDeadline/>  }></Route>
+  <Route  path="/share/deadline/:id" element={<ReceiveDeadline/>  }></Route>
 
   <Route  path="*" element={ <NotFound/> }></Route>
 
