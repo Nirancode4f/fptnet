@@ -5,6 +5,8 @@ import "./assets/css/register.css";
 import { Link, useNavigate } from "react-router-dom";
 import ReactDOM from "react-dom";
 import validator from "validator";
+import Logo from "../../component/Layout/assets/Logo";
+
 
 const Register = () => {
   const [email, setemail] = useState("");
@@ -101,6 +103,9 @@ const Register = () => {
         </form>
       </div>
       <div className="logo_fan">
+      <div className="logo-img-login-page">
+         <Logo/>
+      </div>
         <p>FPT University Academic Network</p>
       </div>
     </div>

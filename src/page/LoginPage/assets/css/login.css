@@ -120,16 +120,22 @@ form .login_type_field {
 }
 
 .logo_fan {
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
   position: relative;
-  top: 20px;
-  left: 20px;
-  background-image: url(/src/page/LoginPage/assets/img/logo_fan.png);
+  display: flex;
+  align-items: center;
+  top: 30px;
+  left: 30px;
   background-repeat: no-repeat;
   background-size: contain;
   border-radius: 4px;
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.648);
+}
+
+.logo-img-login-page {
+  width: 80px;
+  height: 80px;
 }
 
 .logo_fan p {

@@ -13,7 +13,6 @@ import TimerIcon from "@mui/icons-material/Timer";
 import PersonIcon from "@mui/icons-material/Person";
 import ForumIcon from "@mui/icons-material/Forum";
 import ExtensionIcon from "@mui/icons-material/Extension";
-import newlogo  from "./assets/newlogo.svg"
 import Logo from "./assets/Logo";
 
 function NavBar() {
