@@ -7,7 +7,6 @@ import { Link, useNavigate } from "react-router-dom";
 import ReactDOM from "react-dom";
 import GgAuth from "./GgAuth";
 import { bake_cookie, read_cookie, delete_cookie } from "sfcookies";
-import Logo from "../../component/Layout/assets/Logo";
 
 const URL_MAIN = process.env.REACT_APP_URL_MAIN || "https://fanserverapi.herokuapp.com"
 
