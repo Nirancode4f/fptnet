@@ -225,7 +225,11 @@ display: none;
     text-decoration: none;
     color: var(--bg-color);
 }
-
+.cls-1 {
+    fill: #fff;
+    stroke: #ef1e08;
+    stroke-width: 1px;
+  }
 /* nav bar */
 .nav{
     width: var(--nav-width);

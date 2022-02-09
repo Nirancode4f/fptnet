@@ -13,7 +13,7 @@ import TimerIcon from "@mui/icons-material/Timer";
 import PersonIcon from "@mui/icons-material/Person";
 import ForumIcon from "@mui/icons-material/Forum";
 import ExtensionIcon from "@mui/icons-material/Extension";
-import newlogo  from "./assets/newlogo1.svg"
+import newlogo  from "./assets/newlogo.svg"
 
 function NavBar() {
   const navigate = useNavigate();
@@ -30,6 +30,7 @@ function handleChangeRouter(route) {
       <img src={newlogo} alt="" className="header__logo" />
 
       {/* connect to ༼ つ ◕_◕ ༽つ https://mui.com/components/stack/ */}
+
       <Stack spacing={0} style={{marginTop:"5px"}}>
         <Button size="large" style={{padding : "20px 0"}} 
         onClick={()=>handleChangeRouter("/")}
