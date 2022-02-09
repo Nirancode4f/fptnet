@@ -8,10 +8,7 @@
     --nav-width: 60px;
 }
 
-.table_deadline {
-   
-    width: 600px;
-}
+
 
 .Content-deadline {
 
@@ -27,6 +24,10 @@
     
     
 }
+.make_deadline_popup_table{
+    width: 60%;
+}
+
 .Deadline {
     position: relative;
     right: 0;

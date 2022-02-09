@@ -16,7 +16,7 @@ import TableDeadline from "./TableDeadline";
 import DeadlinePopUp from "./DeadlinePopUp";
 import { ClickAwayListener } from "@mui/base";
 import MakeDeadline from "./MakeDeadline/MakeDeadline";
-import { TabContext, TabPanel } from "@mui/lab";
+import { TabContext, TabList, TabPanel } from "@mui/lab";
 
 const CssTextField = styled(TextField)({
   "& label.Mui-focused": {
@@ -143,10 +143,18 @@ export default function Newfeed() {
           <div className="table_deadline">
         <TabContext value={value}>
           <Box sx={{ borderColor: "divider" }}>
-            <Tabs onChange={handleChange} aria-label="deadline table">
-              <Tab label="Item One" value="1" />
-              <Tab label="Item Two" value="2" />
-            </Tabs>
+            <TabList
+             sx={{ p: -1 }}
+             variant="fullWidth"
+             onChange={handleChange}
+             textColor="inherit"
+             TabIndicatorProps={{ style: { background: "#f36f21" } }}
+             style={{ fill: "#f36f21", color: "#f36f21" }}
+             aria-label="deadline table"
+            >
+              <Tab label={<span className="profile-tag-action">Deadline</span>} value="1" />
+              <Tab label={<span className="profile-tag-action">received</span>} value="2" />
+            </TabList>
           </Box>
           <TabPanel value="1">
             <TableDeadline Deadlinelist={DeadlineList} />
