@@ -17,15 +17,12 @@ import DeadlinePopUp from "./DeadlinePopUp";
 import { ClickAwayListener } from "@mui/base";
 import MakeDeadline from "./MakeDeadline/MakeDeadline";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
-<<<<<<< HEAD
 import ReceiveDeadline from "./ReceiveDeadline/ReceiveDeadline";
 import isEqual from 'lodash/isEqual';
-=======
 import { Chip, Badge } from "@mui/material";
 
 import { Avatar } from "@mui/material";
 
->>>>>>> ea9b42f083b372de3fbb8b4d40c3df2a01f973d2
 
 const CssTextField = styled(TextField)({
   "& label.Mui-focused": {
@@ -173,9 +170,7 @@ console.log(`deadline `,DeadlineList)
                 <TableDeadline Deadlinelist={DeadlineList} />
               </TabPanel>
               <TabPanel value="2">
-<<<<<<< HEAD
                 <ReceiveDeadline TodoList={""}/>
-=======
 
                 <div className="todo-container">
                 <div className="todo-header">Todo List</div>
@@ -210,7 +205,6 @@ console.log(`deadline `,DeadlineList)
                 </div>
 
                 </div>
->>>>>>> ea9b42f083b372de3fbb8b4d40c3df2a01f973d2
               </TabPanel>
             </TabContext>
           </div>

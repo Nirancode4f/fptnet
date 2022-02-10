@@ -11,7 +11,10 @@ export default function ChatBoxFooter(props) {
   };
 
   const handleOnKeyUp = (e) => {
-    if (e.key === "Enter") onMessagePost({ content: text });
+    if (e.key === "Enter") {
+      onMessagePost({ content: text });
+      e.target.value = "";
+    }
   };
 
   // everytime props change re-render all component
