@@ -32,7 +32,7 @@ const MakeDeadline = () => {
     <div className="student-quick-add-deadline">
       <TextField
         id="standard-basic"
-        label="NAME"
+        label="YOUR DEADLINE NAME"
         variant="standard"
         color="warning"
         style={{
@@ -44,7 +44,7 @@ const MakeDeadline = () => {
       />
       <TextField
         id="standard-basic"
-        label="DESCRIPTION"
+        label="NOTE"
         variant="standard"
         color="warning"
         style={{

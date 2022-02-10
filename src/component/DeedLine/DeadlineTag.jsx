@@ -16,7 +16,7 @@ DeadlineTag.defaultProps = {
 
 function DeadlineTag(props) {
   const { data } = props;
-  console.log(`deadlinetag `, data);
+  
 
   const { modalDeadline, onDeadlineClick } = props
 

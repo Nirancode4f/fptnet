@@ -132,7 +132,7 @@ function GetPostData() {
                         }}
                       >
                         <span>
-                          {" "}
+                      
                           <i className="far fa-images"></i> Thêm ảnh
                         </span>
                       </Button>

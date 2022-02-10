@@ -17,6 +17,8 @@ import DeadlinePopUp from "./DeadlinePopUp";
 import { ClickAwayListener } from "@mui/base";
 import MakeDeadline from "./MakeDeadline/MakeDeadline";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
+import ReceiveDeadline from "./ReceiveDeadline/ReceiveDeadline";
+import isEqual from 'lodash/isEqual';
 
 const CssTextField = styled(TextField)({
   "& label.Mui-focused": {
@@ -51,8 +53,7 @@ export default function Newfeed() {
   const [Loading, setLoading] = useState(false);
   const [isMouted, setisMouted] = useState(true);
   const [DeadlineList, setDeadlineList] = useState([]);
-  const [cloneDeadlineList, setcloneDeadlineList] = useState(DeadlineList);
-  const [DateValue, setDateValue] = useState(Date());
+
 
   const [ShowDeadline, setShowDeadline] = useState(true);
   const [time, setTime] = useState(0);
@@ -60,18 +61,20 @@ export default function Newfeed() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+console.log(`deadline `,DeadlineList)
+ 
   function GetDeadline() {
     try {
       AxiosMain.post("/api/deadline/getdeadlines", {
         userId: `${LoginData.user._id}`,
       }).then((res) => {
+        console.log(res)
         setLoading(false);
-        // after unmount component but asynchronous task still run, drop it.
+        
         if (isMouted) {
-          if (res.deadlines.length !== 0) {
+          if (res.deadlines !== [] || !isEqual(res.deadlines,DeadlineList)) {
             setDeadlineList(res.deadlines);
+            console.log(`update `,DeadlineList)
           }
         }
       });
@@ -93,17 +96,14 @@ export default function Newfeed() {
 
   //   Call api
   useEffect(() => {
-    GetDeadline();
-    const timer = setInterval(() => {
+  
+    setInterval(() => {
       GetDeadline();
-      if (DeadlineList !== cloneDeadlineList) {
-        setcloneDeadlineList(DeadlineList);
-      }
     }, 5000);
-    console.log(time);
+   
     return () => {
       setisMouted(false);
-      clearInterval(timer);
+      clearInterval();
     };
   }, []);
 
@@ -157,7 +157,7 @@ export default function Newfeed() {
                     value="1"
                   />
                   <Tab
-                    label={<span className="profile-tag-action">received</span>}
+                    label={<span className="profile-tag-action">Received</span>}
                     value="2"
                   />
                 </TabList>
@@ -165,7 +165,9 @@ export default function Newfeed() {
               <TabPanel value="1">
                 <TableDeadline Deadlinelist={DeadlineList} />
               </TabPanel>
-              <TabPanel value="2">Item Two</TabPanel>
+              <TabPanel value="2">
+                <ReceiveDeadline TodoList={""}/>
+              </TabPanel>
             </TabContext>
           </div>
         </div>
