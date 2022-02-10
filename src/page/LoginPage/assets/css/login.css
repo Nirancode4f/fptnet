@@ -120,8 +120,8 @@ form .login_type_field {
 }
 
 .logo_fan {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   position: relative;
   display: flex;
   align-items: center;
@@ -134,8 +134,8 @@ form .login_type_field {
 }
 
 .logo-img-login-page {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
 }
 
 .logo_fan p {
