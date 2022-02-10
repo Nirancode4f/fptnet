@@ -117,6 +117,10 @@ overflow: hidden;
     margin: 0 40px;
 }
 
+.student-quick-add-deadline {
+    width: 100%;
+    margin: 0 auto;
+}
 
 .quick-add-deadline-btn {
     text-align: right;
@@ -231,6 +235,7 @@ overflow: hidden;
   width: 800px;
   padding: 10px 20px; 
   display: flex;
+  align-items: center;
   flex-direction: column;
   justify-content: space-between;
   animation: grow linear 0.4s;
@@ -298,4 +303,51 @@ margin-bottom: 10px;
 .modal-view-detail-deadline-attend {
     display: flex;
     justify-content: right;
+}
+
+.deadline_label {
+    color: var(--bg-color);
+    font-size: 28px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.deadline-popup-avatar-and-btn {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+}
+
+.deadline-popup-add-people-btn {
+    position: relative;
+  cursor: pointer;
+   
+}
+
+.deadline-popup-add-people-btn:hover .deadline-popup-add-people-btn-title {
+  display: block;
+  cursor: pointer;
+}
+
+.deadline-popup-add-people-btn-title {
+    position: absolute; 
+    left:24px;
+    top :0px;
+    width: 150px;
+    box-shadow: 0 0 1px #999;
+    padding: 5px;
+    border-radius: 4px;
+    display: none;
+    user-select: none;
+}
+
+.deadline-popup-group-avt {
+    display: flex;
+    max-width: 374px ;
+}
+
+.deadline-popup-group-avt .group-avt {
+    display: flex;
+    flex-wrap: wrap;
 }
