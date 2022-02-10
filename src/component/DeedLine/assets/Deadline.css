@@ -351,3 +351,21 @@ margin-bottom: 10px;
     display: flex;
     flex-wrap: wrap;
 }
+.todo-container {
+    width: 960px;
+    margin: 0 auto;
+    padding: 0 10px;
+    background-color: #fafafa;
+}
+
+.todo-header {
+    font-size: 28px;
+    color: var(--bg-color);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.todo-job {
+    display: flex;
+    align-items: center;
+}

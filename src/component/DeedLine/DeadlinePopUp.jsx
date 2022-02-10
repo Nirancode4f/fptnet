@@ -62,7 +62,7 @@ function DeadlinePopUp(props) {
            </div>
       
 
-          <Button color="warning" variant="contained" style={{height:"40px", transform:"translateY(40px)"}}>Contained</Button>
+          <Button color="warning" variant="contained" style={{height:"40px", transform:"translateY(40px)"}}>Make Deadline</Button>
            </div>
          
         </div>
