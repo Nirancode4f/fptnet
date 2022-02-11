@@ -29,13 +29,12 @@ export default function ChatBox(props) {
   };
 
   // get friend messages
-  const getFriendMessages = async (userId, convsId, block) => {
+  const getFriendMessages = async (userId, convsId) => {
     let result;
     try {
-      result = await axios.post(`${URL_MAIN}/api/message/getblock`, {
+      result = await axios.post(`${URL_MAIN}/api/message/get`, {
         userId: userId,
         conversationId: convsId,
-        block: block,
       });
     } catch (err) {
       console.log(err);
@@ -47,10 +46,9 @@ export default function ChatBox(props) {
   const getGroupMessages = async (userId, convsId, block) => {
     let result;
     try {
-      result = await axios.post(`${URL_MAIN}/api/group/message/getblock`, {
+      result = await axios.post(`${URL_MAIN}/api/group/message/get`, {
         userId: userId,
         conversationId: convsId,
-        block: block,
       });
     } catch (err) {
       console.log(err);

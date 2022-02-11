@@ -7,14 +7,11 @@ import * as Scroll from "react-scroll";
 export default function ChatBoxMain(props) {
   const { messages, userId, targetAvtSrc } = props;
   const scroll = Scroll.animateScroll;
-  const handleOnScroll = (e) => {
-    console.log([e.target]);
-  };
-  React.useEffect(() => {
-    scroll.scrollToBottom();
-  });
+  // const handleOnScroll = (e) => {
+  //   console.log([e.target]);
+  // };
   return (
-    <div className="ChatBoxMain" onScroll={handleOnScroll}>
+    <div className="ChatBoxMain">
       {messages.length > 0 ? (
         messages
           .slice(0)
@@ -35,7 +32,7 @@ export default function ChatBoxMain(props) {
             )
           )
       ) : (
-        <>{"Hãy chọn cuộc hội thoại"}</>
+        <>{"Chưa có hội thoại nào"}</>
       )}
     </div>
   );
