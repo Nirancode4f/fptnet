@@ -22,6 +22,7 @@
     flex-direction: column;
     padding-left: 50px;
     padding-right: 50px;
+    margin-top: 20px;
     
     
 }
@@ -70,10 +71,10 @@ margin: 0 auto;
 overflow: hidden;
 }
 .student-number {
-    font-size: 18px;
+    font-size: 25px;
     font-weight: bold;
     color: var(--bg-color);
-    float: right;
+    float: left;
     margin-top: 20px;
 }
 

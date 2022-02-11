@@ -121,15 +121,17 @@ export default function Newfeed() {
         {/* begin student info  */}
         <div className="Content-deadline">
           <div className="student-info">
+            
             <div className="student-number">
               <p>
                 MSSV:{" "}
                 {LoginData.user.mssv ? LoginData.user.mssv : "Not FPTU student"}
               </p>
             </div>
-            <div className="student-quanlity-deadline">
+
+            {/* <div className="student-quanlity-deadline">
               <span> Unfinished:</span> <p>{DeadlineList.length}</p>
-            </div>
+            </div> */}
             <div className="quick-add-deadline-btn">
               <Button
                 onClick={handleONdlickDeadline}
