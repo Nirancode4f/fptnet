@@ -5,6 +5,7 @@ import { TextField } from "@mui/material";
 import React, { useState } from "react";
 import { styled } from "@mui/system";
 import { ClickAwayListener } from "@mui/base";
+import AxiosMain from "../../../API/AxiosMain";
 
 const CssTextField = styled(TextField)({
   "& label.Mui-focused": {
@@ -28,6 +29,33 @@ const CssTextField = styled(TextField)({
 
 const MakeDeadline = () => {
   const [DateValue, setDateValue] = useState(Date());
+  console.log(Date.parse(DateValue))
+
+
+
+
+
+
+
+
+
+  const handlePost = () => {
+
+    AxiosMain.post("/api/deadline/create",
+      {
+        "userId": "61c2b42177efb03d08b9031f",
+        "owner": ["61c2b42177efb03d08b9031f", "61d3190fe0fae222f917f8cd"],
+        "student": ["61d1920a61501846a35e8366", "61d31743f460f79f0d2b1e39"],
+        "content": "Làm bài tập tết ",
+        "attachment": ["https://calibre-ebook.com/downloads/demos/demo.docx"],
+        "note": "Không nộp đúng hạn trừ 1 điểm",
+        "deadlinedate": "2022-01-25"
+    }
+    )
+  
+  }
+
+
   return (
     <div className="student-quick-add-deadline">
       <TextField

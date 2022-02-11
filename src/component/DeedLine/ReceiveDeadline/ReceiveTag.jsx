@@ -8,12 +8,7 @@ const ReceiveTag = (props) => {
     const {todo} = props
     const deadlineFrom = todo.deadlineId
     const {timeString} = DeadlineDate.FomatDate(new Date(deadlineFrom.deadlinedate))
-  
-    useEffect(() => {
-      console.log(`date `,timeString)
-    
-     
-    }, [])
+
     
   return (
     <div className="todo-job">

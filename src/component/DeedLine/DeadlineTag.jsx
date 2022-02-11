@@ -2,7 +2,7 @@ import { Avatar, Badge, Chip } from "@mui/material";
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import DeadlinePopUp from "./DeadlinePopUp";
-
+import Attachment from "./Attachment";
 
 DeadlineTag.propTypes = {
   data: PropTypes.object,
@@ -16,18 +16,14 @@ DeadlineTag.defaultProps = {
 
 function DeadlineTag(props) {
   const { data } = props;
-  
 
-  const { modalDeadline, onDeadlineClick } = props
+  const { modalDeadline, onDeadlineClick } = props;
 
-  const handleClick = ( modalDeadline) => {
+  const handleClick = (modalDeadline) => {
     if (onDeadlineClick) {
-
-      <DeadlinePopUp/>
-
+      <DeadlinePopUp />;
     }
-}
-
+  };
 
   return (
     <div className="deadline-section" onClick={handleClick(modalDeadline)}>
@@ -51,9 +47,7 @@ function DeadlineTag(props) {
             size="medium"
             style={{ marginRight: 20 }}
           />
-           
-         
-          
+
           <Badge
             badgeContent={"DUE"}
             color="warning"
@@ -70,7 +64,8 @@ function DeadlineTag(props) {
         </div>
       </div>
       {/* mỗi attachment 1 row */}
-      <div className="deadline-attachment-row">attachment</div>
+      <Attachment data={data.attachment} />
+     
     </div>
   );
 }
