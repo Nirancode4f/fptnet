@@ -26,7 +26,7 @@ function DeadlineTag(props) {
   };
 
   return (
-    <div className="deadline-section" onClick={""}>
+    <div className="deadline-section" >
       <div className="deadline-info-row">
         <div className="deadline-creater-img">
           <Avatar

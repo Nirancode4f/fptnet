@@ -15,7 +15,7 @@ const GetSeo = (props) => {
       }).then((res) => {
         if (isUnmound) {
           setSeotaken(res.message);
-      
+          console.log(res.message)
         }
       });
     }
@@ -25,7 +25,28 @@ const GetSeo = (props) => {
     };
   }, []);
 
-  return <>{Seotaken.description}</>;
+  return (
+    <>
+      <div className="deadline-attachment-row">
+        <div className="attachment-background">
+          <img
+            src={`${Seotaken.image ? Seotaken.image : "" }`}
+            className="background-attachment-link"
+          />
+          <div className="attachment-content">
+            {Seotaken.title}
+          </div>
+          <div className="attachment-provider">
+            <img
+              src={`${Seotaken.icon}`}
+              className="favicon"
+            />
+            {Seotaken.provider}
+          </div>
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default GetSeo;
