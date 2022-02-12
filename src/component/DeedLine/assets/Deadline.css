@@ -170,12 +170,12 @@ overflow: hidden;
 }
 
 .deadline-name {
-    width: 40%;
+    width: 30%;
     font-weight: 600;
 }
 
 .deadline-note {
-    width: 30%;
+    width: 40%;
     font-weight: 600;
 }
 
