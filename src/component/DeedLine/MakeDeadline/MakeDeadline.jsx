@@ -31,6 +31,11 @@ const MakeDeadline = () => {
   const [DateValue, setDateValue] = useState(Date());
   console.log(Date.parse(DateValue))
 
+  const [LoginData, setLoginData] = useState(
+    localStorage.getItem("loginData")
+    ? JSON.parse(localStorage.getItem("loginData"))
+    : null
+)
 
 
 
@@ -43,13 +48,13 @@ const MakeDeadline = () => {
 
     AxiosMain.post("/api/deadline/create",
       {
-        "userId": "61c2b42177efb03d08b9031f",
-        "owner": ["61c2b42177efb03d08b9031f", "61d3190fe0fae222f917f8cd"],
+        "userId": `${LoginData._id}`,
+        "owner": [`${LoginData._id}`],
         "student": ["61d1920a61501846a35e8366", "61d31743f460f79f0d2b1e39"],
         "content": "Làm bài tập tết ",
         "attachment": ["https://calibre-ebook.com/downloads/demos/demo.docx"],
         "note": "Không nộp đúng hạn trừ 1 điểm",
-        "deadlinedate": "2022-01-25"
+        "deadlinedate": `${DateValue}`
     }
     )
   
@@ -109,6 +114,7 @@ const MakeDeadline = () => {
           }}
         />
       </LocalizationProvider>
+      <div>more option</div>
     </div>
   );
 };
