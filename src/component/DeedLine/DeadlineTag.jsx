@@ -65,7 +65,6 @@ function DeadlineTag(props) {
       </div>
       {/* mỗi attachment 1 row */}
       <Attachment data={data.attachment} />
-     
     </div>
   );
 }

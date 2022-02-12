@@ -53,7 +53,7 @@ export default function Newfeed() {
 
   const deadlineList = useSelector((state) => state.deadline.list);
 
-  const [Loading, setLoading] = useState(false);
+  const [Loading, setLoading] = useState(true);
   const [isMouted, setisMouted] = useState(true);
   const [DeadlineList, setDeadlineList] = useState([]);
 
@@ -63,28 +63,29 @@ export default function Newfeed() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  console.log(`deadline `, DeadlineList);
+
 
   function GetDeadline() {
     try {
       AxiosMain.post("/api/deadline/getdeadlines", {
         userId: `${LoginData.user._id}`,
       }).then((res) => {
-        console.log(res);
+       
         setLoading(false);
 
         if (isMouted) {
           if (!isEqual(res.deadlines, DeadlineList)) {
             setDeadlineList(res.deadlines);
-            console.log(`update `, DeadlineList);
+           
           }
         }
       });
-      setLoading(true);
+     
     } catch (error) {
       console.log(error);
     }
   }
+  
   function handleONdlickDeadline() {
     if (!ShowDeadline) {
       setShowDeadline(true);
@@ -166,7 +167,7 @@ export default function Newfeed() {
                 </TabList>
               </Box>
               <TabPanel value="1">
-                <TableDeadline Deadlinelist={DeadlineList} />
+                <TableDeadline Deadlinelist={DeadlineList} Loading={Loading} />
               </TabPanel>
               <TabPanel value="2">
                 <ReceiveDeadline TodoList={""} />

@@ -15,7 +15,7 @@ const GetSeo = (props) => {
       }).then((res) => {
         if (isUnmound) {
           setSeotaken(res.message);
-          console.log(res.message);
+      
         }
       });
     }

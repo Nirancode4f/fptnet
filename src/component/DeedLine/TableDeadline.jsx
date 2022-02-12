@@ -7,7 +7,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { Chip } from "@mui/material";
+import { Chip, LinearProgress } from "@mui/material";
 import { Icon } from "@mui/material";
 import { Menu } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -29,7 +29,7 @@ TableDeadline.defaultProps = {
 };
 
 export default function TableDeadline(props) {
-  const { Deadlinelist } = props;
+  const { Deadlinelist, Loading } = props;
 
   const [Ismount, setIsmount] = useState(false);
 
@@ -45,9 +45,16 @@ export default function TableDeadline(props) {
         <div className="title-deadline-and-btns">
           <div className="title-deadline">DEADLINE</div>
         </div>
+        { Loading &&
+           <LinearProgress
+           color='inherit'
+           style={{ color: "#f36f21", height: "2px" }}
 
+         />}
+        
         {Deadlinelist &&
           Deadlinelist.map((e) => <DeadlineTag key={e._id} data={e} />)}
+
       </div>
     
   );
