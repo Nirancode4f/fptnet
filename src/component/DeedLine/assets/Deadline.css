@@ -213,7 +213,7 @@ overflow: hidden;
 .background-attachment-link{
     width: 920px;
     height: 80px;
-    object-fit: none;
+    object-fit: cover;
     object-position: center;
     opacity: 0.4;
 }
