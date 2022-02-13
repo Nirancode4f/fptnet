@@ -1,4 +1,5 @@
 import React from "react";
+import GroupAddIcon from "@mui/icons-material/GroupAdd";
 
 export default function FriendHeader(props) {
   return (
@@ -16,6 +17,7 @@ export default function FriendHeader(props) {
         <button className="Friend_Header_Setting">
           <i className="fas fa-cogs"></i>
         </button>
+        <GroupAddIcon sx={{ m: 1 }} />
       </div>
     </div>
   );
