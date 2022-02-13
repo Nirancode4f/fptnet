@@ -23,7 +23,7 @@
   left: calc(var(--nav-bar-width) + 1px);
   overflow-y: auto;
   width: 340px;
-  margin-top: 55px;
+  margin-top: 80px;
 }
 
 .FriendHeader {
@@ -41,7 +41,7 @@
   border-radius: 12px;
   margin: 0 12px;
   padding: 0 10px;
-  min-width: 260px;
+  flex: 1;
 }
 .FriendHeaderSearch i {
   font-size: 12px;
@@ -64,6 +64,7 @@
   line-height: 30px;
   margin: 0 10px;
 }
+
 .Friend_Header_Setting:hover {
   cursor: pointer;
   opacity: 0.7;

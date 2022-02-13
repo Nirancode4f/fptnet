@@ -12,6 +12,7 @@ const ReceiveTag = (props) => {
     
   return (
     <div className="todo-job">
+            <div className="todo-info-row">
             <div className="deadline-creater-img">
               <Avatar
                 alt="Avatar"
@@ -32,6 +33,8 @@ const ReceiveTag = (props) => {
                 style={{ marginRight: 20 }}
               />
             </div>
+            </div>
+            
           </div>
   )
 }
