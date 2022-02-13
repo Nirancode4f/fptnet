@@ -35,13 +35,13 @@ function GgAuth() {
         token: googleData.tokenId,
       }).then((res) => {
         setLoading(false);
-
+        console.log(`res from nayt`,res)
         setLoginData(res.message);
 
-        delete res.accessToken;
+        
 
         bake_cookie("accessToken", res.accessToken);
-
+          delete res.accessToken;
         localStorage.setItem("loginData", JSON.stringify(res));
         navigate("/");
       });

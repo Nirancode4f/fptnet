@@ -33,7 +33,7 @@ function App() {
       if (!con) {
         setLoginData(null);
       } else if (!isEqual(con, LoginData)) {
-        window.location.reload(false);
+        // window.location.reload(false);
         setLoginData(
           localStorage.getItem("loginData")
             ? JSON.parse(localStorage.getItem("loginData"))
