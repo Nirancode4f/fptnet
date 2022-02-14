@@ -423,9 +423,46 @@ margin-bottom: 10px;
 
 .todo-job {
     display: flex;
+    flex-direction: column;
     align-items: center;
     margin-bottom: 10px;
     box-shadow: 0 1px 2px #333;
     padding: 10px;
     border-radius: 4px;
+}
+
+.todo-info-row {
+    width: 100%;
+    display: flex;
+    padding: 0 0 10px 0;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.todo-attachment-row {
+    display: flex;
+}
+
+.todo-attachment-info {
+  width: 820px;    
+}
+
+.todo-attachment-status {
+     width: 100px;    
+
+    /* width: 100px; */
+    height: 80px;
+    line-height: 80px;  
+    color: #fff;
+    font-weight: 600;
+    font-size: 22px;
+    text-align: center;
+}
+
+.done {
+    background-color:rgb(71, 187, 71)
+}
+
+.Not-yet {
+    background-color: rgb(190, 33, 33);
 }

@@ -34,7 +34,22 @@ const ReceiveTag = (props) => {
               />
             </div>
             </div>
+            <div className="todo-attachment-row">
+            <div className="todo-attachment-info">
+        <div className="attachment-background">
+            <img
+              src=''
+              className="background-attachment-link"
+            />
             
+          <div className="attachment-content">content</div>
+         
+        </div>
+        </div>
+        <div className="todo-attachment-status done">
+             Done
+        </div>
+      </div>
           </div>
   )
 }
