@@ -5,7 +5,7 @@ import Avatar from '@mui/material/Avatar';
 import { Link, useNavigate } from "react-router-dom";
 import avata from "./assets/avata-user.png";
 import { bake_cookie, read_cookie, delete_cookie } from "sfcookies";
-
+import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 
 
 function Header(props) {
@@ -59,7 +59,11 @@ function Header(props) {
         <div className="header__member-notification">
           <a href="">
             {" "}
-            <i className="fas fa-bell"></i>{" "}
+            {/* <i className="fas fa-bell"></i> */}
+            <NotificationsActiveIcon color="warning" style={{
+              marginRight: "20px"
+            }}></NotificationsActiveIcon>
+            {" "}
           </a>
         </div>
         <div className="header__member-user">
