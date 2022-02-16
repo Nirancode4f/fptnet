@@ -30,8 +30,7 @@ const GetSeo = (props) => {
   }, []);
 
   return (
-    
-    <Link href={link}>
+    <Link style={{color : "#000"}} href={link}>
       <div className="deadline-attachment-row">
         <div className="attachment-background">
           {Seotaken.image ? (
