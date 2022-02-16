@@ -9,7 +9,7 @@ const ReceiveTag = (props) => {
   const { timeString } = DeadlineDate.FomatDate(
     new Date(deadlineFrom.deadlinedate)
   );
-console.log(deadlineFrom.attachment)
+
   return (
     <div className="todo-job">
       <div className="todo-info-row">

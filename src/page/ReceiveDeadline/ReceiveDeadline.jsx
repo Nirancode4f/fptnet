@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import React, { useEffect, useState } from "react";
 import "./assets/ReceiveDeadline.css";
 import { Avatar } from "@mui/material";
@@ -22,7 +23,7 @@ export default function ReceiveDeadline() {
 
 
 
-  const [param, setparam] = useSearchParams({});
+  // const [param, setparam] = useSearchParams({});
   const {id} = useParams()
   const navigate = useNavigate();
 
@@ -30,22 +31,23 @@ export default function ReceiveDeadline() {
 
 
   useEffect(() => {
-    setparam({
+    // setparam({
 
-      deadline:"khang",
-      owner :"update"
+    //   deadline:"khang",
+    //   owner :"update"
       
-    })
-    const test = ShareLink.Deadline({anhyeu:"toi khong yeeu anh"})
-    console.log(param.get("deadline"));
-    console.log(id)
+    // })
+    const test = ShareLink.Deadline(["61d3b226e673653cd2452cce" ,"620d1b7d99c0d3584ffbe2b1"])
+    // console.log(param.get("deadline"));
+   console.log(`test` , test)
+
   }, []);
 
 
 
   // eslint-disable-next-line no-restricted-globals
-  console.log(queryString.parse(location.search));
-
+ 
+ console.log(`print`,queryString.parse(location.search));
 
 
 

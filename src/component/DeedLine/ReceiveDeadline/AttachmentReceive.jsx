@@ -12,9 +12,9 @@ const AttachmentReceive = (props) => {
     // console.log(getMetaData(data[0]))
   return (
     <>
-    {data.map((attachment) => (
-        <GetSeo link={attachment}/>
-      ))}
+    {
+        <GetSeo link={data[0]}/>
+      }
 </>
   )
 }

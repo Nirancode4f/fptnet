@@ -9,12 +9,12 @@ const Attachment = (props) => {
     const [Seolink, setSeolink] = useState({})
 
 
-    // console.log(getMetaData(data[0]))
+
   return (
     <>
-    {data.map((attachment) => (
-        <GetSeo link={attachment}/>
-      ))}
+    {
+        <GetSeo link={data[0]}/>
+      }
 </>
   )
 }

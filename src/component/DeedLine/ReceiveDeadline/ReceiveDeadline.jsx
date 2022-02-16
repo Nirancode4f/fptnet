@@ -4,6 +4,7 @@ import AxiosMain from "../../../API/AxiosMain";
 import isEqual from "lodash/isEqual";
 import { Avatar, Chip, LinearProgress } from "@mui/material";
 import ReceiveTag from "./ReceiveTag";
+import ShareLink from "../../../helpGUI/ShareLink";
 const ReceiveDeadline = () => {
   const [LoginData, setLoginData] = useState(
     localStorage.getItem("loginData")
@@ -13,6 +14,10 @@ const ReceiveDeadline = () => {
   const [Loading, setLoading] = useState(true)
 
   const [TodoData, setTodoData] = useState([]);
+
+  const gaga = ShareLink.Deadline({toi:"yeeu em", no:"khoong yeeu em"})
+
+  console.log(gaga)
 
   useEffect(() => {
     try {
@@ -29,22 +34,23 @@ const ReceiveDeadline = () => {
     return () => {};
   }, []);
 
-  console.log(`todo `, TodoData);
+
 
   return (
     <div>
       <div className="todo-container">
         <div className="todo-header">Todo List</div>
         <div className="todo-body">
-          {<LinearProgress
-           color='inherit'
-           style={{ color: "#f36f21", height: "2px" }}
-
-         /> && Loading}
+        
           {TodoData.map((todo) => 
             (<ReceiveTag key={todo._id} todo={todo} />)
           )}
         </div>
+        {<LinearProgress
+           color='inherit'
+           style={{ color: "#f36f21", height: "2px" }}
+
+         /> && Loading}
       </div>
     </div>
   );

@@ -70,7 +70,7 @@ export default function Newfeed() {
       AxiosMain.post("/api/deadline/getdeadlines", {
         userId: `${LoginData.user._id}`,
       }).then((res) => {
-       console.log(res)
+   
         setLoading(false);
 
         if (isMouted) {
