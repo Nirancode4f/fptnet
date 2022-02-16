@@ -30,6 +30,7 @@ const GetSeo = (props) => {
   }, []);
 
   return (
+    
     <Link href={link}>
       <div className="deadline-attachment-row">
         <div className="attachment-background">

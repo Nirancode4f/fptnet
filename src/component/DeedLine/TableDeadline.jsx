@@ -32,6 +32,7 @@ export default function TableDeadline(props) {
   const { Deadlinelist, Loading } = props;
 
   const [Ismount, setIsmount] = useState(false);
+  console.log(`deadlinelist= `,Deadlinelist)
 
   useEffect(() => {
   
