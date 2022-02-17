@@ -1,9 +1,12 @@
 .DetailDeadline {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.3);
     min-height: 100vh;
+    position:  absolute;
+    z-index: 150;
 }
 
 .DetailDeadline-container {
