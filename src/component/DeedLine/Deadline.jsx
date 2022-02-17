@@ -20,7 +20,7 @@ import { TabContext, TabList, TabPanel } from "@mui/lab";
 import ReceiveDeadline from "./ReceiveDeadline/ReceiveDeadline";
 import isEqual from 'lodash/isEqual';
 import { Chip, Badge } from "@mui/material";
-
+import DetailDeadline from "../DetailDeadline/DetailDeadline";
 import { Avatar } from "@mui/material";
 
 const CssTextField = styled(TextField)({
