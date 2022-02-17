@@ -119,7 +119,7 @@ export default function Newfeed() {
 
   return (
     <>
-    <DetailDeadline/>
+    {<DetailDeadline/>}
       <div className="Deadline-container">
         {/* begin student info  */}
         <div className="Content-deadline">
