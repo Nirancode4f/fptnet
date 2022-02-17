@@ -20,8 +20,9 @@ import { TabContext, TabList, TabPanel } from "@mui/lab";
 import ReceiveDeadline from "./ReceiveDeadline/ReceiveDeadline";
 import isEqual from 'lodash/isEqual';
 import { Chip, Badge } from "@mui/material";
-import DetailDeadline from "../DetailDeadline/DetailDeadline";
+
 import { Avatar } from "@mui/material";
+import DetailDeadline from "./DetailDeadline/DetailDeadline";
 
 const CssTextField = styled(TextField)({
   "& label.Mui-focused": {
@@ -118,6 +119,7 @@ export default function Newfeed() {
 
   return (
     <>
+    <DetailDeadline/>
       <div className="Deadline-container">
         {/* begin student info  */}
         <div className="Content-deadline">
@@ -178,9 +180,10 @@ export default function Newfeed() {
           </div>
         </div>
         {/* end student info  */}
-
+            
         {ShowDeadline ? <></> : <DeadlinePopUp OnClickOut={ClickOut} />}
       </div>
+      
     </>
   );
 }

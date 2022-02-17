@@ -1,10 +1,14 @@
 import React from 'react'
 import "./DetailDeadLine.css"
-import GetSeo from '../../helpGUI/GetSeo'
-import DeadlineTag from '../DeedLine/DeadlineTag'
+import GetSeo from '../../../helpGUI/GetSeo'
+import DeadlineTag from '../DeadlineTag'
 import { Avatar } from '@mui/material' 
 
-export default function DetailDeadline() {
+const DetailDeadline = (props) => {
+  const { }  = props 
+
+  
+
   return (
     <div className='DetailDeadline'>
          <div className="DetailDeadline-container">
@@ -28,3 +32,4 @@ export default function DetailDeadline() {
     </div>
   )
 }
+export default DetailDeadline
