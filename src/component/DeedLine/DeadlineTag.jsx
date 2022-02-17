@@ -15,18 +15,20 @@ DeadlineTag.defaultProps = {
 };
 
 function DeadlineTag(props) {
-  const { data } = props;
+  const { data , onHandleClick } = props;
 
   const { onDeadlineClick } = props;
 
-  const handleClick = (modalDeadline) => {
-    if (onDeadlineClick) {
-      <DeadlinePopUp />;
-    }
-  };
+const handleLOg = () => {
+
+
+  onHandleClick(data)
+  
+}
+
 
   return (
-    <div className="deadline-section" >
+    <div className="deadline-section" onClick={handleLOg}>
       <div className="deadline-info-row">
         <div className="deadline-creater-img">
           <Avatar

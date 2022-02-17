@@ -45,6 +45,7 @@ const CssTextField = styled(TextField)({
 });
 
 export default function Newfeed() {
+
   const [LoginData, setLoginData] = useState(
     localStorage.getItem("loginData")
       ? JSON.parse(localStorage.getItem("loginData"))
@@ -65,6 +66,8 @@ export default function Newfeed() {
     setValue(newValue);
   };
 
+  // hook 
+const [showDetailDealine, setshowDetailDealine] = useState(false)
 
   function GetDeadline() {
     try {
@@ -97,6 +100,10 @@ export default function Newfeed() {
   function ClickOut(event) {
     setShowDeadline(event);
   }
+  const handleShowUP =(event)=>{
+  console.log(`detaildealine ==== `,event)
+  setshowDetailDealine(event)
+  } 
 
   //   Call api
   useEffect(() => {
@@ -120,7 +127,7 @@ export default function Newfeed() {
   return (
     <>
     
-     { <DetailDeadline/>}
+     { showDetailDealine && <DetailDeadline  />}
       <div className="Deadline-container">
         {/* begin student info  */}
         <div className="Content-deadline">
@@ -170,8 +177,10 @@ export default function Newfeed() {
                 </TabList>
               </Box>
               <TabPanel value="1">
-                <TableDeadline Deadlinelist={DeadlineList} Loading={Loading} />
+
+                <TableDeadline Deadlinelist={DeadlineList} Loading={Loading} DetailDeadlinePopup={handleShowUP} />
               </TabPanel>
+
               <TabPanel value="2">
                 <ReceiveDeadline TodoList={""} />
 

@@ -23,13 +23,15 @@ import PropTypes from "prop-types";
 
 TableDeadline.prototype = {
   Deadlinelist: propTypes.array,
+  DetailDeadlinePopup : propTypes.func,
 };
 TableDeadline.defaultProps = {
   Deadlinelist: [],
+  DetailDeadlinePopup: null,
 };
 
 export default function TableDeadline(props) {
-  const { Deadlinelist, Loading } = props;
+  const { Deadlinelist, Loading , DetailDeadlinePopup} = props;
 
   const [Ismount, setIsmount] = useState(false);
   console.log(`deadlinelist= `,Deadlinelist)
@@ -39,6 +41,15 @@ export default function TableDeadline(props) {
 
     return () => {};
   }, [Deadlinelist]);
+
+  const dataLogout =(event)=>{
+
+    console.log(`turnoff `,event)
+    DetailDeadlinePopup(true)
+
+  }
+
+
 
   return (
 
@@ -54,9 +65,8 @@ export default function TableDeadline(props) {
          />}
         
         {Deadlinelist &&
-          Deadlinelist.map((e) => <DeadlineTag key={e._id} data={e} />)}
+          Deadlinelist.map((e) => <DeadlineTag key={e._id} data={e}  onHandleClick={dataLogout}/>)}
 
       </div>
-    
   );
 }

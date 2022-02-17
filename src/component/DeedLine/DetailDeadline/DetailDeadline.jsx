@@ -4,10 +4,16 @@ import GetSeo from '../../../helpGUI/GetSeo'
 import DeadlineTag from '../DeadlineTag'
 import { Avatar } from '@mui/material' 
 
-const DetailDeadline = (props) => {
-  const { }  = props 
 
-  
+
+const DetailDeadline = (props) => {
+
+  const { Time , Khang}  = props 
+
+  console.log(`props `,props)
+
+  console.log(`Time   ` , Time)
+  console.log(`Khang `, Khang)
 
   return (
     <div className='DetailDeadline'>
