@@ -21,8 +21,8 @@ export default function FriendHeader(props) {
         </button>
         <div className="Friend_Header_add-group">
           <Button>
-        <GroupAddIcon sx={{ m: 1 }} color="warning" />
-        </Button>
+            <GroupAddIcon sx={{ m: 1 }} color="warning" />
+          </Button>
         </div>
       </div>
     </div>

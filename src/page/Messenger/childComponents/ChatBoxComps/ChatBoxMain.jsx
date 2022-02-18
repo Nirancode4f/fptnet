@@ -5,11 +5,12 @@ import { v4 } from "uuid";
 import * as Scroll from "react-scroll";
 
 export default function ChatBoxMain(props) {
-  const { messages, userId, targetAvtSrc } = props;
+  const { messages, userId, targetAvtSrc, newMess } = props;
   const scroll = Scroll.animateScroll;
   // const handleOnScroll = (e) => {
   //   console.log([e.target]);
   // };
+  if (newMess)
   return (
     <div className="ChatBoxMain">
       {messages.length > 0 ? (

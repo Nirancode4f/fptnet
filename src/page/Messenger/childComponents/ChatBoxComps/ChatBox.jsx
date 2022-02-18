@@ -8,7 +8,7 @@ const URL_MAIN =
 const block = 1; //testing
 
 export default function ChatBox(props) {
-  const { chatData, userId, onCurrentConvsIdChange } = props;
+  const { chatData, userId, onCurrentConvsIdChange, newMessage } = props;
 
   const [convsId, setConvsId] = useState("");
   const [messages, setMessages] = useState([]);
@@ -105,12 +105,20 @@ export default function ChatBox(props) {
           console.log(err.messages);
         });
     }
-  }, [props]);
+  }, [chatData, newMessage]);
 
   return (
     <>
       <div className="ChatBox">
-        {messages ? <ChatBoxMain messages={messages} userId={userId} /> : <></>}
+        {messages ? (
+          <ChatBoxMain
+            messages={messages}
+            newMess={newMessage}
+            userId={userId}
+          />
+        ) : (
+          <></>
+        )}
       </div>
     </>
   );

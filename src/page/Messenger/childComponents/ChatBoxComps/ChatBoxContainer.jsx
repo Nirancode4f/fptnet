@@ -11,13 +11,9 @@ const URL_MAIN =
 export default function ChatBoxContainer(props) {
   const { currentItem, userId, onConvsChange, conversationId } = props;
 
-  const [messageData, setMessageData] = useState({
-    userId: "",
-    conversationId: "",
-    content: "",
-    image: "",
-  });
+  const [newMess, setNewMess] = useState({});
 
+  // post message to server
   const postMessageData = async (messageData) => {
     let result;
     if (currentItem.contact_type === "group") {
@@ -44,7 +40,8 @@ export default function ChatBoxContainer(props) {
   };
 
   const handleGetMessDataInput = (data) => {
-    setMessageData({ ...messageData, userId, conversationId, ...data });
+    // setMessageData({ ...messageData, userId, conversationId, ...data });
+    const messageData = { userId, conversationId, ...data };
     postMessageData(messageData)
       .then((res) => {
         res.data.success
@@ -52,6 +49,11 @@ export default function ChatBoxContainer(props) {
           : console.log("Gửi tin nhắn thất bại");
       })
       .catch((err) => console.log(err));
+  };
+
+  // add new message to chat box main
+  const addNewMess = (message) => {
+    setNewMess(message);
   };
 
   return (
@@ -67,6 +69,7 @@ export default function ChatBoxContainer(props) {
         }}
         onCurrentConvsIdChange={onConvsChange}
         userId={userId}
+        newMessage={newMess}
       />
       <ChatBoxFooter
         onMessagePost={handleGetMessDataInput}

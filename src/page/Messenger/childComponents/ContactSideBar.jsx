@@ -78,22 +78,22 @@ function ContactSideBar(props) {
 
   useEffect(() => {
     // run first everytime props change
-    Promise.all([
-      getFriendsData(userId),
-      getTeachersData(userId),
-      getGroupsData(userId),
-    ])
-      .then((result) => {
-        const [fData, tData, gData] = result;
-
-        setFriendsData(fData.data.friends);
-
-        setTeachersData(tData.data.teachers);
-
-        setGroupsData(gData.data.conversations);
+    getFriendsData(userId)
+      .then((res) => {
+        setFriendsData(res.data.friends);
       })
       .catch((err) => console.log(err));
-  }, [userId, handleGetItem]);
+    getTeachersData(userId)
+      .then((res) => {
+        setTeachersData(res.data.teachers);
+      })
+      .catch((err) => console.log(err));
+    getGroupsData(userId)
+      .then((res) => {
+        setGroupsData(res.data.conversations);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <div>
