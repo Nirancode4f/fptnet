@@ -1,0 +1,67 @@
+.DetailDeadline {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    height: 105vh;
+    position:  absolute;
+    top: 0;
+    z-index: 150;
+}
+
+.DetailDeadline-container {
+    width: 860px;
+    height: 500px;
+    background-color: #fff;
+    padding: 10px;
+    display: flex;
+    border-radius: 12px;
+}
+
+.DetailDeadline-container-receiver {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #333;
+    border-radius: 12px;
+    box-shadow: 1px 1px 2px #333;
+}
+
+.DetailDeadline-container-body {
+    width: 70%;
+    padding: 10px;
+    margin-left: 10px;
+    border: 1px solid #333;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: 1px 1px 2px #333;
+
+}
+
+.DetailDeadline-container-body__title-and-provider {
+    width: 100%;
+    font-size: 26px;
+    font-weight: bold;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.DetailDeadline-container-body__content{
+width: 100%;
+font-size: 18px;
+    font-weight: bold;
+margin-bottom: 10px;
+min-height: 100px;
+}
+.DetailDeadline-container-body__note{
+width: 100%;
+font-size: 18px;
+    font-weight: 600;
+}

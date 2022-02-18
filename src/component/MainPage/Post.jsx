@@ -23,7 +23,7 @@ const CssTextField = styled(TextField)({
 });
 export const Post = (props) => {
   const { Post } = props;
-  console.log(Post);
+
 
   const { timeString } = FomatData(Post.createAt);
 

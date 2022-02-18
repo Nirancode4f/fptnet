@@ -22,6 +22,7 @@ import isEqual from 'lodash/isEqual';
 import { Chip, Badge } from "@mui/material";
 
 import { Avatar } from "@mui/material";
+import DetailDeadline from "./DetailDeadline/DetailDeadline";
 
 const CssTextField = styled(TextField)({
   "& label.Mui-focused": {
@@ -44,6 +45,7 @@ const CssTextField = styled(TextField)({
 });
 
 export default function Newfeed() {
+
   const [LoginData, setLoginData] = useState(
     localStorage.getItem("loginData")
       ? JSON.parse(localStorage.getItem("loginData"))
@@ -64,13 +66,15 @@ export default function Newfeed() {
     setValue(newValue);
   };
 
+  // hook 
+const [showDetailDealine, setshowDetailDealine] = useState(false)
 
   function GetDeadline() {
     try {
       AxiosMain.post("/api/deadline/getdeadlines", {
         userId: `${LoginData.user._id}`,
       }).then((res) => {
-       console.log(res)
+   
         setLoading(false);
 
         if (isMouted) {
@@ -96,6 +100,10 @@ export default function Newfeed() {
   function ClickOut(event) {
     setShowDeadline(event);
   }
+  const handleShowUP =(event)=>{
+  console.log(`detaildealine ==== `,event)
+  setshowDetailDealine(event)
+  } 
 
   //   Call api
   useEffect(() => {
@@ -118,6 +126,8 @@ export default function Newfeed() {
 
   return (
     <>
+    
+     { showDetailDealine && <DetailDeadline  />}
       <div className="Deadline-container">
         {/* begin student info  */}
         <div className="Content-deadline">
@@ -167,8 +177,10 @@ export default function Newfeed() {
                 </TabList>
               </Box>
               <TabPanel value="1">
-                <TableDeadline Deadlinelist={DeadlineList} Loading={Loading} />
+
+                <TableDeadline Deadlinelist={DeadlineList} Loading={Loading} DetailDeadlinePopup={handleShowUP} />
               </TabPanel>
+
               <TabPanel value="2">
                 <ReceiveDeadline TodoList={""} />
 
@@ -178,9 +190,10 @@ export default function Newfeed() {
           </div>
         </div>
         {/* end student info  */}
-
+            
         {ShowDeadline ? <></> : <DeadlinePopUp OnClickOut={ClickOut} />}
       </div>
+      
     </>
   );
 }
