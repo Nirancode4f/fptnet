@@ -8,12 +8,12 @@ import { Avatar } from '@mui/material'
 
 const DetailDeadline = (props) => {
 
-  const { Time , Khang}  = props 
+ 
+  const {data} = props
 
-  console.log(`props `,props)
+  console.log(data)
 
-  console.log(`Time   ` , Time)
-  console.log(`Khang `, Khang)
+
 
   return (
     <div className='DetailDeadline'>
@@ -25,13 +25,15 @@ const DetailDeadline = (props) => {
              </div>
              <div className="DetailDeadline-container-body">
               <div className="DetailDeadline-container-body__title-and-provider">
-            <GetSeo></GetSeo>
+              
+            <GetSeo link={data.attachment[0]}/>
+
               </div>
               <div className="DetailDeadline-container-body__content">
-              Content: 
+               {data.content}
               </div>
               <div className="DetailDeadline-container-body__note">
-              Note: 
+              Note: {data.note}
               </div>
              </div>
          </div>

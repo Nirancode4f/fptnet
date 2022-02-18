@@ -55,6 +55,8 @@ export default function Newfeed() {
 
   const deadlineList = useSelector((state) => state.deadline.list);
 
+  const [DataDetailDeadline, setDataDetailDeadline] = useState("")
+
   const [Loading, setLoading] = useState(true);
   const [isMouted, setisMouted] = useState(true);
   const [DeadlineList, setDeadlineList] = useState([]);
@@ -103,6 +105,7 @@ const [showDetailDealine, setshowDetailDealine] = useState(false)
   const handleShowUP =(event)=>{
   console.log(`detaildealine ==== `,event)
   setshowDetailDealine(event)
+  setDataDetailDeadline(event)
   } 
 
   //   Call api
@@ -127,7 +130,7 @@ const [showDetailDealine, setshowDetailDealine] = useState(false)
   return (
     <>
     
-     { showDetailDealine && <DetailDeadline  />}
+     { showDetailDealine && <DetailDeadline data={DataDetailDeadline} />}
       <div className="Deadline-container">
         {/* begin student info  */}
         <div className="Content-deadline">

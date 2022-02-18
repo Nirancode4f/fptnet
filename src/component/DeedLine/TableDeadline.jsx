@@ -44,8 +44,8 @@ export default function TableDeadline(props) {
 
   const dataLogout =(event)=>{
 
-    console.log(`turnoff `,event)
-    DetailDeadlinePopup(true)
+   
+    DetailDeadlinePopup(event)
 
   }
 
