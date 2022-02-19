@@ -9,7 +9,8 @@ import queryString from "query-string";
 import { useParams, useSearchParams } from "react-router-dom";
 import { read_cookie } from "sfcookies";
 import { useNavigate } from "react-router-dom";
-import ShareLink from "../../helpGUI/ShareLink";
+import ShareLink from "../../helpGUI/FormatLinkShare/ShareLink";
+import AxiosMain from "../../API/AxiosMain";
 
 export default function ReceiveDeadline() {
   const [LoginData, setLoginData] = useState(
@@ -21,35 +22,41 @@ export default function ReceiveDeadline() {
     read_cookie("accessToken") === [] ? false : read_cookie("accessToken")
   );
 
-
+const [DeadlineData, setDeadlineData] = useState({})
+const [ShowTable, setShowTable] = useState(false)
 
   // const [param, setparam] = useSearchParams({});
   const {id} = useParams()
   const navigate = useNavigate();
 
 
-
-
   useEffect(() => {
-    // setparam({
 
-    //   deadline:"khang",
-    //   owner :"update"
-      
-    // })
-    const test = ShareLink.Deadline(["61d3b226e673653cd2452cce" ,"620d1b7d99c0d3584ffbe2b1"])
-    // console.log(param.get("deadline"));
-   console.log(`test` , test)
+
+     const deadline_id = queryString.parse(location.search).dl
+
+     try{
+       AxiosMain.post(`/api/deadline/get`,{
+        "userId" : `${LoginData.user._id}`,
+        "deadlineId": `${deadline_id}`
+       }).then((res)=>{
+        setDeadlineData(res.deadline)
+        setShowTable(true)
+       })
+
+     }catch(error){
+       console.log(error)
+     }
 
   }, []);
 
 
 
-  // eslint-disable-next-line no-restricted-globals
+
+
  
- console.log(`print`,queryString.parse(location.search));
 
-
+console.log(DeadlineData)
 
 
 
@@ -59,14 +66,16 @@ export default function ReceiveDeadline() {
       navigate("/login");
     }
   });
+
   return (
-    <div className="Receive-deadline">
+    <>
+    { ShowTable &&  <div className="Receive-deadline">
       <div className="Receive-deadline-container">
         <div className="receiver-header">
           <div className="receive-form-avt">
             <Avatar
               sx={{ width: 60, height: 60 }}
-              src="/static/images/avatar/1.jpg"
+              src={`${DeadlineData.owner[0].picture}`}
             />
           </div>
           <div className="receive-icon">
@@ -82,13 +91,13 @@ export default function ReceiveDeadline() {
           <div className="receive-to">
             <Avatar
               sx={{ width: 60, height: 60 }}
-              src="/static/images/avatar/1.jpg"
+              src={`${DeadlineData.userId.picture}`}
             />
           </div>
         </div>
         <div className="receive-body">
-          <div className="receive-conttent">content here</div>
-          <div className="receive-note">note here</div>
+          <div className="receive-conttent">{DeadlineData.content}</div>
+          <div className="receive-note">{DeadlineData.note}</div>
         </div>
         <div className="receive-footer">
           <div className="receive-due">
@@ -96,11 +105,12 @@ export default function ReceiveDeadline() {
           </div>
           <div className="receive-btn">
             <Button color="warning" variant="contained">
-              Contained
+            Receive
             </Button>
           </div>
         </div>
       </div>
-    </div>
+    </div>}
+    </>
   );
 }
