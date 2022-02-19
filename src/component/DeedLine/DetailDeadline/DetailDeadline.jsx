@@ -17,15 +17,11 @@ DetailDeadline.defaultProps = {
 function DetailDeadline(props) {
   const { data, onClickOut } = props;
 
- 
+  function handleClick() {
+    console.log(`update`);
 
-  function handleClick(){
-  
-    console.log(`update`)
-
-    onClickOut(false)
-
-  };
+    onClickOut(false);
+  }
 
   return (
     <div className="DetailDeadline">
@@ -46,10 +42,12 @@ function DetailDeadline(props) {
             <div className="DetailDeadline-container-body__note">
               Note: {data.note}
             </div>
+            <div className="share-deadline-button"><button>share button</button></div>
           </div>
+          
         </div>
       </ClickAwayListener>
     </div>
   );
-};
+}
 export default DetailDeadline;
