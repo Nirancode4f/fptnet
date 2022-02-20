@@ -8,6 +8,7 @@ import { ClickAwayListener } from "@mui/base";
 import PropTypes from "prop-types";
 import ShareLink from "../../../helpGUI/FormatLinkShare/ShareLink";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import disableScroll from 'disable-scroll';
 
 DetailDeadline.prototype = {
   onClickOut: PropTypes.func,
@@ -20,6 +21,7 @@ function DetailDeadline(props) {
   const { data, onClickOut } = props;
   const [Link, setLink] = useState("");
   const [isCopy, setisCopy] = useState(false);
+  
 
   const CheckCopy = () => {
     setisCopy(true);
@@ -32,7 +34,8 @@ function DetailDeadline(props) {
   useEffect(() => {
     const link = ShareLink.Deadline({ dl: `${data._id}` });
     setLink(link);
-    console.log(link);
+
+    if(onClickOut){disableScroll.on();}else{disableScroll.off()}
   }, []);
 
   console.log(data);
