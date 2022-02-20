@@ -23,7 +23,7 @@ import { Chip, Badge } from "@mui/material";
 
 import { Avatar } from "@mui/material";
 import DetailDeadline from "./DetailDeadline/DetailDeadline";
-
+import disableScroll from 'disable-scroll';
 const CssTextField = styled(TextField)({
   "& label.Mui-focused": {
     color: "#f36f21",
@@ -100,7 +100,7 @@ export default function Newfeed() {
   }
 
   const handleDetailDeadline = (event) => {
-    console.log(`event `, event);
+
     setshowDetailDealine(event);
   };
 
@@ -122,6 +122,12 @@ export default function Newfeed() {
     };
   }, []);
 
+
+  useEffect(() => {
+    if(showDetailDealine){disableScroll.on();}else{disableScroll.off()}
+  },[showDetailDealine])
+  
+
   // if not logindata changeroute to login page
 
   useEffect(() => {
@@ -129,6 +135,7 @@ export default function Newfeed() {
       navigate("/login");
     }
   }, [LoginData, navigate]);
+
 
   return (
     <>

@@ -8,13 +8,13 @@ import { ClickAwayListener } from "@mui/base";
 import PropTypes from "prop-types";
 import ShareLink from "../../../helpGUI/FormatLinkShare/ShareLink";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import disableScroll from 'disable-scroll';
+
 
 DetailDeadline.prototype = {
   onClickOut: PropTypes.func,
 };
 DetailDeadline.defaultProps = {
-  onClickOut: true,
+  onClickOut: null,
 };
 
 function DetailDeadline(props) {
@@ -35,8 +35,11 @@ function DetailDeadline(props) {
     const link = ShareLink.Deadline({ dl: `${data._id}` });
     setLink(link);
 
-    if(onClickOut){disableScroll.on();}else{disableScroll.off()}
+    
   }, []);
+
+  
+  
 
   console.log(data);
   return (
