@@ -1,10 +1,12 @@
 .DetailDeadline {
+    position: fixed;
+    top: 0;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.3);
-    height: 105vh;
+    height: 100vh;
     position:  absolute;
     top: 0;
     z-index: 150;
@@ -22,12 +24,34 @@
 .DetailDeadline-container-receiver {
     width: 30%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
     padding: 10px;
     border: 1px solid #333;
     border-radius: 12px;
     box-shadow: 1px 1px 2px #333;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--bg-color);
+    overflow-y: scroll;
+    
+}
+
+.DetailDeadline-container-receiver::-webkit-scrollbar {
+    display: none;
+}
+
+.DetailDeadline-container-receiver-list-item {
+    display: flex;
+    margin: 5px 0;
+    align-items: center;
+
+}
+
+.DetailDeadline-container-receiver-list-item-Name {
+    font-size: 18px;
+    margin-left: 10px;
+    font-weight: 500;
+    color: #333;
 }
 
 .DetailDeadline-container-body {
@@ -55,13 +79,37 @@
 
 .DetailDeadline-container-body__content{
 width: 100%;
-font-size: 18px;
+font-size: 22px;
     font-weight: bold;
-margin-bottom: 10px;
-min-height: 100px;
+margin:  20px 0;
+min-height:20px;
+text-transform: capitalize;
+text-align: center;
+
 }
 .DetailDeadline-container-body__note{
 width: 100%;
 font-size: 18px;
     font-weight: 600;
+    text-align: center;
+    flex: 1;
+}
+
+.share-deadline-button {
+    justify-items: right;
+}
+
+.share-deadline {
+    width: 100%;
+    display: flex;
+}
+
+.share-deadline div {
+  -webkit-box-direction: reverse;
+  max-width: 110px;
+  
+}
+
+.share-deadline button {
+    margin-left: 5px;
 }
