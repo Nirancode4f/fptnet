@@ -5152,6 +5152,13 @@ cookie@0.4.1, cookie@^0.4.0:
   resolved "https://registry.npmjs.org/cookie/-/cookie-0.4.1.tgz"
   integrity sha512-ZwrFkGJxUR3EIoXtO+yVE69Eb7KlixbaeAWfBQB9vVsNn/o+Yw69gBWSSDK825hQNdN+wF8zELf3dFNl/kxkUA==
 
+copy-to-clipboard@^3:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/copy-to-clipboard/-/copy-to-clipboard-3.3.1.tgz#115aa1a9998ffab6196f93076ad6da3b913662ae"
+  integrity sha512-i13qo6kIHTTpCm8/Wup+0b1mVWETvu2kIMzKoK8FpkLkFxlt0znUAHcMzox+T8sPlqtZXq3CulEjQHsYiGFJUw==
+  dependencies:
+    toggle-selection "^1.0.6"
+
 core-js-compat@^3.18.0, core-js-compat@^3.19.1:
   version "3.20.0"
   resolved "https://registry.npmjs.org/core-js-compat/-/core-js-compat-3.20.0.tgz"
@@ -5767,6 +5774,11 @@ dir-glob@^3.0.1:
   integrity sha512-WkrWp9GR4KXfKGYzOLmTuGVi1UWFfws377n9cc55/tb6DuqyF6pcQ5AbiHEshaDpY9v6oaSr2XCDidGmMwdzIA==
   dependencies:
     path-type "^4.0.0"
+
+disable-scroll@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/disable-scroll/-/disable-scroll-0.6.0.tgz#ff0ae8d4c9d395e65842583eefb9313d046f462a"
+  integrity sha512-6bTAS16sz+3X7Pib8d5dAO9xo5MvqDZvSlzuhW/2c3NhUvbPNqnsV3JttvnqgNCDEgWUgNWJYM392iUmLETDxA==
 
 dlv@^1.1.3:
   version "1.1.3"
@@ -10842,6 +10854,15 @@ prop-types-extra@^1.1.0:
     react-is "^16.3.2"
     warning "^4.0.0"
 
+prop-types@^15.5.8:
+  version "15.8.1"
+  resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
+  integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
+  dependencies:
+    loose-envify "^1.4.0"
+    object-assign "^4.1.1"
+    react-is "^16.13.1"
+
 prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.8.0"
   resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.8.0.tgz"
@@ -11045,6 +11066,14 @@ react-bootstrap@^2.0.4:
     react-transition-group "^4.4.1"
     uncontrollable "^7.2.1"
     warning "^4.0.3"
+
+react-copy-to-clipboard@^5.0.4:
+  version "5.0.4"
+  resolved "https://registry.yarnpkg.com/react-copy-to-clipboard/-/react-copy-to-clipboard-5.0.4.tgz#42ec519b03eb9413b118af92d1780c403a5f19bf"
+  integrity sha512-IeVAiNVKjSPeGax/Gmkqfa/+PuMTBhutEvFUaMQLwE2tS0EXrAdgOpWDX26bWTXF3HrioorR7lr08NqeYUWQCQ==
+  dependencies:
+    copy-to-clipboard "^3"
+    prop-types "^15.5.8"
 
 react-dev-utils@^12.0.0:
   version "12.0.0"
@@ -12663,6 +12692,11 @@ to-regex-range@^5.0.1:
   integrity sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==
   dependencies:
     is-number "^7.0.0"
+
+toggle-selection@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/toggle-selection/-/toggle-selection-1.0.6.tgz#6e45b1263f2017fa0acc7d89d78b15b8bf77da32"
+  integrity sha1-bkWxJj8gF/oKzH2J14sVuL932jI=
 
 toidentifier@1.0.1:
   version "1.0.1"

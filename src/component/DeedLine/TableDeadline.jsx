@@ -34,7 +34,7 @@ export default function TableDeadline(props) {
   const { Deadlinelist, Loading, DetailDeadlinePopup } = props;
 
   const [Ismount, setIsmount] = useState(false);
-  console.log(`deadlinelist= `, Deadlinelist);
+ 
 
   useEffect(() => {
     return () => {};

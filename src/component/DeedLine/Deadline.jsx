@@ -23,7 +23,7 @@ import { Chip, Badge } from "@mui/material";
 
 import { Avatar } from "@mui/material";
 import DetailDeadline from "./DetailDeadline/DetailDeadline";
-
+import disableScroll from 'disable-scroll';
 const CssTextField = styled(TextField)({
   "& label.Mui-focused": {
     color: "#f36f21",
@@ -98,9 +98,15 @@ export default function Newfeed() {
   function ClickOut(event) {
     setShowDeadline(event);
   }
-  const handleShowUP = (event) => {
-    console.log(`detaildealine ==== `, event);
+
+  const handleDetailDeadline = (event) => {
+
     setshowDetailDealine(event);
+  };
+
+  const handleShowUP = (event) => {
+    setshowDetailDealine(event);
+
     setDataDetailDeadline(event);
   };
 
@@ -116,16 +122,30 @@ export default function Newfeed() {
     };
   }, []);
 
+
+  useEffect(() => {
+    if(showDetailDealine){disableScroll.on();}else{disableScroll.off()}
+  },[showDetailDealine])
+  
+
   // if not logindata changeroute to login page
+
   useEffect(() => {
     if (!LoginData) {
       navigate("/login");
     }
   }, [LoginData, navigate]);
 
+
   return (
     <>
-      {showDetailDealine && <DetailDeadline data={DataDetailDeadline} />}
+      {showDetailDealine && (
+        <DetailDeadline
+          data={DataDetailDeadline}
+          onClickOut={handleDetailDeadline}
+        />
+      )}
+
       <div className="Deadline-container">
         {/* begin student info  */}
         <div className="Content-deadline">
@@ -137,9 +157,6 @@ export default function Newfeed() {
               </p>
             </div>
 
-            {/* <div className="student-quanlity-deadline">
-              <span> Unfinished:</span> <p>{DeadlineList.length}</p>
-            </div> */}
             <div className="quick-add-deadline-btn">
               <Button
                 onClick={handleONdlickDeadline}

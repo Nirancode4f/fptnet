@@ -69,9 +69,9 @@ export const Post = (props) => {
         </div>
       </div>
       <div className="Newfeed-body-post-content-text">{Post.content}</div>
-      <div className="Newfeed-body-post-content-img">
+      { Post.image && <div className="Newfeed-body-post-content-img">
         <img alt="" className="post-img" src={Post.image} />
-      </div>
+      </div>}
       <div className="Newfeed-body-post-content-reaction-quanlity">
         <div className="like-quanlity">
           <i className="fas fa-heart"></i>
