@@ -18,7 +18,7 @@ import { ClickAwayListener } from "@mui/base";
 import MakeDeadline from "./MakeDeadline/MakeDeadline";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import ReceiveDeadline from "./ReceiveDeadline/ReceiveDeadline";
-import isEqual from 'lodash/isEqual';
+import isEqual from "lodash/isEqual";
 import { Chip, Badge } from "@mui/material";
 
 import { Avatar } from "@mui/material";
@@ -45,7 +45,6 @@ const CssTextField = styled(TextField)({
 });
 
 export default function Newfeed() {
-
   const [LoginData, setLoginData] = useState(
     localStorage.getItem("loginData")
       ? JSON.parse(localStorage.getItem("loginData"))
@@ -55,7 +54,7 @@ export default function Newfeed() {
 
   const deadlineList = useSelector((state) => state.deadline.list);
 
-  const [DataDetailDeadline, setDataDetailDeadline] = useState("")
+  const [DataDetailDeadline, setDataDetailDeadline] = useState("");
 
   const [Loading, setLoading] = useState(true);
   const [isMouted, setisMouted] = useState(true);
@@ -68,30 +67,27 @@ export default function Newfeed() {
     setValue(newValue);
   };
 
-  // hook 
-const [showDetailDealine, setshowDetailDealine] = useState(false)
+  // hook
+  const [showDetailDealine, setshowDetailDealine] = useState(false);
 
   function GetDeadline() {
     try {
       AxiosMain.post("/api/deadline/getdeadlines", {
         userId: `${LoginData.user._id}`,
       }).then((res) => {
-   
         setLoading(false);
 
         if (isMouted) {
           if (!isEqual(res.deadlines, DeadlineList)) {
             setDeadlineList(res.deadlines);
-           
           }
         }
       });
-     
     } catch (error) {
       console.log(error);
     }
   }
-  
+
   function handleONdlickDeadline() {
     if (!ShowDeadline) {
       setShowDeadline(true);
@@ -102,11 +98,11 @@ const [showDetailDealine, setshowDetailDealine] = useState(false)
   function ClickOut(event) {
     setShowDeadline(event);
   }
-  const handleShowUP =(event)=>{
-  console.log(`detaildealine ==== `,event)
-  setshowDetailDealine(event)
-  setDataDetailDeadline(event)
-  } 
+  const handleShowUP = (event) => {
+    console.log(`detaildealine ==== `, event);
+    setshowDetailDealine(event);
+    setDataDetailDeadline(event);
+  };
 
   //   Call api
   useEffect(() => {
@@ -129,13 +125,11 @@ const [showDetailDealine, setshowDetailDealine] = useState(false)
 
   return (
     <>
-    
-     { showDetailDealine && <DetailDeadline data={DataDetailDeadline} />}
+      {showDetailDealine && <DetailDeadline data={DataDetailDeadline} />}
       <div className="Deadline-container">
         {/* begin student info  */}
         <div className="Content-deadline">
           <div className="student-info">
-            
             <div className="student-number">
               <p>
                 MSSV:{" "}
@@ -180,23 +174,23 @@ const [showDetailDealine, setshowDetailDealine] = useState(false)
                 </TabList>
               </Box>
               <TabPanel value="1">
-
-                <TableDeadline Deadlinelist={DeadlineList} Loading={Loading} DetailDeadlinePopup={handleShowUP} />
+                <TableDeadline
+                  Deadlinelist={DeadlineList}
+                  Loading={Loading}
+                  DetailDeadlinePopup={handleShowUP}
+                />
               </TabPanel>
 
               <TabPanel value="2">
                 <ReceiveDeadline TodoList={""} />
-
-                
               </TabPanel>
             </TabContext>
           </div>
         </div>
         {/* end student info  */}
-            
+
         {ShowDeadline ? <></> : <DeadlinePopUp OnClickOut={ClickOut} />}
       </div>
-      
     </>
   );
 }
