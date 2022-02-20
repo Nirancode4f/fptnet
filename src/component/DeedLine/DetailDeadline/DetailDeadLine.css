@@ -1,126 +1,120 @@
 .DetailDeadline {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.3);
-    height: 100vh;
-    position:  absolute;
-    top: 0;
-    z-index: 150;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  z-index: 150;
 }
 
 .DetailDeadline-container {
-    width: 860px;
-    height: 500px;
-    background-color: #fff;
-    padding: 10px;
-    display: flex;
-    border-radius: 12px;
+  width: 860px;
+  height: 500px;
+  background-color: #fff;
+  padding: 10px;
+  display: flex;
+  border-radius: 12px;
 }
 
 .DetailDeadline-container-receiver {
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    border: 1px solid #333;
-    border-radius: 12px;
-    box-shadow: 1px 1px 2px #333;
-    font-size: 24px;
-    font-weight: bold;
-    color: var(--bg-color);
-    overflow-y: scroll;
-    
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border: 1px solid #333;
+  border-radius: 12px;
+  box-shadow: 1px 1px 2px #333;
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--bg-color);
+  overflow-y: scroll;
 }
 
 .DetailDeadline-container-receiver::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .DetailDeadline-container-receiver-list-item {
-    display: flex;
-    margin: 5px 0;
-    align-items: center;
-
+  display: flex;
+  margin: 5px 0;
+  align-items: center;
 }
 
 .DetailDeadline-container-receiver-list-item-Name {
-    font-size: 18px;
-    margin-left: 10px;
-    font-weight: 500;
-    color: #333;
+  font-size: 18px;
+  margin-left: 10px;
+  font-weight: 500;
+  color: #333;
 }
 
 .DetailDeadline-container-body {
-    width: 70%;
-    padding: 10px;
-    margin-left: 10px;
-    border: 1px solid #333;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    box-shadow: 1px 1px 2px #333;
-
+  width: 70%;
+  padding: 10px;
+  margin-left: 10px;
+  border: 1px solid #333;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  box-shadow: 1px 1px 2px #333;
 }
 
 .DetailDeadline-container-body__title-and-provider {
-    width: 100%;
-    font-size: 26px;
-    font-weight: bold;
-    border-radius: 12px;
-    margin-bottom: 10px;
-    overflow: hidden;
+  width: 100%;
+  font-size: 26px;
+  font-weight: bold;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  overflow: hidden;
 }
 
-.DetailDeadline-container-body__content{
-width: 100%;
-font-size: 22px;
-    font-weight: bold;
-margin:  20px 0;
-min-height:20px;
-text-transform: capitalize;
-text-align: center;
-
+.DetailDeadline-container-body__content {
+  width: 100%;
+  font-size: 22px;
+  font-weight: bold;
+  margin: 20px 0;
+  min-height: 20px;
+  text-transform: capitalize;
+  text-align: center;
 }
-.DetailDeadline-container-body__note{
-width: 100%;
-font-size: 18px;
-    font-weight: 600;
-    text-align: center;
-    flex: 1;
+.DetailDeadline-container-body__note {
+  width: 100%;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  flex: 1;
 }
 .text-share-link {
-    white-space: nowrap; 
-    overflow: hidden;
-    text-overflow: clip;
-    width: 150px;
-
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+  width: 210px;
 }
 .share-deadline-button {
-    justify-items: right;
-    display: flex;
+  justify-items: right;
+  display: flex;
 }
 
 .share-deadline {
-    width: 100%;
-    display: flex;
-   
+  width: 100%;
+  display: flex;
 }
 
 .share-deadline div {
   -webkit-box-direction: reverse;
- 
+
   text-overflow: ellipsis;
 }
 
 .share-deadline button {
-    margin-left: 5px;
-    border: none;
-    outline: none;
-    background-color: transparent;
+  margin-left: 5px;
+  border: none;
+  outline: none;
+  background-color: transparent;
 }

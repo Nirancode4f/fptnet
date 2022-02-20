@@ -110,7 +110,7 @@ function DetailDeadline(props) {
               {data.note}
             </div>
             <div className="share-deadline">
-              <div className="text-share-link">{Link}</div>
+              <div className="text-share-link">Share: {Link}</div>
               <div className="share-deadline-button">
                 <CopyToClipboard text={`${Link}`} onCopy={CheckCopy}>
                   {isCopy ? (
@@ -120,7 +120,7 @@ function DetailDeadline(props) {
                     </button>
                   ) : (
                     <button>
-                      <ContentCopyRoundedIcon></ContentCopyRoundedIcon>{" "}
+                      <ContentCopyRoundedIcon lable={"share your link"} />{" "}
                     </button>
                   )}
                 </CopyToClipboard>
