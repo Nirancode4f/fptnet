@@ -9,7 +9,7 @@ import PropTypes from "prop-types";
 import ShareLink from "../../../helpGUI/FormatLinkShare/ShareLink";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import disableScroll from 'disable-scroll';
-
+import ContentCopyRoundedIcon from '@mui/icons-material/ContentCopyRounded';
 DetailDeadline.prototype = {
   onClickOut: PropTypes.func,
 };
@@ -115,7 +115,8 @@ function DetailDeadline(props) {
               <div className="text-share-link">{Link}</div>
               <div className="share-deadline-button">
                 <CopyToClipboard text={`${Link}`} onCopy={CheckCopy}>
-                  <button>CLick to Copy</button>
+                <button><ContentCopyRoundedIcon color="warning"></ContentCopyRoundedIcon> </button>
+                  <button><ContentCopyRoundedIcon></ContentCopyRoundedIcon> </button>
                 </CopyToClipboard>
                 {isCopy && <span style={{ color: "red" }}>Copied.</span>}
               </div>

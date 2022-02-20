@@ -103,6 +103,7 @@ font-size: 18px;
 }
 .share-deadline-button {
     justify-items: right;
+    display: flex;
 }
 
 .share-deadline {
@@ -119,4 +120,7 @@ font-size: 18px;
 
 .share-deadline button {
     margin-left: 5px;
+    border: none;
+    outline: none;
+    background-color: transparent;
 }
