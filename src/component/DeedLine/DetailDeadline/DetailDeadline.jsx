@@ -40,44 +40,63 @@ function DetailDeadline(props) {
     <div className="DetailDeadline">
       <ClickAwayListener onClickAway={handleClick}>
         <div className="DetailDeadline-container">
-          <div className="DetailDeadline-container-receiver"> Received List
+          <div className="DetailDeadline-container-receiver">
+            {" "}
+            Received List
             <div className="DetailDeadline-container-receiver-list-item">
               <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-              <div className="DetailDeadline-container-receiver-list-item-Name">Remy Sharp</div>
+              <div className="DetailDeadline-container-receiver-list-item-Name">
+                Remy Sharp
+              </div>
             </div>
             <div className="DetailDeadline-container-receiver-list-item">
               <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-              <div className="DetailDeadline-container-receiver-list-item-Name">Remy Sharp</div>
+              <div className="DetailDeadline-container-receiver-list-item-Name">
+                Remy Sharp
+              </div>
             </div>
             <div className="DetailDeadline-container-receiver-list-item">
               <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-              <div className="DetailDeadline-container-receiver-list-item-Name">Remy Sharp</div>
+              <div className="DetailDeadline-container-receiver-list-item-Name">
+                Remy Sharp
+              </div>
             </div>
             <div className="DetailDeadline-container-receiver-list-item">
               <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-              <div className="DetailDeadline-container-receiver-list-item-Name">Remy Sharp</div>
+              <div className="DetailDeadline-container-receiver-list-item-Name">
+                Remy Sharp
+              </div>
             </div>
             <div className="DetailDeadline-container-receiver-list-item">
               <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-              <div className="DetailDeadline-container-receiver-list-item-Name">Remy Sharp</div>
+              <div className="DetailDeadline-container-receiver-list-item-Name">
+                Remy Sharp
+              </div>
             </div>
             <div className="DetailDeadline-container-receiver-list-item">
               <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-              <div className="DetailDeadline-container-receiver-list-item-Name">Remy Sharp</div>
+              <div className="DetailDeadline-container-receiver-list-item-Name">
+                Remy Sharp
+              </div>
             </div>
             <div className="DetailDeadline-container-receiver-list-item">
               <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-              <div className="DetailDeadline-container-receiver-list-item-Name">Remy Sharp</div>
+              <div className="DetailDeadline-container-receiver-list-item-Name">
+                Remy Sharp
+              </div>
             </div>
             <div className="DetailDeadline-container-receiver-list-item">
               <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-              <div className="DetailDeadline-container-receiver-list-item-Name">Remy Sharp</div>
+              <div className="DetailDeadline-container-receiver-list-item-Name">
+                Remy Sharp
+              </div>
             </div>
             <div className="DetailDeadline-container-receiver-list-item">
               <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-              <div className="DetailDeadline-container-receiver-list-item-Name">Remy Sharp</div>
+              <div className="DetailDeadline-container-receiver-list-item-Name">
+                Remy Sharp
+              </div>
             </div>
-
           </div>
           <div className="DetailDeadline-container-body">
             <div className="DetailDeadline-container-body__title-and-provider">
@@ -87,18 +106,18 @@ function DetailDeadline(props) {
               {data.content}
             </div>
             <div className="DetailDeadline-container-body__note">
-              Note: {data.note}
+               {data.note}
             </div>
             <div className="share-deadline">
-            <div>{Link}</div>
-            <div className="share-deadline-button">
-              <CopyToClipboard text={`${Link}`} onCopy={CheckCopy}>
-                <button>CLick to Copy</button>
-              </CopyToClipboard>
-              {isCopy && <span style={{ color: 'red' }}>Copied.</span>}
-          </div>
-          </div>
+              <div className="text-share-link">{Link}</div>
+              <div className="share-deadline-button">
+                <CopyToClipboard text={`${Link}`} onCopy={CheckCopy}>
+                  <button>CLick to Copy</button>
+                </CopyToClipboard>
+                {isCopy && <span style={{ color: "red" }}>Copied.</span>}
+              </div>
             </div>
+          </div>
         </div>
       </ClickAwayListener>
     </div>
