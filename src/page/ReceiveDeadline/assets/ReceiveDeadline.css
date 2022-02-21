@@ -9,7 +9,7 @@
 
 .Receive-deadline-container {
     width: 600px;
-    height: 300px;
+    height: 350px;
     background-color: #fff;
     padding: 20px;
 }
@@ -24,6 +24,7 @@
 .receive-conttent {
     text-align: center;
     font-weight: 600;
+    font-size: 28px;
     margin-bottom: 10px;
 }
 
