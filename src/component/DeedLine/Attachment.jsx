@@ -6,7 +6,7 @@ import GetSeo from '../../helpGUI/GetSeo';
 
 const Attachment = (props) => {
     const {data } = props
-    const [Seolink, setSeolink] = useState({})
+ 
 
 
 

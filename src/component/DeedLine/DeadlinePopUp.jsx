@@ -34,6 +34,7 @@ function DeadlinePopUp(props) {
               sx={{ width: 80, height: 80 }}
             />
           </div>
+          
 
           <div className="make_deadline_popup_table">
             <MakeDeadline />

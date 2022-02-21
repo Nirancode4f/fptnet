@@ -9,6 +9,7 @@ import AxiosMain from "../../../API/AxiosMain";
 import AddIcon from "@mui/icons-material/Add";
 import AddLinkIcon from "@mui/icons-material/AddLink";
 import { useEffect } from "react";
+import Attachment from "../Attachment";
 
 const CssTextField = styled(TextField)({
   "& label.Mui-focused": {
@@ -39,36 +40,28 @@ const MakeDeadline = () => {
   const [Coordinates, setCoordinates] = useState([]);
 
   // make deadline
-  const [Owner, setOwner] = useState("");
+  const [Owner, setOwner] = useState([]);
   const [Content, setContent] = useState("");
   const [Student, setStudent] = useState([]);
-  const [Attachment, setAttachment] = useState([]);
+  const [attachment, setattachment] = useState("");
   const [DateValue, setDateValue] = useState(Date());
-  const [Note, setNote] = useState("")
+  const [Note, setNote] = useState("");
+  const [Link, setLink] = useState("");
 
-  function printMousePos(event) {
-    setCoordinates([event.clientX, event.clientY]);
-  }
+console.log(`onthign`,attachment)
 
-  window.addEventListener("click", printMousePos);
-
-  useEffect(() => {
-    console.log(Coordinates);
-  }, [Coordinates]);
-
-  console.log(Date.parse(DateValue));
-
-  const handlePost = () => {
-    if(Owner && Content && Student && Attachment && Note)
-    {AxiosMain.post("/api/deadline/create", {
-      userId: `${LoginData._id}`,
-      owner: [],
-      student: ["61d1920a61501846a35e8366", "61d31743f460f79f0d2b1e39"],
-      content: "Làm bài tập tết ",
-      attachment: ["https://calibre-ebook.com/downloads/demos/demo.docx"],
-      note: "Không nộp đúng hạn trừ 1 điểm",
-      deadlinedate: `${DateValue}`,
-    });}
+  const handlePost = async () => {
+    if (Owner && Content && Student && Attachment && Note) {
+      await AxiosMain.post("/api/deadline/create", {
+        "userId": `${LoginData.user._id}`,
+        "owner": [],
+       "student": [],
+        "content": `${Content}`,
+        "attachment":[attachment],
+       "note": `${Note}`,
+        "deadlinedate": Date.parse(DateValue),
+      });
+    }
   };
 
   return (
@@ -79,6 +72,10 @@ const MakeDeadline = () => {
           label="YOUR DEADLINE NAME"
           variant="standard"
           color="warning"
+          value={Content}
+          onChange={(newValue) => {
+            setContent(newValue.target.value);
+          }}
           style={{
             marginTop: "14px",
             marginRight: "12px",
@@ -86,35 +83,33 @@ const MakeDeadline = () => {
             bordercolor: "#f36f21",
           }}
         />
-        <div className="note-link-attachment">
-          <TextField
-            id="standard-basic"
-            label="NOTE"
-            variant="standard"
-            color="warning"
-            style={{
-              marginRight: "12px",
-
-              width: "100%",
-              bordercolor: "#f36f21",
-            }}
-          />
-
-          <AddLinkIcon
-            style={{
-              width: "20px",
-              marginRight: "12px",
-              marginTop: "30px",
-            }}
-          />
-        </div>
 
         <TextField
-          className="test-animation"
+          id="standard-basic"
+          label="NOTE"
+          variant="standard"
+          color="warning"
+          value={Note}
+          onChange={(newValue) => {
+            setNote(newValue.target.value);
+          }}
+          style={{
+            marginRight: "12px",
+
+            width: "100%",
+            bordercolor: "#f36f21",
+          }}
+        />
+
+        <TextField
           id="standard-basic"
           label="EMBED YOU LINK"
           variant="standard"
           color="warning"
+          value={attachment}
+          onChange={(newValue) => {
+            setattachment(newValue.target.value);
+          }}
           style={{
             marginRight: "12px",
             marginTop: "25px",
@@ -122,6 +117,7 @@ const MakeDeadline = () => {
             bordercolor: "#f36f21",
           }}
         />
+        { attachment && <Attachment data={[attachment]} />}
 
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <MobileDateTimePicker
@@ -145,7 +141,8 @@ const MakeDeadline = () => {
             value={DateValue}
             minDate={new Date()}
             onChange={(newValue) => {
-              setDateValue(newValue);
+              setDateValue(newValue)
+              
             }}
           />
         </LocalizationProvider>
@@ -169,12 +166,12 @@ const MakeDeadline = () => {
         </div>
 
         <Button
-        
           color="warning"
           variant="contained"
           style={{ height: "40px", transform: "translateY(40px)" }}
+          onClick={handlePost}
         >
-           Make Deadline
+          Make Deadline
         </Button>
       </div>
     </>

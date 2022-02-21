@@ -101,7 +101,7 @@ function DetailDeadline(props) {
           </div>
           <div className="DetailDeadline-container-body">
             <div className="DetailDeadline-container-body__title-and-provider">
-              <GetSeo link={data.attachment[0]} />
+             {data.attachment[0] && <GetSeo link={data.attachment[0]} />}
             </div>
             <div className="DetailDeadline-container-body__content">
               {data.content}

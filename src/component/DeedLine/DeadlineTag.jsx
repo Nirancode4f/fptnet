@@ -16,8 +16,14 @@ DeadlineTag.defaultProps = {
 
 function DeadlineTag(props) {
   const { data , onHandleClick } = props;
+  const [LoginData, setLoginData] = useState(
+    localStorage.getItem("loginData")
+      ? JSON.parse(localStorage.getItem("loginData"))
+      : null
+  );
 
-  const { onDeadlineClick } = props;
+
+console.log(`tag ` , data)
 
 const handleLOg = () => {
 
@@ -33,7 +39,7 @@ const handleLOg = () => {
         <div className="deadline-creater-img">
           <Avatar
             alt="Avatar"
-            src={data.owner[0].picture}
+            src={data.owner.picture ? data.owner[0].picture : data.userId.picture}
             sx={{ width: 50, height: 50 }}
             style={{
               border: "1px solid #f36f21",
@@ -66,7 +72,7 @@ const handleLOg = () => {
         </div>
       </div>
       {/* mỗi attachment 1 row */}
-      <Attachment data={data.attachment} />
+      { data.attachment[0] ? <Attachment data={data.attachment} /> : <></>}
     </div>
   );
 }

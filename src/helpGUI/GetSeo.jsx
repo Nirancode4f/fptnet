@@ -27,7 +27,7 @@ const GetSeo = (props) => {
     return () => {
       setisUnmound(false);
     };
-  }, []);
+  }, [isUnmound, link]);
 
   return (
     <Link style={{color : "#000"}} href={link}>
