@@ -227,7 +227,7 @@
 }
 
 .BoxChatFooter {
-  background-color: #fff;
+  /* background-color: #fff; */
   --nav-width: 60px;
   --friend-list-width: 340px;
   width: 100%;
@@ -235,8 +235,8 @@
   align-items: center;
   justify-content: space-between;
   height: 44px;
-  border: 1px solid var(--bg-color);
-  border-radius: 12px;
+  /* border: 1px solid var(--bg-color); */
+  /* border-radius: 12px; */
   max-width: 1030px;
   position: fixed;
   left: calc(var(--friend-list-width) + var(--nav-width) + 30px);
@@ -275,21 +275,18 @@
 }
 
 .FriendList > .FriendListItem {
-   display: flex;
-
+  display: flex;
 }
 
 .TeacherList > .TeacherListItem {
-   display: flex;
-
+  display: flex;
 }
 
 .GroupList > .GroupListItem {
-   display: flex;
-
+  display: flex;
 }
 
-.ShowFriendListBtn:checked ~ .FriendListItem {
+/* .ShowFriendListBtn:checked ~ .FriendListItem {
   display: none;
 }
 
@@ -299,7 +296,7 @@
 
 .ShowGroupListBtn:checked ~ .GroupListItem {
   display: none;
-}
+} */
 .ShowListIcon {
   margin-left: 3px;
   padding: 0 4px;

@@ -12,26 +12,36 @@ export default function ChatBoxContainer(props) {
   const { currentItem, userId, onConvsChange, conversationId } = props;
 
   const [newMess, setNewMess] = useState({});
+  const [KhangMess, setKhangMess] = useState({});
 
   // post message to server
+  console.log(`currrentItem`, currentItem);
+
+  const handleTakeOut = (data) => {
+    setKhangMess(data);
+  };
+
   const postMessageData = async (messageData) => {
     let result;
     if (currentItem.contact_type === "group") {
       try {
-        result = await axios.post(
-          `${URL_MAIN}/api/group/message/create`,
-          messageData
-        );
+        result = await axios
+          .post(`${URL_MAIN}/api/group/message/create`, messageData)
+          .then((res) => {
+            console.log(`c1234`, res);
+          });
       } catch (error) {
         console.log(error);
       }
     } else {
       console.log(messageData);
       try {
-        result = await axios.post(
-          `${URL_MAIN}/api/message/create`,
-          messageData
-        );
+        result = await axios
+          .post(`${URL_MAIN}/api/message/create`, messageData)
+          .then((res) => {
+            console.log(`c1234`, res.data.newMessage);
+            setKhangMess(res.data.newMessage);
+          });
       } catch (error) {
         console.log(error);
       }
@@ -42,11 +52,14 @@ export default function ChatBoxContainer(props) {
   const handleGetMessDataInput = (data) => {
     // setMessageData({ ...messageData, userId, conversationId, ...data });
     const messageData = { userId, conversationId, ...data };
+
     postMessageData(messageData)
       .then((res) => {
-        res.data.success
-          ? console.log("Gửi tin nhắn thành công")
-          : console.log("Gửi tin nhắn thất bại");
+        if (res.data.success) {
+          console.log("Gửi tin nhắn thành công");
+        } else {
+          console.log("Gửi tin nhắn thất bại");
+        }
       })
       .catch((err) => console.log(err));
   };
@@ -58,9 +71,6 @@ export default function ChatBoxContainer(props) {
 
   return (
     <>
-      <ChatBoxHeader
-        headerData={{ avatar: currentItem.avatar, name: currentItem.name }}
-      />
       <ChatBox
         chatData={{
           targetId: currentItem.id,
@@ -70,10 +80,11 @@ export default function ChatBoxContainer(props) {
         onCurrentConvsIdChange={onConvsChange}
         userId={userId}
         newMessage={newMess}
-      />
-      <ChatBoxFooter
+        Chatdata={KhangMess}
+        headerData={{ avatar: currentItem.avatar, name: currentItem.name }}
         onMessagePost={handleGetMessDataInput}
         conversation={conversationId}
+        onClickCheck={handleTakeOut}
       />
     </>
   );

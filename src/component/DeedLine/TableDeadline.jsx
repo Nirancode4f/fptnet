@@ -22,8 +22,8 @@ import DeadlinePopUp from "./DeadlinePopUp";
 import PropTypes from "prop-types";
 
 TableDeadline.prototype = {
-  Deadlinelist: propTypes.array,
-  DetailDeadlinePopup : propTypes.func,
+  Deadlinelist: PropTypes.array,
+  DetailDeadlinePopup: PropTypes.func,
 };
 TableDeadline.defaultProps = {
   Deadlinelist: [],
@@ -31,42 +31,35 @@ TableDeadline.defaultProps = {
 };
 
 export default function TableDeadline(props) {
-  const { Deadlinelist, Loading , DetailDeadlinePopup} = props;
+  const { Deadlinelist, Loading, DetailDeadlinePopup } = props;
 
   const [Ismount, setIsmount] = useState(false);
  
 
   useEffect(() => {
-  
-
     return () => {};
   }, [Deadlinelist]);
 
-  const dataLogout =(event)=>{
-
-   
-    DetailDeadlinePopup(event)
-
-  }
-
-
+  const dataLogout = (event) => {
+    DetailDeadlinePopup(event);
+  };
 
   return (
-
-      <div className="Table-deadline">
-        <div className="title-deadline-and-btns">
-          <div className="title-deadline">DEADLINE</div>
-        </div>
-        { Loading &&
-           <LinearProgress
-           color='inherit'
-           style={{ color: "#f36f21", height: "2px" }}
-
-         />}
-        
-        {Deadlinelist &&
-          Deadlinelist.map((e) => <DeadlineTag key={e._id} data={e}  onHandleClick={dataLogout}/>)}
-
+    <div className="Table-deadline">
+      <div className="title-deadline-and-btns">
+        <div className="title-deadline">DEADLINE</div>
       </div>
+      {Loading && (
+        <LinearProgress
+          color="inherit"
+          style={{ color: "#f36f21", height: "2px" }}
+        />
+      )}
+
+      {Deadlinelist &&
+        Deadlinelist.map((e) => (
+          <DeadlineTag key={e._id} data={e} onHandleClick={dataLogout} />
+        ))}
+    </div>
   );
 }

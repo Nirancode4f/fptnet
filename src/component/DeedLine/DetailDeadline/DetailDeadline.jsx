@@ -7,10 +7,10 @@ import { Avatar } from "@mui/material";
 import { ClickAwayListener } from "@mui/base";
 import PropTypes from "prop-types";
 import ShareLink from "../../../helpGUI/FormatLinkShare/ShareLink";
+import DoneAllIcon from '@mui/icons-material/DoneAll';
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import disableScroll from 'disable-scroll';
-import ContentCopyRoundedIcon from '@mui/icons-material/ContentCopyRounded';
-
+import disableScroll from "disable-scroll";
+import ContentCopyRoundedIcon from "@mui/icons-material/ContentCopyRounded";
 
 DetailDeadline.prototype = {
   onClickOut: PropTypes.func,
@@ -23,7 +23,6 @@ function DetailDeadline(props) {
   const { data, onClickOut } = props;
   const [Link, setLink] = useState("");
   const [isCopy, setisCopy] = useState(false);
-  
 
   const CheckCopy = () => {
     setisCopy(true);
@@ -36,14 +35,8 @@ function DetailDeadline(props) {
   useEffect(() => {
     const link = ShareLink.Deadline({ dl: `${data._id}` });
     setLink(link);
-
-    
   }, []);
 
-  
-  
-
-  console.log(data);
   return (
     <div className="DetailDeadline">
       <ClickAwayListener onClickAway={handleClick}>
@@ -114,14 +107,22 @@ function DetailDeadline(props) {
               {data.content}
             </div>
             <div className="DetailDeadline-container-body__note">
-               {data.note}
+              {data.note}
             </div>
             <div className="share-deadline">
-              <div className="text-share-link">{Link}</div>
+              <div className="text-share-link">Share: {Link}</div>
               <div className="share-deadline-button">
                 <CopyToClipboard text={`${Link}`} onCopy={CheckCopy}>
-                <button><ContentCopyRoundedIcon color="warning"></ContentCopyRoundedIcon> </button>
-                  <button><ContentCopyRoundedIcon></ContentCopyRoundedIcon> </button>
+                  {isCopy ? (
+                    <button>
+                      <DoneAllIcon color="warning"/>{" "}
+                    
+                    </button>
+                  ) : (
+                    <button>
+                      <ContentCopyRoundedIcon lable={"share your link"} />{" "}
+                    </button>
+                  )}
                 </CopyToClipboard>
                 {isCopy && <span style={{ color: "red" }}>Copied.</span>}
               </div>

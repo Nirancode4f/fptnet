@@ -17,10 +17,9 @@ export default function Messenger() {
   const userId = JSON.parse(localStorage.getItem("loginData")).user._id;
 
   // get data from contact item (used useEffect to prevent friend list re-render)
-  const handleGetItem = useCallback((e, data) => {
+  const handleGetItem = (e, data) => {
     setCurrentItem(data);
-    console.log(currentItem);
-  }, []);
+  };
 
   // // block messages calculator
   // const calBlocks = (totalMess) => {
@@ -33,7 +32,6 @@ export default function Messenger() {
 
   return (
     <>
-
       <div className="Messenger">
         <div className="MessengerContainer">
           {/* friend list */}
