@@ -11,7 +11,7 @@ import { read_cookie } from "sfcookies";
 import { useNavigate } from "react-router-dom";
 import ShareLink from "../../helpGUI/FormatLinkShare/ShareLink";
 import AxiosMain from "../../API/AxiosMain";
-
+import DeadlineDate from "../../helpGUI/DeadlineDate"
 export default function ReceiveDeadline() {
   const [LoginData, setLoginData] = useState(
     localStorage.getItem("loginData")
@@ -24,6 +24,7 @@ export default function ReceiveDeadline() {
 
 const [DeadlineData, setDeadlineData] = useState({})
 const [ShowTable, setShowTable] = useState(false)
+const {timeString} = DeadlineDate.FomatDate(DeadlineDate.createAt)
 
   // const [param, setparam] = useSearchParams({});
   const {id} = useParams()
@@ -101,7 +102,7 @@ console.log(DeadlineData)
         </div>
         <div className="receive-footer">
           <div className="receive-due">
-            <Chip label="dd/mm/yy" variant="outlined" color="warning" />
+            <Chip label={timeString} variant="outlined" color="warning" />
           </div>
           <div className="receive-btn">
             <Button color="warning" variant="contained">
