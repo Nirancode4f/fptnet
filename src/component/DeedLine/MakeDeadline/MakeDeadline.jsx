@@ -7,6 +7,7 @@ import { styled } from "@mui/system";
 import { ClickAwayListener } from "@mui/base";
 import AxiosMain from "../../../API/AxiosMain";
 import AddIcon from "@mui/icons-material/Add";
+import AddLinkIcon from '@mui/icons-material/AddLink';
 
 const CssTextField = styled(TextField)({
   "& label.Mui-focused": {
@@ -65,33 +66,43 @@ const MakeDeadline = () => {
             bordercolor: "#f36f21",
           }}
         />
-        <TextField
-          id="standard-basic"
-          label="NOTE"
-          variant="standard"
-          color="warning"
-          style={{
-            marginRight: "12px",
-            marginTop: "14px",
-            width: "100%",
-            bordercolor: "#f36f21",
-          }}
-        />
-        <div className="test-animation">
+        <div className="note-link-attachment">
           <TextField
-         
+            id="standard-basic"
+            label="NOTE"
+            variant="standard"
+            color="warning"
+            style={{
+              marginRight: "12px",
+            
+              width: "100%",
+              bordercolor: "#f36f21",
+            }}
+          />
+
+          <AddLinkIcon style={{
+            width:"20px",
+            marginRight: "12px",
+            marginTop: "30px",
+
+          }} />
+        </div>
+       
+          <TextField
+         className="test-animation"
             id="standard-basic"
             label="EMBED YOU LINK"
             variant="standard"
             color="warning"
             style={{
               marginRight: "12px",
-              marginTop: "14px",
+              marginTop: "25px",
               width: "100%",
               bordercolor: "#f36f21",
             }}
           />
-        </div>
+
+      
 
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <MobileDateTimePicker

@@ -19,6 +19,18 @@
   padding: 10px;
   display: flex;
   border-radius: 12px;
+  animation-name: DetailDeadline-container ;
+  animation-duration: 0.4s;
+}
+@keyframes DetailDeadline-container{
+  from {
+    opacity: 0.5;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .DetailDeadline-container-receiver {

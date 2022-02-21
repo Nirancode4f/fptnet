@@ -397,13 +397,7 @@ margin-bottom: 10px;
     display: none;
     user-select: none;
 }
-.test-animation {
-    animation: example;
-    animation-duration: 4s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-   
-}
+
 .deadline-popup-group-avt {
     
     display: flex;
@@ -412,13 +406,15 @@ margin-bottom: 10px;
 
 }
 
-@keyframes example {
-    from{
-        max-width: 20px;
-    }    
-    to{
-        max-width: 100%;
-    }
+
+.note-link-attachment{
+    
+    position: relative;
+    display: flex;
+    align-content: flex-end;
+    
+    height: 32px;
+    max-width: 100%;
 }
 
 .deadline-popup-group-avt .group-avt {
