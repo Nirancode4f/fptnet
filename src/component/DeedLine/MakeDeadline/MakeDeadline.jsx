@@ -39,6 +39,15 @@ const MakeDeadline = () => {
       : null
   );
 
+
+  function printMousePos(event) {
+    document.body.textContent =
+      "clientX: " + event.clientX +
+      " - clientY: " + event.clientY;
+  }
+  
+  window.addEventListener("click", printMousePos);
+
   const handlePost = () => {
     AxiosMain.post("/api/deadline/create", {
       userId: `${LoginData._id}`,
