@@ -7,7 +7,8 @@ import { styled } from "@mui/system";
 import { ClickAwayListener } from "@mui/base";
 import AxiosMain from "../../../API/AxiosMain";
 import AddIcon from "@mui/icons-material/Add";
-import AddLinkIcon from '@mui/icons-material/AddLink';
+import AddLinkIcon from "@mui/icons-material/AddLink";
+import { useEffect } from "react";
 
 const CssTextField = styled(TextField)({
   "& label.Mui-focused": {
@@ -30,34 +31,44 @@ const CssTextField = styled(TextField)({
 });
 
 const MakeDeadline = () => {
-  const [DateValue, setDateValue] = useState(Date());
-  console.log(Date.parse(DateValue));
-
   const [LoginData, setLoginData] = useState(
     localStorage.getItem("loginData")
       ? JSON.parse(localStorage.getItem("loginData"))
       : null
   );
+  const [Coordinates, setCoordinates] = useState([]);
 
+  // make deadline
+  const [Owner, setOwner] = useState("");
+  const [Content, setContent] = useState("");
+  const [Student, setStudent] = useState([]);
+  const [Attachment, setAttachment] = useState([]);
+  const [DateValue, setDateValue] = useState(Date());
+  const [Note, setNote] = useState("")
 
   function printMousePos(event) {
-    document.body.textContent =
-      "clientX: " + event.clientX +
-      " - clientY: " + event.clientY;
+    setCoordinates([event.clientX, event.clientY]);
   }
-  
+
   window.addEventListener("click", printMousePos);
 
+  useEffect(() => {
+    console.log(Coordinates);
+  }, [Coordinates]);
+
+  console.log(Date.parse(DateValue));
+
   const handlePost = () => {
-    AxiosMain.post("/api/deadline/create", {
+    if(Owner && Content && Student && Attachment && Note)
+    {AxiosMain.post("/api/deadline/create", {
       userId: `${LoginData._id}`,
-      owner: [`${LoginData._id}`],
+      owner: [],
       student: ["61d1920a61501846a35e8366", "61d31743f460f79f0d2b1e39"],
       content: "Làm bài tập tết ",
       attachment: ["https://calibre-ebook.com/downloads/demos/demo.docx"],
       note: "Không nộp đúng hạn trừ 1 điểm",
       deadlinedate: `${DateValue}`,
-    });
+    });}
   };
 
   return (
@@ -83,35 +94,34 @@ const MakeDeadline = () => {
             color="warning"
             style={{
               marginRight: "12px",
-            
+
               width: "100%",
               bordercolor: "#f36f21",
             }}
           />
 
-          <AddLinkIcon style={{
-            width:"20px",
-            marginRight: "12px",
-            marginTop: "30px",
-
-          }} />
-        </div>
-       
-          <TextField
-         className="test-animation"
-            id="standard-basic"
-            label="EMBED YOU LINK"
-            variant="standard"
-            color="warning"
+          <AddLinkIcon
             style={{
+              width: "20px",
               marginRight: "12px",
-              marginTop: "25px",
-              width: "100%",
-              bordercolor: "#f36f21",
+              marginTop: "30px",
             }}
           />
+        </div>
 
-      
+        <TextField
+          className="test-animation"
+          id="standard-basic"
+          label="EMBED YOU LINK"
+          variant="standard"
+          color="warning"
+          style={{
+            marginRight: "12px",
+            marginTop: "25px",
+            width: "100%",
+            bordercolor: "#f36f21",
+          }}
+        />
 
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <MobileDateTimePicker
@@ -159,11 +169,12 @@ const MakeDeadline = () => {
         </div>
 
         <Button
+        
           color="warning"
           variant="contained"
           style={{ height: "40px", transform: "translateY(40px)" }}
         >
-          Make Deadline
+           Make Deadline
         </Button>
       </div>
     </>
