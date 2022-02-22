@@ -10,6 +10,7 @@ import AddIcon from "@mui/icons-material/Add";
 import AddLinkIcon from "@mui/icons-material/AddLink";
 import { useEffect } from "react";
 import Attachment from "../Attachment";
+import AddLink from "@mui/icons-material/AddLink";
 
 const CssTextField = styled(TextField)({
   "& label.Mui-focused": {
@@ -83,7 +84,7 @@ console.log(`onthign`,attachment)
             bordercolor: "#f36f21",
           }}
         />
-
+          <div style={{display: "flex", alignItems: "flex-end"}}>
         <TextField
           id="standard-basic"
           label="NOTE"
@@ -99,8 +100,9 @@ console.log(`onthign`,attachment)
             width: "100%",
             bordercolor: "#f36f21",
           }}
-        />
-
+        /> 
+        <AddLink color="warning"></AddLink>
+        </div>
         <TextField
           id="standard-basic"
           label="EMBED YOU LINK"
@@ -146,7 +148,7 @@ console.log(`onthign`,attachment)
             }}
           />
         </LocalizationProvider>
-        <div>more option</div>
+        <div style={{fontSize: 18, fontWeight:600, textTransform:"capitalize" , margin: " 5px 0"}}>more option</div>
       </div>
       <div className="deadline-popup-avatar-and-btn">
         <div className="deadline-popup-group-avt">
