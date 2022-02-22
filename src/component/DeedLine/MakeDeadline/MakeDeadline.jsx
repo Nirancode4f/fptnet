@@ -96,29 +96,17 @@ console.log(`onthign`,attachment)
           }}
           style={{
             marginRight: "12px",
-
+            transition: "linear 0.2s",
             width: "100%",
             bordercolor: "#f36f21",
           }}
         /> 
         <AddLink color="warning"></AddLink>
         </div>
-        <TextField
-          id="standard-basic"
-          label="EMBED YOU LINK"
-          variant="standard"
-          color="warning"
-          value={attachment}
-          onChange={(newValue) => {
-            setattachment(newValue.target.value);
-          }}
-          style={{
-            marginRight: "12px",
-            marginTop: "25px",
-            width: "100%",
-            bordercolor: "#f36f21",
-          }}
-        />
+        <div className="emberlink-block">
+        <input className="emberlink" type="text" />
+        </div>
+
         { attachment && <Attachment data={[attachment]} />}
 
         <LocalizationProvider dateAdapter={AdapterDateFns}>

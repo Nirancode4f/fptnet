@@ -28,6 +28,7 @@
 }
 .make_deadline_popup_table{
     width: 60%;
+    transition: linear 0.5s;
 }
 
 .Deadline {
@@ -295,6 +296,7 @@ overflow: hidden;
   flex-direction: column;
   justify-content: space-between;
   animation: grow linear 0.4s;
+  transition: linear;
 
   
 }
@@ -480,4 +482,50 @@ margin-bottom: 10px;
 
 .Not-yet {
     background-color: rgb(190, 33, 33);
+}
+
+.emberlink-block {
+    display: flex;
+    border: 1px solid #333;
+    width: 456px;
+    margin-top: 20px;
+    height: 32px;
+    padding: 5px;
+    align-items: center;
+    transition: linear 0.2s;
+    animation: appear linear 0.2s;
+    transform-origin:top right;
+    /* display: none; */
+}
+
+.emberlink-block:hover {
+    border: 1px solid var(--bg-color);
+    cursor: text;
+
+}
+
+.emberlink {
+     flex: 1;
+     outline: none;
+     border: none;
+}
+
+.copy-emberlink-btn {
+    width: 60px;
+    height: 32px;
+    border: 1px solid #333;
+    text-align: center;
+    line-height: 32px;
+}
+
+@keyframes appear {
+  from {
+    transform: scale(0);
+    opacity: 0;
+   
+  }
+  to {
+    transform: scale(100%);
+   opacity: 1;
+  }
 }
