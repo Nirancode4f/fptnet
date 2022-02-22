@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { useState, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import MainLayout from "../../component/MainPage/MainLayout";
 import ChatBoxContainer from "./childComponents/ChatBoxComps/ChatBoxContainer";
 import ContactSideBar from "./childComponents/ContactSideBar";
@@ -14,19 +15,26 @@ export default function Messenger() {
   const [currentItem, setCurrentItem] = useState({});
   const [currentConvsId, setCurrentConvsId] = useState("");
 
+  const [LoginData, setLoginData] = useState(
+    JSON.parse(localStorage.getItem("loginData"))
+  );
+
   const userId = JSON.parse(localStorage.getItem("loginData")).user._id;
 
   // get data from contact item (used useEffect to prevent friend list re-render)
   const handleGetItem = (e, data) => {
     setCurrentItem(data);
+    console.log(data);
   };
 
   // // block messages calculator
   // const calBlocks = (totalMess) => {
   //   return (totalMess - (totalMess % 20)) / 20 + !!(totalMess % 20);
   // };
+
   const handleConvsIdChange = (convsId) => {
     setCurrentConvsId(convsId);
+
     console.log(convsId);
   };
 
@@ -34,11 +42,7 @@ export default function Messenger() {
     <>
       <div className="Messenger">
         <div className="MessengerContainer">
-          {/* friend list */}
-
           <ContactSideBar userId={userId} handleGetItem={handleGetItem} />
-
-          {/* chatbox */}
 
           <ChatBoxContainer
             currentItem={currentItem}

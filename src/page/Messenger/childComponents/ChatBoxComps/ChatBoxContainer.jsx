@@ -2,8 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 
 import ChatBox from "./ChatBox";
-import ChatBoxFooter from "./ChatBoxFooter";
-import ChatBoxHeader from "./ChatBoxHeader";
+
 
 const URL_MAIN =
   process.env.REACT_APP_URL_MAIN || `https://fanserverapi.herokuapp.com`;
@@ -77,7 +76,6 @@ export default function ChatBoxContainer(props) {
           convs_type: currentItem.contact_type,
           targetAvt: currentItem.avatar,
         }}
-        onCurrentConvsIdChange={onConvsChange}
         userId={userId}
         newMessage={newMess}
         Chatdata={KhangMess}

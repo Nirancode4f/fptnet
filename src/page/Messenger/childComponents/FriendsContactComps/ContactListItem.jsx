@@ -1,5 +1,5 @@
 import React from "react";
-import defaultAvatar from "../../../../../component/Layout/assets/avatar-user.png";
+import defaultAvatar from "../../../../component/Layout/assets/avatar-user.png";
 import Avatar from "@mui/material/Avatar";
 
 export default function FriendListItem(props) {
@@ -9,23 +9,18 @@ export default function FriendListItem(props) {
     border: 2,
     borderColor: "#808080",
   };
+  console.log(`contactlistitem`, data)
+
   return (
     <>
       <li
         className="FriendListItem"
-        // onClick={(e) =>
-        //   OnClickContactBtn(e, {
-        //     id: friend._id,
-        //     name: friend.username,
-        //     avatarSrc: friend.picture,
-        //   })
-        // }
         onClick={(e) =>
           OnClickGetItem(e, {
             id: data.id,
             avatar: data.avatar,
             name: data.username,
-            contact_type: "friend",
+            conversationId: data.conversationId,
           })
         }
       >

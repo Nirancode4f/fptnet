@@ -154,7 +154,7 @@ export default function ChatBox(props) {
         <Input
           
           endAdornment={
-            <InputAdornment sx={{ mr: 3 }}>
+            <InputAdornment position="end" sx={{ mr: 3 }}>
               <IconButton sx={{ m: 1 }}>
                 <AttachFileIcon />
               </IconButton>

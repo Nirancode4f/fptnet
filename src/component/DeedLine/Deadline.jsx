@@ -83,6 +83,7 @@ export default function Newfeed() {
           }
         }
       });
+      
     } catch (error) {
       console.log(error);
     }

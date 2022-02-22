@@ -68,7 +68,7 @@
   cursor: pointer;
   opacity: 0.7;
 }
-.FriendList {
+/* .FriendList {
   margin: 0 0 20px 6px;
   font-size: 18px;
   user-select: none;
@@ -82,13 +82,13 @@
   margin: 0 0 20px 6px;
   overflow-y: auto;
   user-select: none;
-}
+} */
 
-.FriendList i,
-.TeacherList i,
-.GroupList i {
-  color: var(--bg-color);
-}
+/* .FriendList i,
+  .TeacherList i,
+  .GroupList i {
+    color: var(--bg-color);
+  } */
 .FriendListItem:hover,
 .TeacherListItem:hover,
 .GroupListItem:hover {
@@ -274,7 +274,7 @@
   transform: scale(1.3);
 }
 
-.FriendList > .FriendListItem {
+/* .FriendList > .FriendListItem {
   display: flex;
 }
 
@@ -284,7 +284,7 @@
 
 .GroupList > .GroupListItem {
   display: flex;
-}
+} */
 
 /* .ShowFriendListBtn:checked ~ .FriendListItem {
   display: none;
