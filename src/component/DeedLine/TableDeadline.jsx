@@ -20,29 +20,69 @@ import { TextField } from "@mui/material";
 import DeadlinePopUp from "./DeadlinePopUp";
 
 import PropTypes from "prop-types";
+import AxiosMain from "../../API/AxiosMain";
+import isEqual from "lodash/isEqual";
 
 TableDeadline.prototype = {
-  Deadlinelist: PropTypes.array,
   DetailDeadlinePopup: PropTypes.func,
 };
 TableDeadline.defaultProps = {
-  Deadlinelist: [],
   DetailDeadlinePopup: null,
 };
 
 export default function TableDeadline(props) {
-  const { Deadlinelist, Loading, DetailDeadlinePopup } = props;
+  const { DetailDeadlinePopup } = props;
 
-  const [Ismount, setIsmount] = useState(false);
- 
+  const [Loading, setLoading] = useState(true);
+  const [DeadlineList, setDeadlineList] = useState([]);
+
+
+  const [LoginData, setLoginData] = useState(
+    localStorage.getItem("loginData")
+      ? JSON.parse(localStorage.getItem("loginData"))
+      : null
+  );
+
+  const [Ismount, setIsmount] = useState(true);
+
+  function GetDeadline() {
+    try {
+      AxiosMain.post("/api/deadline/getdeadlines", {
+        userId: `${LoginData.user._id}`,
+      }).then((res) => {
+        setLoading(false);
+
+        if (Ismount) {
+          if (!isEqual(res.deadlines, DeadlineList)) {
+            setDeadlineList(res.deadlines);
+
+          }
+        }
+      });
+      return () => {
+        setIsmount(false);
+      };
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   useEffect(() => {
-    return () => {};
-  }, [Deadlinelist]);
+    setInterval(() => {
+      GetDeadline();
+    }, 5000);
+
+    return () => {
+      setIsmount(false);
+      clearInterval();
+    };
+  }, []);
 
   const dataLogout = (event) => {
     DetailDeadlinePopup(event);
   };
+
+  console.log(DeadlineList)
 
   return (
     <div className="Table-deadline">
@@ -56,8 +96,8 @@ export default function TableDeadline(props) {
         />
       )}
 
-      {Deadlinelist &&
-        Deadlinelist.map((e) => (
+      {DeadlineList &&
+        DeadlineList.map((e) => (
           <DeadlineTag key={e._id} data={e} onHandleClick={dataLogout} />
         ))}
     </div>

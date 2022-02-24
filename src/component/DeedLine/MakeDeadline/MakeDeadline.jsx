@@ -11,6 +11,7 @@ import AddLinkIcon from "@mui/icons-material/AddLink";
 import { useEffect } from "react";
 import Attachment from "../Attachment";
 import AddLink from "@mui/icons-material/AddLink";
+import SeoBlock from "./SeoBlock";
 
 const CssTextField = styled(TextField)({
   "& label.Mui-focused": {
@@ -49,21 +50,21 @@ const MakeDeadline = () => {
   const [Note, setNote] = useState("");
   const [Link, setLink] = useState("");
 
-console.log(`onthign`,attachment)
-
   const handlePost = async () => {
     if (Owner && Content && Student && Attachment && Note) {
       await AxiosMain.post("/api/deadline/create", {
-        "userId": `${LoginData.user._id}`,
-        "owner": [],
-       "student": [],
-        "content": `${Content}`,
-        "attachment":[attachment],
-       "note": `${Note}`,
-        "deadlinedate": Date.parse(DateValue),
+        userId: `${LoginData.user._id}`,
+        owner: [],
+        student: [],
+        content: `${Content}`,
+        attachment: [attachment],
+        note: `${Note}`,
+        deadlinedate: Date.parse(DateValue),
       });
     }
   };
+
+  console.log(`data ` , attachment)
 
   return (
     <>
@@ -84,30 +85,38 @@ console.log(`onthign`,attachment)
             bordercolor: "#f36f21",
           }}
         />
-          <div style={{display: "flex", alignItems: "flex-end"}}>
-        <TextField
-          id="standard-basic"
-          label="NOTE"
-          variant="standard"
-          color="warning"
-          value={Note}
-          onChange={(newValue) => {
-            setNote(newValue.target.value);
-          }}
-          style={{
-            marginRight: "12px",
-            transition: "linear 0.2s",
-            width: "100%",
-            bordercolor: "#f36f21",
-          }}
-        /> 
-        <AddLink color="warning"></AddLink>
+        <div style={{ display: "flex", alignItems: "flex-end" }}>
+          <TextField
+            id="standard-basic"
+            label="NOTE"
+            variant="standard"
+            color="warning"
+            value={Note}
+            onChange={(newValue) => {
+              setNote(newValue.target.value);
+            }}
+            style={{
+              marginRight: "12px",
+              transition: "linear 0.2s",
+              width: "100%",
+              bordercolor: "#f36f21",
+            }}
+          />
+          <AddLink color="warning"></AddLink>
         </div>
         <div className="emberlink-block">
-        <input className="emberlink" type="text" />
+          <input
+          placeholder="name"
+            className="emberlink"
+            type="text"
+            value={attachment}
+            onChange={(e) => {
+              setattachment(e.target.value);
+            }}
+          />
         </div>
 
-        { attachment && <Attachment data={[attachment]} />}
+        {attachment && <SeoBlock link={attachment} />}
 
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <MobileDateTimePicker
@@ -131,12 +140,20 @@ console.log(`onthign`,attachment)
             value={DateValue}
             minDate={new Date()}
             onChange={(newValue) => {
-              setDateValue(newValue)
-              
+              setDateValue(newValue);
             }}
           />
         </LocalizationProvider>
-        <div style={{fontSize: 18, fontWeight:600, textTransform:"capitalize" , margin: " 5px 0"}}>more option</div>
+        <div
+          style={{
+            fontSize: 18,
+            fontWeight: 600,
+            textTransform: "capitalize",
+            margin: " 5px 0",
+          }}
+        >
+          more option
+        </div>
       </div>
       <div className="deadline-popup-avatar-and-btn">
         <div className="deadline-popup-group-avt">

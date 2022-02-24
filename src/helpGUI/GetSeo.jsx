@@ -11,6 +11,7 @@ const GetSeo = (props) => {
   const [Seotaken, setSeotaken] = useState({});
   const { link } = props;
   const [isUnmound, setisUnmound] = useState(true);
+  
 
   useEffect(() => {
     if (link) {

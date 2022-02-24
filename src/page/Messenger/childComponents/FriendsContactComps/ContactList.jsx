@@ -17,35 +17,30 @@ ContactList.defaultProps = {
   itemsData: [],
 };
 export default function ContactList(props) {
-
   const { handleGetItem, itemsData } = props;
   const [Items, setItems] = useState(itemsData);
 
+  useEffect(() => {
+    setItems(itemsData);
+  }, [itemsData]);
 
-useEffect(() => {
-  
-setItems(itemsData)
-  
-}, [itemsData])
-
- 
   return (
     <>
       <div className="FriendsContact">
-        <ul className="FriendList">{
-                Items.map((item) => (
-                  <ContactListItem
-                    key={item.conversationId}
-                    data={{
-                      username: item.username,
-                      avatar: item.picture,
-                      id: item._id,
-                      conversationId: item.conversationId,
-                    }}
-                    OnClickGetItem={handleGetItem}
-                  />
-                ))
-        }</ul>
+        <ul className="FriendList">
+          {Items.map((item) => (
+            <ContactListItem
+              key={item.conversationId}
+              data={{
+                username: item.username,
+                avatar: item.picture,
+                id: item._id,
+                conversationId: item.conversationId,
+              }}
+              OnClickGetItem={handleGetItem}
+            />
+          ))}
+        </ul>
       </div>
     </>
   );

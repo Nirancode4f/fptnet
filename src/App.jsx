@@ -39,7 +39,6 @@ function App() {
             ? JSON.parse(localStorage.getItem("loginData"))
             : null
         );
-        console.log(LoginData, con);
       }
     }, 500);
 
@@ -67,7 +66,7 @@ function App() {
 
         <Route path="/extension" element={<Extension />}></Route>
 
-        <Route path="/share" element={<ReceiveDeadline />}></Route>
+        <Route path="/share" element={<ReceiveDeadline/>}></Route>
 
         <Route path="*" element={<NotFound />}></Route>
       </Routes>

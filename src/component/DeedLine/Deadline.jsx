@@ -70,24 +70,7 @@ export default function Newfeed() {
   // hook
   const [showDetailDealine, setshowDetailDealine] = useState(false);
 
-  function GetDeadline() {
-    try {
-      AxiosMain.post("/api/deadline/getdeadlines", {
-        userId: `${LoginData.user._id}`,
-      }).then((res) => {
-        setLoading(false);
 
-        if (isMouted) {
-          if (!isEqual(res.deadlines, DeadlineList)) {
-            setDeadlineList(res.deadlines);
-          }
-        }
-      });
-      
-    } catch (error) {
-      console.log(error);
-    }
-  }
 
   function handleONdlickDeadline() {
     if (!ShowDeadline) {
@@ -112,16 +95,7 @@ export default function Newfeed() {
   };
 
   //   Call api
-  useEffect(() => {
-    setInterval(() => {
-      GetDeadline();
-    }, 5000);
-
-    return () => {
-      setisMouted(false);
-      clearInterval();
-    };
-  }, []);
+ 
 
 
   useEffect(() => {

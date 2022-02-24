@@ -23,7 +23,7 @@ function DeadlineTag(props) {
   );
 
 
-console.log(`tag ` , data)
+
 
 const handleLOg = () => {
 
