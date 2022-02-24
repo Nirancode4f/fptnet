@@ -8,8 +8,6 @@ import ContactListItem from "./ContactListItem";
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
-const userId = JSON.parse(localStorage.loginData).user._id;
-
 ContactList.prototype = {
   handleGetItem: PropTypes.func,
   itemsData: PropTypes.array,
@@ -19,12 +17,10 @@ ContactList.defaultProps = {
   itemsData: [],
 };
 export default function ContactList(props) {
+
   const { handleGetItem, itemsData } = props;
   const [Items, setItems] = useState(itemsData);
 
-  console.log(`contactList = `, itemsData);
-
-  console.log(`2 234=`, itemsData.length);
 
 useEffect(() => {
   
