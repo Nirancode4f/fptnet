@@ -7,7 +7,7 @@ const MakeSeoURL = (props) => {
     
 
   return (
-    <div>MakeSeoURL</div>
+    <div>{DataSeo.url}</div>
   )
 }
 
