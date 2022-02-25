@@ -106,7 +106,8 @@ const MakeDeadline = () => {
         </div>
         <div className="emberlink-block">
           <input
-          placeholder="name"
+          placeholder="<embed your link here>"
+
             className="emberlink"
             type="text"
             value={attachment}
@@ -116,7 +117,7 @@ const MakeDeadline = () => {
           />
         </div>
 
-        {attachment && <SeoBlock link={attachment} />}
+        {attachment && <SeoBlock Link={attachment} />}
 
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <MobileDateTimePicker

@@ -1,34 +1,42 @@
-import React, { useEffect, useLayoutEffect, useState } from 'react'
-import AxiosMain from '../../../API/AxiosMain';
+/* eslint-disable no-use-before-define */
+import React, { useEffect, useLayoutEffect, useState } from "react";
+import AxiosMain from "../../../API/AxiosMain";
+import PropTypes from "prop-types";
 
 const SeoBlock = (props) => {
+  const { Link } = props;
 
-    const {link} = props 
-    console.log(`link`, link)
-    const [Seotaken, setSeotaken] = useState({})
-    const [isUnmound, setisUnmound] = useState(true)
+  const [Seotaken, setSeotaken] = useState({});
 
-    useEffect(() => {
-        if (link) {
-          AxiosMain.post("/api/linkinfor/seo", {
-            link: `${link}`,
-          }).then((res) => {
-            if (isUnmound) {
-              setSeotaken(res.message);
-            console.log(res.message)
-            }
-          });
+  const [isUnmound, setisUnmound] = useState(true);
+
+  const handleBegin = () => {
+    if (Link) {
+      AxiosMain.post("/api/linkinfor/seo", {
+        link: `${Link}`,
+      }).then((res) => {
+        if (isUnmound) {
+          if (res.success) {
+            setSeotaken(res.message);
+          }else{
+            setSeotaken({})
+          }
         }
-    
-        return () => {
-          setisUnmound(false);
-        };
-      }, [link]);
-    
+      });
+    }
+  };
 
-  return (
-    <div>SeoBlock</div>
-  )
-}
+  useEffect(() => {
+    handleBegin();
 
-export default SeoBlock
+    return () => {
+      setisUnmound(false);
+    };
+  }, [Link]);
+
+  console.log(`seo  `, Seotaken);
+
+  return <div>{Seotaken.url}</div>;
+};
+
+export default SeoBlock;
