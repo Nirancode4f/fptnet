@@ -42,7 +42,6 @@ const SeoBlock = (props) => {
     };
   }, [Link]);
 
-  console.log(`seo  `, Seotaken);
 
   return ( <> 
 

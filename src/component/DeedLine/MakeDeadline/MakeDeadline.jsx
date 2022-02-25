@@ -46,6 +46,7 @@ const MakeDeadline = () => {
   const [Content, setContent] = useState("");
   const [Student, setStudent] = useState([]);
   const [attachment, setattachment] = useState("");
+  const [Lastattachment, setLastattachment] = useState("")
   const [DateValue, setDateValue] = useState(Date());
   const [Note, setNote] = useState("");
   const [Link, setLink] = useState("");
@@ -56,13 +57,23 @@ const MakeDeadline = () => {
 
 
   const handleSetLinkInput = (e) =>{
+    setLastattachment(e)
 
-    
+    if(typingTimeOutRef.current){
+
+      clearTimeout(typingTimeOutRef.current)
+    }
+
+    typingTimeOutRef.current = setTimeout(() => {
+
+      setattachment(e)
+      
+    }, 800);
 
 
 
   }
-  
+
 
   const handlePost = async () => {
     if (Owner && Content && Student && Attachment && Note) {
@@ -78,7 +89,7 @@ const MakeDeadline = () => {
     }
   };
 
-  console.log(`data ` , attachment)
+
 
   return (
     <>
@@ -124,10 +135,8 @@ const MakeDeadline = () => {
 
             className="emberlink"
             type="text"
-            value={attachment}
-            onChange={(e) => {
-              setattachment(e.target.value);
-            }}
+            value={Lastattachment}
+            onChange={(e)=>handleSetLinkInput(e.target.value)}
           />
         </div>
 
