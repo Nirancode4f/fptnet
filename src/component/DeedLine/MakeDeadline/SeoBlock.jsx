@@ -2,6 +2,7 @@
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import AxiosMain from "../../../API/AxiosMain";
 import PropTypes from "prop-types";
+import MakeSeoURL from "./MakeSeoURL";
 
 const SeoBlock = (props) => {
   const { Link } = props;
@@ -9,6 +10,7 @@ const SeoBlock = (props) => {
   const [Seotaken, setSeotaken] = useState({});
 
   const [isUnmound, setisUnmound] = useState(true);
+  const [IsSuccess, setIsSuccess] = useState(null)
 
   const handleBegin = () => {
     if (Link) {
@@ -17,8 +19,10 @@ const SeoBlock = (props) => {
       }).then((res) => {
         if (isUnmound) {
           if (res.success) {
+            setIsSuccess(res.success)
             setSeotaken(res.message);
           }else{
+            setIsSuccess(null)
             setSeotaken({})
           }
         }
@@ -27,7 +31,11 @@ const SeoBlock = (props) => {
   };
 
   useEffect(() => {
+  
     handleBegin();
+
+   
+    
 
     return () => {
       setisUnmound(false);
@@ -36,7 +44,12 @@ const SeoBlock = (props) => {
 
   console.log(`seo  `, Seotaken);
 
-  return <div>{Seotaken.url}</div>;
+  return ( <> 
+
+  { IsSuccess && <MakeSeoURL DataSeo={Seotaken} />} 
+  
+  
+  </>);
 };
 
 export default SeoBlock;

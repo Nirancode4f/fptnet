@@ -2,7 +2,7 @@ import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import MobileDateTimePicker from "@mui/lab/MobileDateTimePicker";
 import { Avatar, Button, TextField } from "@mui/material";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { styled } from "@mui/system";
 import { ClickAwayListener } from "@mui/base";
 import AxiosMain from "../../../API/AxiosMain";
@@ -49,6 +49,20 @@ const MakeDeadline = () => {
   const [DateValue, setDateValue] = useState(Date());
   const [Note, setNote] = useState("");
   const [Link, setLink] = useState("");
+
+
+  const typingTimeOutRef = useRef(null)
+
+
+
+  const handleSetLinkInput = (e) =>{
+
+    
+
+
+
+  }
+  
 
   const handlePost = async () => {
     if (Owner && Content && Student && Attachment && Note) {
