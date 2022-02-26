@@ -288,7 +288,7 @@ overflow: hidden;
 .modal-view-detail-deadline-container {
     border-radius: 8px;
     background-color: #fff;
-  height: 500px;
+  height: 550px;
   width: 800px;
   padding: 10px 20px; 
   display: flex;
@@ -486,16 +486,15 @@ margin-bottom: 10px;
 
 .emberlink-block {
     display: flex;
+    flex-direction: column;
     border: 1px solid #333;
     width: 456px;
     margin-top: 20px;
-    height: 32px;
-    padding: 5px;
-    align-items: center;
+    padding-top: 5px ;
     transition: linear 0.2s;
     animation: appear linear 0.2s;
     transform-origin:top right;
-    /* display: none; */
+    border-radius: 4px;
 }
 
 .emberlink-block:hover {
@@ -508,6 +507,7 @@ margin-bottom: 10px;
      flex: 1;
      outline: none;
      border: none;
+     padding-bottom:10px ;
 }
 
 .copy-emberlink-btn {
@@ -528,4 +528,29 @@ margin-bottom: 10px;
     transform: scale(100%);
    opacity: 1;
   }
+}
+
+.make-seo-block {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.provider-name {
+    margin-left: 10px;
+    font-weight: 600;
+    z-index: 200;
+}
+
+.bg-img-provider {
+    position: absolute;
+    opacity: 0.5;
+    z-index: 1;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    
+    
+
 }

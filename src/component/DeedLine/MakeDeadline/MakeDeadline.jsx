@@ -12,6 +12,7 @@ import { useEffect } from "react";
 import Attachment from "../Attachment";
 import AddLink from "@mui/icons-material/AddLink";
 import SeoBlock from "./SeoBlock";
+import MakeSeoURL from "./MakeSeoURL";
 
 const CssTextField = styled(TextField)({
   "& label.Mui-focused": {
@@ -138,8 +139,8 @@ const MakeDeadline = () => {
             value={Lastattachment}
             onChange={(e)=>handleSetLinkInput(e.target.value)}
           />
+        <MakeSeoURL></MakeSeoURL>
         </div>
-
         {attachment && <SeoBlock Link={attachment} />}
 
         <LocalizationProvider dateAdapter={AdapterDateFns}>
