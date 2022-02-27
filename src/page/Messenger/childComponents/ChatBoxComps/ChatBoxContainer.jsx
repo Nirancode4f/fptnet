@@ -8,21 +8,18 @@ const URL_MAIN =
   process.env.REACT_APP_URL_MAIN || `https://fanserverapi.herokuapp.com`;
 
 export default function ChatBoxContainer(props) {
-  const { currentItem, userId, onConvsChange, conversationId } = props;
+  const { currentItem, userId, conversationId } = props;
 
   const [newMess, setNewMess] = useState({});
-  const [KhangMess, setKhangMess] = useState({});
 
   // post message to server
   console.log(`currrentItem`, currentItem);
 
-  const handleTakeOut = (data) => {
-    setKhangMess(data);
-  };
 
   const postMessageData = async (messageData) => {
     let result;
-    if (currentItem.contact_type === "group") {
+    console.log(`mesDta in chatboxcontainer = `, messageData)
+    if (currentItem.convsType) {
       try {
         result = await axios
           .post(`${URL_MAIN}/api/group/message/create`, messageData)
@@ -39,7 +36,6 @@ export default function ChatBoxContainer(props) {
           .post(`${URL_MAIN}/api/message/create`, messageData)
           .then((res) => {
             console.log(`c1234`, res.data.newMessage);
-            setKhangMess(res.data.newMessage);
           });
       } catch (error) {
         console.log(error);
@@ -55,6 +51,7 @@ export default function ChatBoxContainer(props) {
     postMessageData(messageData)
       .then((res) => {
         if (res.data.success) {
+          
           console.log("Gửi tin nhắn thành công");
         } else {
           console.log("Gửi tin nhắn thất bại");
@@ -72,17 +69,14 @@ export default function ChatBoxContainer(props) {
     <>
       <ChatBox
         chatData={{
-          targetId: currentItem.id,
-          convs_type: currentItem.contact_type,
-          targetAvt: currentItem.avatar,
+          conversationId: currentItem.conversationId,
+          convsType: currentItem.convsType,
+          targetAvt: currentItem.picture,
         }}
         userId={userId}
-        newMessage={newMess}
-        Chatdata={KhangMess}
         headerData={{ avatar: currentItem.avatar, name: currentItem.name }}
         onMessagePost={handleGetMessDataInput}
         conversation={conversationId}
-        onClickCheck={handleTakeOut}
       />
     </>
   );

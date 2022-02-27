@@ -2,15 +2,13 @@ import React from "react";
 import defaultAvatar from "../../../../component/Layout/assets/avatar-user.png";
 import Avatar from "@mui/material/Avatar";
 
-export default function FriendListItem(props) {
+export default function ContactListItem(props) {
   const { data, OnClickGetItem } = props;
   const avatarStyles = {
     m: 1,
     border: 2,
     borderColor: "#808080",
   };
-  console.log(`contactlistitem`, data)
-
   return (
     <>
       <li
@@ -21,6 +19,7 @@ export default function FriendListItem(props) {
             avatar: data.avatar,
             name: data.username,
             conversationId: data.conversationId,
+            convsType: data.convsType
           })
         }
       >

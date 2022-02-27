@@ -5,7 +5,7 @@ import AxiosMain from "../../../API/AxiosMain";
 import axios from "axios";
 import ContactList from "./FriendsContactComps/ContactList";
 import PropTypes from "prop-types";
-
+import isEqual from "lodash/isEqual";
 const URL_MAIN =
   process.env.REACT_APP_URL_MAIN || "https://fanserverapi.herokuapp.com";
 ContactSideBar.prototype = {
@@ -17,7 +17,7 @@ ContactSideBar.defaultProps = {
 function ContactSideBar(props) {
   const { handleGetItem } = props;
 
-  const [Data, setData] = useState([]);
+  // const [Data, setData] = useState([]);
   const [FriendsData, setFriendsData] = useState([]);
   const [userId, setUserId] = useState(
     localStorage.getItem("loginData")
@@ -25,16 +25,25 @@ function ContactSideBar(props) {
       : null
   );
 
-  const getFriendsData = (items) => {
-    for (const member of items.members) {
-      if (member._id !== userId) {
-        return {
-          _id: member._id,
-          username: member.username,
-          picture: member.picture,
-          conversationId: items._id,
-        };
+  const getFriendsData = (items, index, type) => {
+    if (!type[index]) {
+      for (const member of items.members) {
+        if (member._id !== userId) {
+          return {
+            // _id: member._id,
+            username: member.username,
+            picture: member.picture,
+            conversationId: items._id,
+            convsType: 0
+          };
+        }
       }
+    } else {
+      return {
+        username: items.name,
+        conversationId: items._id,
+        convsType: 1
+      };
     }
     return {};
   };
@@ -45,29 +54,25 @@ function ContactSideBar(props) {
       AxiosMain.post("/api/conversation/getconvs", {
         userId,
       }).then((res) => {
-        setData(res.conversations);
+        // setData(res.conversations);
+        const newClone = [];
 
-        const newClone = [...FriendsData];
-
-        let CLone = new Set();
+        // let CLone = new Set();
 
         let postData = res.conversations;
 
-        newClone.forEach((data, index) => {
-          CLone.add(data._id);
-        });
+        // newClone.forEach((data, index) => {
+        //   CLone.add(data._id);
+        // });
 
-        console.log(`CLOne`, CLone);
+        // console.log(`CLOne`, CLone);
 
         postData.forEach((data, index) => {
-
-          const firstValue = getFriendsData(data);
+          const firstValue = getFriendsData(data, index, res.type);
 
           if (firstValue) {
             if (firstValue._id !== data._id) {
-
               newClone.push(firstValue);
-
             }
           }
         });

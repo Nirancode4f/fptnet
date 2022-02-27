@@ -23,7 +23,7 @@ export default function ContactList(props) {
   useEffect(() => {
     setItems(itemsData);
   }, [itemsData]);
-
+  console.log(`itemsData  = `, itemsData)
   return (
     <>
       <div className="FriendsContact">
@@ -34,8 +34,8 @@ export default function ContactList(props) {
               data={{
                 username: item.username,
                 avatar: item.picture,
-                id: item._id,
                 conversationId: item.conversationId,
+                convsType: item.convsType
               }}
               OnClickGetItem={handleGetItem}
             />

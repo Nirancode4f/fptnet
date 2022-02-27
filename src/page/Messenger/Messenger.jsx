@@ -24,6 +24,7 @@ export default function Messenger() {
   // get data from contact item (used useEffect to prevent friend list re-render)
   const handleGetItem = (e, data) => {
     setCurrentItem(data);
+    setCurrentConvsId(data.conversationId);
     console.log(data);
   };
 
@@ -32,11 +33,11 @@ export default function Messenger() {
   //   return (totalMess - (totalMess % 20)) / 20 + !!(totalMess % 20);
   // };
 
-  const handleConvsIdChange = (convsId) => {
-    setCurrentConvsId(convsId);
+  // const handleConvsIdChange = (convsId) => {
+  //   setCurrentConvsId(convsId);
 
-    console.log(convsId);
-  };
+  //   console.log(convsId);
+  // };
 
   return (
     <>
@@ -47,7 +48,6 @@ export default function Messenger() {
           <ChatBoxContainer
             currentItem={currentItem}
             userId={userId}
-            onConvsChange={handleConvsIdChange}
             conversationId={currentConvsId}
           />
         </div>
