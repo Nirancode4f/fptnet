@@ -23,9 +23,10 @@ const URL_MAIN =
   process.env.REACT_APP_URL_MAIN || `https://fanserverapi.herokuapp.com`;
 
 const block = 1; //testing
+const loginData = JSON.parse(localStorage.getItem('loginData'))
 
 export default function ChatBox(props) {
-  const { chatData, userId, onCurrentConvsIdChange, newMessage, Chatdata } =
+  const { chatData, userId, onCurrentConvsIdChange, currentItem, Chatdata } =
     props;
   console.log(`chatData in chatbox = `, chatData);
   const [messages, setMessages] = useState([]);
@@ -45,7 +46,7 @@ export default function ChatBox(props) {
   // }
 
   // footer input
-  const { onMessagePost, conversation, newMess } = props;
+  const { onMessagePost, conversationId, newMess } = props;
   const [text, setText] = React.useState("");
   const [isConvesation, setIsConversation] = React.useState(false);
 
@@ -67,7 +68,7 @@ export default function ChatBox(props) {
 
   // get group messages
   const getGroupMessages = async (userId, convsId, block) => {
-    let result;
+
     try {
       AxiosMain.post(`/api/group/message/getblock`, {
         userId: userId,
@@ -79,6 +80,40 @@ export default function ChatBox(props) {
     } catch (err) {
       console.log(err);
     }
+  };
+
+  const postMessageData = async (messageData) => {
+    let result;
+    console.log(`mesDta in chatboxcontainer = `, messageData)
+    if (currentItem.convsType) {
+      try {
+        AxiosMain
+          .post(`/api/group/message/create`, messageData)
+          .then((res) => {
+            console.log(`c1234`, res);
+            addNewMess(
+              messageData
+            )
+          });
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      console.log(messageData);
+      try {
+        AxiosMain
+          .post(`${URL_MAIN}/api/message/create`, messageData)
+          .then((res) => {
+            addNewMess(
+              messageData
+            )
+            console.log(`c1234`, messageData);
+          });
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    return result;
   };
 
   const process = () => {
@@ -100,21 +135,44 @@ export default function ChatBox(props) {
 
   const handleOnKeyUp = (e) => {
     if (e.key === "Enter") {
-      onMessagePost({ content: text });
-
+      handleGetMessDataInput({ content: text });
+      
       e.target.value = "";
     }
   };
 
-  // const addNewMess = (message) => {
-  //   setMessages([message,...messages])
-  // }
+  const handleGetMessDataInput = (data) => {
+    // setMessageData({ ...messageData, userId, conversationId, ...data });
+    const messageData = { userId, conversationId, ...data };
+    
+    postMessageData(messageData)
+      .then((res) => {
+        if (res.data.success) {
+          
+          console.log("Gửi tin nhắn thành công");
+        } else {
+          console.log("Gửi tin nhắn thất bại");
+        }
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const addNewMess = (message) => {
+    const time = new Date()
+    let cloneMess = {...message, userId: {
+      _id: loginData.user._id,
+      username: loginData.user.username,
+      picture: loginData.user.picture
+    }, unsend: false, createAt: time.getTime()}
+    console.log(`123 = = `, cloneMess);
+    setMessages([cloneMess,...messages])
+  }
 
   useEffect(() => {
     process();
     // if we have conversation among two user, it will render a chat box at footer
 
-    setIsConversation(!!conversation);
+    setIsConversation(!!conversationId);
   }, [chatData.conversationId]);
   console.log(messages);
   return (
@@ -127,7 +185,7 @@ export default function ChatBox(props) {
           />
           <span className="FriendName">{headerData.name}</span>
         </div>
-        <div className="ChatSearch">
+        <div  className="ChatSearch">
           <i className="fas fa-search"></i>
           <input
             type="text"
@@ -136,9 +194,16 @@ export default function ChatBox(props) {
           />
         </div>
       </div>
+
+
+
+      
       <div className="ChatBox">
         {messages ? <ChatBoxMain messages={messages} userId={userId} /> : <></>}
       </div>
+
+
+
 
       <div className="BoxChatFooter">
         {/* <div className="WriteMessage">
