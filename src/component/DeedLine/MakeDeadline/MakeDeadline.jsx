@@ -47,34 +47,24 @@ const MakeDeadline = () => {
   const [Content, setContent] = useState("");
   const [Student, setStudent] = useState([]);
   const [attachment, setattachment] = useState("");
-  const [Lastattachment, setLastattachment] = useState("")
+  const [Lastattachment, setLastattachment] = useState("");
   const [DateValue, setDateValue] = useState(Date());
   const [Note, setNote] = useState("");
   const [Link, setLink] = useState("");
 
+  const typingTimeOutRef = useRef(null);
 
-  const typingTimeOutRef = useRef(null)
+  const handleSetLinkInput = (e) => {
+    setLastattachment(e);
 
-
-
-  const handleSetLinkInput = (e) =>{
-    setLastattachment(e)
-
-    if(typingTimeOutRef.current){
-
-      clearTimeout(typingTimeOutRef.current)
+    if (typingTimeOutRef.current) {
+      clearTimeout(typingTimeOutRef.current);
     }
 
     typingTimeOutRef.current = setTimeout(() => {
-
-      setattachment(e)
-      
+      setattachment(e);
     }, 800);
-
-
-
-  }
-
+  };
 
   const handlePost = async () => {
     if (Owner && Content && Student && Attachment && Note) {
@@ -89,8 +79,6 @@ const MakeDeadline = () => {
       });
     }
   };
-
-
 
   return (
     <>
@@ -132,16 +120,15 @@ const MakeDeadline = () => {
         </div>
         <div className="emberlink-block">
           <input
-          placeholder="<embed your link here>"
-
+          type="text"
+            placeholder="<embed your link here>"
             className="emberlink"
-            type="text"
+            
             value={Lastattachment}
-            onChange={(e)=>handleSetLinkInput(e.target.value)}
+            onChange={(e) => handleSetLinkInput(e.target.value)}
           />
-        {attachment && <SeoBlock Link={attachment} />}
+          {attachment && <SeoBlock Link={attachment} />}
         </div>
-        
 
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <MobileDateTimePicker
