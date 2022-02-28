@@ -139,9 +139,9 @@ const MakeDeadline = () => {
             value={Lastattachment}
             onChange={(e)=>handleSetLinkInput(e.target.value)}
           />
-        <MakeSeoURL></MakeSeoURL>
-        </div>
         {attachment && <SeoBlock Link={attachment} />}
+        </div>
+        
 
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <MobileDateTimePicker

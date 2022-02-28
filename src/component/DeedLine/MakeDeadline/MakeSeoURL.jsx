@@ -5,17 +5,17 @@ const MakeSeoURL = (props) => {
 
     const {DataSeo} = props
 
-    
+    console.log(`DataSeo `, DataSeo)
 
   return (
      <>
        <div className="make-seo-block">
-         <img src="https://i.ytimg.com/vi/UVbv-PJXm14/maxresdefault.jpg"
+         <img src={DataSeo.image}
          className='bg-img-provider'
 
          />
           <Avatar
-          src=""
+          src={DataSeo.icon}
           alt="provider"
           sx={{
             width: "20px",
@@ -27,7 +27,7 @@ const MakeSeoURL = (props) => {
             </Avatar>
            
            <div className="provider-name">
-             THE NAME OF WEBsite
+             {DataSeo.title}
            </div>
           </div>
      </>
