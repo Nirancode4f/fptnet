@@ -42,7 +42,12 @@ function DeadlineTag(props) {
           />
         </div>
         <div className="deadline-name">{data.content}</div>
+        <div className="note-and-attachment-deadline">
+          
         <div className="deadline-note">{data.note}</div>
+      {data.attachment[0] ? <Attachment data={data.attachment} /> : <></>}
+
+        </div>
         <div className="deadline-date">
           <Chip
             color="success"
@@ -67,7 +72,6 @@ function DeadlineTag(props) {
         </div>
       </div>
       {/* mỗi attachment 1 row */}
-      {data.attachment[0] ? <Attachment data={data.attachment} /> : <></>}
     </>
   );
 }

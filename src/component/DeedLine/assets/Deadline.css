@@ -159,9 +159,9 @@ overflow: hidden;
     align-items: center;
     padding-bottom: 10px;
     padding: 10px;
-    border-top-right-radius: 12px;
-    border-top-left-radius: 12px;
-    box-shadow: 0 1px 2px #999;
+    border-radius: 12px;
+    box-shadow: 1px 1px 4px #333;
+    margin-bottom: 10px;
     
 
 }
@@ -174,41 +174,38 @@ overflow: hidden;
 .deadline-name {
     width: 30%;
     font-weight: 600;
+    text-transform: capitalize;
 }
 
-.deadline-note {
-    width: 40%;
-    font-weight: 600;
-}
 
 .deadline-date {
     width: 25%;
     font-weight: 600;
 }
+.deadline-note {
+    text-transform: capitalize;
 
+}
 
 
 .deadline-attachment-row {
     font-size: 19px ;
     font-weight: 500;
-    box-shadow: 0 1px 1px #999;
     max-height: 80px;
-    border-bottom-right-radius: 12px;
-    border-bottom-left-radius: 12px;
+    border-radius: 12px;
     overflow: hidden;
 }
 
 .attachment-background {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    box-shadow: 10px 10px 5px #999 inset;
+display: flex;
+justify-content: left;
+align-items: center;
 
 }
 
 .deadline-attachment-row .favicon {
     width: 30px;
-    margin-right: 5px;
+    margin-right: 10px;
     
 }
 
@@ -221,21 +218,12 @@ overflow: hidden;
 }
 
 .attachment-content {
-    position: absolute;
-    top: 50%;
-    right: 50%;
-    transform: translateX(50%) translateY(-50%);
-    width: 500px;
-    height: 50px;
-    line-height: 50px;
-    border-radius: 12px;
-    border-color: var(--bg-color);
     font-weight: 600;
-    text-align: center;
+    font-size: 12px;
 }
 
 .attachment-provider {
-    position: absolute;
+    /* position: absolute;
     right: 10px;
     bottom: 10px;
     width: 150px;
@@ -247,7 +235,7 @@ overflow: hidden;
     font-weight: 600;
     text-align: center;
     display: flex;
-    align-items: center;
+    align-items: center; */
 }
 
 .title-deadline-and-btns {
@@ -557,3 +545,13 @@ margin-bottom: 10px;
     
 
 }
+
+.note-and-attachment-deadline {
+    display: flex;
+    flex-direction: column;
+        width: 40%;
+        font-weight: 600;
+    
+    
+}
+
