@@ -18,6 +18,7 @@ import defaultAvatar from "../../../../component/Layout/assets/avatar-user.png";
 import { styled } from "@mui/material/styles";
 import AxiosMain from "../../../../API/AxiosMain";
 import { orange } from "@mui/material/colors";
+import LinearProgress from '@mui/material/LinearProgress';
 
 const URL_MAIN =
   process.env.REACT_APP_URL_MAIN || `https://fanserverapi.herokuapp.com`;
@@ -32,7 +33,6 @@ export default function ChatBox(props) {
   console.log(`headerData = `, headerData)
   const [messages, setMessages] = useState([]);
   const [historychatData, setHistorychatData] = useState(chatData);
-
   // set style for header
   const avatarStyles = {
     ml: 1,
@@ -49,6 +49,7 @@ export default function ChatBox(props) {
   const { onMessagePost, conversationId, newMess } = props;
   const [text, setText] = React.useState("");
   const [isConvesation, setIsConversation] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(true);
 
   // get friend messages
   const getFriendMessages = async (userId, convsId, block) => {
@@ -59,6 +60,7 @@ export default function ChatBox(props) {
         block,
       }).then((res) => {
         setMessages(res.messages);
+        setIsLoading(false);
       });
     } catch (err) {
       console.log(err);
@@ -75,6 +77,8 @@ export default function ChatBox(props) {
         block,
       }).then((res) => {
         setMessages(res.messages);
+        setIsLoading(false);
+
       });
     } catch (err) {
       console.log(err);
@@ -197,7 +201,16 @@ export default function ChatBox(props) {
 
       
       <div className="ChatBox">
-        {messages ? <ChatBoxMain messages={messages} userId={userId} /> : <></>}
+        
+        {messages ? <ChatBoxMain messages={messages} userId={userId} /> : <>
+          <div className="ChatBoxMain">
+            <LinearProgress
+            
+        color="inherit"
+        style={{ color: "#f36f21", height: "2px" }}
+            />
+          </div>
+        </>}
       </div>
 
 
