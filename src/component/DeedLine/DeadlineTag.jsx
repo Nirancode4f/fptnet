@@ -15,31 +15,26 @@ DeadlineTag.defaultProps = {
 };
 
 function DeadlineTag(props) {
-  const { data , onHandleClick } = props;
+  const { data, onHandleClick } = props;
   const [LoginData, setLoginData] = useState(
     localStorage.getItem("loginData")
       ? JSON.parse(localStorage.getItem("loginData"))
       : null
   );
 
-
-
-
-const handleLOg = () => {
-
-
-  onHandleClick(data)
-  
-}
-
+  const handleLOg = () => {
+    onHandleClick(data);
+  };
 
   return (
-    <div className="deadline-section" onClick={handleLOg}>
-      <div className="deadline-info-row">
+    <>
+      <div className="deadline-info-row" onClick={handleLOg}>
         <div className="deadline-creater-img">
           <Avatar
             alt="Avatar"
-            src={data.owner.picture ? data.owner[0].picture : data.userId.picture}
+            src={
+              data.owner.picture ? data.owner[0].picture : data.userId.picture
+            }
             sx={{ width: 50, height: 50 }}
             style={{
               border: "1px solid #f36f21",
@@ -72,8 +67,8 @@ const handleLOg = () => {
         </div>
       </div>
       {/* mỗi attachment 1 row */}
-      { data.attachment[0] ? <Attachment data={data.attachment} /> : <></>}
-    </div>
+      {data.attachment[0] ? <Attachment data={data.attachment} /> : <></>}
+    </>
   );
 }
 
