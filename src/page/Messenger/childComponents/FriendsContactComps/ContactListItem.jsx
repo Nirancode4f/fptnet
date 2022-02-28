@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import defaultAvatar from "../../../../component/Layout/assets/avatar-user.png";
 import Avatar from "@mui/material/Avatar";
 
@@ -9,6 +9,8 @@ export default function ContactListItem(props) {
     border: 2,
     borderColor: "#808080",
   };
+
+
   return (
     <>
       <li
@@ -17,7 +19,7 @@ export default function ContactListItem(props) {
           OnClickGetItem(e, {
             id: data.id,
             avatar: data.avatar,
-            name: data.username,
+            username: data.username,
             conversationId: data.conversationId,
             convsType: data.convsType
           })

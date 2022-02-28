@@ -10,8 +10,6 @@ const URL_MAIN =
 export default function ChatBoxContainer(props) {
   const { currentItem, userId, conversationId } = props;
 
-  const [newMess, setNewMess] = useState({});
-
   // post message to server
   console.log(`currrentItem`, currentItem);
 
@@ -21,10 +19,10 @@ export default function ChatBoxContainer(props) {
         chatData={{
           conversationId: currentItem.conversationId,
           convsType: currentItem.convsType,
-          targetAvt: currentItem.picture,
+          targetAvt: currentItem.avatar,
         }}
         userId={userId}
-        headerData={{ avatar: currentItem.avatar, name: currentItem.name }}
+        headerData={{ avatar: currentItem.avatar, username: currentItem.username }}
         
         conversationId={conversationId}
         currentItem={currentItem}

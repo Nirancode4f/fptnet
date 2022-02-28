@@ -15,7 +15,7 @@ ContactSideBar.defaultProps = {
   handleGetItem: null,
 };
 function ContactSideBar(props) {
-  const { handleGetItem } = props;
+  const { handleGetItem, OnFirstLoad } = props;
 
   // const [Data, setData] = useState([]);
   const [FriendsData, setFriendsData] = useState([]);
@@ -34,7 +34,7 @@ function ContactSideBar(props) {
             username: member.username,
             picture: member.picture,
             conversationId: items._id,
-            convsType: 0
+            convsType: 0,
           };
         }
       }
@@ -42,7 +42,7 @@ function ContactSideBar(props) {
       return {
         username: items.name,
         conversationId: items._id,
-        convsType: 1
+        convsType: 1,
       };
     }
     return {};
@@ -78,6 +78,9 @@ function ContactSideBar(props) {
         });
 
         setFriendsData(newClone);
+        OnFirstLoad(newClone[0])
+        console.log(`newClone = `, newClone[0])
+        
       });
     } catch (err) {
       console.log(err);

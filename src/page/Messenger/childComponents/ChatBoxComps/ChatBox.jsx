@@ -26,14 +26,14 @@ const block = 1; //testing
 const loginData = JSON.parse(localStorage.getItem('loginData'))
 
 export default function ChatBox(props) {
-  const { chatData, userId, onCurrentConvsIdChange, currentItem, Chatdata } =
+  const { chatData, userId, onCurrentConvsIdChange, currentItem, headerData } =
     props;
-  console.log(`chatData in chatbox = `, chatData);
+
+  console.log(`headerData = `, headerData)
   const [messages, setMessages] = useState([]);
   const [historychatData, setHistorychatData] = useState(chatData);
 
   // set style for header
-  const { headerData } = props;
   const avatarStyles = {
     ml: 1,
     mr: 1,
@@ -59,7 +59,6 @@ export default function ChatBox(props) {
         block,
       }).then((res) => {
         setMessages(res.messages);
-        console.log(`chatbox gfm=`, res.messages);
       });
     } catch (err) {
       console.log(err);
@@ -82,15 +81,14 @@ export default function ChatBox(props) {
     }
   };
 
+  // post message to server
   const postMessageData = async (messageData) => {
     let result;
-    console.log(`mesDta in chatboxcontainer = `, messageData)
     if (currentItem.convsType) {
       try {
         AxiosMain
           .post(`/api/group/message/create`, messageData)
           .then((res) => {
-            console.log(`c1234`, res);
             addNewMess(
               messageData
             )
@@ -107,7 +105,6 @@ export default function ChatBox(props) {
             addNewMess(
               messageData
             )
-            console.log(`c1234`, messageData);
           });
       } catch (error) {
         console.log(error);
@@ -128,10 +125,12 @@ export default function ChatBox(props) {
     }
   };
 
+  // when text in footer box change reset value
   const handleOnChange = (e) => {
     setText(e.target.value);
     // image (future)
   };
+
 
   const handleOnKeyUp = (e) => {
     if (e.key === "Enter") {
@@ -157,6 +156,7 @@ export default function ChatBox(props) {
       .catch((err) => console.log(err));
   };
 
+  // add new message to chat box main
   const addNewMess = (message) => {
     const time = new Date()
     let cloneMess = {...message, userId: {
@@ -164,7 +164,6 @@ export default function ChatBox(props) {
       username: loginData.user.username,
       picture: loginData.user.picture
     }, unsend: false, createAt: time.getTime()}
-    console.log(`123 = = `, cloneMess);
     setMessages([cloneMess,...messages])
   }
 
@@ -174,7 +173,6 @@ export default function ChatBox(props) {
 
     setIsConversation(!!conversationId);
   }, [chatData.conversationId]);
-  console.log(messages);
   return (
     <>
       <div className="ChatBoxHeader">
@@ -183,7 +181,7 @@ export default function ChatBox(props) {
             src={headerData.avatar || defaultAvatar}
             sx={{ ...avatarStyles }}
           />
-          <span className="FriendName">{headerData.name}</span>
+          <span className="FriendName">{headerData.username}</span>
         </div>
         <div  className="ChatSearch">
           <i className="fas fa-search"></i>

@@ -24,6 +24,24 @@ export default function ContactList(props) {
     setItems(itemsData);
   }, [itemsData]);
   console.log(`itemsData  = `, itemsData)
+
+  // useEffect(() => {
+  //   if (Items[0].convsType) {
+  //     handleGetItem({
+  //       username: Items[0].username,
+  //       convsType: Items[0].convsType,
+  //       conversationId: Items[0].conversationId
+  //     })
+  //   } else {
+  //     handleGetItem({
+  //       username: Items[0].username,
+  //       convsType: Items[0].convsType,
+  //       conversationId: Items[0].conversationId,
+  //       avatar: Items[0].picture
+  //     })
+  //   }
+  // }, [])
+
   return (
     <>
       <div className="FriendsContact">

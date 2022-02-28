@@ -25,8 +25,16 @@ export default function Messenger() {
   const handleGetItem = (e, data) => {
     setCurrentItem(data);
     setCurrentConvsId(data.conversationId);
-    console.log(data);
+    console.log(`dataGetItem = `,data);
+
   };
+  
+  const OnFirstGetCurrentItem = (data) => {
+    let cloneData = {...data, avatar: data.picture}
+    setCurrentItem(cloneData);
+    setCurrentConvsId(data.conversationId);
+    console.log(`firstGetItem = `,data);
+  }
 
   // // block messages calculator
   // const calBlocks = (totalMess) => {
@@ -43,7 +51,7 @@ export default function Messenger() {
     <>
       <div className="Messenger">
         <div className="MessengerContainer">
-          <ContactSideBar userId={userId} handleGetItem={handleGetItem} />
+          <ContactSideBar userId={userId} handleGetItem={handleGetItem} OnFirstLoad={OnFirstGetCurrentItem}/>
 
           <ChatBoxContainer
             currentItem={currentItem}
