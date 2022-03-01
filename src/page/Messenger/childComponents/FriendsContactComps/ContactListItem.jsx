@@ -10,6 +10,7 @@ export default function ContactListItem(props) {
     borderColor: "#808080",
   };
 
+  
 
   return (
     <>
@@ -21,7 +22,8 @@ export default function ContactListItem(props) {
             avatar: data.avatar,
             username: data.username,
             conversationId: data.conversationId,
-            convsType: data.convsType
+            convsType: data.convsType,
+            totalMessages: data.totalMessages
           })
         }
       >

@@ -18,19 +18,19 @@ import defaultAvatar from "../../../../component/Layout/assets/avatar-user.png";
 import { styled } from "@mui/material/styles";
 import AxiosMain from "../../../../API/AxiosMain";
 import { orange } from "@mui/material/colors";
-import LinearProgress from '@mui/material/LinearProgress';
+import LinearProgress from "@mui/material/LinearProgress";
 
 const URL_MAIN =
   process.env.REACT_APP_URL_MAIN || `https://fanserverapi.herokuapp.com`;
 
 const block = 1; //testing
-const loginData = JSON.parse(localStorage.getItem('loginData'))
+const loginData = JSON.parse(localStorage.getItem("loginData"));
 
 export default function ChatBox(props) {
-  const { chatData, userId, onCurrentConvsIdChange, currentItem, headerData } =
+  const { chatData, userId, onCurrentConvsIdChange, headerData } =
     props;
 
-  console.log(`headerData = `, headerData)
+  console.log(`headerData = `, headerData);
   const [messages, setMessages] = useState([]);
   const [historychatData, setHistorychatData] = useState(chatData);
   // set style for header
@@ -69,7 +69,6 @@ export default function ChatBox(props) {
 
   // get group messages
   const getGroupMessages = async (userId, convsId, block) => {
-
     try {
       AxiosMain.post(`/api/group/message/getblock`, {
         userId: userId,
@@ -78,7 +77,6 @@ export default function ChatBox(props) {
       }).then((res) => {
         setMessages(res.messages);
         setIsLoading(false);
-
       });
     } catch (err) {
       console.log(err);
@@ -88,28 +86,22 @@ export default function ChatBox(props) {
   // post message to server
   const postMessageData = async (messageData) => {
     let result;
-    if (currentItem.convsType) {
+    if (chatData.convsType) {
       try {
-        AxiosMain
-          .post(`/api/group/message/create`, messageData)
-          .then((res) => {
-            addNewMess(
-              messageData
-            )
-          });
+        AxiosMain.post(`/api/group/message/create`, messageData).then((res) => {
+          addNewMess(messageData);
+        });
       } catch (error) {
         console.log(error);
       }
     } else {
       console.log(messageData);
       try {
-        AxiosMain
-          .post(`${URL_MAIN}/api/message/create`, messageData)
-          .then((res) => {
-            addNewMess(
-              messageData
-            )
-          });
+        AxiosMain.post(`${URL_MAIN}/api/message/create`, messageData).then(
+          (res) => {
+            addNewMess(messageData);
+          }
+        );
       } catch (error) {
         console.log(error);
       }
@@ -135,11 +127,10 @@ export default function ChatBox(props) {
     // image (future)
   };
 
-
   const handleOnKeyUp = (e) => {
     if (e.key === "Enter") {
       handleGetMessDataInput({ content: text });
-      
+
       e.target.value = "";
     }
   };
@@ -147,11 +138,10 @@ export default function ChatBox(props) {
   const handleGetMessDataInput = (data) => {
     // setMessageData({ ...messageData, userId, conversationId, ...data });
     const messageData = { userId, conversationId, ...data };
-    
+
     postMessageData(messageData)
       .then((res) => {
         if (res.data.success) {
-          
           console.log("Gửi tin nhắn thành công");
         } else {
           console.log("Gửi tin nhắn thất bại");
@@ -162,14 +152,19 @@ export default function ChatBox(props) {
 
   // add new message to chat box main
   const addNewMess = (message) => {
-    const time = new Date()
-    let cloneMess = {...message, userId: {
-      _id: loginData.user._id,
-      username: loginData.user.username,
-      picture: loginData.user.picture
-    }, unsend: false, createAt: time.getTime()}
-    setMessages([cloneMess,...messages])
-  }
+    const time = new Date();
+    let cloneMess = {
+      ...message,
+      userId: {
+        _id: loginData.user._id,
+        username: loginData.user.username,
+        picture: loginData.user.picture,
+      },
+      unsend: false,
+      createAt: time.getTime(),
+    };
+    setMessages([cloneMess, ...messages]);
+  };
 
   useEffect(() => {
     process();
@@ -187,7 +182,7 @@ export default function ChatBox(props) {
           />
           <span className="FriendName">{headerData.username}</span>
         </div>
-        <div  className="ChatSearch">
+        <div className="ChatSearch">
           <i className="fas fa-search"></i>
           <input
             type="text"
@@ -197,24 +192,20 @@ export default function ChatBox(props) {
         </div>
       </div>
 
-
-
-      
       <div className="ChatBox">
-        
-        {messages ? <ChatBoxMain messages={messages} userId={userId} /> : <>
-          <div className="ChatBoxMain">
-            <LinearProgress
-            
-        color="inherit"
-        style={{ color: "#f36f21", height: "2px" }}
-            />
-          </div>
-        </>}
+        {messages ? (
+          <ChatBoxMain totalMessages={chatData.totalMessages} messages={messages} userId={userId} convsType={chatData.convsType} conversationId={conversationId} />
+        ) : (
+          <>
+            <div className="ChatBoxMain">
+              <LinearProgress
+                color="inherit"
+                style={{ color: "#f36f21", height: "2px" }}
+              />
+            </div>
+          </>
+        )}
       </div>
-
-
-
 
       <div className="BoxChatFooter">
         {/* <div className="WriteMessage">

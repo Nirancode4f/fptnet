@@ -36,10 +36,7 @@ export default function Messenger() {
     console.log(`firstGetItem = `,data);
   }
 
-  // // block messages calculator
-  // const calBlocks = (totalMess) => {
-  //   return (totalMess - (totalMess % 20)) / 20 + !!(totalMess % 20);
-  // };
+
 
   // const handleConvsIdChange = (convsId) => {
   //   setCurrentConvsId(convsId);
