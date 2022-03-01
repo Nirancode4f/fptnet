@@ -15,7 +15,7 @@ import { styled } from "@mui/system";
 import { ButtonGroup } from "@mui/material";
 import Box from "@mui/material/Box";
 import AccountCircle from "@mui/icons-material/AccountCircle";
-import { PostBlock } from "./PostBlock";
+import { PostBlock } from "./APostBlock/PostBlock";
 import { useNavigate } from "react-router-dom";
 import AxiosMain from "../../API/AxiosMain";
 
@@ -102,7 +102,7 @@ function GetPostData() {
                 <div
                   
                   className="Newfeed-header-input"
-                  fullWidth
+                 
 
                 >
                   <Avatar

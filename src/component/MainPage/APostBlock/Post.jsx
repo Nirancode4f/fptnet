@@ -1,7 +1,7 @@
 import { styled } from "@mui/system";
 import { Avatar, Button, ButtonGroup, TextField } from "@mui/material";
 import React, { useState } from "react";
-import FomatData from "../../helpGUI/FomatData";
+import FomatData from "../../../helpGUI/FomatData";
 import Cmt from "./Cmt";
 
 const CssTextField = styled(TextField)({
@@ -24,22 +24,18 @@ const CssTextField = styled(TextField)({
 export const Post = (props) => {
   const { Post } = props;
 
-
   const { timeString } = FomatData(Post.createAt);
 
   const [ShowCmtBox, setShowCmtBox] = useState(false);
 
-  
   const handleCmtClick = () => {
     if (!ShowCmtBox) {
       setShowCmtBox(true);
     } else {
       setShowCmtBox(false);
     }
-  }
-  
-  console.log(`post `,Post.like)
-  console.log(Post)
+  };
+
 
   return (
     <>
@@ -72,18 +68,18 @@ export const Post = (props) => {
         </div>
       </div>
       <div className="Newfeed-body-post-content-text">{Post.content}</div>
-      { Post.image && <div className="Newfeed-body-post-content-img">
-        <img alt="" className="post-img" src={Post.image} />
-      </div>}
+      {Post.image && (
+        <div className="Newfeed-body-post-content-img">
+          <img alt="" className="post-img" src={Post.image} />
+        </div>
+      )}
       <div className="Newfeed-body-post-content-reaction-quanlity">
         <div className="like-quanlity">
-      
           <span>{Post.like} liked</span>
-
         </div>
         <div className="comment-and-share-quanlity">
-          <div className="comment-quanlity">{Post.total}</div>
-          <div className="share-quanlity">10 shared</div>
+          <div className="comment-quanlity">{Post.totalcmt} commented</div>
+          <div className="share-quanlity">0 shared</div>
         </div>
       </div>
       <div className="Newfeed-body-post-content-reaction-button">
@@ -106,15 +102,12 @@ export const Post = (props) => {
           </Button>
 
           <Button
-
             onClick={handleCmtClick}
-
             style={{
               color: "#f36f21",
               display: "block",
             }}
           >
-
             <i className="far fa-comment-dots"></i>
             <span> Bình luận</span>
           </Button>
@@ -134,18 +127,18 @@ export const Post = (props) => {
         <div className="Newfeed-body-post-content-comment-label">
           <TextField
             label="  Nhập bình luận của bạn   "
-            size="small" 
+            size="small"
             color="warning"
             focused
-          style={{
-            width:"100%",
-            height:"40px",
-            padding:"2px"
-          }}
+            style={{
+              width: "100%",
+              height: "40px",
+              padding: "2px",
+            }}
           />
         </div>
-        
-        {ShowCmtBox && <Cmt/>}
+
+        {ShowCmtBox && <Cmt postData={Post} />}
       </div>
     </>
   );
