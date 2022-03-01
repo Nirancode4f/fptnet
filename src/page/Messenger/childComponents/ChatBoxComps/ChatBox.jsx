@@ -8,6 +8,7 @@ import {
   Input,
   InputAdornment,
   InputBase,
+  OutlinedInput,
   TextField,
 } from "@mui/material";
 import AttachmentIcon from "@mui/icons-material/Attachment";
@@ -41,9 +42,23 @@ export default function ChatBox(props) {
     borderColor: "#808080",
   };
 
-  // const TextFieldStyled = styled(TextField) {
 
-  // }
+  const CustomTextField = styled(TextField)({
+  
+    
+  
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+      borderColor: "#f36f21"},
+      "&:hover fieldset": {
+        borderColor: "#f36f21",
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: "#f36f21",
+      },
+    },
+  });
+
 
   // footer input
   const { onMessagePost, conversationId, newMess } = props;
@@ -228,31 +243,33 @@ export default function ChatBox(props) {
           
 
         </div> */}
-        <TextField
-          className="InputChatBox"
-          onChange={handleOnChange}
-          onKeyUp={handleOnKeyUp}
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="start">
-                <IconButton>
-                  <ImageIcon />
-                </IconButton>
-                <IconButton>
-                  <AttachmentIcon />
-                </IconButton>
-                <IconButton>
-                  <EmojiEmotionsIcon />
-                </IconButton>
-                <IconButton>
-                  <SendIcon />
-                </IconButton>
-              </InputAdornment>
-            ),
-          }}
-          sx={{ width: "100%", height: 50, fontSize: 20, borderRadius: 10 }}
-          placeholder="Nhập tin nhắn..."
-        />
+        
+
+                <CustomTextField
+                color="warning"
+                    size="small"
+                    fullWidth={true}
+                    id="custom-css-outlined-input"
+                    InputProps={{
+                      endAdornment: (
+                        <InputAdornment position="start">
+                          <IconButton color="warning">
+                            <ImageIcon />
+                          </IconButton>
+                          <IconButton color="warning">
+                            <AttachmentIcon />
+                          </IconButton>
+                          <IconButton color="warning">
+                            <EmojiEmotionsIcon />
+                          </IconButton>
+                          <IconButton color="warning">
+                            <SendIcon />
+                          </IconButton>
+                        </InputAdornment>
+                      ),
+                    }}
+                  />
+
         {/* <div className="Attachment">
           <i className="fas fa-paperclip"></i>
           <i className="far fa-images"></i>

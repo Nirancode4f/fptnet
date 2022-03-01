@@ -30,9 +30,9 @@ export default function ChatBoxMessage(props) {
           />
           <div className="ChatBoxMessageContent">
             <div className="ChatBoxMessageInfo">
-              <h4 className="ChatBoxMessageInfoName">
+              {/* <h4 className="ChatBoxMessageInfoName">
                 {message.userId.username}
-              </h4>
+              </h4> */}
               <h5 className="ChatBoxMessageInfoTime">{message.creatAt}</h5>
             </div>
             {/* <div className="ChatBoxMessageContentImage">
