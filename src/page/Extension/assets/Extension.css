@@ -2,7 +2,7 @@
     --bg-color: #f36f21;
     --text-color:#fff;
     --blue-color:#82c5e2;
-    --fade-color:#908c8c;
+    --fade-color:#DADDE1;
     --header-height: 64px;
     --nav-width: 60px;
 }
@@ -14,16 +14,21 @@
     left: var(--nav-width);
     top: var(--header-height);
     max-width: calc(100% - var(--nav-width));
-    background-color: #dadde1;
     position: relative;
     padding-bottom: 10px;
     
     
 }
+
+.Extension {
+    background-color: var(--fade-color);
+}
 .Extension-main {
     margin: 0 auto;
-    max-width: 960px;
-    margin-top: calc( var(--header-height) + 20px );
+    max-width: 976px;
+    background-color: #fff;
+    padding:  0 6px 0 12px;
+    margin-top: calc( var(--header-height) );
 }
 
 .grid {

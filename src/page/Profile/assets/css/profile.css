@@ -164,7 +164,7 @@
 .Tag_action_post {
     margin-top: 12px;
     width: 100%;
-   object-position: center;
+    height: 100%;
    box-shadow: 1px solid #666;
    transition: linear 0.1s;
 
@@ -605,6 +605,7 @@
 .Friend-request-container {
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 40px;
 }
 
 .Tag_action-friends {

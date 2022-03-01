@@ -5,7 +5,7 @@ import "./assets/Extension.css"
 const Extension = () => {
   return (
    
-    <div>
+    <div className="Extension">
       
       <div className='Extension-main'>
          <div className="grid">

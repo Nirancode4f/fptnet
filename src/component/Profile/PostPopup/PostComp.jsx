@@ -37,7 +37,9 @@ function PostComp(props) {
                     key={userPost._id}
                     onClick={()=> handleClick(userPost)}
                      className="Col C-4">
+
                         <img className="Tag_action_post" src={userPost.image} alt="#" />
+                        
                     </div>
                 )
                 )

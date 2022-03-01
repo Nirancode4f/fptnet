@@ -3,7 +3,7 @@
     --bg-color: #f36f21;
     --text-color:#fff;
     --blue-color:#82c5e2;
-    --fade-color:#908c8c;
+    --fade-color:#DADDE1;
     --header-height: 64px;
     --nav-width: 60px;
 }
@@ -14,15 +14,19 @@
     right:0;
     left: var(--nav-width);
     top: var(--header-height);
-    max-width: calc(100% - var(--nav-width));
     min-height: 100vh;
-    background-color: #dadde1;
+    /* background-color: #dadde1; */
+    background-color: var(--fade-color);
     
+}
+
+.Newfeed-container {
+ margin: 0 auto;
 }
 .Newfeed {
     margin: 0 auto;
-    max-width: 790px;
     background-color: #dadde1;
+    
 
 }
 /* header */

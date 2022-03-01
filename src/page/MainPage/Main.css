@@ -3,3 +3,6 @@
     width: 800px;
     height: 100vh;
 }
+ html {
+     scroll-behavior: smooth;
+ }

@@ -3,26 +3,31 @@
     --bg-color: #f36f21;
     --text-color:#fff;
     --blue-color:#82c5e2;
-    --fade-color:#908c8c;
     --header-height: 64px;
     --nav-width: 60px;
+    -fade-color: #DADDE1;
 }
 
-
+.DeadlinePage {
+    position: relative;
+   min-height: 100vh;;
+    
+}
 
 .Content-deadline {
 
     top: var(--header-height);
-    max-width: calc(100% - var(--nav-width));
+    max-width: 976px;
+    margin: 0 auto;
     position: relative;
     padding-bottom: 10px;
     right:0;
-    left: var(--nav-width);
     display: flex;
     flex-direction: column;
     padding-left: 50px;
     padding-right: 50px;
     margin-top: 20px;
+
     
     
 }
@@ -37,7 +42,7 @@
     left: 0;
     margin-top: 25px;
     /* margin: 0 auto; */
-    max-width: 1200px;
+    max-width: 976px;
 
 }
 .deadline-status {

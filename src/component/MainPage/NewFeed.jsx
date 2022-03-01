@@ -97,7 +97,7 @@ function GetPostData() {
       <div className="Newfeed-container">
         <div className="Content">
           <div className="Newfeed">
-            <Container maxWidth="sm">
+            <Container style={{maxWidth:976}}>
               <div className="Newfeed-header">
                 <div
                   style={{ width: "500px" }}

@@ -28,8 +28,10 @@ const navigate = useNavigate()
 
     return (
 
-    
-            <Deadline/>
+         <div className="DeadlinePage">
+
+           <Deadline/>
+         </div>
   
     )
 }
