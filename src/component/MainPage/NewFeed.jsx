@@ -100,8 +100,10 @@ function GetPostData() {
             <Container style={{maxWidth:976}}>
               <div className="Newfeed-header">
                 <div
-                  style={{ width: "500px" }}
+                  
                   className="Newfeed-header-input"
+                  fullWidth
+
                 >
                   <Avatar
                     sx={{

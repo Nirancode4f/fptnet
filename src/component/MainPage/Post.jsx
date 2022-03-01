@@ -37,6 +37,9 @@ export const Post = (props) => {
       setShowCmtBox(false);
     }
   }
+  
+  console.log(`post `,Post.like)
+  console.log(Post)
 
   return (
     <>
@@ -74,12 +77,13 @@ export const Post = (props) => {
       </div>}
       <div className="Newfeed-body-post-content-reaction-quanlity">
         <div className="like-quanlity">
-          <i className="fas fa-heart"></i>
-          <span>400 lượt thích</span>
+      
+          <span>{Post.like} liked</span>
+
         </div>
         <div className="comment-and-share-quanlity">
-          <div className="comment-quanlity">340 bình luận</div>
-          <div className="share-quanlity">10 lượt chia sẻ</div>
+          <div className="comment-quanlity">{Post.total}</div>
+          <div className="share-quanlity">10 shared</div>
         </div>
       </div>
       <div className="Newfeed-body-post-content-reaction-button">
