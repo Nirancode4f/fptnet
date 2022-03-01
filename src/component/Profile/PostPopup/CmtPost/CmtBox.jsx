@@ -60,11 +60,11 @@ function CmtBox(props) {
   const Getaxios = async () => {
     try {
 
-      AxiosMain.post("/api/comment/get", {
-        "postId": `${postData._id}`,
-        "block": Block,
-        "sorttype": 1
-      }).then((res) => {
+        AxiosMain.post("/api/comment/get", {
+          "postId": `${postData._id}`,
+          "block": Block,
+          "sorttype": 1
+        }).then((res) => {
         if(!res.comments){setShowMore(false)}
         setLoading(false)
         // after unmount component but asynchronous task still run, drop it.
@@ -78,6 +78,7 @@ function CmtBox(props) {
       })
       setLoading(true)
     } catch (error) {
+
       // console log error
       console.log(error);
     }

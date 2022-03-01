@@ -25,16 +25,15 @@ export default function Messenger() {
   const handleGetItem = (e, data) => {
     setCurrentItem(data);
     setCurrentConvsId(data.conversationId);
-    console.log(`dataGetItem = `,data);
-
+    console.log(`dataGetItem = `, data);
   };
-  
+
   const OnFirstGetCurrentItem = (data) => {
-    let cloneData = {...data, avatar: data.picture}
+    let cloneData = { ...data, avatar: data.picture };
     setCurrentItem(cloneData);
     setCurrentConvsId(data.conversationId);
-    console.log(`firstGetItem = `,data);
-  }
+    console.log(`firstGetItem = `, data);
+  };
 
 
 
@@ -48,7 +47,11 @@ export default function Messenger() {
     <>
       <div className="Messenger">
         <div className="MessengerContainer">
-          <ContactSideBar userId={userId} handleGetItem={handleGetItem} OnFirstLoad={OnFirstGetCurrentItem}/>
+          <ContactSideBar
+            userId={userId}
+            handleGetItem={handleGetItem}
+            OnFirstLoad={OnFirstGetCurrentItem}
+          />
 
           <ChatBoxContainer
             currentItem={currentItem}
