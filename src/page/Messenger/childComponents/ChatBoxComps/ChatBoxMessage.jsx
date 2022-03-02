@@ -20,6 +20,7 @@ export default function ChatBoxMessage(props) {
     border: 2,
     borderColor: "#808080",
   };
+  console.log(`messdat in mess other = `, message);   
   return (
     <>
       {message.content && !message.unsend ? (
@@ -32,8 +33,13 @@ export default function ChatBoxMessage(props) {
             <div className="ChatBoxMessageInfo">
               {/* <h4 className="ChatBoxMessageInfoName">
                 {message.userId.username}
+<<<<<<< HEAD
               </h4> */}
               <h5 className="ChatBoxMessageInfoTime">{message.creatAt}</h5>
+=======
+              </h4>
+              <h5 className="ChatBoxMessageInfoTime">{message.createAt}</h5>
+>>>>>>> a7d49df8b50ce95c0d8ad211df9077082e13aa20
             </div>
             {/* <div className="ChatBoxMessageContentImage">
               <img

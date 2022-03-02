@@ -53,7 +53,8 @@ export default function ContactList(props) {
                 username: item.username,
                 avatar: item.picture,
                 conversationId: item.conversationId,
-                convsType: item.convsType
+                convsType: item.convsType,
+                totalMessages: item.totalMessages
               }}
               OnClickGetItem={handleGetItem}
             />

@@ -20,12 +20,12 @@ export default function ChatBoxContainer(props) {
           conversationId: currentItem.conversationId,
           convsType: currentItem.convsType,
           targetAvt: currentItem.avatar,
+          totalMessages: currentItem.totalMessages
         }}
         userId={userId}
         headerData={{ avatar: currentItem.avatar, username: currentItem.username }}
         
         conversationId={conversationId}
-        currentItem={currentItem}
       />
     </>
   );

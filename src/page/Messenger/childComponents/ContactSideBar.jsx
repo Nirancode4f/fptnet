@@ -35,6 +35,7 @@ function ContactSideBar(props) {
             picture: member.picture,
             conversationId: items._id,
             convsType: 0,
+            totalMessages: items.totalmessages
           };
         }
       }
@@ -43,6 +44,7 @@ function ContactSideBar(props) {
         username: items.name,
         conversationId: items._id,
         convsType: 1,
+        totalMessages: items.totalmessages
       };
     }
     return {};

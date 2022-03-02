@@ -54,6 +54,8 @@ const MakeDeadline = () => {
 
   const typingTimeOutRef = useRef(null);
 
+
+
   const handleSetLinkInput = (e) => {
     setLastattachment(e);
 
@@ -66,8 +68,9 @@ const MakeDeadline = () => {
     }, 800);
   };
 
+
   const handlePost = async () => {
-    if (Owner && Content && Student && Attachment && Note) {
+    if (Owner && Content && Student && Note) {
       await AxiosMain.post("/api/deadline/create", {
         userId: `${LoginData.user._id}`,
         owner: [],
@@ -120,10 +123,9 @@ const MakeDeadline = () => {
         </div>
         <div className="emberlink-block">
           <input
-          type="text"
+            type="text"
             placeholder="<embed your link here>"
             className="emberlink"
-            
             value={Lastattachment}
             onChange={(e) => handleSetLinkInput(e.target.value)}
           />
