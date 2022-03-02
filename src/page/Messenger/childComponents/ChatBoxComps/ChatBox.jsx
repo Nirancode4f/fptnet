@@ -17,8 +17,8 @@ import ImageIcon from "@mui/icons-material/Image";
 import defaultAvatar from "../../../../component/Layout/assets/avatar-user.png";
 import { styled } from "@mui/material/styles";
 import AxiosMain from "../../../../API/AxiosMain";
-import { orange } from "@mui/material/colors";
 import LinearProgress from "@mui/material/LinearProgress";
+// import { io } from "socket.io-client";
 
 const URL_MAIN =
   process.env.REACT_APP_URL_MAIN || `https://fanserverapi.herokuapp.com`;
@@ -27,10 +27,8 @@ const block = 1; //testing
 const loginData = JSON.parse(localStorage.getItem("loginData"));
 
 export default function ChatBox(props) {
-  const { chatData, userId, onCurrentConvsIdChange, headerData } =
-    props;
+  const { chatData, userId, onCurrentConvsIdChange, headerData } = props;
 
-  console.log(`headerData = `, headerData);
   const [messages, setMessages] = useState([]);
   const [historychatData, setHistorychatData] = useState(chatData);
   // set style for header
@@ -40,6 +38,8 @@ export default function ChatBox(props) {
     border: 2,
     borderColor: "#808080",
   };
+
+  // const socket = io("http://localhost:3001/messenger");
 
   // const TextFieldStyled = styled(TextField) {
 
@@ -170,8 +170,12 @@ export default function ChatBox(props) {
     process();
     // if we have conversation among two user, it will render a chat box at footer
 
+    
     setIsConversation(!!conversationId);
   }, [chatData.conversationId]);
+
+  // socket.io
+
   return (
     <>
       <div className="ChatBoxHeader">
@@ -194,7 +198,13 @@ export default function ChatBox(props) {
 
       <div className="ChatBox">
         {messages ? (
-          <ChatBoxMain totalMessages={chatData.totalMessages} messages={messages} userId={userId} convsType={chatData.convsType} conversationId={conversationId} />
+          <ChatBoxMain
+            totalMessages={chatData.totalMessages}
+            messages={messages}
+            userId={userId}
+            convsType={chatData.convsType}
+            conversationId={conversationId}
+          />
         ) : (
           <>
             <div className="ChatBoxMain">

@@ -20,7 +20,6 @@ export default function ChatBoxMessage(props) {
     border: 2,
     borderColor: "#808080",
   };
-  console.log(`messdat in mess other = `, message);   
   return (
     <>
       {message.content && !message.unsend ? (

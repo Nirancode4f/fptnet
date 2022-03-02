@@ -81,7 +81,6 @@ function ContactSideBar(props) {
 
         setFriendsData(newClone);
         OnFirstLoad(newClone[0])
-        console.log(`newClone = `, newClone[0])
         
       });
     } catch (err) {
