@@ -1,7 +1,13 @@
+
+
+.Messenger::-webkit-scrollbar {
+  display: none;
+}
+
 .Messenger {
   position: relative;
   right: 0;
-  left: var(--nav-width);
+  left: 50px;
   top: var(--header-height);
   max-width: calc(100% - var(--nav-width));
   min-height: 1000px;
@@ -15,22 +21,20 @@
 /* friend list */
 .FriendsContact {
   border-right: 1px solid var(--bg-color);
-  padding: 10px 10px 10px 10px;
+  padding: 10px 0;
   position: fixed;
-  z-index: 10;
-  min-height: 100vh;
-  top: calc(var(--header-height) + 7px);
-  left: calc(var(--nav-bar-width) + 1px);
+  z-index: 0;
+  min-height:80vh ;
   overflow-y: auto;
-  width: 340px;
-  margin-top: 80px;
+  width: 353px;
+  margin-top: 58px;
 }
 
 .FriendHeader {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
-  padding: 10px;
+  padding: 10px ;
   border-bottom: 1px solid #999;
   position: fixed;
   top: calc(var(--header-height) + var(--friend-header-height) +2px);
@@ -89,9 +93,7 @@
   .GroupList i {
     color: var(--bg-color);
   } */
-.FriendListItem:hover,
-.TeacherListItem:hover,
-.GroupListItem:hover {
+.FriendListItem:hover {
   background-color: rgba(243, 111, 33, 0.6);
   color: #fff !important;
   font-size: 700;
@@ -100,13 +102,11 @@
   cursor: pointer;
   overflow-x: hidden;
 }
-.FriendListItem,
-.TeacherListItem,
-.GroupListItem {
+.FriendListItem {
+
   display: flex;
   align-items: center;
-  padding: 5px 0;
-  margin-top: 10px;
+  margin-top: 0px;
   transition: linear 0.3s;
 }
 .UserListItemAvatar {
@@ -117,8 +117,9 @@
 }
 
 .UserListItemName {
+  min-width: 80%;
   line-height: 44px;
-  border-top: 1px solid var(--bg-color);
+  
 }
 
 /* chatbox */
@@ -172,6 +173,8 @@
   border: none;
 }
 
+
+
 .ChatBox {
   width: 100%;
 }
@@ -187,9 +190,9 @@
 
 .ChatBoxMessage {
   width: 100%;
-  padding: 20px 20px 0 20px;
+  padding: 0 0 0px;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   border-left: 2px solid transparent;
 }
 
@@ -211,19 +214,34 @@
 }
 
 .ChatBoxMessageContentText {
+  background-color: var(--bg-color);
+  padding: 5px 10px;
+  border-radius: 15px;
+  color: #fff;
+  display: flex;
+}
+
+.InputChatBox:active{
+  outline-color: transparent;
+}
+.ChatBoxMessageContentText {
   font-style: 9px;
   font-weight: 500;
   line-height: 1.4;
 }
 .ChatBoxMessageOwnerUser {
   width: 100%;
-  padding: 20px 20px 0 20px;
   display: flex;
-  align-items: flex-start;
-  border-left: 2px solid var(--bg-color);
+  align-items: center;
+  justify-content: right;
+  align-items: center;
 }
 .ChatBoxMessageOwnerUser .ChatBoxMessageInfoName {
   color: var(--bg-color);
+  text-align: right;
+}
+.ChatBoxMessageOwnerUser .ChatBoxMessageContentText {
+  text-align: right;
 }
 
 .BoxChatFooter {

@@ -23,7 +23,6 @@ export default function ContactList(props) {
   useEffect(() => {
     setItems(itemsData);
   }, [itemsData]);
-  console.log(`itemsData  = `, itemsData)
 
   // useEffect(() => {
   //   if (Items[0].convsType) {

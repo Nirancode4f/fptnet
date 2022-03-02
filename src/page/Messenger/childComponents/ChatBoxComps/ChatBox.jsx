@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ChatBoxMain from "./ChatBoxMain";
 import isEqual from "lodash/isEqual";
 import {
@@ -8,6 +8,7 @@ import {
   Input,
   InputAdornment,
   InputBase,
+  OutlinedInput,
   TextField,
 } from "@mui/material";
 import AttachmentIcon from "@mui/icons-material/Attachment";
@@ -39,17 +40,26 @@ export default function ChatBox(props) {
     borderColor: "#808080",
   };
 
-  // const socket = io("http://localhost:3001/messenger");
-
-  // const TextFieldStyled = styled(TextField) {
-
-  // }
+  const CustomTextField = styled(TextField)({
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "#f36f21",
+      },
+      "&:hover fieldset": {
+        borderColor: "#f36f21",
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: "#f36f21",
+      },
+    },
+  });
 
   // footer input
   const { onMessagePost, conversationId, newMess } = props;
   const [text, setText] = React.useState("");
   const [isConvesation, setIsConversation] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(true);
+  const txt = useRef("");
 
   // get friend messages
   const getFriendMessages = async (userId, convsId, block) => {
@@ -85,7 +95,6 @@ export default function ChatBox(props) {
 
   // post message to server
   const postMessageData = async (messageData) => {
-    let result;
     if (chatData.convsType) {
       try {
         AxiosMain.post(`/api/group/message/create`, messageData).then((res) => {
@@ -106,7 +115,6 @@ export default function ChatBox(props) {
         console.log(error);
       }
     }
-    return result;
   };
 
   const process = () => {
@@ -123,13 +131,14 @@ export default function ChatBox(props) {
 
   // when text in footer box change reset value
   const handleOnChange = (e) => {
-    setText(e.target.value);
+    txt.current = e.target.value;
+    console.log(`setText = `, e.target.value);
     // image (future)
   };
 
   const handleOnKeyUp = (e) => {
     if (e.key === "Enter") {
-      handleGetMessDataInput({ content: text });
+      handleGetMessDataInput({ content: e.target.value });
 
       e.target.value = "";
     }
@@ -138,16 +147,13 @@ export default function ChatBox(props) {
   const handleGetMessDataInput = (data) => {
     // setMessageData({ ...messageData, userId, conversationId, ...data });
     const messageData = { userId, conversationId, ...data };
+    console.log(`messData = `, data);
+    if (data.content) postMessageData(messageData);
+  };
 
-    postMessageData(messageData)
-      .then((res) => {
-        if (res.data.success) {
-          console.log("Gửi tin nhắn thành công");
-        } else {
-          console.log("Gửi tin nhắn thất bại");
-        }
-      })
-      .catch((err) => console.log(err));
+  const handleOnClickPostMessage = () => {
+    // handleGetMessDataInput({ content: txt.current });
+    
   };
 
   // add new message to chat box main
@@ -169,10 +175,7 @@ export default function ChatBox(props) {
   useEffect(() => {
     process();
     // if we have conversation among two user, it will render a chat box at footer
-
-    
-    setIsConversation(!!conversationId);
-  }, [chatData.conversationId]);
+  }, [conversationId]);
 
   // socket.io
 
@@ -229,31 +232,34 @@ export default function ChatBox(props) {
           
 
         </div> */}
-        <TextField
-          className="InputChatBox"
+
+        <CustomTextField
+          color="warning"
+          size="small"
+          fullWidth={true}
+          id="custom-css-outlined-input"
           onChange={handleOnChange}
           onKeyUp={handleOnKeyUp}
           InputProps={{
             endAdornment: (
               <InputAdornment position="start">
-                <IconButton>
+                <IconButton color="warning">
                   <ImageIcon />
                 </IconButton>
-                <IconButton>
+                <IconButton color="warning">
                   <AttachmentIcon />
                 </IconButton>
-                <IconButton>
+                <IconButton color="warning">
                   <EmojiEmotionsIcon />
                 </IconButton>
-                <IconButton>
+                <IconButton color="warning" onClick={handleOnClickPostMessage}>
                   <SendIcon />
                 </IconButton>
               </InputAdornment>
             ),
           }}
-          sx={{ width: "100%", height: 50, fontSize: 20, borderRadius: 10 }}
-          placeholder="Nhập tin nhắn..."
         />
+
         {/* <div className="Attachment">
           <i className="fas fa-paperclip"></i>
           <i className="far fa-images"></i>

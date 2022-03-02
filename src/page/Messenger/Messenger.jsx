@@ -6,7 +6,6 @@ import MainLayout from "../../component/MainPage/MainLayout";
 import ChatBoxContainer from "./childComponents/ChatBoxComps/ChatBoxContainer";
 import ContactSideBar from "./childComponents/ContactSideBar";
 
-
 import "./Messenger.css";
 
 const URL_MAIN =
@@ -19,7 +18,6 @@ export default function Messenger() {
   const [LoginData, setLoginData] = useState(
     JSON.parse(localStorage.getItem("loginData"))
   );
-    const socket = io(`http://localhost:3001`)
   const userId = JSON.parse(localStorage.getItem("loginData")).user._id;
 
   // get data from contact item (used useEffect to prevent friend list re-render)
@@ -35,8 +33,6 @@ export default function Messenger() {
     setCurrentConvsId(data.conversationId);
     console.log(`firstGetItem = `, data);
   };
-
-
 
   // const handleConvsIdChange = (convsId) => {
   //   setCurrentConvsId(convsId);
