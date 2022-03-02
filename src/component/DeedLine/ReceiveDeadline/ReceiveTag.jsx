@@ -3,6 +3,9 @@ import React, { useEffect } from "react";
 import DeadlineDate from "../../../helpGUI/DeadlineDate";
 import Attachment from "../Attachment";
 
+
+
+
 const ReceiveTag = (props) => {
   const { todo } = props;
   const deadlineFrom = todo.deadlineId;
@@ -12,38 +15,48 @@ const ReceiveTag = (props) => {
 
   return (
     <div className="todo-job">
-      <div className="todo-info-row">
+      <div className="deadline-info-row" onClick={handleLOg}>
         <div className="deadline-creater-img">
           <Avatar
             alt="Avatar"
-            src={deadlineFrom.owner[0].picture}
+            src={
+              data.owner.picture ? data.owner[0].picture : data.userId.picture
+            }
             sx={{ width: 50, height: 50 }}
             style={{
               border: "1px solid #f36f21",
             }}
           />
         </div>
-        <div className="deadline-name">{deadlineFrom.content}</div>
-        <div className="deadline-note">{deadlineFrom.note}</div>
+        <div className="deadline-name">{data.content}</div>
+        <div className="note-and-attachment-deadline">
+          
+        <div className="deadline-note">{data.note}</div>
+      {data.attachment[0] ? <Attachment data={data.attachment} /> : <></>}
+
+        </div>
         <div className="deadline-date">
           <Chip
             color="success"
-            label={timeString}
+            label="1/1/2022"
             size="medium"
             style={{ marginRight: 20 }}
           />
+
+          <Badge
+            badgeContent={"DUE"}
+            color="warning"
+            anchorOrigin={{
+              vertical: "top",
+              horizontal: "right",
+            }}
+            style={{
+              tranform: "translateX(50%)",
+            }}
+          >
+            <Chip color="success" label="2/1/2022" size="medium" />
+          </Badge>
         </div>
-      </div>
-      {/* attachment */}
-      <div className="todo-attachment-row">
-        <div className="todo-attachment-info">
-          <div className="attachment-background">
-            <Attachment data={deadlineFrom.attachment} />
-            {/* <img src="" className="background-attachment-link" /> */}
-            
-          </div>
-        </div>
-        <div className="todo-attachment-status done">Done</div>
       </div>
     </div>
   );

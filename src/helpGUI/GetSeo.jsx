@@ -30,19 +30,7 @@ const GetSeo = (props) => {
     };
   }, [isUnmound, link]);
 
-  return (
-    <Link style={{color : "#000"}} href={link}>
-      <div className="deadline-attachment-row">
-        <div className="attachment-background">
-      
-          <div className="attachment-provider">
-            <img src={`${Seotaken.icon}`} className="favicon" />
-          </div>
-          <div className="attachment-content">{Seotaken.title}</div>
-        </div>
-      </div>
-    </Link>
-  );
+  return (null);
 };
 
 export default GetSeo;
