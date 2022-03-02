@@ -47,7 +47,7 @@ const ReceiveDeadline = () => {
         <div className="todo-body">
         
           {TodoData.map((todo) => 
-            (<ReceiveTag key={todo._id} todo={todo} />)
+            (<ReceiveTag key={todo._id} data={todo} />)
           )}
         </div>
         {<LinearProgress

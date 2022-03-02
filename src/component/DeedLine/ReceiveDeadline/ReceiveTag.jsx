@@ -1,4 +1,4 @@
-import { Avatar, Chip } from "@mui/material";
+import { Avatar, Badge, Chip } from "@mui/material";
 import React, { useEffect } from "react";
 import DeadlineDate from "../../../helpGUI/DeadlineDate";
 import Attachment from "../Attachment";
@@ -7,11 +7,16 @@ import Attachment from "../Attachment";
 
 
 const ReceiveTag = (props) => {
-  const { todo } = props;
-  const deadlineFrom = todo.deadlineId;
+  const { data } = props;
+  const deadlineFrom = data.deadlineId;
   const { timeString } = DeadlineDate.FomatDate(
     new Date(deadlineFrom.deadlinedate)
   );
+
+
+  const handleLOg = () =>{
+
+  }
 
   return (
     <div className="todo-job">
@@ -20,7 +25,7 @@ const ReceiveTag = (props) => {
           <Avatar
             alt="Avatar"
             src={
-              data.owner.picture ? data.owner[0].picture : data.userId.picture
+              data.owner ? data.owner[0].picture : data.userId.picture
             }
             sx={{ width: 50, height: 50 }}
             style={{
