@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { useState, useCallback } from "react";
-import { io } from "socket.io-client";
+import { socket } from "../../SocketClient/MainSocket";
 import MainLayout from "../../component/MainPage/MainLayout";
 import ChatBoxContainer from "./childComponents/ChatBoxComps/ChatBoxContainer";
 import ContactSideBar from "./childComponents/ContactSideBar";
@@ -39,6 +39,8 @@ export default function Messenger() {
 
   //   console.log(convsId);
   // };
+
+
 
   return (
     <>

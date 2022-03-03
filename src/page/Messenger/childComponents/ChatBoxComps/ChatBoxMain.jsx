@@ -6,7 +6,7 @@ import * as Scroll from "react-scroll";
 import isEqual from "lodash/isEqual";
 import LinearProgress from "@mui/material/LinearProgress";
 import AxiosMain from "../../../../API/AxiosMain";
-import InfiniteScroll from "react-infinite-scroller";
+import InfiniteScroll from "react-infinite-scroll-component";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
 
@@ -91,8 +91,14 @@ export default function ChatBoxMain(props) {
       if (convsType) {
         setIsLoadingMess(true);
         addNewGroupMessages(userId, conversationId, Block);
-        if (NewMess) MainMess.push(NewMess);
+
+        if (NewMess) {
+          const cloneMess = [...NewMess];
+          MainMess.push(cloneMess);
         console.log("after push", MainMess);
+      }
+
+
       } else {
         setIsLoadingMess(true);
 
@@ -112,10 +118,10 @@ export default function ChatBoxMain(props) {
   return (
     <div
       className="ChatBoxMain"
-      // onScroll={handleOnScroll}
-      // ref={isMessagesOnTop}
+      onScroll={handleOnScroll}
+      ref={isMessagesOnTop}
     >
-      {/* {IsLoadingMess && (
+      {IsLoadingMess && (
         <Box
           sx={{
             display: "flex",
@@ -148,15 +154,16 @@ export default function ChatBoxMain(props) {
           )
       ) : (
         <>{"Chưa có hội thoại nào"}</>
-      )} */}
-      <InfiniteScroll
-        pageStart={0}
-        loadMore={fetchData}
+      )}
+      {/* <InfiniteScroll
+        dataLength={MainMess.length}
+        next={fetchData}
+        inverse={true}
         hasMore={hasMore}
-        loader={<div className="loader" key={0}>Loading ...</div>}
-        isReverse={true}
+        loader={<div>Loading</div>}
+        scrollableTarget="scrollableDiv"
       >
-        {MainMess.slice(0).reverse().map((message, index) =>
+        {MainMess.map((message, index) =>
           message.userId._id === userId ? (
             <ChatBoxMessageOwnerUser
               key={v4()}
@@ -171,8 +178,8 @@ export default function ChatBoxMain(props) {
             />
           )
         )}
+      </InfiniteScroll> */}
       <div ref={messagesEndRef} />
-      </InfiniteScroll>
     </div>
   );
 }
