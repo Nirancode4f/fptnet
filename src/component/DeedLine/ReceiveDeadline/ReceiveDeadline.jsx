@@ -5,6 +5,10 @@ import isEqual from "lodash/isEqual";
 import { Avatar, Chip, LinearProgress } from "@mui/material";
 import ReceiveTag from "./ReceiveTag";
 
+
+
+
+
 const ReceiveDeadline = () => {
   const [LoginData, setLoginData] = useState(
     localStorage.getItem("loginData")
@@ -43,7 +47,7 @@ const ReceiveDeadline = () => {
         <div className="todo-body">
         
           {TodoData.map((todo) => 
-            (<ReceiveTag key={todo._id} todo={todo} />)
+            (<ReceiveTag key={todo._id} data={todo} />)
           )}
         </div>
         {<LinearProgress

@@ -1,8 +1,8 @@
 import React from "react";
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
-import { style } from "@mui/material/node_modules/@mui/system";
+
 import { Button } from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
+
 import SettingsIcon from "@mui/icons-material/Settings";
 
 export default function FriendHeader(props) {
