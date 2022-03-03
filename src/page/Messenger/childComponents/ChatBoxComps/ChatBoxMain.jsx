@@ -30,7 +30,7 @@ export default function ChatBoxMain(props) {
 
   const messagesEndRef = useRef(null);
   const isMessagesOnTop = useRef(null);
-  
+
   console.log(`messages = `, messages);
 
   const ScrollToBottom = () => {
@@ -50,10 +50,13 @@ export default function ChatBoxMain(props) {
         conversationId: convsId,
         block,
       }).then((res) => {
-        setNewMess(res.messages);
-        setIsLoadingMess(false);
-        setBlock((prevBlock) => prevBlock + 1);
         console.log(`get new mess = `, res.messages);
+        if (res.messages) {
+
+          MainMess.push(...res.messages)
+          setIsLoadingMess(false);
+          setBlock((prevBlock) => prevBlock + 1);
+        }
       });
     } catch (err) {
       console.log(err);
@@ -68,10 +71,14 @@ export default function ChatBoxMain(props) {
         conversationId: convsId,
         block,
       }).then((res) => {
-        setNewMess(res.messages);
-        setIsLoadingMess(false);
-        setBlock((prevBlock) => prevBlock + 1);
+        // setNewMess(res.messages);
         console.log(`get new mess = `, res.messages);
+        if (res.messages) {
+
+          MainMess.push(...res.messages)
+          setIsLoadingMess(false);
+          setBlock((prevBlock) => prevBlock + 1);
+        }
       });
     } catch (err) {
       console.log(err);
@@ -79,13 +86,9 @@ export default function ChatBoxMain(props) {
   };
 
   useEffect(() => {
-    
     ScrollToBottom();
     setMaxBlock(calBlocks(totalMessages));
-  
   }, [messages]);
-
-
 
   const handleOnScroll = () => {
     const ScrollTop = isMessagesOnTop.current.scrollTop;
@@ -95,23 +98,13 @@ export default function ChatBoxMain(props) {
         setIsLoadingMess(true);
         addNewGroupMessages(userId, conversationId, Block);
 
-        if (NewMess) {
-          const cloneMess = [...NewMess];
-          MainMess.push(cloneMess);
-        console.log("after push", MainMess);
-      }
-
-
       } else {
         setIsLoadingMess(true);
 
         addNewFriendMessages(userId, conversationId, Block);
-        if (NewMess) MainMess.push(...NewMess);
-        console.log("after push", MainMess);
+
       }
     }
-    // console.log(ScrollTop);
-    // console.log(`all mess = `, MainMess);
   };
 
   const fetchData = async () => {
@@ -158,30 +151,7 @@ export default function ChatBoxMain(props) {
       ) : (
         <>{"Chưa có hội thoại nào"}</>
       )}
-      {/* <InfiniteScroll
-        dataLength={MainMess.length}
-        next={fetchData}
-        inverse={true}
-        hasMore={hasMore}
-        loader={<div>Loading</div>}
-        scrollableTarget="scrollableDiv"
-      >
-        {MainMess.map((message, index) =>
-          message.userId._id === userId ? (
-            <ChatBoxMessageOwnerUser
-              key={v4()}
-              message={message}
-              avatarSrc={targetAvtSrc}
-            />
-          ) : (
-            <ChatBoxMessage
-              key={v4()}
-              message={message}
-              avatarSrc={targetAvtSrc}
-            />
-          )
-        )}
-      </InfiniteScroll> */}
+
       <div ref={messagesEndRef} />
     </div>
   );
