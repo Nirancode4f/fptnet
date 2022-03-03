@@ -6,9 +6,8 @@ import GetSeo from '../../helpGUI/GetSeo';
 
 const Attachment = (props) => {
     const {data } = props
+    
  
-
-
 
   return (
     <>

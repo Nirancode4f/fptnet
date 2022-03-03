@@ -26,6 +26,8 @@ function DeadlineTag(props) {
     onHandleClick(data);
   };
 
+  console.log(`data= `, data);
+
   return (
     <>
       <div className="deadline-info-row" onClick={handleLOg}>
@@ -43,18 +45,12 @@ function DeadlineTag(props) {
         </div>
         <div className="deadline-name">{data.content}</div>
         <div className="note-and-attachment-deadline">
-          
-        <div className="deadline-note">{data.note}</div>
-      {data.attachment[0] ? <Attachment data={data.attachment} /> : <></>}
+          <div className="deadline-note">{data.note}</div>
 
+         { data.attachment[0] && <Attachment data={data.attachment} />}
         </div>
         <div className="deadline-date">
-          <Chip
-            color="success"
-            label="1/1/2022"
-            size="medium"
-            style={{ marginRight: 20 }}
-          />
+         
 
           <Badge
             badgeContent={"DUE"}
