@@ -52,7 +52,7 @@ export default function Newfeed() {
   );
   const navigate = useNavigate();
 
-  const deadlineList = useSelector((state) => state.deadline.list);
+  // const deadlineList = useSelector((state) => state.deadline.list);
 
   const [DataDetailDeadline, setDataDetailDeadline] = useState("");
 
