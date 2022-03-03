@@ -10,7 +10,6 @@
   left: 50px;
   top: var(--header-height);
   max-width: calc(100% - var(--nav-width));
-  min-height: 1000px;
 }
 
 .MessengerContainer {
@@ -24,6 +23,7 @@
   padding: 10px 0;
   position: fixed;
   z-index: 0;
+  max-height:80vh ;
   min-height:80vh ;
   overflow-y: auto;
   width: 353px;
@@ -178,16 +178,19 @@
 .ChatBox {
   width: 100%;
 }
+
 .ChatBoxMain {
   position: fixed;
   top: calc(var(--friend-header-hight) + var(--header-height) + 10px);
   left: calc(var(--nav-width) + 340px + 12px);
   width: calc(100vw - var(--nav-width) - 340px - 12px);
-  max-height: calc(100vh - 150px);
+  max-height: 75vh;
   padding-bottom: 50px;
   overflow-y: auto;
 }
-
+.ChatBoxMain::-webkit-scrollbar {
+  display: none;
+}
 .ChatBoxMessage {
   width: 100%;
   padding: 0 0 0px;
@@ -217,8 +220,8 @@
   background-color: var(--bg-color);
   padding: 5px 10px;
   border-radius: 15px;
+  margin: 0 5px;
   color: #fff;
-  display: flex;
 }
 
 .InputChatBox:active{

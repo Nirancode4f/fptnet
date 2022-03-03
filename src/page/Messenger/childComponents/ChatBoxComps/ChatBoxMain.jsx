@@ -6,7 +6,7 @@ import * as Scroll from "react-scroll";
 import isEqual from "lodash/isEqual";
 import LinearProgress from "@mui/material/LinearProgress";
 import AxiosMain from "../../../../API/AxiosMain";
-import InfiniteScroll from "react-infinite-scroll-component";
+import InfiniteScroll from "react-infinite-scroller";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
 
@@ -75,11 +75,14 @@ export default function ChatBoxMain(props) {
     }
   };
 
-  useEffect(ScrollToBottom, [messages]);
-
   useEffect(() => {
+    
+    ScrollToBottom();
     setMaxBlock(calBlocks(totalMessages));
-  }, []);
+  
+  }, [messages]);
+
+
 
   const handleOnScroll = () => {
     const ScrollTop = isMessagesOnTop.current.scrollTop;
@@ -102,17 +105,17 @@ export default function ChatBoxMain(props) {
     // console.log(`all mess = `, MainMess);
   };
 
-  const fetchData = () => {
+  const fetchData = async () => {
     console.log(`run`);
   };
 
   return (
     <div
       className="ChatBoxMain"
-      onScroll={handleOnScroll}
-      ref={isMessagesOnTop}
+      // onScroll={handleOnScroll}
+      // ref={isMessagesOnTop}
     >
-      {IsLoadingMess && (
+      {/* {IsLoadingMess && (
         <Box
           sx={{
             display: "flex",
@@ -145,17 +148,15 @@ export default function ChatBoxMain(props) {
           )
       ) : (
         <>{"Chưa có hội thoại nào"}</>
-      )}
-      {/* <InfiniteScroll
-        dataLength={MainMess.length}
-        next={fetchData}
-        // style={{ display: "flex", flexDirection: "column-reverse" }} //To put endMessage and loader to the top.
-        inverse={true} //
+      )} */}
+      <InfiniteScroll
+        pageStart={0}
+        loadMore={fetchData}
         hasMore={hasMore}
-        loader={<h4>Loading...</h4>}
-        scrollableTarget="scrollableDiv"
+        loader={<div className="loader" key={0}>Loading ...</div>}
+        isReverse={true}
       >
-        {MainMess.map((message, index) => (
+        {MainMess.slice(0).reverse().map((message, index) =>
           message.userId._id === userId ? (
             <ChatBoxMessageOwnerUser
               key={v4()}
@@ -169,10 +170,9 @@ export default function ChatBoxMain(props) {
               avatarSrc={targetAvtSrc}
             />
           )
-        
-        ))}
-      </InfiniteScroll> */}
+        )}
       <div ref={messagesEndRef} />
+      </InfiniteScroll>
     </div>
   );
 }
