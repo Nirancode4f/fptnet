@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { Provider,socket } from 'react-redux';
+import { Provider } from 'react-redux';
 import store from './store';
-import { SocketContext } from './SocketClient/MainSocket';
+import { SocketContext,socket} from './SocketClient/MainSocket';
 
 ReactDOM.render(
   <Provider store={store}>
