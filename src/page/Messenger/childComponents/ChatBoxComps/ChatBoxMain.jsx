@@ -30,7 +30,9 @@ export default function ChatBoxMain(props) {
 
   const messagesEndRef = useRef(null);
   const isMessagesOnTop = useRef(null);
+  
   console.log(`messages = `, messages);
+
   const ScrollToBottom = () => {
     messagesEndRef.current.scrollIntoView({ behavior: "auto" });
   };
