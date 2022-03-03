@@ -63,6 +63,7 @@ export default function Newfeed() {
   const [ShowDeadline, setShowDeadline] = useState(true);
   const [time, setTime] = useState(0);
   const [value, setValue] = useState("1");
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -99,7 +100,7 @@ export default function Newfeed() {
 
 
   useEffect(() => {
-    if(showDetailDealine){disableScroll.on();}else{disableScroll.off()}
+   
   },[showDetailDealine])
   
 

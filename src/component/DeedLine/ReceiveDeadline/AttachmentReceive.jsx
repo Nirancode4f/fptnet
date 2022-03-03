@@ -9,7 +9,6 @@ const AttachmentReceive = (props) => {
     const [Seolink, setSeolink] = useState({})
 
 
-    // console.log(getMetaData(data[0]))
   return (
     <>
     {

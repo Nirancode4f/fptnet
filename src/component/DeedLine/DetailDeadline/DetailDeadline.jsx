@@ -7,10 +7,13 @@ import { Avatar } from "@mui/material";
 import { ClickAwayListener } from "@mui/base";
 import PropTypes from "prop-types";
 import ShareLink from "../../../helpGUI/FormatLinkShare/ShareLink";
-import DoneAllIcon from '@mui/icons-material/DoneAll';
+import DoneAllIcon from "@mui/icons-material/DoneAll";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import disableScroll from "disable-scroll";
+
 import ContentCopyRoundedIcon from "@mui/icons-material/ContentCopyRounded";
+
+import scrollLock from "scroll-lock";
+import UserReceiveTag from "./UserReceiveTag";
 
 DetailDeadline.prototype = {
   onClickOut: PropTypes.func,
@@ -35,7 +38,9 @@ function DetailDeadline(props) {
   useEffect(() => {
     const link = ShareLink.Deadline({ dl: `${data._id}` });
     setLink(link);
+    scrollLock.disablePageScroll();
   }, []);
+
 
   return (
     <div className="DetailDeadline">
@@ -44,64 +49,14 @@ function DetailDeadline(props) {
           <div className="DetailDeadline-container-receiver">
             {" "}
             Received List
-            <div className="DetailDeadline-container-receiver-list-item">
-              <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-              <div className="DetailDeadline-container-receiver-list-item-Name">
-                Remy Sharp
-              </div>
-            </div>
-            <div className="DetailDeadline-container-receiver-list-item">
-              <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-              <div className="DetailDeadline-container-receiver-list-item-Name">
-                Remy Sharp
-              </div>
-            </div>
-            <div className="DetailDeadline-container-receiver-list-item">
-              <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-              <div className="DetailDeadline-container-receiver-list-item-Name">
-                Remy Sharp
-              </div>
-            </div>
-            <div className="DetailDeadline-container-receiver-list-item">
-              <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-              <div className="DetailDeadline-container-receiver-list-item-Name">
-                Remy Sharp
-              </div>
-            </div>
-            <div className="DetailDeadline-container-receiver-list-item">
-              <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-              <div className="DetailDeadline-container-receiver-list-item-Name">
-                Remy Sharp
-              </div>
-            </div>
-            <div className="DetailDeadline-container-receiver-list-item">
-              <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-              <div className="DetailDeadline-container-receiver-list-item-Name">
-                Remy Sharp
-              </div>
-            </div>
-            <div className="DetailDeadline-container-receiver-list-item">
-              <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-              <div className="DetailDeadline-container-receiver-list-item-Name">
-                Remy Sharp
-              </div>
-            </div>
-            <div className="DetailDeadline-container-receiver-list-item">
-              <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-              <div className="DetailDeadline-container-receiver-list-item-Name">
-                Remy Sharp
-              </div>
-            </div>
-            <div className="DetailDeadline-container-receiver-list-item">
-              <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-              <div className="DetailDeadline-container-receiver-list-item-Name">
-                Remy Sharp
-              </div>
-            </div>
+
+            { data.student.map((e) => ( <UserReceiveTag key={e._id}  data={e} /> )) }
+
+            
           </div>
           <div className="DetailDeadline-container-body">
             <div className="DetailDeadline-container-body__title-and-provider">
-             {data.attachment[0] && <GetSeo link={data.attachment[0]} />}
+              {data.attachment[0] && <GetSeo link={data.attachment[0]} />}
             </div>
             <div className="DetailDeadline-container-body__content">
               {data.content}
@@ -115,8 +70,7 @@ function DetailDeadline(props) {
                 <CopyToClipboard text={`${Link}`} onCopy={CheckCopy}>
                   {isCopy ? (
                     <button>
-                      <DoneAllIcon color="warning"/>{" "}
-                    
+                      <DoneAllIcon color="warning" />{" "}
                     </button>
                   ) : (
                     <button>

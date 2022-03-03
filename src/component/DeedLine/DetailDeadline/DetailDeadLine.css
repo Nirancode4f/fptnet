@@ -1,17 +1,18 @@
 .DetailDeadline {
   position: fixed;
-  top: 0;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.3);
   height: 100vh;
-  position: absolute;
-  top: 0;
-  z-index: 150;
-}
 
+  top: 0;
+  z-index: 10;
+}
+.attachment-content {
+ cursor: pointer;
+}
 .DetailDeadline-container {
   width: 860px;
   height: 500px;
@@ -19,10 +20,10 @@
   padding: 10px;
   display: flex;
   border-radius: 12px;
-  animation-name: DetailDeadline-container ;
-  animation-duration: 0.4s;
+  animation-name: DetailDeadline-container;
+  animation-duration: 0.5s;
 }
-@keyframes DetailDeadline-container{
+@keyframes DetailDeadline-container {
   from {
     opacity: 0.5;
     transform: scale(0);
@@ -125,10 +126,9 @@
 }
 
 .share-deadline button {
-    margin-left: 5px;
-    border: none;
-    outline: none;
-    background-color: transparent;
-    margin: 0 5px;
+  margin-left: 5px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  margin: 0 5px;
 }
-

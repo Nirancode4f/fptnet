@@ -3,42 +3,34 @@ import React, { useEffect } from "react";
 import DeadlineDate from "../../../helpGUI/DeadlineDate";
 import Attachment from "../Attachment";
 
-
-
-
 const ReceiveTag = (props) => {
   const { data } = props;
   const deadlineFrom = data.deadlineId;
   const { timeString } = DeadlineDate.FomatDate(
     new Date(deadlineFrom.deadlinedate)
   );
-
-
-  const handleLOg = () =>{
-
-  }
+  
+console.log(`data `,data)
+  const handleLOg = () => {};
 
   return (
-    <div className="todo-job">
+    <>
       <div className="deadline-info-row" onClick={handleLOg}>
         <div className="deadline-creater-img">
           <Avatar
             alt="Avatar"
-            src={
-              data.owner ? data.owner[0].picture : data.userId.picture
-            }
+            src={data.owner ? data.owner[0].picture : data.userId.picture}
             sx={{ width: 50, height: 50 }}
             style={{
-              border: "1px solid #f36f21",
+              border: "1px solid #f36f21"
             }}
           />
+
         </div>
         <div className="deadline-name">{data.content}</div>
         <div className="note-and-attachment-deadline">
-          
-        <div className="deadline-note">{data.note}</div>
-      {data.attachment[0] ? <Attachment data={data.attachment} /> : <></>}
-
+          <div className="deadline-note">{data.note}</div>
+          {data.attachment[0] ? <Attachment data={data.attachment} /> : <></>}
         </div>
         <div className="deadline-date">
           <Chip
@@ -63,7 +55,7 @@ const ReceiveTag = (props) => {
           </Badge>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
