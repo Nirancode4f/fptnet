@@ -13,6 +13,7 @@ ReactDOM.render(
 <SocketContext.Provider value={socket}>
 
       <App />
+      
 </SocketContext.Provider>
   
 
