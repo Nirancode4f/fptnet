@@ -28,6 +28,7 @@ console.log(`data `,data)
 
         </div>
         <div className="deadline-name">{data.content}</div>
+        
         <div className="note-and-attachment-deadline">
           <div className="deadline-note">{data.note}</div>
           {data.attachment[0] ? <Attachment data={data.attachment} /> : <></>}
