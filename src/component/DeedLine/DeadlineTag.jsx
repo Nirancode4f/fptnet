@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import DeadlinePopUp from "./DeadlinePopUp";
 import Attachment from "./Attachment";
+import DeadlineDate from "../../helpGUI/DeadlineDate";
 
 DeadlineTag.propTypes = {
   data: PropTypes.object,
@@ -20,6 +21,10 @@ function DeadlineTag(props) {
     localStorage.getItem("loginData")
       ? JSON.parse(localStorage.getItem("loginData"))
       : null
+  );
+
+  const { timeString } = DeadlineDate.FomatDate(
+    new Date(data.createAt)
   );
 
   const handleLOg = () => {

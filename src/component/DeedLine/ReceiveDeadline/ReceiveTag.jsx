@@ -5,12 +5,12 @@ import Attachment from "../Attachment";
 
 const ReceiveTag = (props) => {
   const { data } = props;
-  const deadlineFrom = data.deadlineId;
+
   const { timeString } = DeadlineDate.FomatDate(
-    new Date(deadlineFrom.deadlinedate)
+    new Date(data.deadlineId.deadlinedate)
   );
-  
-console.log(`data `,data)
+
+  console.log(`data `, data.content);
   const handleLOg = () => {};
 
   return (
@@ -22,25 +22,17 @@ console.log(`data `,data)
             src={data.owner ? data.owner[0].picture : data.userId.picture}
             sx={{ width: 50, height: 50 }}
             style={{
-              border: "1px solid #f36f21"
+              border: "1px solid #f36f21",
             }}
           />
-
         </div>
         <div className="deadline-name">{data.content}</div>
-        
+
         <div className="note-and-attachment-deadline">
           <div className="deadline-note">{data.note}</div>
           {data.attachment[0] ? <Attachment data={data.attachment} /> : <></>}
         </div>
         <div className="deadline-date">
-          <Chip
-            color="success"
-            label="1/1/2022"
-            size="medium"
-            style={{ marginRight: 20 }}
-          />
-
           <Badge
             badgeContent={"DUE"}
             color="warning"
@@ -52,7 +44,7 @@ console.log(`data `,data)
               tranform: "translateX(50%)",
             }}
           >
-            <Chip color="success" label="2/1/2022" size="medium" />
+            <Chip color="success" label={timeString} size="medium" />
           </Badge>
         </div>
       </div>
