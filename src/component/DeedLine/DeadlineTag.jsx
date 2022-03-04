@@ -68,7 +68,7 @@ function DeadlineTag(props) {
               tranform: "translateX(50%)",
             }}
           >
-            <Chip color="success" label="2/1/2022" size="medium" />
+            <Chip color="success" label={timeString} size="medium" />
           </Badge>
         </div>
       </div>

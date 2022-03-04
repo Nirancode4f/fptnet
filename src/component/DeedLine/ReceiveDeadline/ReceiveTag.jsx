@@ -1,5 +1,6 @@
+
 import { Avatar, Badge, Chip } from "@mui/material";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import DeadlineDate from "../../../helpGUI/DeadlineDate";
 import Attachment from "../Attachment";
 
@@ -9,8 +10,12 @@ const ReceiveTag = (props) => {
   const { timeString } = DeadlineDate.FomatDate(
     new Date(data.deadlineId.deadlinedate)
   );
+  
 
-  console.log(`data `, data.content);
+
+  const [ShowDetail,setShowDetail] = useState(true)
+
+  console.log(`data `, data);
   const handleLOg = () => {};
 
   return (
@@ -48,6 +53,8 @@ const ReceiveTag = (props) => {
           </Badge>
         </div>
       </div>
+
+      { ShowDetail && <ReceiveTag/>}
     </>
   );
 };
