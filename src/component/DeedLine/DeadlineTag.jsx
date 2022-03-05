@@ -24,7 +24,7 @@ function DeadlineTag(props) {
   );
 
   const { timeString } = DeadlineDate.FomatDate(
-    new Date(data.createAt)
+    new Date(data.deadlinedate)
   );
 
   const handleLOg = () => {
@@ -40,7 +40,7 @@ function DeadlineTag(props) {
           <Avatar
             alt="Avatar"
             src={
-              data.owner.picture ? data.owner[0].picture : data.userId.picture
+              data.owner[0] && data.owner[0].picture 
             }
             sx={{ width: 50, height: 50 }}
             style={{

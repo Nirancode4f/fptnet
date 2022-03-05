@@ -10,7 +10,7 @@ import ReceiveTag from "./ReceiveTag";
 
 
 
-const ReceiveDeadline = () => {
+const ReceiveDeadline = (props) => {
   const [LoginData, setLoginData] = useState(
     localStorage.getItem("loginData")
       ? JSON.parse(localStorage.getItem("loginData"))
@@ -38,6 +38,8 @@ const ReceiveDeadline = () => {
 
     return () => {};
   }, []);
+  
+  console.log(`tododata ` , TodoData)
 
 
 
@@ -47,15 +49,16 @@ const ReceiveDeadline = () => {
         <div className="todo-header">Todo List</div>
         <div className="todo-body">
         
-          {TodoData.map((todo) => 
-            (<ReceiveTag key={todo._id} data={todo} />)
+          { TodoData.map((todo) => (<ReceiveTag key={todo._id} data={todo}/>)
           )}
-        </div>
-        {<LinearProgress
+
+            {<LinearProgress
            color='inherit'
            style={{ color: "#f36f21", height: "2px" }}
 
          /> && Loading}
+        </div>
+      
       </div>
     </div>
   );

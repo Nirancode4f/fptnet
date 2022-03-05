@@ -4,7 +4,7 @@ import React from 'react';
 
 function ReceiveDeadline(props) {
   return (
-      <>nononononononononononono</>
+      <div> nononononononononononono </div>
   );
 }
 

@@ -3,12 +3,9 @@ import { useEffect, useState } from "react"
 import dateFormat from "dateformat";
 
 
-
-
-
-
+ 
 const DeadlineDate =  {
-
+  
     FomatDate : (date) =>{
 
     const [timeString, settimeString] = useState("")

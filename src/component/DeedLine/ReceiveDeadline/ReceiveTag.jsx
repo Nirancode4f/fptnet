@@ -1,41 +1,72 @@
-
 import { Avatar, Badge, Chip } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import DeadlineDate from "../../../helpGUI/DeadlineDate";
 import Attachment from "../Attachment";
+import PropTypes from "prop-types";
+import DetailDeadline from "../DetailDeadline/DetailDeadline";
 
-const ReceiveTag = (props) => {
+
+
+ReceiveTag.propTypes = {
+  data: PropTypes.object,
+};
+ReceiveTag.defaultProps = {
+  data: {},
+};
+
+function ReceiveTag(props){
   const { data } = props;
-
-  const { timeString } = DeadlineDate.FomatDate(
-    new Date(data.deadlineId.deadlinedate)
-  );
-  
+  const [IsUnmount, setIsUnmount] = useState(true);
 
 
-  const [ShowDetail,setShowDetail] = useState(true)
+    const { timeString } = DeadlineDate.FomatDate(
+        // eslint-disable-next-line no-use-before-define
+        new Date(data.deadlineId.deadlinedate)
+        
+      );
 
-  console.log(`data `, data);
+
+ 
+
+  const [ShowDetail, setShowDetail] = useState(false);
+
+  console.log(`todo `, data);
+
+
+
+  useEffect(() => {
+    if (IsUnmount) {
+
+        
+    }
+
+    return () => {
+      setIsUnmount(false);
+    };
+  }, []);
+
   const handleLOg = () => {};
 
   return (
     <>
-      <div className="deadline-info-row" onClick={handleLOg}>
+      {
+        
+        <div className="deadline-info-row" onClick={handleLOg}>
         <div className="deadline-creater-img">
           <Avatar
             alt="Avatar"
-            src={data.owner ? data.owner[0].picture : data.userId.picture}
+            src={data.deadlineId.owner[0].picture}
             sx={{ width: 50, height: 50 }}
             style={{
               border: "1px solid #f36f21",
             }}
           />
         </div>
-        <div className="deadline-name">{data.content}</div>
+        <div className="deadline-name">{data.deadlineId.content }</div>
 
         <div className="note-and-attachment-deadline">
-          <div className="deadline-note">{data.note}</div>
-          {data.attachment[0] ? <Attachment data={data.attachment} /> : <></>}
+          <div className="deadline-note"></div>
+          {data.attachment[0] ? <Attachment data={data.deadlineId.attachment} /> : <></>}
         </div>
         <div className="deadline-date">
           <Badge
@@ -54,7 +85,9 @@ const ReceiveTag = (props) => {
         </div>
       </div>
 
-      { ShowDetail && <ReceiveTag/>}
+      
+    }
+    {ShowDetail && <DetailDeadline />}
     </>
   );
 };
