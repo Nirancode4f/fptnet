@@ -6,12 +6,23 @@
     justify-content: center;
     align-items: center;
 }
+.LoadingButtonReceive{
+display: flex;
+justify-content: center;
+align-content: center;
+max-width: 100vh;
+max-height: 100vh;
+
+
+}
+
 
 .Receive-deadline-container {
     width: 600px;
     height: 350px;
     background-color: #fff;
     padding: 20px;
+    border-radius: 20px;
 }
 
 .receiver-header {

@@ -1,7 +1,7 @@
 /* eslint-disable no-restricted-globals */
 import React, { useEffect, useState } from "react";
 import "./assets/ReceiveDeadline.css";
-import { Avatar } from "@mui/material";
+import { Avatar, LinearProgress } from "@mui/material";
 import ArrowForward from "@mui/icons-material/ArrowForward";
 import { Button } from "@mui/material";
 import { Chip } from "@mui/material";
@@ -12,6 +12,8 @@ import { useNavigate } from "react-router-dom";
 import ShareLink from "../../helpGUI/FormatLinkShare/ShareLink";
 import AxiosMain from "../../API/AxiosMain";
 import DeadlineDate from "../../helpGUI/DeadlineDate";
+import { LoadingButton } from "@mui/lab";
+
 export default function ReceiveDeadline() {
   const [LoginData, setLoginData] = useState(
     localStorage.getItem("loginData")
@@ -46,10 +48,23 @@ export default function ReceiveDeadline() {
     }
   }, []);
 
-
-
   // click to take receive
-  function handleReceive() {}
+  function handleReceive() {
+
+try{
+  AxiosMain.post(`/api/todo/receive`,{
+
+    "userId": "",
+    "todoId": ""
+
+  })
+
+}catch (error) {
+  console.log(error)
+}
+
+
+  }
 
   console.log(`receivedeadlinedata `, DeadlineData);
 
@@ -63,7 +78,7 @@ export default function ReceiveDeadline() {
 
   return (
     <>
-      {ShowTable && (
+      {ShowTable ? (
         <div className="Receive-deadline">
           <div className="Receive-deadline-container">
             <div className="receiver-header">
@@ -110,6 +125,27 @@ export default function ReceiveDeadline() {
             </div>
           </div>
         </div>
+      ) : (
+        <>
+          {" "}
+          <div className="Receive-deadline">
+            <div className="Receive-deadline-container">
+
+              <div className="LoadingButtonReceive">
+                <LoadingButton
+                color='inherit'
+                style={{ color: "#f36f21" }}
+                  loading
+                  loadingPosition="center"
+                 
+
+                >
+                  Loading
+                </LoadingButton>
+              </div>
+            </div>
+          </div>
+        </>
       )}
     </>
   );
