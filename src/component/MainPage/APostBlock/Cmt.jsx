@@ -34,7 +34,7 @@ useEffect(() => {
   return (
     <div className="Newfeed-body-post-content-comment-box">
 
-      {CmtList.map(e=><CmtTag key={e._id} data={e}/>)}
+      {CmtList && CmtList.map(e=><CmtTag key={e._id} data={e} UserCmt={e.userId}/>)}
      
     </div>
   );

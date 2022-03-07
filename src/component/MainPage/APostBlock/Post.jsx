@@ -82,11 +82,12 @@ export const Post = (props) => {
           <div className="share-quanlity">0 shared</div>
         </div>
       </div>
-      <div className="Newfeed-body-post-content-reaction-button">
+   
         <ButtonGroup
           variant="text"
           aria-label="text button group"
           fullWidth={true}
+          sx={{paddingTop : 1, paddingBottom : 1}}
           color="inherit"
         >
           <Button
@@ -122,7 +123,7 @@ export const Post = (props) => {
             <span>Chia sẻ</span>
           </Button>
         </ButtonGroup>
-      </div>
+      
       <div className="Newfeed-body-post-content-comment-area">
         <div className="Newfeed-body-post-content-comment-label">
           <TextField

@@ -56,6 +56,7 @@
   display: flex;
   margin: 5px 0;
   align-items: center;
+  cursor:pointer;
 }
 
 .DetailDeadline-container-receiver-list-item-Name {
@@ -112,6 +113,7 @@
 .share-deadline-button {
   justify-items: right;
   display: flex;
+  cursor: pointer;
 }
 
 .share-deadline {
