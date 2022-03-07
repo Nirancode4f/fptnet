@@ -8,7 +8,7 @@ const URL_MAIN =
   process.env.REACT_APP_URL_MAIN || `https://fanserverapi.herokuapp.com`;
 
 export default function ChatBoxContainer(props) {
-  const { currentItem, userId, conversationId } = props;
+  const { currentItem, userId, conversationId, socket } = props;
 
   // post message to server
   console.log(`currrentItem`, currentItem);
@@ -24,7 +24,7 @@ export default function ChatBoxContainer(props) {
         }}
         userId={userId}
         headerData={{ avatar: currentItem.avatar, username: currentItem.username }}
-        
+        socket={socket}
         conversationId={conversationId}
       />
     </>

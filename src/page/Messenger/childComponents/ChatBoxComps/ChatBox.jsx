@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import ChatBoxMain from "./ChatBoxMain";
 import isEqual from "lodash/isEqual";
 import {
@@ -19,7 +19,6 @@ import defaultAvatar from "../../../../component/Layout/assets/avatar-user.png";
 import { styled } from "@mui/material/styles";
 import AxiosMain from "../../../../API/AxiosMain";
 import LinearProgress from "@mui/material/LinearProgress";
-import {socket} from "../../../../SocketClient/MainSocket"
 
 const URL_MAIN =
   process.env.REACT_APP_URL_MAIN || `https://fanserverapi.herokuapp.com`;
@@ -28,8 +27,8 @@ const block = 1; //testing
 const loginData = JSON.parse(localStorage.getItem("loginData"));
 
 export default function ChatBox(props) {
-  const { chatData, userId, onCurrentConvsIdChange, headerData } = props;
-
+  const { chatData, userId, onCurrentConvsIdChange, headerData, socket } =
+    props;
 
   const [messages, setMessages] = useState([]);
   const [historychatData, setHistorychatData] = useState(chatData);
@@ -64,7 +63,6 @@ export default function ChatBox(props) {
       },
     },
   });
-
 
   // get friend messages
   const getFriendMessages = async (userId, convsId, block) => {
@@ -137,16 +135,32 @@ export default function ChatBox(props) {
   // when text in footer box change reset value
   const handleOnChange = (e) => {
     // txt.current = e.target.value;
-    setText(txt.current)
+    setText(txt.current);
     console.log(`setText = `, text);
-    
+
     // image (future)
+  };
+
+  const sendMessage = async () => {
+    const textFieldNode = document.getElementById(`custom-css-outlined-input`);
+    if (textFieldNode) {
+      const messData = {
+        room: conversationId,
+        authorId: loginData.user._id,
+        author: loginData.user.username,
+        authorAvt: loginData.user.picture,
+        message: textFieldNode.value,
+        time:
+          Date.now()
+      };
+      await socket.emit("send_message", messData);
+    }
   };
 
   const handleOnKeyUp = (e) => {
     if (e.key === "Enter") {
       handleGetMessDataInput({ content: e.target.value });
-
+      sendMessage();
       e.target.value = "";
     }
   };
@@ -163,7 +177,7 @@ export default function ChatBox(props) {
     const textFieldNode = document.getElementById(`custom-css-outlined-input`);
     console.log(textFieldNode.value);
     if (textFieldNode.value) {
-      handleGetMessDataInput({content: textFieldNode.value});
+      handleGetMessDataInput({ content: textFieldNode.value });
       textFieldNode.value = "";
     }
   };
@@ -184,25 +198,18 @@ export default function ChatBox(props) {
     setMessages([cloneMess, ...messages]);
   };
 
-
-
   useEffect(() => {
     process();
     // if we have conversation among two user, it will render a chat box at footer
   }, [conversationId]);
 
-  // socket.io
-
-  socket.on("connect", () => {
-    socket.emit("addUser", (userId));
-    if (conversationId) {
-      socket.emit("sendMessage")
-    }
-  }, [])
-
   useEffect(() => {
-
-  })
+    socket.on("receive_message", (data) => {
+      // console.log(data);
+      setMessages(prevMess => [data, ...prevMess])
+      console.log(`messages after receive = `, messages);
+    });
+  }, [socket]);
 
   return (
     <>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import ChatBoxMessage from "./ChatBoxMessage";
 import ChatBoxMessageOwnerUser from "./ChatBoxMessageOwnerUser";
 import { v4 } from "uuid";
@@ -52,8 +52,8 @@ export default function ChatBoxMain(props) {
       }).then((res) => {
         console.log(`get new mess = `, res.messages);
         if (res.messages) {
+          MainMess.push(...res.messages);
 
-          MainMess.push(...res.messages)
           setIsLoadingMess(false);
           setBlock((prevBlock) => prevBlock + 1);
         }
@@ -74,8 +74,8 @@ export default function ChatBoxMain(props) {
         // setNewMess(res.messages);
         console.log(`get new mess = `, res.messages);
         if (res.messages) {
+          MainMess.push(...res.messages);
 
-          MainMess.push(...res.messages)
           setIsLoadingMess(false);
           setBlock((prevBlock) => prevBlock + 1);
         }
@@ -97,19 +97,14 @@ export default function ChatBoxMain(props) {
       if (convsType) {
         setIsLoadingMess(true);
         addNewGroupMessages(userId, conversationId, Block);
-
       } else {
         setIsLoadingMess(true);
 
         addNewFriendMessages(userId, conversationId, Block);
-
       }
     }
   };
 
-  const fetchData = async () => {
-    console.log(`run`);
-  };
 
   return (
     <div

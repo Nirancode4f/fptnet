@@ -10,7 +10,15 @@ export default function ChatBoxMessageOwnerUser(props) {
         <div className="ChatBoxMessageContent">
           <div className="ChatBoxMessageInfo">
             {/* <h4 className="ChatBoxMessageInfoName">Tôi</h4> */}
-            {/* <h5 className="ChatBoxMessageInfoTime">{message.createAt}</h5> */}
+            <h5 className="ChatBoxMessageInfoTime">{`${new Date(
+              message.createAt
+            ).toLocaleDateString("vi-VN")} - ${new Date(
+              message.createAt
+            ).getHours()}:${
+              new Date(message.createAt).getMinutes() < 10
+                ? "0" + String(new Date(message.createAt).getMinutes())
+                : new Date(message.createAt).getMinutes()
+            }`}</h5>
           </div>
           <div className="ChatBoxMessageContentText">{message.content}</div>
         </div>

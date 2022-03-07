@@ -1,5 +1,5 @@
 import axios from "axios";
-import React from "react";
+import React, { useEffect } from "react";
 import { useState, useCallback } from "react";
 import { socket } from "../../SocketClient/MainSocket";
 import MainLayout from "../../component/MainPage/MainLayout";
@@ -40,7 +40,13 @@ export default function Messenger() {
   //   console.log(convsId);
   // };
 
+  socket.on("connect", () => {
+    console.log("connected", socket.id);
+  })
 
+  useEffect(() => {
+    socket.emit("join_room", currentConvsId);
+  }, [currentConvsId]);
 
   return (
     <>
@@ -56,6 +62,7 @@ export default function Messenger() {
             currentItem={currentItem}
             userId={userId}
             conversationId={currentConvsId}
+            socket={socket}
           />
         </div>
       </div>
