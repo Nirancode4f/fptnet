@@ -263,13 +263,13 @@ font-weight: 600;
 }
 .comment-reaction {
     position: absolute;
-    bottom: -24px;
+    bottom: -22px;
     display: flex;
 }
 .comment-reaction span {
     color: var(--bg-color);
-    padding-right: 12px;
     font-size: 12px;
+    padding-right: 12px;
     font-weight: 600;
     user-select: none;
     transition: linear 0.3s;
@@ -280,3 +280,13 @@ font-weight: 600;
     transform: scale(1.1);
 }
 
+.name-time-post {
+    display: flex;
+    align-items: center;
+}
+
+.time-post-cmt {
+    padding-left: 10px;
+    font-weight: 500;
+    font-size: 12px;
+}

@@ -17,7 +17,11 @@ const CmtTag = (props) => {
         />
 
         <div className="comment-detail">
+              <div className="name-time-post">
           <span className="commenter-name">{ UserCmt ? UserCmt.username : ""}</span>
+          <span className="time-post-cmt">22/11/2021 04:22</span>
+                </div>
+
           <p>
            {data.content}
           </p>
@@ -25,6 +29,7 @@ const CmtTag = (props) => {
             <Button
               variant="text"
               style={{
+                padding:0,
                 color: "#f36f21",
                 display: "block",
               }}
@@ -35,12 +40,15 @@ const CmtTag = (props) => {
             <Button
               variant="text"
               style={{
+                padding:0,
                 color: "#f36f21",
                 display: "block",
               }}
             >
               <span>Trả lời</span>
             </Button>
+
+      
           </div>
         </div>
       </div>
