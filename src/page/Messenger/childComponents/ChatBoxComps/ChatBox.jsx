@@ -35,7 +35,7 @@ export default function ChatBox(props) {
 
   // footer input
 
-  const { onMessagePost, conversationId, newMess } = props;
+  const {conversationId} = props;
   const [text, setText] = useState("");
   const [isConvesation, setIsConversation] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -101,7 +101,7 @@ export default function ChatBox(props) {
     if (chatData.convsType) {
       try {
         AxiosMain.post(`/api/group/message/create`, messageData).then((res) => {
-          addNewMess(messageData);
+          // addNewMess(messageData);
         });
       } catch (error) {
         console.log(error);
@@ -111,7 +111,7 @@ export default function ChatBox(props) {
       try {
         AxiosMain.post(`${URL_MAIN}/api/message/create`, messageData).then(
           (res) => {
-            addNewMess(messageData);
+            // addNewMess(messageData);
           }
         );
       } catch (error) {
@@ -133,13 +133,13 @@ export default function ChatBox(props) {
   };
 
   // when text in footer box change reset value
-  const handleOnChange = (e) => {
-    // txt.current = e.target.value;
-    setText(txt.current);
-    console.log(`setText = `, text);
+  // const handleOnChange = (e) => {
+  //   // txt.current = e.target.value;
+  //   setText(txt.current);
+  //   console.log(`setText = `, text);
 
-    // image (future)
-  };
+  //   // image (future)
+  // };
 
   const sendMessage = async () => {
     const textFieldNode = document.getElementById(`custom-css-outlined-input`);
@@ -150,8 +150,7 @@ export default function ChatBox(props) {
         author: loginData.user.username,
         authorAvt: loginData.user.picture,
         message: textFieldNode.value,
-        time:
-          Date.now()
+        time: Date.now(),
       };
       await socket.emit("send_message", messData);
     }
@@ -169,6 +168,7 @@ export default function ChatBox(props) {
     // setMessageData({ ...messageData, userId, conversationId, ...data });
     const messageData = { userId, conversationId, ...data };
     console.log(`messData = `, data);
+    addNewMess(messageData);
     if (data.content) postMessageData(messageData);
   };
 
@@ -206,7 +206,7 @@ export default function ChatBox(props) {
   useEffect(() => {
     socket.on("receive_message", (data) => {
       // console.log(data);
-      setMessages(prevMess => [data, ...prevMess])
+      setMessages((prevMess) => [data, ...prevMess]);
       console.log(`messages after receive = `, messages);
     });
   }, [socket]);
@@ -270,7 +270,7 @@ export default function ChatBox(props) {
           size="small"
           fullWidth={true}
           id="custom-css-outlined-input"
-          onChange={handleOnChange}
+          // onChange={handleOnChange}
           onKeyUp={handleOnKeyUp}
           InputProps={{
             endAdornment: (

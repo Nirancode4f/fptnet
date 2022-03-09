@@ -1,23 +1,15 @@
-import axios from "axios";
 import React, { useEffect } from "react";
 import { useState, useCallback } from "react";
 import { socket } from "../../SocketClient/MainSocket";
-import MainLayout from "../../component/MainPage/MainLayout";
 import ChatBoxContainer from "./childComponents/ChatBoxComps/ChatBoxContainer";
 import ContactSideBar from "./childComponents/ContactSideBar";
 
 import "./Messenger.css";
 
-const URL_MAIN =
-  process.env.REACT_APP_URL_MAIN || "https://fanserverapi.herokuapp.com";
-
 export default function Messenger() {
   const [currentItem, setCurrentItem] = useState({});
   const [currentConvsId, setCurrentConvsId] = useState("");
 
-  const [LoginData, setLoginData] = useState(
-    JSON.parse(localStorage.getItem("loginData"))
-  );
   const userId = JSON.parse(localStorage.getItem("loginData")).user._id;
 
   // get data from contact item (used useEffect to prevent friend list re-render)
@@ -42,11 +34,12 @@ export default function Messenger() {
 
   socket.on("connect", () => {
     console.log("connected", socket.id);
-  })
+  });
 
   useEffect(() => {
     socket.emit("join_room", currentConvsId);
   }, [currentConvsId]);
+
 
   return (
     <>

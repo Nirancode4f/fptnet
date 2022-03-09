@@ -1,4 +1,3 @@
-
 import ContactListItem from "./ContactListItem";
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
@@ -48,7 +47,7 @@ export default function ContactList(props) {
                 avatar: item.picture,
                 conversationId: item.conversationId,
                 convsType: item.convsType,
-                totalMessages: item.totalMessages
+                totalMessages: item.totalMessages,
               }}
               OnClickGetItem={handleGetItem}
             />
