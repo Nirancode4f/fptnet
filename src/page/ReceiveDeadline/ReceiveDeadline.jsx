@@ -27,13 +27,16 @@ export default function ReceiveDeadline() {
   const [DeadlineData, setDeadlineData] = useState({});
   const [ShowTable, setShowTable] = useState(false);
   const { timeString } = DeadlineDate.FomatDate(DeadlineDate.createAt);
+  const [deadline_id, setdeadline_id] = useState(()=>{
+   return queryString.parse(location.search).dl;
+  })
 
   // const [param, setparam] = useSearchParams({});
   const { id } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
-    const deadline_id = queryString.parse(location.search).dl;
+ 
 
     try {
       AxiosMain.post(`/api/deadline/get`, {
@@ -52,11 +55,14 @@ export default function ReceiveDeadline() {
   function handleReceive() {
 
 try{
-  AxiosMain.post(`/api/todo/receive`,{
+ 
+  AxiosMain.post(`/api/todo/create`,{
 
-    "userId": "",
-    "todoId": ""
+    "userId": `${LoginData.user._id}`,
+    "deadlineId": `${deadline_id}`
 
+  }).then((res)=>{
+    console.log(res)
   })
 
 }catch (error) {
