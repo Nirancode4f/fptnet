@@ -119,6 +119,7 @@
 .UserListItemName {
   min-width: 80%;
   line-height: 44px;
+  margin-left: 10px;
   
 }
 
@@ -318,4 +319,53 @@
  background-color: #dadad1;
  /* color: var(--bg-color); */
  border-radius: 5px;
+}
+
+.CreateGroup {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+  background: rgba(0,0,0,0.6);  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.create-group-popup {
+  width: 500px;
+  height: 600px;
+  padding: 10px;
+  background-color: #fff;
+}
+
+.create-group-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--bg-color);
+  margin-bottom: 10px;
+}
+
+.create-group-body-title {
+  margin: 10px 0;
+  font-weight: 600;
+}
+
+.create-group-footer {
+  padding: 10px 0;
+  width: 100%;
+  text-align: right;
+}
+
+.friends-list-box {
+  height: 360px;
+  width: 100%;
+  padding: 10px 0;
+  overflow-y: scroll;
+
 }

@@ -3,6 +3,7 @@ import { useState, useCallback } from "react";
 import { socket } from "../../SocketClient/MainSocket";
 import ChatBoxContainer from "./childComponents/ChatBoxComps/ChatBoxContainer";
 import ContactSideBar from "./childComponents/ContactSideBar";
+import CreateGroup from "./CreateGroup";
 
 import "./Messenger.css";
 
@@ -43,6 +44,7 @@ export default function Messenger() {
 
   return (
     <>
+    <CreateGroup/>
       <div className="Messenger">
         <div className="MessengerContainer">
           <ContactSideBar
