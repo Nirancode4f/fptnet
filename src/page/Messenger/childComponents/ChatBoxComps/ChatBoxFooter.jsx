@@ -4,6 +4,7 @@ import AttachmentIcon from "@mui/icons-material/Attachment";
 import SendIcon from "@mui/icons-material/Send";
 import EmojiEmotionsIcon from "@mui/icons-material/EmojiEmotions";
 import ImageIcon from "@mui/icons-material/Image";
+import EmotionPopUp from "./EmotionPopUp";
 
 export default function ChatBoxFooter({
   handleOnKeyUp,
@@ -11,6 +12,7 @@ export default function ChatBoxFooter({
   messages,
 }) {
   const [text, setText] = useState("");
+  const [openEmojiPopUp, setOpenEmojiPopUp] = useState(false);
 
   const CustomTextField = styled(TextField)({
     "& .MuiOutlinedInput-root": {
@@ -30,6 +32,10 @@ export default function ChatBoxFooter({
     const textFieldNode = document.getElementById(`custom-css-outlined-input`);
     textFieldNode.value = text;
   }, [messages]);
+
+  const handleOpenEmoji = (e) => {
+    setOpenEmojiPopUp(!openEmojiPopUp ? true : false);
+  };
 
   return (
     <>
@@ -56,15 +62,15 @@ export default function ChatBoxFooter({
           InputProps={{
             endAdornment: (
               <InputAdornment position="start">
-                <IconButton  style={{position:"relative"}} color="warning">
-                {/* <div className="emotion-attachment-popup">
+                <IconButton style={{ position: "relative" }} color="warning">
+                  {/* <div className="emotion-attachment-popup">
                       <div className="emotion-attachment-popup-header">EMOJI</div>
                       <div className="emotion-attachment-popup-body">
                         </div>
                       </div> */}
                   <ImageIcon />
                 </IconButton>
-                <IconButton style={{position:"relative"}}  color="warning">
+                <IconButton style={{ position: "relative" }} color="warning">
                   <AttachmentIcon />
                   {/* <div className="file-attachment-popup">
                       <div className="file-attachment-popup-header">Chọn Tệp</div>
@@ -74,13 +80,13 @@ export default function ChatBoxFooter({
                         </div>
                       </div> */}
                 </IconButton>
-                <IconButton style={{position:"relative"}}  color="warning">
+                <IconButton
+                  style={{ position: "relative" }}
+                  color="warning"
+                  onClick={handleOpenEmoji}
+                >
                   <EmojiEmotionsIcon />
-                  <div className="emotion-attachment-popup">
-                      <div className="emotion-attachment-popup-header">EMOJI</div>
-                      <div className="emotion-attachment-popup-body">
-                        </div>
-                      </div>
+                  {openEmojiPopUp && <EmotionPopUp />}
                 </IconButton>
                 <IconButton color="warning" onClick={handleOnClick}>
                   <SendIcon />
