@@ -56,14 +56,31 @@ export default function ChatBoxFooter({
           InputProps={{
             endAdornment: (
               <InputAdornment position="start">
-                <IconButton color="warning">
+                <IconButton  style={{position:"relative"}} color="warning">
+                {/* <div className="emotion-attachment-popup">
+                      <div className="emotion-attachment-popup-header">EMOJI</div>
+                      <div className="emotion-attachment-popup-body">
+                        </div>
+                      </div> */}
                   <ImageIcon />
                 </IconButton>
-                <IconButton color="warning">
+                <IconButton style={{position:"relative"}}  color="warning">
                   <AttachmentIcon />
+                  {/* <div className="file-attachment-popup">
+                      <div className="file-attachment-popup-header">Chọn Tệp</div>
+                      <div className="file-attachment-popup-body">
+                        <span>Browser</span>
+                        <span>Driver</span>
+                        </div>
+                      </div> */}
                 </IconButton>
-                <IconButton color="warning">
+                <IconButton style={{position:"relative"}}  color="warning">
                   <EmojiEmotionsIcon />
+                  <div className="emotion-attachment-popup">
+                      <div className="emotion-attachment-popup-header">EMOJI</div>
+                      <div className="emotion-attachment-popup-body">
+                        </div>
+                      </div>
                 </IconButton>
                 <IconButton color="warning" onClick={handleOnClick}>
                   <SendIcon />

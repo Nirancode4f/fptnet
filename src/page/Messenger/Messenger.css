@@ -369,3 +369,74 @@
   overflow-y: scroll;
 
 }
+
+.emotion-attachment-popup {
+  position: absolute;
+  width: 350px;
+  height: 400px;
+  bottom: 108%;
+  right: 0; 
+  box-shadow: 0px 0px 2px #333;
+  padding: 10px;
+}
+.emotion-attachment-popup-header {
+  width: 100%;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: left;
+  padding: 10px 0;
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--bg-color);
+}
+
+.emotion-attachment-popup-body {
+  height: 330px;
+  overflow-y: scroll;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  /* background-color: var(--bg-color); */
+}
+
+.file-attachment-popup {
+  position: absolute;
+  width: 200px;
+  height: 150px;
+  bottom: 108%;
+  right: 0; 
+  box-shadow: 0px 0px 2px #333;
+  padding: 10px;
+}
+.file-attachment-popup-header {
+  width: 100%;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: left;
+  padding: 10px 0;
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--bg-color);
+}
+
+.file-attachment-popup-body {
+  width: 100%;
+  flex-wrap: wrap;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.file-attachment-popup-body span
+{
+  padding: 10px;
+  color: #333;
+  font-size: 18px;
+  display: block;
+  width: 100%;
+  flex-wrap: wrap;
+} 
+.file-attachment-popup-body span:hover 
+{
+  background-color: var(--bg-color);
+  color: #fff;
+}
