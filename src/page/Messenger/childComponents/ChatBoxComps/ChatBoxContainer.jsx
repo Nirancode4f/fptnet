@@ -4,10 +4,7 @@ import ChatBox from "./ChatBox";
 
 export default function ChatBoxContainer(props) {
   const { currentItem, userId, conversationId, socket } = props;
-
-  // post message to server
-  console.log(`currrentItem`, currentItem);
-
+  
   return (
     <>
       <ChatBox

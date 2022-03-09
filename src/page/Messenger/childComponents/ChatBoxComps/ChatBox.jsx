@@ -23,24 +23,16 @@ import LinearProgress from "@mui/material/LinearProgress";
 const URL_MAIN =
   process.env.REACT_APP_URL_MAIN || `https://fanserverapi.herokuapp.com`;
 
-const block = 1; //testing
 const loginData = JSON.parse(localStorage.getItem("loginData"));
 
 export default function ChatBox(props) {
-  const { chatData, userId, onCurrentConvsIdChange, headerData, socket } =
-    props;
+  const { chatData, userId, headerData, socket } = props;
 
   const [messages, setMessages] = useState([]);
-  const [historychatData, setHistorychatData] = useState(chatData);
 
-  // footer input
-
-  const {conversationId} = props;
+  const { conversationId } = props;
   const [text, setText] = useState("");
-  const [isConvesation, setIsConversation] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const textRef = useRef("");
-  const txt = useRef("");
 
   // set style for header
   const avatarStyles = {
@@ -126,20 +118,11 @@ export default function ChatBox(props) {
     // there are three type of conversation: friend, teacher, group
     if (chatData.convsType) {
       // get block messages from conversation id
-      getGroupMessages(userId, chatData.conversationId);
+      getGroupMessages(userId, chatData.conversationId, 1);
     } else {
-      getFriendMessages(userId, chatData.conversationId);
+      getFriendMessages(userId, chatData.conversationId, 1);
     }
   };
-
-  // when text in footer box change reset value
-  // const handleOnChange = (e) => {
-  //   // txt.current = e.target.value;
-  //   setText(txt.current);
-  //   console.log(`setText = `, text);
-
-  //   // image (future)
-  // };
 
   const sendMessage = async () => {
     const textFieldNode = document.getElementById(`custom-css-outlined-input`);
