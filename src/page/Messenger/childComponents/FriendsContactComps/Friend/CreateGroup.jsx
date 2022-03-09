@@ -55,11 +55,11 @@ export default function CreateGroup({ setOpenPopUp }) {
     console.log(`rev mem=`, listAddGrMem);
   };
 
-  const createNewGroup = (groupName, listMembers) => {
+  const createNewGroup = async (groupName, listMembers) => {
     try {
       AxiosMain.post("/api/group/conversation/create", {
         name: groupName,
-        member: listMembers,
+        members: listMembers,
       }).then((res) => {
         console.log(`after create gr`, res);
       });
@@ -135,7 +135,11 @@ export default function CreateGroup({ setOpenPopUp }) {
           </div>
 
           <div className="create-group-footer">
-            <Button color="warning" variant="contained">
+            <Button
+              color="warning"
+              variant="contained"
+              onClick={handleOnClickCreate}
+            >
               Create
             </Button>
           </div>
