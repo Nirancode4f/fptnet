@@ -3,7 +3,7 @@ import { useState, useCallback } from "react";
 import { socket } from "../../SocketClient/MainSocket";
 import ChatBoxContainer from "./childComponents/ChatBoxComps/ChatBoxContainer";
 import ContactSideBar from "./childComponents/ContactSideBar";
-import CreateGroup from "./CreateGroup";
+import CreateGroup from "./childComponents/FriendsContactComps/Friend/CreateGroup";
 
 import "./Messenger.css";
 
@@ -33,10 +33,8 @@ export default function Messenger() {
     socket.emit("join_room", currentConvsId);
   }, [currentConvsId]);
 
-
   return (
     <>
-    <CreateGroup/>
       <div className="Messenger">
         <div className="MessengerContainer">
           <ContactSideBar

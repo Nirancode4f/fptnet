@@ -19,6 +19,8 @@ import defaultAvatar from "../../../../component/Layout/assets/avatar-user.png";
 import { styled } from "@mui/material/styles";
 import AxiosMain from "../../../../API/AxiosMain";
 import LinearProgress from "@mui/material/LinearProgress";
+import { set } from "date-fns";
+import ChatBoxFooter from "./ChatBoxFooter";
 
 const URL_MAIN =
   process.env.REACT_APP_URL_MAIN || `https://fanserverapi.herokuapp.com`;
@@ -31,7 +33,8 @@ export default function ChatBox(props) {
   const [messages, setMessages] = useState([]);
 
   const { conversationId } = props;
-  const [text, setText] = useState("");
+  // const [text, setText] = useState("");
+  const text = useRef("");
   const [isLoading, setIsLoading] = useState(true);
 
   // set style for header
@@ -181,6 +184,10 @@ export default function ChatBox(props) {
     setMessages([cloneMess, ...messages]);
   };
 
+  const handleOnChange = (e) => {
+    text.current = e.target.value;
+  };
+
   useEffect(() => {
     process();
     // if we have conversation among two user, it will render a chat box at footer
@@ -190,6 +197,7 @@ export default function ChatBox(props) {
     socket.on("receive_message", (data) => {
       // console.log(data);
       setMessages((prevMess) => [data, ...prevMess]);
+
       console.log(`messages after receive = `, messages);
     });
   }, [socket]);
@@ -235,52 +243,11 @@ export default function ChatBox(props) {
         )}
       </div>
 
-      <div className="BoxChatFooter">
-        {/* <div className="WriteMessage">
-          <input
-            placeholder="Nhập Tin Nhắn"
-            type="text"
-            className="WriteLabel"
-            onChange={handleOnChange}
-            onKeyUp={handleOnKeyUp}
-          />
-          
-
-        </div> */}
-
-        <CustomTextField
-          color="warning"
-          size="small"
-          fullWidth={true}
-          id="custom-css-outlined-input"
-          // onChange={handleOnChange}
-          onKeyUp={handleOnKeyUp}
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="start">
-                <IconButton color="warning">
-                  <ImageIcon />
-                </IconButton>
-                <IconButton color="warning">
-                  <AttachmentIcon />
-                </IconButton>
-                <IconButton color="warning">
-                  <EmojiEmotionsIcon />
-                </IconButton>
-                <IconButton color="warning" onClick={handleOnClickPostMessage}>
-                  <SendIcon />
-                </IconButton>
-              </InputAdornment>
-            ),
-          }}
-        />
-
-        {/* <div className="Attachment">
-          <i className="fas fa-paperclip"></i>
-          <i className="far fa-images"></i>
-          <i className="far fa-grin"></i>
-        </div> */}
-      </div>
+      <ChatBoxFooter
+        handleOnKeyUp={handleOnKeyUp}
+        handleOnClick={handleOnClickPostMessage}
+        messages={messages}
+      />
     </>
   );
 }

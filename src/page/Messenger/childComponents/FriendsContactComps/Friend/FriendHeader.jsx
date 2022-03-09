@@ -4,7 +4,7 @@ import GroupAddIcon from "@mui/icons-material/GroupAdd";
 import { Button } from "@mui/material";
 
 import SettingsIcon from "@mui/icons-material/Settings";
-import AddGroupPopUp from "./AddGroupPopUp";
+import CreateGroup from "./CreateGroup";
 
 export default function FriendHeader(props) {
   const [openPopUp, setOpenPopUp] = useState(false);
@@ -35,7 +35,7 @@ export default function FriendHeader(props) {
           </Button>
         </div>
       </div>
-      {openPopUp ? <AddGroupPopUp /> : <></>}
+      {openPopUp ? <CreateGroup setOpenPopUp={setOpenPopUp}/> : <></>}
     </div>
   );
 }
