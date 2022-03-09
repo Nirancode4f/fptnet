@@ -17,21 +17,13 @@ export default function Messenger() {
   const handleGetItem = (e, data) => {
     setCurrentItem(data);
     setCurrentConvsId(data.conversationId);
-    console.log(`dataGetItem = `, data);
   };
 
   const OnFirstGetCurrentItem = (data) => {
     let cloneData = { ...data, avatar: data.picture };
     setCurrentItem(cloneData);
     setCurrentConvsId(data.conversationId);
-    console.log(`firstGetItem = `, data);
   };
-
-  // const handleConvsIdChange = (convsId) => {
-  //   setCurrentConvsId(convsId);
-
-  //   console.log(convsId);
-  // };
 
   socket.on("connect", () => {
     console.log("connected", socket.id);

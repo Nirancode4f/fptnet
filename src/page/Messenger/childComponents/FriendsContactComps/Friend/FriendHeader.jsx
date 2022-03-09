@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
 
 import { Button } from "@mui/material";
 
 import SettingsIcon from "@mui/icons-material/Settings";
+import AddGroupPopUp from "./AddGroupPopUp";
 
 export default function FriendHeader(props) {
+  const [openPopUp, setOpenPopUp] = useState(false);
+
+  const handleOnClick = (e) => {
+    setOpenPopUp(!openPopUp ? true : false);
+  };
+
   return (
     <div>
       <div className="FriendHeader">
@@ -23,11 +30,12 @@ export default function FriendHeader(props) {
           <SettingsIcon color="warning"></SettingsIcon>
         </button>
         <div className="Friend_Header_add-group">
-          <Button>
+          <Button onClick={handleOnClick}>
             <GroupAddIcon color="warning" />
           </Button>
         </div>
       </div>
+      {openPopUp ? <AddGroupPopUp /> : <></>}
     </div>
   );
 }

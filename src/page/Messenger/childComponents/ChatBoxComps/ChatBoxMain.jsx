@@ -31,7 +31,6 @@ export default function ChatBoxMain(props) {
   const messagesEndRef = useRef(null);
   const isMessagesOnTop = useRef(null);
 
-  console.log(`messages = `, messages);
 
   const ScrollToBottom = () => {
     messagesEndRef.current.scrollIntoView({ behavior: "auto" });
@@ -50,7 +49,7 @@ export default function ChatBoxMain(props) {
         conversationId: convsId,
         block,
       }).then((res) => {
-        console.log(`get new mess = `, res.messages);
+        // console.log(`get new mess = `, res.messages);
         if (res.messages) {
           MainMess.push(...res.messages);
 
