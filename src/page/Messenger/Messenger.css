@@ -221,6 +221,8 @@
 }
 
 .ChatBoxMessageInfo {
+  display: inline-flex;
+  margin-bottom: 5px;
 }
 
 .ChatBoxMessageInfoName {
@@ -323,7 +325,7 @@
 
 
 .ChatBoxMessageInfoTime {
- margin: 0 10px 2px 10px;
+ margin: 2px 10px 2px 10px;
  padding: 0 5px;
  font-weight: 400;
  font-size: 12px;
