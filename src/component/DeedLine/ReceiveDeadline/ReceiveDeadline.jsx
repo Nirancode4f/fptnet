@@ -4,6 +4,7 @@ import AxiosMain from "../../../API/AxiosMain";
 import isEqual from "lodash/isEqual";
 import { Avatar, Chip, LinearProgress } from "@mui/material";
 import ReceiveTag from "./ReceiveTag";
+import DetailDeadline from "../DetailDeadline/DetailDeadline";
 
 
 
@@ -48,18 +49,22 @@ const ReceiveDeadline = (props) => {
       <div className="todo-container">
         <div className="todo-header">Todo List</div>
         <div className="todo-body">
+
         
-          { TodoData.map((todo) => (<ReceiveTag key={todo._id} data={todo}/>)
-          )}
+          {!Loading ? TodoData.map((todo) => (<ReceiveTag key={todo._id} data={todo}/>)
+          ) : <LinearProgress
+          color='inherit'
+          style={{ color: "#f36f21", height: "3px" }}
 
-            {<LinearProgress
-           color='inherit'
-           style={{ color: "#f36f21", height: "2px" }}
+        /> }
 
-         /> && Loading}
+            
         </div>
       
       </div>
+
+     
+      
     </div>
   );
 };
