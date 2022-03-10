@@ -173,9 +173,11 @@ overflow: hidden;
     border-radius: 12px;
     box-shadow: 1px 1px 2px #333;
     margin-bottom: 10px;
+    -ms-flex-item-align: baseline;
     
 
 }
+
 .deadline-creater-img {
     width: 60px;
     margin-right: 10px;

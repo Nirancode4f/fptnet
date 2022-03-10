@@ -43,14 +43,16 @@ function ReceiveTag(props) {
           <div className="deadline-creater-img">
             <Avatar
               alt="Avatar"
-              src={data.deadlineId.owner[0].picture}
+              src={data.deadlineId.owner[0] ? data.deadlineId.owner[0].picture : ""}
               sx={{ width: 50, height: 50 }}
               style={{
                 border: "1px solid #f36f21",
               }}
             />
           </div>
-          <div className="deadline-name">{data.deadlineId.content}</div>
+          
+            <div className="deadline-name">{data.deadlineId.content}</div>
+            <div className="deadline-name">{data.deadlineId.note}</div>
 
           <div className="note-and-attachment-deadline">
             <div className="deadline-note"></div>
