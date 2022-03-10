@@ -28,6 +28,8 @@ export default function ReceiveDeadline() {
   const [ShowTable, setShowTable] = useState(false);
   const { timeString } = DeadlineDate.FomatDate(DeadlineDate.createAt);
   const [LoadingButton, setLoadingButton] = useState(true);
+  const [ShowReceive, setShowReceive] = useState(true)
+  const [TitleReceive, setTitleReceive] = useState("")
   const [deadline_id, setdeadline_id] = useState(() => {
     return queryString.parse(location.search).dl;
   });
@@ -58,8 +60,13 @@ export default function ReceiveDeadline() {
         userId: `${LoginData.user._id}`,
         deadlineId: `${deadline_id}`,
       }).then((res) => {
-        if (!res.success) {
+        
+        if (res.success) {
           navigate("/deadline")
+        }else{
+          setShowReceive(false)
+          setTitleReceive(res.message)
+          console.log(res.message)
         }
       });
     } catch (error) {
@@ -115,7 +122,7 @@ export default function ReceiveDeadline() {
               <div className="receive-due">
                 <Chip label={timeString} variant="outlined" color="warning" />
               </div>
-              <div className="receive-btn">
+             { ShowReceive ? <div className="receive-btn">
                 {LoadingButton ? (
                   <Button
                     onClick={handleReceive}
@@ -130,6 +137,8 @@ export default function ReceiveDeadline() {
                   </Button>
                 )}
               </div>
+            :   <div className="title-receive">{TitleReceive}</div>
+            }
             </div>
           </div>
         </div>
