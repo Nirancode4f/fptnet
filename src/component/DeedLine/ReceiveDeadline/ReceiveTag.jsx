@@ -52,10 +52,11 @@ function ReceiveTag(props) {
           </div>
           
             <div className="deadline-name">{data.deadlineId.content}</div>
-            <div className="deadline-name">{data.deadlineId.note}</div>
+          
+
 
           <div className="note-and-attachment-deadline">
-            <div className="deadline-note"></div>
+              <div className="deadline-note">{data.deadlineId.note}</div>
             {data.deadlineId.attachment[0] ? (
               <Attachment data={data.deadlineId.attachment} />
             ) : (
