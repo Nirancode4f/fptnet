@@ -64,7 +64,7 @@ const ReceiveDeadline = (props) => {
       
       </div>
 
-     <DetaillReceive/>
+     {/* <DetaillReceive/> */}
       
     </div>
   );
