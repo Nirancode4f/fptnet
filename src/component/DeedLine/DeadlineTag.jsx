@@ -39,9 +39,9 @@ function DeadlineTag(props) {
         <div className="deadline-creater-img">
           <Avatar
             alt="Avatar"
-            src={
-              data.owner[0] && data.owner[0].picture 
-            }
+            src={`${
+               data.userId.picture 
+            }`}
             sx={{ width: 50, height: 50 }}
             style={{
               border: "1px solid #f36f21",

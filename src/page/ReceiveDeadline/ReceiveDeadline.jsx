@@ -1,7 +1,7 @@
 /* eslint-disable no-restricted-globals */
 import React, { useEffect, useState } from "react";
 import "./assets/ReceiveDeadline.css";
-import { Avatar, LinearProgress } from "@mui/material";
+import { Avatar, CircularProgress, LinearProgress } from "@mui/material";
 import ArrowForward from "@mui/icons-material/ArrowForward";
 import { Button } from "@mui/material";
 import { Chip } from "@mui/material";
@@ -27,17 +27,16 @@ export default function ReceiveDeadline() {
   const [DeadlineData, setDeadlineData] = useState({});
   const [ShowTable, setShowTable] = useState(false);
   const { timeString } = DeadlineDate.FomatDate(DeadlineDate.createAt);
-  const [deadline_id, setdeadline_id] = useState(()=>{
-   return queryString.parse(location.search).dl;
-  })
+  const [LoadingButton, setLoadingButton] = useState(true);
+  const [deadline_id, setdeadline_id] = useState(() => {
+    return queryString.parse(location.search).dl;
+  });
 
   // const [param, setparam] = useSearchParams({});
   const { id } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
- 
-
     try {
       AxiosMain.post(`/api/deadline/get`, {
         userId: `${LoginData.user._id}`,
@@ -53,26 +52,23 @@ export default function ReceiveDeadline() {
 
   // click to take receive
   function handleReceive() {
-
-try{
- 
-  AxiosMain.post(`/api/todo/create`,{
-
-    "userId": `${LoginData.user._id}`,
-    "deadlineId": `${deadline_id}`
-
-  }).then((res)=>{
-    console.log(res)
-  })
-
-}catch (error) {
-  console.log(error)
-}
-
-
+    setLoadingButton(false);
+    try {
+      AxiosMain.post(`/api/todo/create`, {
+        userId: `${LoginData.user._id}`,
+        deadlineId: `${deadline_id}`,
+      }).then((res) => {
+        if (!res.success) {
+          navigate("/deadline")
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   console.log(`receivedeadlinedata `, DeadlineData);
+  console.log(`user`, LoginData);
 
   // logout
 
@@ -91,7 +87,7 @@ try{
               <div className="receive-form-avt">
                 <Avatar
                   sx={{ width: 60, height: 60 }}
-                  src={`${DeadlineData.owner[0].picture}`}
+                  src={`${DeadlineData.userId.picture}`}
                 />
               </div>
               <div className="receive-icon">
@@ -107,7 +103,7 @@ try{
               <div className="receive-to">
                 <Avatar
                   sx={{ width: 60, height: 60 }}
-                  src={`${DeadlineData.userId.picture}`}
+                  src={`${LoginData.user.picture}`}
                 />
               </div>
             </div>
@@ -120,13 +116,19 @@ try{
                 <Chip label={timeString} variant="outlined" color="warning" />
               </div>
               <div className="receive-btn">
-                <Button
-                  onClick={handleReceive}
-                  color="warning"
-                  variant="contained"
-                >
-                  Receive
-                </Button>
+                {LoadingButton ? (
+                  <Button
+                    onClick={handleReceive}
+                    color="warning"
+                    variant="contained"
+                  >
+                    Receive
+                  </Button>
+                ) : (
+                  <Button loading="true" color="warning" variant="contained">
+                    <CircularProgress color="inherit" />
+                  </Button>
+                )}
               </div>
             </div>
           </div>
@@ -136,18 +138,8 @@ try{
           {" "}
           <div className="Receive-deadline">
             <div className="Receive-deadline-container">
-
               <div className="LoadingButtonReceive">
-                <LoadingButton
-                color='inherit'
-                style={{ color: "#f36f21" }}
-                  loading
-                  loadingPosition="center"
-                 
-
-                >
-                  Loading
-                </LoadingButton>
+                <CircularProgress color="inherit" />
               </div>
             </div>
           </div>
