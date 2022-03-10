@@ -7,7 +7,7 @@ export default function ChatBoxMessageOwnerUser(props) {
   return (
     <>
       <div className="ChatBoxMessageOwnerUser">
-        <div className="ChatBoxMessageContent">
+        <div className="ChatBoxMessageContent Ownersender" >
           <div className="ChatBoxMessageInfo">
             {/* <h4 className="ChatBoxMessageInfoName">Tôi</h4> */}
             <p className="ChatBoxMessageInfoTime">{`${new Date(

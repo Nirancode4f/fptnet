@@ -205,9 +205,17 @@
   margin: 12px;
   border-radius: 50%;
 }
+.Ownersender{
+  display: flex;
+  flex-direction: column;
+  /* justify-content: end; */
+  /* align-content: flex-end; */
+  align-items: flex-end;
+}
 
-.ChatBoxMessageContent {
-  /* text-align: justify; */
+.ChatBoxMessageContent  {
+
+
 }
 
 .ChatBoxMessageInfo {
@@ -232,6 +240,8 @@
   font-style: 9px;
   font-weight: 500;
   line-height: 1.4;
+  width: fit-content;
+    max-width: 300px;
 }
 .ChatBoxMessageOwnerUser {
   width: 100%;

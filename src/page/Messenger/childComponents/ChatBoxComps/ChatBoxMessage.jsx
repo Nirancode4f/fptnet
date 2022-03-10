@@ -28,7 +28,7 @@ export default function ChatBoxMessage(props) {
             src={message.userId.picture || defaultAvatar}
             sx={{ ...avatarStyles }}
           />
-          <div className="ChatBoxMessageContent">
+          <div className="ChatBoxMessageContent ">
             <div className="ChatBoxMessageInfo">
               <h4 className="ChatBoxMessageInfoName">
                 {message.userId.username}
