@@ -5,6 +5,7 @@ import isEqual from "lodash/isEqual";
 import { Avatar, Chip, LinearProgress } from "@mui/material";
 import ReceiveTag from "./ReceiveTag";
 import DetailDeadline from "../DetailDeadline/DetailDeadline";
+import DetaillReceive from "./DetailReceive";
 
 
 
@@ -63,7 +64,7 @@ const ReceiveDeadline = (props) => {
       
       </div>
 
-     
+     <DetaillReceive/>
       
     </div>
   );

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./DetailDeadLine.css";
+
 import GetSeo from "../../../helpGUI/GetSeo";
 import DeadlineTag from "../DeadlineTag";
 import { Avatar } from "@mui/material";
@@ -12,7 +12,7 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import ContentCopyRoundedIcon from "@mui/icons-material/ContentCopyRounded";
 
 import scrollLock from "scroll-lock";
-import UserReceiveTag from "./UserReceiveTag";
+
 // import { Container } from './styles';
 
 function DetaillReceive(props) {
@@ -23,8 +23,8 @@ function DetaillReceive(props) {
       <div className="DetailDeadline">
         <ClickAwayListener onClickAway={handleClickAway}>
           <div className="DetailDeadline-container">
-            <div className="DetailDeadline-container-receiver"></div>
-            <div className="DetailDeadline-container-body">
+            
+          
               <div className="DetailDeadline-container-body__title-and-provider">
                 {/* {data.attachment[0] && <GetSeo link={data.attachment[0]} />} */}
               </div>
@@ -40,7 +40,7 @@ function DetaillReceive(props) {
                   {/* {isCopy && <span style={{ color: "red" }}>Copied.</span>} */}
                 </div>
               </div>
-            </div>
+       
           </div>
         </ClickAwayListener>
       </div>
